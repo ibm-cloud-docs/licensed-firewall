@@ -15,7 +15,7 @@ content-type: troubleshoot
 {{site.data.keyword.attribute-definition-list}}
 
 # Title in the form of a question?
-{: #troubleshoot-xx}
+{: #troubleshoot-licensed-firewall}
 {: troubleshoot}
 {: support} 
 
