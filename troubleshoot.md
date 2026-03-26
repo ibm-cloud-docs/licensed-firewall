@@ -12,21 +12,21 @@ content-type: troubleshoot
 
 ---
 
-
-
 {{site.data.keyword.attribute-definition-list}}
 
-
+# Title in the form of a question?
+{: #troubleshoot-xx}
+{: troubleshoot}
+{: support} 
 
 
 
 You try to create more than one instance in your Lite account, but you can't create more.
 {: shortdesc}
 
-
-
-
-
+Set the `troubleshoot` content type attribute definition at the top of your file.
+* Set the `troubleshoot` content type attribute on a new line following each H1 ID.
+* Use the three attributes for the symptom, cause, and resolution.-->
 
 Description of the troubleshooting entry symptom. For example: You receive the following error message when you try to create a new Lite plan instance:
 {: tsSymptoms}

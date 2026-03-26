@@ -9,16 +9,13 @@ keywords:
 subcollection: licensed-firewall
 
 content-type: tutorial
-services: # Getting started tutorials tend to be only for the service, so leave empty.
-account-plan: lite # Specify 'lite' if tutorial can be completed using only Lite plan of your service; otherwise, specify 'paid'
-completion-time: 10m # Estimated time to complete the steps in this tutorial. Minute values are supported up to 90 minutes. Whole hours are also supported; for example: 2h
+services:
+account-plan: lite
+completion-time: 10m
 
 ---
 
 {{site.data.keyword.attribute-definition-list}}
-
-
-
 
 # Getting started with _service-name_
 {: #getting-started}
@@ -63,24 +60,10 @@ Now you're ready to start working with the app. First, clone the repo with the s
    ```
    {: pre}
 
-## _Title should be task oriented and descriptive_
-{: #anchor_value}
-{: step}
-
-## _Title should be task oriented and descriptive_
-{: #anchor_value}
-{: step}
-
-## _Title should be task oriented and descriptive_
-{: #anchor_value}
-{: step}
-
 _If you have any "tips" to include for this step, add the content in the flow where you would like it to appear. This information should be not be required information for completing the step, but helpful information in explaining additional concepts about what the user is doing in the step. It should be in the following format:_
 
 One to two sentences of content that can include inline links or lists.
 {: tip}
-
-_You can have multiple "tips" per step. Each tip will output with a *Tip:* label and be formatted in a nested, styled box._
 
 ## Next steps
 {: #anchor_value}

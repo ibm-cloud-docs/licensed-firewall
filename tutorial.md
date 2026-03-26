@@ -1,124 +1,156 @@
 ---
-
 copyright:
    years: 2026
 lastupdated: "2026-03-26"
 
-keywords:
+keywords: ibm cloud, fortinet, fortigate, firewall, migration, vpc, paygo, tutorial
 
-subcollection: licensed-firewall
+subcollection: licensed-firewalls
 
 content-type: tutorial
-services: containers, Registry, <subcollection names from toc> # Only if the tutorial includes multiple services. If it only uses your service, don't specify. DO NOT set any platform subcollections.
-account-plan: lite # Set `lite` if tutorial can be completed by using only Lite plan services; Set `paid` if the tutorial requires a pay-go or subscription versions of plans for the service
-completion-time: 10m # Estimated time to complete the steps in this tutorial. Minute values are supported up to 90 minutes. Whole hours are also supported; for example: 2h
-
+services: network, firewall, vpc
+account-plan: paid
+completion-time: 30m
 ---
 
 {{site.data.keyword.attribute-definition-list}}
 
+# Migrating Fortinet FortiGate from Classic to VPC PayGo
+{: #tutorial-fortigate-vpc-migration}
+{: toc-content-type="tutorial"}
+{: toc-services="network, firewall, vpc"}
+{: toc-completion-time="30m"}
 
-
-
-# Set up continuous deployment to Kubernetes
-{: #tutorial-cd-kube}
-{: toc-content-type="tutorial"} 
-{: toc-services="containers, Registry"} 
-{: toc-completion-time="10m"} 
-
-
-
-In this tutorial, you learn how to set up a continuous integration and delivery pipeline for containerized applications running on the {{site.data.keyword.containershort_full}}. You set up source control, and then build, test, and deploy the code to different deployment stages. Then, you add integrations to other services like Slack notifications.
+In this tutorial, you learn how to migrate your Fortinet FortiGate deployment from IBM Cloud Classic to the new VPC Pay-As-You-Go (PayGo) licensed firewall offering. You will deploy a new VPC firewall, migrate your configuration, and validate licensing using IBM Cloud and Fortinet tools.
 {: shortdesc}
 
+![Architecture diagram](images/fortigate-vpc-arch.svg)
+{: figure caption="High-level architecture for FortiGate migration from Classic nfrastructure to VPC PayGo."}
 
+This workflow includes:
 
-![Architectural diagram](images/image.svg)
-{: figure caption="A diagram that shows the architecture for my tutorial."}
-
-The pipeline that you create has the following architecture:
-1. Workflow step 1
-1. Workflow step 2
-1. Workflow step 3
-1. Workflow step 4
+1. Assessing your current FortiGate Classic deployment
+1. Designing the target VPC architecture
+1. Exporting and adapting configuration for VPC
+1. Deploying a FortiGate VPC PayGo instance via Marketplace
+1. Verifying license activation
+1. Restoring configuration
+1. Validating connectivity
+1. Cutting over traffic
+1. Decommissioning Classic resources
 
 ## Before you begin
-{: #cd-kube-prereqs}
+{: #fortigate-vpc-prereqs}
 
+Before you begin, ensure the following prerequisites are met:
 
+* Access to your existing FortiGate Classic instance
+* Backup/export of current configuration
+* Understanding of current network topology, firewall policies, and VPN configurations
+* IBM Cloud VPC access and permissions
+* Familiarity with IBM Cloud Marketplace deployments
 
-
-
-* [Install the {{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-getting-started).
-* [Set up the {{site.data.keyword.cloud_notm}} Container Registry CLI and your registry namespace](/docs/Registry?topic=Registry-registry_setup_cli_namespace).
-* [Understand the basics of Kubernetes](https://kubernetes.io/docs/tutorials/kubernetes-basics/).
-
-
-
-## Create a development Kubernetes cluster
-{: #cd-kube-dev-cluster}
+## Assess current deployment
+{: #fortigate-vpc-step1}
 {: step}
 
+Inventory your existing environment:
 
+- Interfaces and IP addresses
+- Firewall policies and NAT rules
+- VPN tunnels (IPsec/SSL)
+- Routing configuration
+- Throughput and license tier
 
-First, you need to set up a Kubernetes cluster on the {{site.data.keyword.containershort_notm}} service. {{site.data.keyword.containershort_notm}} delivers powerful tools by combining Docker and Kubernetes technologies, an intuitive user experience, and built-in security and isolation to automate the deployment, operation, scaling, and monitoring of containerized apps in a cluster of compute hosts.
+**Outcome:** Define your target VPC architecture.
 
-1. In the IBM Cloud catalog, go to the [Kubernetes Service](https://cloud.ibm.com/containers/cluster-management/catalog/create).
-1. Select **Standard** as the cluster type, and select **2 MB / 1 Worker** as the machine type. All other options can be left as default.
-1. Click **Create** to create your cluster. Check the status of your cluster and worker nodes until they're in the Ready state.
-
-You'll need to wait until your workers are ready to move to the next step.
-{: note}
-
-## Build your app locally
-{: #cd-kube-build-app}
+## Design target VPC architecture
+{: #fortigate-vpc-step2}
 {: step}
 
+Map VLANs to VPC subnets and define:
 
+- Public vs private subnets
+- Availability zones
+- Routing tables
+- Floating IP usage and public gateway placement
 
-You can build and run the application as you normally would using `mvn` for Java&trade; local development or `npm` for Node.js development.  You can also build a Docker image and run the application in a container to ensure consistent execution locally and on the cloud. Use the following steps to build your docker image.
+**Tip:** Consider multi-zone design for high availability.
 
-1. Ensure your local Docker engine is started.
-
-   ```sh
-   docker ps
-   ```
-   {: pre}
-
-1. Navigate to the generated project directory.
-
-   ```sh
-   cd <project name>
-   ```
-   {: pre}
-
-1. Build the application locally.
-
-   ```sh
-   ibmcloud dev build
-   ```
-   {: pre}
-
-   This might take a few minutes to run because all of the application dependencies are downloaded and a Docker image, which contains your application and all the required environment, is built.
-
-## Add a task-oriented title
-{: #cd-kube-step-desc}
+## Export and Adapt configuration
+{: #fortigate-vpc-step3}
 {: step}
 
-## Add a task-oriented title
-{: #cd-kube-step-desc}
+- Export configuration from existing FortiGate
+- Update interface mappings, IP addresses/subnets, and gateway references
+
+⚠️ Hardcoded interface names or IPs will break in VPC.
+
+## Deploy FortiGate in VPC (PayGo)
+{: #fortigate-vpc-step4}
 {: step}
 
-## Add a task-oriented title
-{: #cd-kube-step-desc}
+Deploy via IBM Cloud Marketplace:
+
+1. Select Fortinet FortiGate offering
+2. Choose PayGo license plan
+3. Provide deployment inputs (Terraform-based)
+
+Behind the scenes:
+
+- Software CRN (SWCRN) created
+- Platform License Manager requests license
+- VNF License Service interacts with FortiFlex to create license
+- Cloud-init retrieves license via Instance Metadata Service
+
+Metadata service must be enabled.
+{: important}
+
+## Verify license activation
+{: #fortigate-vpc-step5}
 {: step}
+
+- Log into FortiGate and confirm license status is valid
+- Confirm correct entitlement/tier is applied
+- No manual license upload required
+
+## Restore configuration
+{: #fortigate-vpc-step6}
+{: step}
+
+- Import updated configuration into new FortiGate
+- Validate interfaces, policies, NAT rules, and VPN tunnels
+
+## Validate connectivity
+{: #fortigate-vpc-step7}
+{: step}
+
+Test internal traffic, external access, VPN connectivity, and failover behavior if HA is configured.
+
+## Redirect traffic
+{: #fortigate-vpc-step8}
+{: step}
+
+- Update DNS or routing as needed
+- Consider running Classic and VPC environments in parallel during validation
+
+## Decommission Classic environment
+{: #fortigate-vpc-step9}
+{: step}
+
+- Shut down Classic FortiGate instance
+- Ensure no active traffic and billing has stopped
+
+## Known limitations and considerations
+{: #fortigate-vpc-limitations}
+
+ * 1
+ * 2
+ * 3
 
 ## Next steps
-{: #cd-kube-step-next}
+{: #fortigate-vpc-next}
 
-Want to start fresh? Remove the following resources that you created as a part of this tutorial:
-
-* Delete the Git repository.
-* Delete the toolchain.
-* Delete the cluster.
-* Delete the Slack channel.
+- Test firewall rules and traffic in VPC environment
+- Review FortiGate logs for licensing confirmation
+- Plan for ongoing VPC PayGo management and monitoring
