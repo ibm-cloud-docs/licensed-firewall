@@ -110,7 +110,7 @@ Hardcoded interface names or IPs will break in VPC.
 {: #fortigate-vpc-step4}
 {: step}
 
-Follow these steps to deploy the FortiGate VPC instance via IBM Cloud Marketplace:
+Follow these steps to deploy the FortiGate VPC instance using the IBM Cloud Marketplace:
 
 1. Choose the Fortinet FortiGate offering for VPC PayGo.
 1. Pick the PayGo license plan that fits your deployment.

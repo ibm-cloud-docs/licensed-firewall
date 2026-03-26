@@ -29,7 +29,7 @@ toc:
   - navgroup:
       id: reference
       topics:
-      - responsibilities
+      - responsibilities.md
   - navgroup:
       id: help
       topics:
