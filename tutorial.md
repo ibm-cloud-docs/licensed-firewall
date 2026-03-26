@@ -208,6 +208,6 @@ Shut down your old Classic environment safely:
 
 Plan for ongoing operations and monitoring:
 
-- Test firewall rules and traffic in VPC environment: Ensure all policies work as expected.
-- Review FortiGate logs for licensing confirmation: Verify licenses remain active and compliant.
-- Plan ongoing VPC PayGo management and monitoring: Set up monitoring, alerting, and operational procedures.
+- Test firewall rules and traffic in VPC environment. Ensure all policies work as expected.
+- Review FortiGate logs for licensing confirmation. Verify licenses remain active and compliant.
+- Plan ongoing VPC PayGo management and monitoring. Set up monitoring, alerting, and operational procedures.
