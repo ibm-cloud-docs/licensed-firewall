@@ -8,16 +8,11 @@ keywords:
 
 subcollection: licensed-firewall
 
-content-type: tutorial
-services:
-account-plan: lite
-completion-time: 10m
-
 ---
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Getting started with _service-name_
+# Getting started with the licensed firewall for FortiGate
 {: #getting-started}
 {: toc-content-type="tutorial"} 
 {: toc-services=""} 
