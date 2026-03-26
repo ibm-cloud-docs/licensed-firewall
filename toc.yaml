@@ -29,21 +29,7 @@ toc:
   - navgroup:
       id: reference
       topics:
-      - topicgroup:
-          id: api-reference
-          label: API reference
-          links:
-          - link:
-              label: My V2 API docs
-              href: https://{DomainName}/apidocs/my-api/my-api-v2
-          - link:
-              label: My V1 API docs
-              href: https://{DomainName}/apidocs/my-api/my-api-v1
-      - topicgroup:
-          id: command-reference
-          label: Command reference
-          topics:
-          - include: ../my-cli-repo/cli-topic.md
+      - responsibilities
   - navgroup:
       id: help
       topics:
