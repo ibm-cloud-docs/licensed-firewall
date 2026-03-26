@@ -14,13 +14,6 @@ subcollection: licensed-firewall
 
 # Getting started with the licensed firewall for FortiGate
 {: #getting-started}
-{: toc-content-type="tutorial"} 
-{: toc-services=""} 
-{: toc-completion-time="10m"} 
-
-
-
-
 
 _The short description should be a single, concise paragraph that contains one or two sentences and no more than 50 words. Briefly mention what the user's learning goal is and include the following SEO keywords in the title short description: IBM Cloud, ServiceName, tutorial. If the release phase of your service is experimental or beta, be sure to indicate that in the first occurrence of the service name, for example, Cost and Asset Management (Experimental)._ For example: "In this getting started tutorial, we'll take you through a sample node.js ToDo app that will take you about 10 minutes to deploy."
 {: shortdesc}
