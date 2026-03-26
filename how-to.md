@@ -13,8 +13,8 @@ subcollection: licensed-firewall
 {{site.data.keyword.attribute-definition-list}}
 
 
-# Topic title
-{: #unique-id}
+# Task topic -- What content do we need here?
+{: #fortigate-task}
 
 This is a short description that introduces the content in this topic.
 {: shortdesc}
