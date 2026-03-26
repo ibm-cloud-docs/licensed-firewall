@@ -10,7 +10,7 @@ subcollection: licensed-firewalls
 content-type: tutorial
 services: network, firewall, vpc
 account-plan: paid
-completion-time: 30m
+completion-time: 60m
 ---
 
 {{site.data.keyword.attribute-definition-list}}
@@ -19,7 +19,7 @@ completion-time: 30m
 {: #tutorial-fortigate-vpc-migration}
 {: toc-content-type="tutorial"}
 {: toc-services="network, firewall, vpc"}
-{: toc-completion-time="30m"}
+{: toc-completion-time="60m"}
 
 In this tutorial, you learn how to migrate your Fortinet FortiGate deployment from IBM Cloud Classic to the new VPC Pay-As-You-Go (PayGo) licensed firewall offering. You will deploy a new VPC firewall, migrate your configuration, and validate licensing using IBM Cloud and Fortinet tools.
 {: shortdesc}
@@ -27,34 +27,34 @@ In this tutorial, you learn how to migrate your Fortinet FortiGate deployment fr
 ![Architecture diagram](images/fortigate-vpc-arch.svg)
 {: figure caption="High-level architecture for FortiGate migration from Classic infrastructure to VPC PayGo."}
 
-**Workflow:**
+Workflow:
 
 1. Assess your current FortiGate Classic deployment
-2. Design the target VPC architecture
-3. Export and adapt configuration for VPC
-4. Deploy a FortiGate VPC PayGo instance via Marketplace
-5. Verify license activation
-6. Restore configuration
-7. Validate connectivity
-8. Redirect traffic
-9. Decommission Classic resources
+1. Design the target VPC architecture
+1. Export and adapt configuration for VPC
+1. Deploy a FortiGate VPC PayGo instance via Marketplace
+1. Verify license activation
+1. Restore configuration
+1. Validate connectivity
+1. Redirect traffic
+1. Decommission Classic resources
 
 ---
 
 ## Before you begin
 {: #fortigate-vpc-prereqs}
 
-Ensure the following prerequisites:
+Ensure the following prerequisites are met before starting the migration:
 
-* Access to your existing FortiGate Classic instance
-* Backup/export of current configuration
-* Understanding of network topology, firewall policies, and VPN configurations
-* IBM Cloud VPC access and permissions
-* Familiarity with IBM Cloud Marketplace deployments
+- You have access to your existing FortiGate Classic instance.
+- You have backed up or exported the current configuration.
+- You understand your network topology, firewall policies, and VPN configurations.
+- You have IBM Cloud VPC access and the necessary permissions.
+- You are familiar with IBM Cloud Marketplace deployments.
 
-> **Notes:**
-> - IBM automatically applies FortiGate licenses when provisioning instances based on the selected VPC profile.
-> - For detailed deployment guidance, refer to the [FortiGate Transit VPC patterns and deployment guide](/docs/pattern-transit-vpc-fortigate).
+**Notes:**
+- IBM automatically applies FortiGate licenses when provisioning instances based on the selected VPC profile.
+- For detailed deployment guidance, refer to the [FortiGate Transit VPC patterns and deployment guide](/docs/pattern-transit-vpc-fortigate).
 
 ---
 
@@ -62,13 +62,13 @@ Ensure the following prerequisites:
 {: #fortigate-vpc-step1}
 {: step}
 
-Inventory your environment:
+Begin by gathering detailed information about your Classic FortiGate environment:
 
-- Interfaces and IP addresses
-- Firewall policies and NAT rules
-- VPN tunnels (IPsec/SSL)
-- Routing configuration
-- Throughput and license tier
+- List all network interfaces and assigned IP addresses.
+- Document existing firewall rules and NAT configurations.
+- Record VPN tunnel settings and encryption details.
+- Note current static and dynamic routing rules.
+- Capture performance metrics and license tier for migration planning.
 
 **Outcome:** Define your target VPC architecture.
 
@@ -78,17 +78,17 @@ Inventory your environment:
 {: #fortigate-vpc-step2}
 {: step}
 
-Map VLANs to VPC subnets and define:
+Plan your VPC network layout and map it to existing resources:
 
-- Public vs private subnets
-- Availability zones
-- Routing tables
-- Floating IP usage and public gateway placement
+- Determine which subnets will host public-facing versus internal resources.
+- Select availability zones to support high availability and redundancy.
+- Configure routing for inter-subnet and external connectivity.
+- Plan floating IPs and gateways for internet access.
 
 Consider multi-zone design for high availability.
 {: tip}
 
-- **Reference patterns:** See [FortiGate Transit VPC patterns](https://cloud.ibm.com/docs/pattern-transit-vpc-fortigate) for guidance on architecture and deployment options.
+- Reference patterns in the [FortiGate Transit VPC patterns](/docs/pattern-transit-vpc-fortigate) guide for architecture and deployment options.
 
 ---
 
@@ -96,8 +96,10 @@ Consider multi-zone design for high availability.
 {: #fortigate-vpc-step3}
 {: step}
 
-- Export configuration from Classic FortiGate
-- Update interface mappings, IP addresses/subnets, and gateway references
+Prepare your Classic FortiGate configuration for VPC deployment:
+
+- Export the configuration from the Classic FortiGate.
+- Update interface mappings, IP addresses/subnets, and gateway references to match the VPC.
 
 Hardcoded interface names or IPs will break in VPC.
 {: note}
@@ -108,21 +110,21 @@ Hardcoded interface names or IPs will break in VPC.
 {: #fortigate-vpc-step4}
 {: step}
 
-Deploy via IBM Cloud Marketplace:
+Follow these steps to deploy the FortiGate VPC instance via IBM Cloud Marketplace:
 
-1. Select Fortinet FortiGate offering
-1. Choose PayGo license plan
-1. Provide deployment inputs (Terraform-based)
+1. Choose the Fortinet FortiGate offering for VPC PayGo.
+1. Pick the PayGo license plan that fits your deployment.
+1. Provide deployment inputs, including network, credentials, and resource details.
 
 Select a VPC profile that closely matches your Classic FortiGate performance (VCPU, memory, and bandwidth) to ensure a smooth cutover.
 {: tip}
 
-Behind the scenes:
+Behind the scenes, the system handles licensing and provisioning:
 
-- Software CRN (SWCRN) is created
-- Platform License Manager requests the license
-- VNF License Service interacts with FortiFlex to create the license
-- Cloud-init retrieves license via Instance Metadata Service
+- A Software CRN (SWCRN) is created for the deployment.
+- Platform License Manager requests the FortiGate license automatically.
+- VNF License Service interacts with FortiFlex to provision the license.
+- Cloud-init retrieves the license via the Instance Metadata Service.
 
 Metadata service must be enabled.
 {: important}
@@ -133,9 +135,11 @@ Metadata service must be enabled.
 {: #fortigate-vpc-step5}
 {: step}
 
-- Log into FortiGate and confirm license status is valid
-- Confirm correct entitlement/tier is applied
-- No manual license upload is required
+After deployment, confirm that licensing is correctly applied:
+
+- Log into the FortiGate administrative console to check license status.
+- Verify that the license matches your VPC profile entitlement.
+- No manual license upload is required as IBM handles this automatically.
 
 ---
 
@@ -143,8 +147,10 @@ Metadata service must be enabled.
 {: #fortigate-vpc-step6}
 {: step}
 
-- Import updated configuration into new FortiGate
-- Validate interfaces, policies, NAT rules, and VPN tunnels
+Import and validate your configuration in the VPC environment:
+
+- Import the adapted configuration file into the VPC instance.
+- Validate that interfaces, policies, NAT rules, and VPN tunnels function correctly.
 
 ---
 
@@ -152,7 +158,12 @@ Metadata service must be enabled.
 {: #fortigate-vpc-step7}
 {: step}
 
-- Test internal traffic, external access, VPN connectivity, and failover behavior if HA is configured
+Test the network and security connectivity to ensure a functional deployment:
+
+- Ensure internal resources can communicate within the VPC.
+- Verify external access and internet connectivity.
+- Check VPN tunnels for proper routing and encryption.
+- Test failover behavior if HA is configured.
 
 ---
 
@@ -160,15 +171,15 @@ Metadata service must be enabled.
 {: #fortigate-vpc-step8}
 {: step}
 
-When cutting over traffic from Classic to VPC:
+Cut over traffic from Classic to VPC carefully to avoid downtime:
 
-- **Confirm licensing:** IBM automatically applies the FortiGate license per selected profile.
-- **Apply configuration:** Ensure all firewall rules and routing policies are active. Customer maintains these settings.
-- **Map profiles:** Match Classic FortiGate resources (VCPU, bandwidth) to VPC profiles. Use [Fortinet datasheets](https://www.fortinet.com/resources/datasheets){: external} or IBM Cloud guides.
-- **Optional validation:** Run Classic and VPC instances in parallel to validate traffic and performance.
-- **Update DNS/routing:** Redirect traffic to VPC FortiGate and monitor flows.
+- Confirm that the FortiGate license is active; IBM automatically applies it based on the selected profile.
+- Apply all firewall rules and routing policies on the VPC FortiGate; customer remains responsible for these settings.
+- Map Classic FortiGate resources (VCPU, bandwidth) to the appropriate VPC profile. Refer to [Fortinet datasheets](https://www.fortinet.com/resources/datasheets){: external} or IBM Cloud guides as needed.
+- Optionally, run Classic and VPC instances in parallel to validate traffic and performance.
+- Update DNS or routing to direct traffic to the VPC FortiGate and monitor flows.
 
-> **Reference:** See [FortiGate architectural patterns](/docs/pattern-transit-vpc-fortigate) for recommended deployment designs and best practices.
+> Reference: See [FortiGate architectural patterns](/docs/pattern-transit-vpc-fortigate) for recommended deployment designs and best practices.
 
 ---
 
@@ -176,23 +187,27 @@ When cutting over traffic from Classic to VPC:
 {: #fortigate-vpc-step9}
 {: step}
 
-- Shut down Classic FortiGate instance
-- Confirm no active traffic remains and billing has stopped
+Shut down your old Classic environment safely:
+
+- Power off the Classic FortiGate instance.
+- Confirm that no active traffic remains and that billing has stopped.
 
 ---
 
 ## Known limitations and considerations
 {: #fortigate-vpc-limitations}
 
-* 1
-* 2
-* 3
+- 1
+- 2
+- 3
 
 ---
 
 ## Next steps
 {: #fortigate-vpc-next}
 
-- Test firewall rules and traffic in VPC environment
-- Review FortiGate logs for licensing confirmation
-- Plan ongoing VPC PayGo management and monitoring
+Plan for ongoing operations and monitoring:
+
+- Test firewall rules and traffic in VPC environment: Ensure all policies work as expected.
+- Review FortiGate logs for licensing confirmation: Verify licenses remain active and compliant.
+- Plan ongoing VPC PayGo management and monitoring: Set up monitoring, alerting, and operational procedures.
