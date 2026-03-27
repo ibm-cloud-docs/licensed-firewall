@@ -57,18 +57,3 @@ One to two sentences of content that can include inline links or lists.
 {: #anchor_value}
 
 _What's the single thing the user needs to do next? Think "guided journey." Either provide information that leads the user to production use, for example HA, how to make a service secure, or how to connect to on-premise data. Or you can point the user to another tutorial. Give a choice between two options max._
-
-### For all version dates
-{: #02-june-2026-all-version-dates}
-
-**Multiple algorithms for IKE and IPsec policies.** IKE and IPsec policies now support specifying multiple algorithms per category using array-based properties.
-
-* **IKE policies:** Array-based properties `authentication_algorithms`, `dh_groups`, and `encryption_algorithms` are available. Existing singular properties (`authentication_algorithm`, `dh_group`, `encryption_algorithm`) are deprecated but remain supported. When [creating](/apidocs/vpc/latest#create-ike-policy) or [updating](/apidocs/vpc/latest#update-ike-policy) an IKE policy, you can specify either singular or array-based properties. PATCH operations allow mixing property types across categories. Responses for [retrieving](/apidocs/vpc/latest#get-ike-policy) or [listing](/apidocs/vpc/latest#list-ike-policies) include both property types using sentinel values (`"multiple"` for strings, `65535` for `dh_group`) if multiple algorithms are configured.
-
-   Multiple algorithms are not supported for IKEv1 policies. IKEv1 policies are limited to a single algorithm per category. Array-based properties must contain only a single element per category.
-   {: note}
-
-* **IPsec policies:** Array-based properties `authentication_algorithms`, `encryption_algorithms`, and `pfs_groups` are available. Existing singular properties (`authentication_algorithm`, `encryption_algorithm`, `pfs`) are deprecated but remain supported. When [creating](/apidocs/vpc/latest#create-ipsec-policy) or [updating](/apidocs/vpc/latest#update-ipsec-policy) an IPsec policy, you can specify either singular or array-based properties. PATCH operations allow mixing property types across categories. Responses for [retrieving](/apidocs/vpc/latest#get-ipsec-policy) or [listing](/apidocs/vpc/latest#list-ipsec-policies) IKE policies include both property types.
-
-Singular properties automatically update the corresponding array properties, and the reverse. This behavior differs from standard [JSON Merge Patch (RFC 7396)](https://datatracker.ietf.org/doc/html/rfc7396){: external} semantics where properties are updated independently.
-{: note}
