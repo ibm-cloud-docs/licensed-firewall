@@ -28,7 +28,7 @@ toc:
   - navgroup:
       id: reference
       topics:
-      - responsibilities.md
+      - roles.md
   - navgroup:
       id: help
       topics:
