@@ -1,139 +1,288 @@
 ---
 
 copyright:
-  years: 2026
-lastupdated: "2026-03-27"
+  years: 2024, 2026
+lastupdated: "2026-02-23"
 
-subcollection: licensed-firewall
+keywords: fortinet, vfsa, fortigate, security appliance, racii, licensing, support
 
-keywords: fortigate, responsibilities, shared responsibilities, licensed firewall, vpc, security
+subcollection: vpc
 
 ---
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Understanding your responsibilities when using licensed firewall for FortiGate
-{: #fortigate-responsibilities}
+# IBM-Fortinet RACII v3 
+{: #fortinet-racii-v3}
 
-Learn about the management responsibilities and terms and conditions that you have when you use the licensed firewall for FortiGate. For a high-level view of the service types in IBM Cloud and the breakdown of responsibilities between the customer and IBM for each type, see [Shared responsibilities for IBM Cloud offerings](/docs/overview?topic=overview-shared-responsibilities).
+Service: Fortinet vFSA (Virtual FortiGate Security Appliance) in IBM Cloud VPC 
 {: shortdesc}
 
-Review the following sections for the specific responsibilities for you and for IBM when you use the licensed firewall for FortiGate. For the overall terms of use, see [IBM Cloud Terms and Notices](/docs/overview?topic=overview-terms).
+## README & Legend
+{: #readme-legend}
 
-## Incident and operations management
-{: #fortigate-incident-and-ops}
+| Item | Description |
+|------|-------------|
+| **Purpose** | RACII between IBM, Fortinet (Vendor), and Customer for Fortinet vFSA licensing, support, and lifecycle management in IBM Cloud VPC |
+| **Scope** | Fortinet vFSA (Virtual FortiGate Security Appliance) deployed as customer-managed VSIs in IBM Cloud VPC, licensed via FortiFlex licensing platform. |
+| **IBM Organization** | IBM encompasses multiple teams: IBM Support (technical support), IBM License team (Network License Provider and PaaS License Manager), IBM Cloud VPC (infrastructure platform). All represented collectively as "IBM" in this RACII. |
+| **Service Model** | **IBM Licensed Service with Support** - IBM provides license procurement and management through FortiFlex, plus technical support as single point of contact. Customers deploy and manage their own vFSA VSIs in their IBM Cloud accounts. Fortinet provides product images, updates, and TAC resolution. |
+| **Support Model** | **IBM Support acts as triage and coordination layer** - Customers open all technical tickets with IBM Support. IBM Support performs L1/L2 triage and opens Fortinet TAC cases when needed. IBM Support manages all Fortinet interactions on behalf of customers. |
+| **Key Distinction** | This is NOT a managed service. IBM does not deploy or configure customer vFSA instances. IBM provides license management and support coordination. Customers own and operate their vFSA infrastructure. |
+{: caption="Table 1. Service overview" caption-side="bottom"}
 
-Incident and operations management includes tasks such as monitoring, event management, high availability, problem determination, recovery, and full state backup and recovery.
+### Legend
+{: #legend}
 
-|  | IBM Responsibilities | Your Responsibilities |
-|----------|-------------------------|--------|
-| Licensing | Automatically provision and manage FortiGate licenses through the Platform License Manager and VNF License Service. Monitor license status and ensure proper activation during deployment. | Verify license activation after deployment. Select appropriate VPC profile that matches performance requirements. |
-| Instance provisioning | Provide VPC infrastructure and automated deployment through IBM Cloud Marketplace. Create Software CRN (SWCRN) for each deployment. Enable Instance Metadata Service for license retrieval. | Configure deployment parameters including network settings, credentials, and resource specifications. Ensure metadata service is enabled on instances. |
-| Monitoring and alerting | Provide platform-level monitoring for VPC infrastructure and compute resources. Monitor license service availability and integration with FortiFlex. | Monitor FortiGate application performance, security events, and traffic patterns. Configure FortiGate-specific monitoring and alerting. Review FortiGate logs for security and operational insights. |
-| High availability | Provide underlying VPC infrastructure with multi-zone support. Ensure license service availability and redundancy. | Design and implement FortiGate high availability configurations. Configure failover policies and test failover scenarios. |
-| Backup and recovery | Maintain backups of VPC infrastructure and platform services. | Back up FortiGate configurations, firewall rules, and policies. Implement disaster recovery procedures for FortiGate instances. Test configuration restoration procedures. |
-{: row-headers}
-{: caption="Responsibilities for incident and operations" caption-side="bottom"}
-{: summary="The rows are read from left to right. The first column describes the task that the customer or IBM might be responsibility for. The second column describes IBM responsibilities for that task. The third column describes your responsibilities as the customer for that task."}
+- **R** = Responsible (does the work)
+- **A** = Accountable (owns the outcome)
+- **C** = Consulted (provides input)
+- **I** = Informed (kept updated)
 
-## Change management
-{: #fortigate-change-management}
+## A. Support
+{: #support}
 
-Change management includes tasks such as deployment, configuration, upgrades, patching, configuration changes, and deletion.
+| Activity | IBM | Fortinet (Vendor) | Customer (VSI Owner) |
+|----------|-----|-------------------|----------------------|
+| L1/L2 incident triage & restoration | R/A | I | I |
+| L3 complex troubleshooting | C | R/A | I |
+| Vendor TAC case creation/management | R | C | I |
+| Root Cause Analysis (RCA) to customer | R/A | C | I |
+| Knowledge base (runbooks, known errors) | R/A | C | I |
+| Event monitoring & alerting | I | I | R/A |
+| Major Incident (P1) management & comms | R/A | C | I |
+{: caption="Table 2. Support responsibilities" caption-side="bottom"}
 
-|  | {{site.data.keyword.IBM_notm}} Responsibilities | Your Responsibilities |
-|----------|-------------------------|--------|
-| Deployment | Provide automated deployment through IBM Cloud Marketplace. Handle license provisioning via cloud-init and metadata service. Integrate with FortiFlex for license management. | Initiate FortiGate deployments. Select appropriate PayGo license plan. Provide deployment configuration including VPC, subnets, and security groups. |
-| Configuration | Provide base VPC infrastructure configuration. Ensure proper network connectivity for license activation. | Configure FortiGate firewall rules, policies, NAT, VPN tunnels, and routing. Adapt configurations when migrating from Classic to VPC. Update interface mappings and IP addresses for VPC environment. |
-| Updates and patches | Maintain VPC platform and underlying infrastructure. Update license service integrations as needed. | Apply FortiGate software updates and security patches. Test updates in non-production environments before applying to production. |
-| Scaling | Provide ability to deploy additional instances or modify VPC profiles. Automatically adjust licensing based on selected profile. | Plan capacity requirements. Deploy additional FortiGate instances as needed. Modify VPC profiles to match performance requirements (VCPU, memory, bandwidth). |
-| Decommissioning | Remove license allocations when instances are deleted. Clean up platform resources. | Power off and delete FortiGate instances. Verify traffic has been redirected before decommissioning. Confirm billing has stopped for deleted resources. |
-{: row-headers}
-{: caption="Responsibilities for change management" caption-side="bottom"}
-{: summary="The rows are read from left to right. The first column describes the task that the customer or IBM might be responsibility for. The second column describes {{site.data.keyword.IBM_notm}} responsibilities for that task. The third column describes your responsibilities as the customer for that task."}
+### Notes
+{: #support-notes}
 
-## Identity and access management
-{: #fortigate-iam-responsibilities}
+- Customers open support tickets with IBM Support for all vFSA technical issues
+- IBM Support performs initial triage and troubleshooting
+- IBM Support opens and manages Fortinet TAC cases when needed
+- IBM Support acts as single point of contact between customer and Fortinet
 
-Identity and access management includes tasks such as authentication, authorization, access control policies, and approving, granting, and revoking access.
+## B. Maintenance
+{: #maintenance}
 
-|  | {{site.data.keyword.IBM_notm}} Responsibilities | Your Responsibilities |
-|----------|-------------------------|--------|
-| Platform access | Provide IBM Cloud IAM for platform resource management. Control access to VPC resources and deployment capabilities. | Manage IBM Cloud IAM policies for users and service IDs. Grant appropriate permissions for FortiGate deployment and management. |
-| FortiGate access | Provide secure access to FortiGate administrative console through VPC networking. | Manage FortiGate administrative credentials. Configure FortiGate user accounts and role-based access control. Implement multi-factor authentication for FortiGate access. Regularly rotate administrative passwords. |
-| Service integration | Provide secure integration between Platform License Manager, VNF License Service, and FortiFlex. | Configure service-to-service authorizations as needed for deployments. |
-| Audit logging | Provide IBM Cloud Activity Tracker for platform-level actions. | Enable and review FortiGate audit logs. Monitor administrative access and configuration changes. |
-{: row-headers}
-{: caption="Responsibilities for identity and access management" caption-side="bottom"}
-{: summary="The rows are read from left to right. The first column describes the task that the customer or IBM might be responsibility for. The second column describes {{site.data.keyword.IBM_notm}} responsibilities for that task. The third column describes your responsibilities as the customer for that task."}
+| Activity | IBM | Fortinet (Vendor) | Customer (VSI Owner) |
+|----------|-----|-------------------|----------------------|
+| Software/firmware upgrades (vFSA images) | I | R/A (publish) | R/A (apply to VSIs) |
+| Signature/IPS/AV/URL updates | I | R/A (publish) | R/A (configure/apply) |
+| VSI lifecycle (start/stop/resize/delete) | I | I | R/A |
+| IBM Cloud VPC infrastructure maintenance | R/A | I | I |
+| Capacity & health assessments | R/A | C (product guidance) | I |
+| EoL/EoS lifecycle management | R (communicate to customers) | R/A (publish notices) | R/A (plan & execute) |
+| Backup & config baseline enforcement | I | I | R/A |
+{: caption="Table 3. Maintenance responsibilities" caption-side="bottom"}
 
-## Security and regulation compliance
-{: #fortigate-security-compliance}
+### Notes
+{: #maintenance-notes}
 
-Security and regulation compliance includes tasks such as security controls implementation and compliance certification.
+- IBM communicates Fortinet EoL/EoS notices to license holders
+- Customers are responsible for all vFSA configuration and operational changes
+- IBM manages underlying VPC platform infrastructure maintenance
 
-|  | {{site.data.keyword.IBM_notm}} Responsibilities | Your Responsibilities |
-|----------|-------------------------|--------|
-| Infrastructure security | Secure VPC infrastructure and platform services. Protect license service communications and FortiFlex integration. Encrypt data in transit between platform services. | Configure FortiGate security policies and firewall rules. Implement network segmentation and access controls. Enable encryption for VPN tunnels and sensitive traffic. |
-| Compliance | Maintain compliance certifications for IBM Cloud platform. Ensure license management processes meet contractual obligations. | Ensure FortiGate configurations meet organizational compliance requirements. Implement security controls required by industry regulations. Document security policies and procedures. |
-| Vulnerability management | Patch VPC infrastructure and platform services. Notify customers of security advisories affecting FortiGate. | Apply FortiGate security patches and updates. Scan for vulnerabilities in FortiGate configurations. Respond to security advisories and CVEs. |
-| Data protection | Encrypt platform data at rest and in transit. Protect license service data. | Encrypt sensitive data passing through FortiGate. Configure data loss prevention policies. Implement appropriate logging and data retention policies. |
-{: row-headers}
-{: caption="Responsibilities for security and regulation compliance" caption-side="bottom"}
-{: summary="The rows are read from left to right. The first column describes the task that the customer or IBM might be responsibility for. The second column describes {{site.data.keyword.IBM_notm}} responsibilities for that task. The third column describes your responsibilities as the customer for that task."}
+## C. Security Fix
+{: #security-fix}
 
-## Disaster recovery
-{: #fortigate-disaster-recovery}
+| Activity | IBM | Fortinet (Vendor) | Customer (VSI Owner) |
+|----------|-----|-------------------|----------------------|
+| Vulnerability disclosure & PSIRT advisory | I | R/A | I |
+| Patch development & hotfix build | I | R/A | I |
+| Patch testing | I | R/A | I |
+| Production patch deployment | I | I | R/A |
+| Emergency fix (zero-day/actively exploited) | R (communicate urgency) | R/A (publish fix) | R/A (apply fix) |
+| Secure config baselines (CIS/NIST) | I | R/A (publish) | R/A (implement) |
+{: caption="Table 4. Security fix responsibilities" caption-side="bottom"}
 
-Disaster recovery includes tasks such as providing dependencies on disaster recovery sites, provision disaster recovery environments, data and configuration backup, replicating data and configuration to the disaster recovery environment, and failover on disaster events.
+### Notes
+{: #security-notes}
 
-|  | {{site.data.keyword.IBM_notm}} Responsibilities | Your Responsibilities |
-|----------|-------------------------|--------|
-| DR infrastructure | Provide multi-zone VPC infrastructure for high availability. Ensure license service availability across regions. | Design and implement FortiGate disaster recovery architecture. Deploy FortiGate instances across multiple availability zones. |
-| Configuration backup | Maintain backups of VPC infrastructure configuration. | Export and back up FortiGate configurations regularly. Store configuration backups in secure, redundant locations. Document configuration dependencies and requirements. |
-| Failover procedures | Provide platform capabilities for multi-zone deployments. Ensure license portability across zones and regions. | Configure and test FortiGate failover procedures. Implement automated failover where possible. Document and practice disaster recovery runbooks. |
-| Recovery testing | Test platform disaster recovery capabilities. | Regularly test FortiGate configuration restoration. Validate failover procedures and recovery time objectives (RTO). Conduct disaster recovery drills. |
-| Traffic redirection | Provide VPC routing capabilities for traffic management. | Update DNS, routing, or load balancer configurations to redirect traffic during failover. Monitor traffic flows during and after failover events. |
-{: row-headers}
-{: caption="Responsibilities for disaster recovery" caption-side="bottom"}
-{: summary="The rows are read from left to right. The first column describes the task that the customer or IBM might be responsibility for. The second column describes {{site.data.keyword.IBM_notm}} responsibilities for that task. The third column describes your responsibilities as the customer for that task."}
+- IBM monitors Fortinet PSIRT advisories and communicates critical issues to license holders
+- IBM has no ability to publish images, modify vFSA configurations, or deploy patches
+- Customers are responsible for applying all security updates to their VSIs
 
-## Additional considerations
-{: #fortigate-additional-considerations}
+## D. SLA
+{: #sla}
 
-### License management
-{: #fortigate-license-management}
+| Activity | IBM | Fortinet (Vendor) | Customer (VSI Owner) |
+|----------|-----|-------------------|----------------------|
+| FortiFlex platform availability (license provisioning) | R (monitor & escalate) | R/A (operate platform) | I |
+| vFSA data plane availability | I | I | R/A |
+| Vendor TAC SLO (response/engagement) | I | R/A | I |
+| License provisioning SLA (IBM to customer) | R/A | R/A (FortiFlex dependency) | I |
+| SLA breach management (license-related) | R/A | C | I |
+| Compliance, audit & evidence (product) | I | R/A | C |
+| Compliance, audit & evidence (deployment) | I | I | R/A |
+| Monthly license status reporting | R/A | I | I |
+| Monthly service reporting (vFSA operations) | I | I | R/A |
+{: caption="Table 5. SLA responsibilities" caption-side="bottom"}
 
-- IBM automatically provisions FortiGate licenses based on the selected VPC profile during deployment
-- Licenses are managed through the Platform License Manager and VNF License Service integration with FortiFlex
-- No manual license upload is required; the system handles licensing automatically via cloud-init and Instance Metadata Service
-- Customers must ensure the Instance Metadata Service is enabled on FortiGate instances for proper license retrieval
+### Notes
+{: #sla-notes}
 
-### Migration from Classic to VPC
-{: #fortigate-migration-considerations}
+- IBM's SLA covers FortiFlex license provisioning only, not vFSA operational availability
+- FortiFlex platform downtime impacts license provisioning (control plane) but not existing vFSA data plane operations
+- Customers are responsible for their own vFSA operational SLAs
+- Fortinet TAC SLOs apply to technical support cases
 
-When migrating from Classic FortiGate to VPC PayGo:
+## E. Licensing (RACII)
+{: #licensing}
 
-- Customer is responsible for exporting Classic configurations and adapting them for VPC
-- Interface names, IP addresses, subnets, and gateway references must be updated to match VPC environment
-- Customer must select VPC profiles that match or exceed Classic FortiGate performance (VCPU, memory, bandwidth)
-- IBM handles license provisioning for new VPC instances; customer manages configuration migration
-- Customer should validate connectivity and test failover before redirecting production traffic
+| Activity | IBM | Fortinet (Vendor) | Customer (VSI Owner) |
+|----------|-----|-------------------|----------------------|
+| License procurement & quoting (new/expansion) | R/A | C (price list/guidance) | I |
+| License renewal management & co-termination | R/A | C (contract options) | I |
+| Entitlement tracking & compliance | R/A | C (back-end records) | I |
+| Contract registration & asset binding (SN.contract) | R/A | C | I |
+| Activation & subscription sync (FortiFlex) | R | R/A (FortiFlex platform) | I |
+| License health monitoring (expiry, gaps, coverage) | R/A | I | I |
+| Support tier management (upgrade/downgrade) | R/A (advise & execute) | C (options/SKU) | I |
+| License transfer/rehost (VSI replacement) | R (coordinate & validate) | R/A (enable in FortiFlex) | R (request) |
+| True-up/audit support (proof of entitlement) | R/A | C | I |
+| Budget forecasting & cost allocation | R/A | I | C |
+| EULA/compliance & record retention | R/A | C | I |
+| Monthly license status reporting (KPIs) | R/A | I | I |
+{: caption="Table 6. Licensing responsibilities" caption-side="bottom"}
 
-For detailed migration guidance, see [Migrating Fortinet FortiGate from Classic to VPC PayGo](/docs/licensed-firewall?topic=licensed-firewall-tutorial-fortigate-vpc-migration).
+### Notes
+{: #licensing-notes}
 
-### Performance and capacity planning
-{: #fortigate-capacity-planning}
+- IBM acts as License Provider/Reseller of Record
+- All license operations flow through FortiFlex platform
+- Customers request license changes through IBM
 
-- Customer is responsible for selecting appropriate VPC profiles based on performance requirements
-- Refer to [Fortinet datasheets](https://www.fortinet.com/resources/datasheets){: external} for FortiGate performance specifications
-- IBM provides the infrastructure; customer must monitor and adjust capacity as needed
-- Consider multi-zone deployments for high availability and increased capacity
+## F. Escalation & Decision Scenarios
+{: #escalation-scenarios}
 
-### Support and troubleshooting
-{: #fortigate-support}
+### Scenario 1: Incident Flow (Suspected Product Defect)
+{: #scenario-incident}
 
-- IBM provides support for VPC infrastructure, platform services, and license provisioning
-- Customer is responsible for FortiGate application-level configuration and troubleshooting
-- For FortiGate-specific issues, refer to [Fortinet documentation](https://docs.fortinet.com/){: external}
-- IBM Support can assist with platform-level issues and license service problems
+| Party | Actions |
+|-------|---------|
+| **Customer** | Open support ticket with IBM Support; provide initial diagnostics; implement workarounds as advised |
+| **IBM Support** | Perform L1/L2 triage; troubleshoot; open Fortinet TAC case if needed; coordinate resolution; update customer |
+| **Fortinet** | Provide diagnostics, workarounds, or hotfix to IBM Support; advise on risks |
+{: caption="Table 7. Incident flow" caption-side="bottom"}
+
+IBM Support acts as single point of contact. Customer does not open TAC cases directly with Fortinet. IBM Support manages all Fortinet TAC interactions.
+
+### Scenario 2: Emergency Fix (Critical PSIRT / Zero-Day)
+{: #scenario-emergency}
+
+| Party | Actions |
+|-------|---------|
+| **Fortinet** | Publish PSIRT advisory; provide mitigation guidance to IBM Support; deliver hotfix/patch with ETA |
+| **IBM Support** | Monitor PSIRT feeds; communicate critical advisories to all license holders; provide guidance on mitigations; coordinate patch deployment support |
+| **Customer** | Evaluate risk; implement mitigations with IBM Support guidance; apply patches to VSIs; manage change control |
+{: caption="Table 8. Emergency fix flow" caption-side="bottom"}
+
+IBM Support provides guidance and coordination but cannot modify customer vFSA configurations. Customers apply patches to their own VSIs.
+
+### Scenario 3: Hardware/Infrastructure Issue
+{: #scenario-infrastructure}
+
+| Party | Actions |
+|-------|---------|
+| **Customer** | Open support ticket with IBM Support; provide diagnostics |
+| **IBM Support** | Triage to determine if VSI, vFSA software, or underlying infrastructure issue; coordinate with appropriate teams |
+| **IBM Cloud Infrastructure** | Resolve underlying VPC platform issues (hypervisor, network, storage) if escalated by IBM Support |
+| **Fortinet** | Provide guidance to IBM Support if vFSA software is impacted by infrastructure behavior |
+{: caption="Table 9. Infrastructure issue flow" caption-side="bottom"}
+
+IBM Support performs initial triage and routes to appropriate team (IBM Cloud Infrastructure or Fortinet TAC).
+
+### Scenario 4: Lifecycle (EoL/EoS)
+{: #scenario-lifecycle}
+
+| Party | Actions |
+|-------|---------|
+| **Fortinet** | Publish EoL/EoS notices; provide compatibility matrices and migration guidance to IBM Support; set support end dates |
+| **IBM Support** | Communicate Fortinet notices to affected license holders; provide license upgrade/migration options; assist with migration planning; track customer plans |
+| **Customer** | Assess impact with IBM Support; plan migration/upgrade; execute changes in their environment; manage change control |
+{: caption="Table 10. Lifecycle management flow" caption-side="bottom"}
+
+IBM Support facilitates license transitions and provides migration guidance. Customers execute technical changes to their VSIs.
+
+### Scenario 5: FortiFlex Platform Outage
+{: #scenario-outage}
+
+| Party | Actions |
+|-------|---------|
+| **Fortinet** | Restore FortiFlex platform; communicate status and ETA to IBM Support; provide workarounds if available |
+| **IBM Support** | Monitor FortiFlex status; escalate to Fortinet; communicate to customers; coordinate workarounds; track impact |
+| **Customer** | Informed of outage by IBM Support; existing vFSA instances continue operating (data plane unaffected) |
+{: caption="Table 11. Platform outage flow" caption-side="bottom"}
+
+FortiFlex outage impacts new license provisioning only. Existing licensed vFSA instances continue normal operation. IBM Support manages all communication.
+
+## G. Update & Change Flow
+{: #update-flow}
+
+### Normal Update Flow
+{: #normal-update}
+
+1. Fortinet publishes new vFSA image/update
+2. IBM Support notifies license holders
+3. Customer evaluates and plans deployment
+4. Customer applies update to their VSIs
+5. Customer validates and closes change
+
+### Emergency/Critical Update Flow
+{: #emergency-update}
+
+1. Fortinet publishes critical PSIRT advisory
+2. IBM Support immediately notifies all license holders
+3. IBM Support provides mitigation guidance
+4. Customer implements mitigations
+5. Fortinet delivers hotfix/patch
+6. IBM Support coordinates patch deployment support
+7. Customer applies patch to VSIs
+8. Customer validates and reports back to IBM Support
+
+### Key Principles
+{: #update-principles}
+
+- IBM Support acts as single point of contact for all technical issues
+- IBM Support provides guidance but does not deploy updates to customer VSIs
+- IBM Support coordinates with Fortinet TAC when needed
+- Customers own all technical implementation decisions and change control
+
+## H. Assumptions & Scope
+{: #assumptions}
+
+| Area | Assumption | Notes |
+|------|------------|-------|
+| **Operating Model** | IBM Licensed Service (customer-managed) | NOT a fully-managed service. Customers deploy and operate vFSA in their own IBM Cloud accounts. |
+| **Fortinet Support Tier** | Premium/Priority TAC available | Actual TAC tier depends on customer's license SKU. IBM can facilitate tier upgrades. |
+| **Regulatory** | General enterprise controls | Customers responsible for compliance in their deployments (PCI/SOX/HIPAA/ISO). Fortinet provides product compliance documentation. |
+| **Tooling** | FortiFlex as licensing platform | No FortiManager or FortiAnalyzer in standard VPC offering. Customers may deploy these separately if needed. |
+| **Multi-vendor** | Fortinet vFSA primary focus | Integration with other security tools (SIEM/SOAR) is customer responsibility. |
+| **License Provider** | IBM acts as License Provider/Reseller | IBM manages procurement, renewals, entitlements, and FortiFlex relationship. |
+| **Infrastructure** | Customer-owned VSIs in IBM Cloud VPC | Customers manage their VSI lifecycle. IBM Cloud Infrastructure team (separate) manages underlying VPC platform. |
+| **Support Relationship** | Customer → IBM Support → Fortinet TAC | Customers open tickets with IBM Support. IBM Support triages and opens Fortinet TAC cases when needed. |
+{: caption="Table 12. Assumptions and scope" caption-side="bottom"}
+
+## I. Out of Scope
+{: #out-of-scope}
+
+The following are explicitly NOT covered by this RACII:
+
+- **IBM Cloud VPC Platform Operations** - Managed by IBM Cloud Infrastructure team (separate organization)
+- **Customer Application/Workload Support** - Customer responsibility
+- **Network Design & Architecture** - Customer responsibility (Fortinet provides reference architectures)
+- **Performance Tuning** - Customer responsibility (IBM Support coordinates with Fortinet TAC for guidance)
+- **Custom Integrations** - Customer responsibility
+- **Third-party Tools** - Unless specifically part of Fortinet stack
+- **Training & Enablement** - Available separately from Fortinet and IBM
+
+## J. Document Control
+{: #document-control}
+
+| Version | Date | Author | Changes |
+|---------|------|--------|---------|
+| v1 | [Original Date] | [Author] | Initial version - assumed fully-managed service model |
+| v2 | [v2 Date] | [Author] | Updated to "Licensed Service" model; corrected several R/A assignments |
+| v3 | 2026-02-23 | [Author] | PROPOSED - Addressed all feedback gaps; clarified scope; added FortiFlex SLA; removed contradictions; added update flow; expanded assumptions |
+{: caption="Table 13. Document version history" caption-side="bottom"}  
+   
