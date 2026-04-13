@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-03-27"
+lastupdated: "2026-04-13"
 
 keywords:
 
@@ -12,16 +12,40 @@ subcollection: licensed-firewall
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Getting started with the licensed firewall for FortiGate
+# Getting started with Fortinet FortiGate for IBM Cloud VPC
 {: #getting-started}
 
-_The short description should be a single, concise paragraph that contains one or two sentences and no more than 50 words. Briefly mention what the user's learning goal is and include the following SEO keywords in the title short description: IBM Cloud, ServiceName, tutorial. If the release phase of your service is experimental or beta, be sure to indicate that in the first occurrence of the service name, for example, Cost and Asset Management (Experimental)._ For example: "In this getting started tutorial, we'll take you through a sample node.js ToDo app that will take you about 10 minutes to deploy."
+IBM Cloud Virtual Private Cloud VPC provides a scalable and secure foundation for hosting modern cloud workloads. Within this environment, Fortinet FortiGate next generation firewall technology delivers complete content and network protection and is available for deployment on IBM Cloud VPC.
 {: shortdesc}
+
+Deployed in a VPC architecture, FortiGate provides centralized visibility and control over network traffic entering leaving and moving within the virtual private network. This enables organizations to apply consistent security policies improve workload segmentation and protect applications from a wide range of evolving cyber threats while maintaining cloud agility and scalability.
+
+Because FortiGate is deployed as a licensed virtual appliance in IBM Cloud VPC, organizations must also account for resource consumption, such as compute storage and network usage to ensure effective monitoring and cost control.
+
+## Highlights of FortiGate on IBM Cloud VPC
+{: #fortigate-highlights}
+
+FortiGate delivers core security capabilities that are most critical for protecting workloads and maintaining strong security in IBM Cloud VPC environments.
+
+* Provides centralized visibility and control over cloud network traffic
+* Delivers integrated protection for network traffic and application content
+* Uses IPS technology to detect and block known and emerging threats
+* Enables application aware policy enforcement for more granular security control
+* Includes built in security services such as antivirus web filtering and VPN access
+* Leverages continuous threat intelligence updates to address evolving attacks
 
 ## Before you begin
 {: #prereqs}
 
-_There should be a one sentence intro to the prereqs. If you don't have prereqs, remove this section_ For example: "You need an [{{site.data.keyword.Bluemix}} account](https://cloud.ibm.com/registration/), an instance of the _ServiceName_ service, and the following commands to check if you are properly set up."
+Review the following prerequisites and planning considerations before deploying this licensed firewall:
+
+* This third party product is provided by a vendor outside of IBM and is subject to a separate agreement between you and the third party if you accept their terms. IBM is not responsible for the product and makes no privacy security performance support or other commitments regarding the product.
+
+* A
+
+* B
+
+* C
 
 
 
