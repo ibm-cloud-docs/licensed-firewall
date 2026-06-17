@@ -14,6 +14,7 @@ subcollection: licensed-firewall
 
 # Segmenting workloads
 {: #segment-workloads}
+
 Isolate workloads using firewall policies.
 {: shortdesc}
 
