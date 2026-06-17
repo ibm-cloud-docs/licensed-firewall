@@ -24,12 +24,20 @@ toc:
   - navgroup:
       id: howto
       topics:
+      - getting-started.md
       - how-to.md
-      - vulnerability-mgmt.md
+      - deploy.md
+      - access.md
+      - configure-policies.md
+      - security-services.md
+      - segmenting-workloads.md
+      - scaling.md
+      - monitoring.md
   - navgroup:
       id: reference
       topics:
       - roles.md
+      - vulnerability-mgmt.md
   - navgroup:
       id: help
       topics:
