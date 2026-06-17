@@ -25,6 +25,7 @@ toc:
       id: howto
       topics:
       - how-to.md
+      - vulnerability-mgmt.md
   - navgroup:
       id: reference
       topics:
