@@ -33,7 +33,7 @@ toc:
       - monitoring.md
       - topicgroup:
           id: advanced
-          label: Advanced configuration
+          label: Advanced content
           topics:
           - default-configuration.md
           - advanced-placeholder-1.md
