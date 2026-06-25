@@ -15,7 +15,8 @@ subcollection: licensed-firewall
 # Default virtual server profile mappings for licensed firewalls
 {: #default-vsi-profile-mappings}
 
-These mappings show the virtual server instance profile that is automatically assigned when you provision a firewall based on the selected license plan and deployment size.
+Each license plan entitles you to a specific number of vCPUs for your FortiGate virtual firewall (vFSA). IBM assigns the virtual server instance profile that allocates those vCPUs based on the plan and deployment size you select. The assigned profile provides enough throughput to support the pricing plan that you select. IBM also manages profile selection because not all profiles are available in all regions. You cannot choose or override the profile. For example, an Enterprise plan with 8 vFSA vCPUs is allocated the `cx3d-8x20` virtual server instance profile.
+{: shortdesc}
 
 For guidance on choosing a license plan and deployment size, see [Understanding firewall license plans and instance profiles](/docs/licensed-firewall?topic=licensed-firewall-about-firewall-license-plans-and-instance-profiles).
 
@@ -46,7 +47,7 @@ This license plan uses gen3-cx profiles and supports Small, Medium, and Large de
 ## Advanced Threat Protection (ATP)
 {: #advanced-threat-protection-atp}
 
-This license plan uses gen2-cx profiles and supports Small and Medium deployment sizes.
+This license plan uses gen2-cx profiles and supports Small and Medium deployment sizes. Note that gen2-cx profiles are not available in all regions. The `cx2-2x4` and `cx2-8x16` profiles are not available in Mumbai, Chennai, and Montreal.
 
 | Deployment size | vCPU | Instance profile | Profile family |
 |----------------|------|------------------|----------------|
