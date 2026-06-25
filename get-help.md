@@ -4,7 +4,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-03-26"
+lastupdated: "2026-06-25"
 
 keywords:
 
@@ -33,6 +33,7 @@ If you experience an issue or have questions when using _serviceName_, you can u
 If you still can't resolve the problem, you can open a support case. For more information, see [Creating support cases](/docs/account?topic=account-open-case). And if you're looking to provide feedback, see [Submitting feedback](/docs/overview?topic=overview-feedback).
 
 
+_I think we should be specific under creating support cases. There's going to be a new queue for Fortinet firewalls specifically. It's not created yet, but we should be clear here about that. And we should be clear here about, you know, your FortiGate is licensed, and and support for the firewall should come through IBM support. Here's how to open a case, and here's the queue, right?_
 
 ## Providing support case details
 {: #support-case-details}

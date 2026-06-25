@@ -31,6 +31,14 @@ toc:
       - scaling.md
       - upgrading-software.md
       - monitoring.md
+      - topicgroup:
+          id: advanced
+          label: Advanced configuration
+          topics:
+          - default-configuration.md
+          - advanced-placeholder-1.md
+          - advanced-placeholder-2.md
+          - advanced-placeholder-3.md
   - navgroup:
       id: reference
       topics:
