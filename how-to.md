@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-04-13"
+lastupdated: "2026-06-25"
 
 keywords:
 
@@ -22,12 +22,11 @@ _Introduction WIP_ - To order a licensed FortiGate firewall, follow these steps:
 ## Ordering a licensed Fortinet firewall in the console
 {: #order-licensed-fortinet-firewall-console}
 
-1. From the IBM Cloud catalog, search for and select **Licensed Fortinet Firewall (VSI) - Standalone**.
+1. From the IBM Cloud catalog, search for and select **Licensed Fortinet Firewall (Virtual Server) - Standalone**.
 1. Verify the preselected options:
    * Deployment target: **Virtual private cloud (x86)**
    * Delivery method: **Server image**
-   * Product version: **1.1.0**  
-   * Pricing plan for the indicated country or location: **2 vcpu UTM** 
+   * Product version: **1.1.0**
+   * Pricing plan for the indicated country or location: **2 vcpu UTM**
 1. Click **Continue** to proceed to the Virtual server for VPC provisioning page.
 1. In the Details section, complete the following information:
- 

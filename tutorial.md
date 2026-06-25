@@ -1,7 +1,7 @@
 ---
 copyright:
    years: 2026
-lastupdated: "2026-03-26"
+lastupdated: "2026-06-25"
 
 keywords: ibm cloud, fortinet, fortigate, firewall, migration, vpc, paygo, tutorial
 
@@ -197,9 +197,11 @@ Shut down your old Classic environment safely:
 ## Known limitations and considerations
 {: #fortigate-vpc-limitations}
 
-- 1
-- 2
-- 3
+Consider the following limitations when migrating from Classic to VPC:
+
+- Configuration syntax differences between Classic and VPC environments might require manual adjustments
+- Some Classic features might not have direct VPC equivalents
+- Network performance characteristics might differ between Classic and VPC infrastructure
 
 ---
 

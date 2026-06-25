@@ -12,11 +12,7 @@ toc:
       id: learn
       topics:
       - getting-started.md
-      - topicgroup:
-          id: topic-group-id
-          label: topic-group-label
-          topics:
-          - topic.md
+      - license-plans-instance-profiles-overview.md
   - navgroup:
       id: tutorial
       topics:
@@ -26,23 +22,26 @@ toc:
       topics:
       - getting-started.md
       - how-to.md
+      - pricing-plans.md
       - deploy.md
       - access.md
       - configure-policies.md
       - security-services.md
       - segmenting-workloads.md
       - scaling.md
+      - upgrading-software.md
       - monitoring.md
   - navgroup:
       id: reference
       topics:
+      - default-profile-mappings.md
       - roles.md
       - vulnerability-mgmt.md
   - navgroup:
       id: help
       topics:
       - get-help.md
-      - faqs.md
+      - faq.md
       - topicgroup:
           id: troubleshooting
           label: Troubleshooting

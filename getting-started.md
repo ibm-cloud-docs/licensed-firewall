@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-06-17"
+lastupdated: "2026-06-25"
 
 keywords:
 
@@ -15,12 +15,12 @@ subcollection: licensed-firewall
 # Getting started with Fortinet FortiGate for IBM Cloud VPC
 {: #getting-started}
 
-IBM Cloud Virtual Private Cloud VPC provides a scalable and secure foundation for hosting modern cloud workloads. Within this environment, Fortinet FortiGate next generation firewall technology delivers complete content and network protection and is available for deployment on IBM Cloud VPC.
+IBM Cloud Virtual Private Cloud (VPC) provides a scalable and secure foundation for hosting modern cloud workloads. Within this environment, Fortinet FortiGate next-generation firewall technology delivers complete content and network protection and is available for deployment on IBM Cloud VPC.
 {: shortdesc}
 
-Deployed in a VPC architecture, FortiGate provides centralized visibility and control over network traffic entering leaving and moving within the virtual private network. This enables organizations to apply consistent security policies improve workload segmentation and protect applications from a wide range of evolving cyber threats while maintaining cloud agility and scalability.
+Deployed in a VPC architecture, FortiGate provides centralized visibility and control over network traffic entering, leaving, and moving within the virtual private network. This enables organizations to apply consistent security policies, improve workload segmentation, and protect applications from a wide range of evolving cyber threats while maintaining cloud agility and scalability.
 
-Because FortiGate is deployed as a licensed virtual appliance in IBM Cloud VPC, organizations must also account for resource consumption, such as compute storage and network usage to ensure effective monitoring and cost control.
+Because FortiGate is deployed as a licensed virtual appliance in IBM Cloud VPC, organizations must also account for resource consumption, such as compute, storage, and network usage, to ensure effective monitoring and cost control.
 
 ## Key benefits
 {: #fortigate-highlights}
@@ -53,7 +53,7 @@ You get consistent, end-to-end protection across your VPC without needing to int
 FortiGate is deployed as a virtual firewall inside your VPC and integrates with IBM Cloud services:
 
 * Deployed directly from the IBM Cloud catalog
-* Licensing is automatically applied through the PAYGO model
+* Licensing is automatically applied through the pay-as-you-go model
 * Billing is based on actual usage
 * Managed alongside your other VPC resources
 
