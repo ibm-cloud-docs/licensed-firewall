@@ -2,6 +2,7 @@
 
 copyright:
   years: 2026
+
 lastupdated: "2026-06-25"
 
 keywords: resize firewall, change license, vsi resize, firewall migration
@@ -12,56 +13,38 @@ subcollection: licensed-firewall
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Changing the firewall instance profile or license plan
+# Resizing a firewall virtual server instance
 {: #changing-firewall-instance-profile-or-license-plan}
 
-## Before you begin
-{: #before-you-begin-updates}
+After you deploy a licensed firewall, you can resize the virtual server instance to change the number of vCPUs and memory. However, resizing the virtual server instance does not change the license plan. The license plan is fixed at deployment time and you continue to be billed for it regardless of any resize operations.
+{: shortdesc}
 
-When you provision a licensed firewall, the system automatically assigns a virtual server instance profile based on the license plan that you select.
-
-The license plan and virtual server profile are linked at deployment time and cannot be modified independently after provisioning.
-
-**Important:**
-
-* You cannot change the instance profile or license plan of an existing firewall.
-* To modify either, you must provision a new firewall instance.
-
-## Limitations
-{: #limitations}
-
-You cannot modify the virtual server profile or license plan for an existing deployment.
-
-The following actions are not supported:
-
-- Resizing a virtual server profile and automatically updating the license
-- Changing the license plan for an existing firewall instance
-- Upgrading or downgrading the deployment size in place
-- Resizing the virtual server profile does not change or upgrade the license plan
-
-The license plan and virtual server profile are tightly coupled and are fixed after deployment.
+Resizing the virtual server instance does not change, upgrade, or cancel the license that you are paying for. The only way to change your license is to place a new order with the required license plan and cancel the existing deployment.
 {: important}
 
-## Changing the instance profile or license
-{: #changing-the-instance-profile-or-license}
+## Resizing the virtual server instance
+{: #resize-vsi}
 
-To change the virtual server profile or license plan, you must create a new firewall deployment with the desired configuration.
+You must stop the virtual server instance before you can resize it.
+{: note}
 
-1. From the IBM Cloud catalog, select the licensed firewall offering.
-2. Choose the required license plan.
-3. Select the deployment size that you want.
-4. Provision a new firewall instance.
+1. In the [IBM Cloud console](https://cloud.ibm.com){: external}, click the navigation menu and select **Infrastructure > Compute > Virtual server instances**.
+1. Click the virtual server instance that you deployed to open its Details page.
+1. From the Details page, resize the instance by following the steps in [Resizing a virtual server instance](/docs/vpc?topic=vpc-resizing-an-instance&interface=ui).
 
-A new virtual server profile is automatically assigned based on your selections.
+The virtual server instance restarts automatically after the resize is complete. The license plan and associated billing remain unchanged.
 
-## Migrating to a new deployment
-{: #migrating-to-a-new-deployment}
+## Changing the license plan
+{: #changing-the-license-plan}
 
-After provisioning the new instance, migrate your configuration to complete the change.
+The license plan cannot be changed on an existing firewall deployment. To use a different license plan, you must place a new order and cancel the existing one.
 
+1. From the IBM Cloud catalog, deploy a new firewall instance with the required license plan and deployment size.
 1. Export the configuration from the existing firewall.
-2. Deploy the new instance with the required license and size.
-3. Import the configuration into the new instance.
-4. Validate firewall rules, routing, connectivity, and traffic flow.
-5. Redirect traffic to the new instance.
-6. Delete the old instance after validation is complete.
+1. Import the configuration into the new instance.
+1. Validate firewall rules, routing, connectivity, and traffic flow.
+1. Redirect traffic to the new instance.
+1. Cancel the existing firewall deployment.
+
+You are billed for both deployments until the existing one is cancelled.
+{: note}
