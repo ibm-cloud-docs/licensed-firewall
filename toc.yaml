@@ -26,8 +26,6 @@ toc:
       - access.md
       - configure-policies.md
       - security-services.md
-      - segmenting-workloads.md
-      - scaling.md
       - upgrading-software.md
       - monitoring.md
       - topicgroup:
