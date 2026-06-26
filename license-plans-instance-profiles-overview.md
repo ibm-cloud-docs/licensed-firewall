@@ -12,7 +12,6 @@ subcollection: licensed-firewall
 
 {{site.data.keyword.attribute-definition-list}}
 
-```md
 # About firewall license plans and instance profiles
 {: #about-firewall-license-plans-and-instance-profiles}
 
@@ -158,4 +157,3 @@ Review the following considerations before selecting your license plan and deplo
 
 The license plan and virtual server profile are linked and cannot be changed after deployment.
 {: important}
-```
