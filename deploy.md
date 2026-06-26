@@ -13,10 +13,10 @@ subcollection: licensed-firewall
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Ordering a licensed Fortinet firewall
+# Ordering a licensed FortiGate firewall
 {: #fortinet-firewall-order}
 
-You can deploy a licensed Fortinet FortiGate Next-Generation Firewall from the IBM Cloud catalog in three configurations: a single virtual machine (VM), a high-availability (HA) pair in a single zone, or an HA pair across two zones. All three offerings are deployed by using IBM Cloud Schematics, which runs the Terraform automation on your behalf.
+You can order a licensed Fortinet FortiGate Next-Generation Firewall from the IBM Cloud catalog in three configurations: a single virtual machine (VM), a high-availability (HA) pair in a single zone, or an HA pair across two zones. All three offerings are deployed by using IBM Cloud Schematics, which runs the Terraform automation on your behalf.
 {: shortdesc}
 
 ## Before you begin
