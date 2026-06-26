@@ -20,13 +20,12 @@ toc:
   - navgroup:
       id: howto
       topics:
-      - how-to.md
-      - pricing-plans.md
       - deploy.md
       - access.md
+      - upgrading-software.md
+      - pricing-plans.md
       - configure-policies.md
       - security-services.md
-      - upgrading-software.md
       - monitoring.md
       - topicgroup:
           id: advanced
