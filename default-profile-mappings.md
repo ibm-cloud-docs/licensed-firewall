@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-06-25"
+lastupdated: "2026-06-26"
 
 keywords: virtual server mapping, firewall profiles, instance profiles, license mapping
 
@@ -18,7 +18,7 @@ subcollection: licensed-firewall
 Each license plan entitles you to a specific number of vCPUs for your FortiGate virtual firewall (vFSA). IBM assigns the virtual server instance profile that allocates those vCPUs based on the plan and deployment size you select. The assigned profile provides enough throughput to support the pricing plan that you select. IBM also manages profile selection because not all profiles are available in all regions. You cannot choose or override the profile. For example, an Enterprise plan with 8 vFSA vCPUs is allocated the `cx3d-8x20` virtual server instance profile.
 {: shortdesc}
 
-For guidance on choosing a license plan and deployment size, see [Understanding firewall license plans and instance profiles](/docs/licensed-firewall?topic=licensed-firewall-about-firewall-license-plans-and-instance-profiles).
+For guidance on choosing a license plan and deployment size, see [About firewall license plans and instance profiles](/docs/licensed-firewall?topic=licensed-firewall-about-firewall-license-plans-and-instance-profiles).
 
 ## Enterprise
 {: #enterprise}
