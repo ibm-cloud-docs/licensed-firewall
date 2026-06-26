@@ -3,7 +3,7 @@
 copyright:
   years: 2026
 
-lastupdated: "2026-06-25"
+lastupdated: "2026-06-26"
 
 keywords: deploy firewall, FortiGate, single VM, HA single zone, HA cross zone, Terraform, Schematics
 
@@ -13,7 +13,7 @@ subcollection: licensed-firewall
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Deploying a licensed Fortinet firewall
+# Ordering a licensed Fortinet firewall
 {: #fortinet-firewall-order}
 
 You can deploy a licensed Fortinet FortiGate Next-Generation Firewall from the IBM Cloud catalog in three configurations: a single virtual machine (VM), a high-availability (HA) pair in a single zone, or an HA pair across two zones. All three offerings are deployed by using IBM Cloud Schematics, which runs the Terraform automation on your behalf.

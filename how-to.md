@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-06-25"
+lastupdated: "2026-06-26"
 
 keywords:
 
@@ -14,7 +14,7 @@ subcollection: licensed-firewall
 
 
 # Ordering a licensed Fortinet firewall (standalone)
-{: #fortinet-firewall-order}
+{: #fortinet-firewall-order-standalone}
 
 _Introduction WIP_ - To order a licensed FortiGate firewall, follow these steps:
 {: shortdesc}
