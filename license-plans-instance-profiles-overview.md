@@ -10,6 +10,7 @@ subcollection: licensed-firewall
 
 {{site.data.keyword.attribute-definition-list}}
 
+```md
 # About firewall license plans and instance profiles
 {: #about-firewall-license-plans-and-instance-profiles}
 
@@ -32,8 +33,8 @@ Select a license plan based on your workload requirements, performance needs, an
 | License plan | Best for | Supported sizes | Profile family | Key characteristics |
 |--------------|----------|------------------|----------------|--------------------|
 | ATP (Advanced Threat Protection) | Entry-level deployments | Small, Medium | gen2-cx | Lower cost, limited scale |
-| UTP (Unified Threat Protection)  | General-purpose security | Small, Medium, Large | gen3-cx | Balanced cost and performance |
-| Enterprise                       | High-performance environments | Medium, Large, X-large | gen3-cx | Highest scalability and throughput |
+| UTP (Unified Threat Protection) | General-purpose security | Small, Medium, Large | gen3-cx | Balanced cost and performance |
+| Enterprise | High-performance environments | Medium, Large, X-large | gen3-cx | Highest scalability and throughput |
 {: caption="License plan comparison" caption-side="bottom"}
 
 ## Sizing and scaling characteristics
@@ -48,10 +49,10 @@ Deployment sizes are mapped to vCPU allocations.
 
 | Deployment size | vCPU |
 |----------------|------|
-| Small          | 2    |
-| Medium         | 8    |
-| Large          | 16   |
-| X-large        | 32   |
+| Small | 2 |
+| Medium | 8 |
+| Large | 16 |
+| X-large | 32 |
 {: caption="Deployment size vCPU allocations" caption-side="bottom"}
 
 - Larger deployment sizes include increased memory, which improves session handling and overall scalability.
@@ -63,9 +64,9 @@ The available deployment sizes vary by license plan.
 
 | License plan | Small (2 vCPU) | Medium (8 vCPU) | Large (16 vCPU) | X-large (32 vCPU) |
 |--------------|----------------|------------------|------------------|--------------------|
-| Enterprise   | Not available  | Supported        | Supported        | Supported          |
-| UTP          | Supported      | Supported        | Supported        | Not available      |
-| ATP          | Supported      | Supported        | Not available    | Not available      |
+| Enterprise | Not available | Supported | Supported | Supported |
+| UTP | Supported | Supported | Supported | Not available |
+| ATP | Supported | Supported | Not available | Not available |
 {: caption="Supported deployment sizes by license plan" caption-side="bottom"}
 
 ### Performance
@@ -75,32 +76,16 @@ Firewall performance scales with deployment size and enabled security features, 
 
 | Deployment size | Typical NGFW throughput | Typical IPS throughput |
 |----------------|------------------------|------------------------|
-| Small (2 vCPU) | ~1–2 Gbps              | ~2 Gbps               |
-| Medium (8 vCPU)| ~4–5 Gbps              | ~6 Gbps               |
-| Large (16 vCPU)| ~9–10 Gbps             | ~11–12 Gbps           |
-| X-large (32 vCPU)| ~14–16 Gbps         | ~16–22 Gbps           |
+| Small (2 vCPU) | ~1–2 Gbps | ~2 Gbps |
+| Medium (8 vCPU) | ~4–5 Gbps | ~6 Gbps |
+| Large (16 vCPU) | ~9–10 Gbps | ~11–12 Gbps |
+| X-large (32 vCPU) | ~14–16 Gbps | ~16–22 Gbps |
 {: caption="Performance characteristics by deployment size" caption-side="bottom"}
 
 **Notes:**
 
 - Values vary based on configuration and traffic profile.
 - Enabling advanced security services (for example, IPS or threat protection) can reduce throughput.
-
-### VDOM support
-{: #vdom-support}
-
-The number of supported virtual domains (VDOMs) varies by deployment size.
-
-| Deployment size | VDOM support |
-|----------------|----------------|
-| Small          | Limited        |
-| Medium         | Moderate       |
-| Large          | High           |
-| X-large        | Maximum        |
-{: caption="VDOM support by deployment size" caption-side="bottom"}
-
-- VDOMs enable segmentation and multi-tenant configurations.
-- Higher deployment sizes support more complex environments and greater isolation.
 
 ### Session scaling
 {: #session-scaling}
@@ -110,10 +95,28 @@ Connection capacity increases with deployment size and available memory.
 - Smaller deployments support fewer concurrent sessions.
 - Larger deployments support significantly higher connection volumes and session tables.
 
+### VDOM support
+{: #vdom-support}
+
+The number of supported virtual domains (VDOMs) varies by deployment size.
+
+| Deployment size | VDOM support |
+|----------------|--------------|
+| Small | Limited |
+| Medium | Moderate |
+| Large | High |
+| X-large | Maximum |
+{: caption="VDOM support by deployment size" caption-side="bottom"}
+
+- VDOMs enable segmentation and multi-tenant configurations.
+- Higher deployment sizes support more complex environments and greater isolation.
+
 ## Instance profile details
 {: #instance-profile-details}
 
 Instance profiles define the compute resources allocated to your firewall deployment.
+
+Each license plan includes a specific number of vCPUs for your FortiGate virtual firewall (vFSA). Based on the selected license plan and deployment size, IBM automatically assigns a virtual server instance profile that provides the required vCPUs and throughput. Because available profiles vary by region, IBM manages profile selection and you cannot choose or override the assigned profile. For example, an Enterprise plan with 8 vFSA vCPUs is deployed with the `cx3d-8x20` virtual server instance profile.
 
 ### Profile families
 {: #instance-profile-families}
@@ -122,9 +125,9 @@ Each license plan uses a specific instance profile family.
 
 | License plan | Profile family |
 |--------------|----------------|
-| Enterprise   | gen3-cx        |
-| UTP          | gen3-cx        |
-| ATP          | gen2-cx        |
+| Enterprise | gen3-cx |
+| UTP | gen3-cx |
+| ATP | gen2-cx |
 {: caption="Instance profile families by license plan" caption-side="bottom"}
 
 - Gen3 profiles use newer infrastructure and are recommended for most deployments.
@@ -153,3 +156,4 @@ Review the following considerations before selecting your license plan and deplo
 
 The license plan and virtual server profile are linked and cannot be changed after deployment.
 {: important}
+```
