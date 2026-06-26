@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2026
-lastupdated: "2026-06-25"
+lastupdated: "2026-06-26"
 
 keywords: firewall, license plans, vsi profiles, instance sizing, deployment sizes
 
@@ -13,10 +13,8 @@ subcollection: licensed-firewall
 # About firewall license plans and instance profiles
 {: #about-firewall-license-plans-and-instance-profiles}
 
-## Overview
-{: #overview-license-profiles}
-
 When you provision a licensed firewall, the system automatically assigns a virtual server instance profile based on the license plan that you select.
+{: shortdesc}
 
 The license plan determines:
 
@@ -142,7 +140,7 @@ Consider the following factors when evaluating instance profiles for your deploy
 - Profiles with `-d` include additional instance storage, which can increase cost.
 - Profile selection impacts both performance characteristics and pricing.
 
-## Considerations
+## Planning considerations
 {: #considerations}
 
 Review the following considerations before selecting your license plan and deployment size:
