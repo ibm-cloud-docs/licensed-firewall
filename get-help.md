@@ -4,7 +4,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-06-25"
+lastupdated: "2026-06-26"
 
 keywords:
 
@@ -16,7 +16,7 @@ subcollection: licensed-firewall
 
 
 
-# Getting help and support for _serviceName_
+# Getting help and support for FortiGate licensed firewall
 {: #help-and-support}
 
 If you experience an issue or have questions when using _serviceName_, you can use the following resources before you open a support case.
