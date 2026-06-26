@@ -26,7 +26,7 @@ Each FortiGate firewall offering is deployed with a default bootstrap configurat
 
 The following default configuration is applied to the Single VM offering at deployment time.
 
-Chida:{: tag-purple} Andrew showed me this in the UI. I believe this needs to be spelled out.
+[Chida]{: tag-purple} Andrew showed me this in the UI. I believe this needs to be spelled out.
 
 ```text
 config system global
