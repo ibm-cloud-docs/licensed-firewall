@@ -3,7 +3,7 @@
 copyright:
   years: 2026
 
-lastupdated: "2026-06-25"
+lastupdated: "2026-06-26"
 
 keywords: resize firewall, change license, vsi resize, firewall migration
 
@@ -13,10 +13,11 @@ subcollection: licensed-firewall
 
 {{site.data.keyword.attribute-definition-list}}
 
+```md
 # Upgrading the FortiGate software
 {: #upgrading-fortigate-software}
 
-Use the native **Fortinet Fabric Upgrade** tool to upgrade or downgrade the FortiGate virtual firewall software. The Fabric Upgrade tool is the recommended and supported method for managing firmware versions because it automatically handles configuration backup and restoration during the firmware version change process.
+Use the native Fortinet Fabric Upgrade tool to upgrade or downgrade the FortiGate virtual firewall software. The Fabric Upgrade tool is the supported method for managing firmware versions for the IBM-licensed firewall.
 {: shortdesc}
 
 ## Before you begin
@@ -24,43 +25,48 @@ Use the native **Fortinet Fabric Upgrade** tool to upgrade or downgrade the Fort
 
 Before upgrading the FortiGate software:
 
-- Verify that you have administrative access to the FortiGate Web Console.
-- Review the target firmware version and any applicable release notes.
-- Schedule a maintenance window because the FortiGate appliance restarts during the firmware upgrade.
-- Ensure that network traffic can tolerate a brief service interruption.
+- Verify that you have administrator access to the FortiGate Web Console.
+- Review the release notes for the target firmware version.
+- Verify the supported upgrade path if upgrading across multiple FortiOS releases.
+- Schedule a maintenance window because the FortiGate restarts during the upgrade.
+- Verify that the appliance can access FortiGuard to download firmware.
 
-## Upgrading the firmware
+For more information, see the Fortinet documentation:
+- [Firmware & Registration](https://docs.fortinet.com/document/fortigate/7.4.1/administration-guide/788240/firmware-registration){: external}
+
+## Upgrade the firmware
 {: #upgrading-firmware}
-
-The **Fortinet Fabric Upgrade** tool is the primary method for upgrading and downgrading the vFSA firmware version. This tool is owned and supported by Fortinet.
 
 To upgrade the firmware:
 
 1. Log in to the FortiGate Web Console.
-2. Navigate to **System > Firmware & Registration > Fabric Upgrade**.
-3. Review the list of available firmware versions.
-4. Select the target firmware version.
-5. Click **Upgrade** to begin the firmware installation.
+2. Go to **System > Firmware & Registration**.
+3. Click **Fabric Upgrade**.
+4. Select either the **Latest** or **All Upgrades** tab.
+5. Select the target firmware version.
+6. If the selected firmware requires one or more intermediate builds, choose one of the following options:
+   - **Follow the recommended upgrade path** to allow FortiGate to automatically install each required firmware version and restart as needed.
+   - **Upgrade directly** to install the selected firmware version.
+7. Confirm the upgrade.
 
-During the upgrade process, the Fabric Upgrade tool:
+During the upgrade, FortiGate downloads the required firmware from FortiGuard, installs the firmware, restarts as needed, and displays the upgrade status. If the recommended upgrade path is selected, FortiGate automatically performs each intermediate upgrade until the target version is installed.
 
-- Downloads a backup of the current configuration to your local system.
-- Installs the selected firmware version.
-- Automatically restores the saved configuration after the firmware installation completes.
-- Restarts the FortiGate appliance to complete the upgrade.
+For more information, see:
+- [Upgrading Fabric or managed devices](https://docs2.fortinet.com/document/fortigate/7.4.4/administration-guide/849341/upgrading-fabric-or-managed-devices){: external}
+- [Upgrading all device firmware by following the upgrade path (Federated Update)](https://docs2.fortinet.com/document/fortigate/7.4.0/administration-guide/294656/upgrading-all-device-firmware-by-following-the-upgrade-path-federated-update){: external}
 
 ## Downgrading the firmware
 {: #downgrading-firmware}
 
-If you need to revert to an earlier supported firmware version, use the same **Fabric Upgrade** tool.
-
 To downgrade the firmware:
 
 1. Log in to the FortiGate Web Console.
-2. Navigate to **System > Firmware & Registration > Fabric Upgrade**.
-3. Select a supported earlier firmware version.
-4. Click **Downgrade**.
-5. Wait for the appliance to restart and restore the configuration.
+2. Go to **System > Firmware & Registration**.
+3. Click **Fabric Upgrade**.
+4. Select the required earlier supported firmware version.
+5. Confirm the downgrade.
+
+The FortiGate installs the selected firmware and restarts automatically.
 
 ## Verifying the upgrade
 {: #verifying-firmware-upgrade}
@@ -69,10 +75,15 @@ After the appliance restarts:
 
 1. Log back in to the FortiGate Web Console.
 2. Verify that the expected firmware version is installed.
-3. Confirm that the firewall configuration has been restored successfully.
-4. Validate network connectivity and firewall services before returning the system to production.
+3. Verify that the upgrade completed successfully.
+4. Confirm network connectivity before returning the appliance to production.
 
 ## Next steps
 {: #upgrading-fortigate-software-next-steps}
 
-For detailed information about supported upgrade paths, firmware compatibility, and troubleshooting, see the Fortinet documentation for the Fabric Upgrade tool.
+For additional information, see the following Fortinet documentation:
+
+- [Firmware & Registration](https://docs.fortinet.com/document/fortigate/7.4.1/administration-guide/788240/firmware-registration){: external}
+- [Upgrading Fabric or managed devices](https://docs2.fortinet.com/document/fortigate/7.4.4/administration-guide/849341/upgrading-fabric-or-managed-devices){: external}
+- [Upgrading all device firmware by following the upgrade path (Federated Update)](https://docs2.fortinet.com/document/fortigate/7.4.0/administration-guide/294656/upgrading-all-device-firmware-by-following-the-upgrade-path-federated-update){: external}
+```
