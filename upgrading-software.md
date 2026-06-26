@@ -13,7 +13,6 @@ subcollection: licensed-firewall
 
 {{site.data.keyword.attribute-definition-list}}
 
-```md
 # Upgrading the FortiGate software
 {: #upgrading-fortigate-software}
 
@@ -86,4 +85,3 @@ For additional information, see the following Fortinet documentation:
 - [Firmware & Registration](https://docs.fortinet.com/document/fortigate/7.4.1/administration-guide/788240/firmware-registration){: external}
 - [Upgrading Fabric or managed devices](https://docs2.fortinet.com/document/fortigate/7.4.4/administration-guide/849341/upgrading-fabric-or-managed-devices){: external}
 - [Upgrading all device firmware by following the upgrade path (Federated Update)](https://docs2.fortinet.com/document/fortigate/7.4.0/administration-guide/294656/upgrading-all-device-firmware-by-following-the-upgrade-path-federated-update){: external}
-```
