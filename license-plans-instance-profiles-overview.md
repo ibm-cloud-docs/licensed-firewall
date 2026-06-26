@@ -1,4 +1,5 @@
 ---
+
 copyright:
   years: 2026
 lastupdated: "2026-06-26"
@@ -6,6 +7,7 @@ lastupdated: "2026-06-26"
 keywords: firewall, license plans, vsi profiles, instance sizing, deployment sizes
 
 subcollection: licensed-firewall
+
 ---
 
 {{site.data.keyword.attribute-definition-list}}

@@ -38,7 +38,7 @@ The Single VM offering deploys a single FortiGate virtual machine into your VPC.
 1. Log in to the [IBM Cloud console](https://cloud.ibm.com){: external}.
 1. Click **Catalog** in the navigation bar.
 1. Search for **Fortinet FortiGate Next-Generation Firewall** and select the **Single VM - PAYG - TF** tile.
-1. Select the **product version** from the version dropdown.
+1. Select the **product version** from the menu list.
 1. Under **Deploy your workspace**, confirm that **IBM Cloud Schematics** is selected as the deployment method.
 1. In the **Configure your workspace** section, review or update the workspace name, location, and resource group.
 1. Scroll down to the **Input variables** section and complete the following required fields:
