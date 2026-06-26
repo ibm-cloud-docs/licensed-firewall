@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-06-25"
+lastupdated: "2026-06-26"
 
 keywords:
 
@@ -18,7 +18,7 @@ content-type: faq
 
 
 
-# FAQ for _service-name_
+# FAQ for FortiGate licensed firewall
 {: #my-service-faq}
 
 
