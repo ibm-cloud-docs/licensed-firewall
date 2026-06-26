@@ -69,7 +69,7 @@ IBM Cloud Schematics creates a workspace and runs the Terraform automation. You 
 
 Save these values before you close the workspace — you need them to log in to the FortiGate web console for the first time. When **Terraform commands successful** and **Cart creation successful** are both displayed, your firewall is provisioned and ready to use.
 
-Always review the full log output for errors or warnings, even when the deployment reports as successful.
+It is a good idea to review the full log output for errors or warnings, even when the deployment reports as successful.
 {: note}
 
 The license plan that you select at deployment is permanent and cannot be changed after provisioning. You are billed for that license on the virtual server instance for as long as it runs. If you need a different license plan, you must place a new order and cancel the existing deployment. However, you can resize the virtual server instance without changing the license. For more information, see [Resizing a firewall virtual server instance](/docs/licensed-firewall?topic=licensed-firewall-changing-firewall-instance-profile-or-license-plan).
@@ -107,7 +107,7 @@ The HA Single Zone offering deploys an active-passive FortiGate HA pair within a
 
 IBM Cloud Schematics creates a workspace and runs the Terraform automation. You can watch the Terraform execution in the **Log** section of the workspace. When the deployment completes successfully, the log displays the output values including the public IP address, administrator username, and initial administrator password. Save these values before you close the workspace — you need them to log in to the FortiGate web console for the first time. When **Terraform commands successful** and **Cart creation successful** are both displayed, your HA firewall pair is provisioned and ready to use.
 
-Always review the full log output for errors or warnings, even when the deployment reports as successful.
+It is a good idea to review the full log output for errors or warnings, even when the deployment reports as successful.
 {: note}
 
 The license plan that you select at deployment is permanent and cannot be changed after provisioning. You are billed for that license on the virtual server instance for as long as it runs. If you need a different license plan, you must place a new order and cancel the existing deployment. However, you can resize the virtual server instance without changing the license. For more information, see [Resizing a firewall virtual server instance](/docs/licensed-firewall?topic=licensed-firewall-changing-firewall-instance-profile-or-license-plan).
@@ -146,7 +146,7 @@ The HA Cross Zone offering deploys an active-passive FortiGate HA pair across tw
 
 IBM Cloud Schematics creates a workspace and runs the Terraform automation. You can watch the Terraform execution in the **Log** section of the workspace. When the deployment completes successfully, the log displays the output values including the public IP address, administrator username, and initial administrator password. Save these values before you close the workspace — you need them to log in to the FortiGate web console for the first time. When **Terraform commands successful** and **Cart creation successful** are both displayed, your HA cross-zone firewall pair is provisioned and ready to use.
 
-Always review the full log output for errors or warnings, even when the deployment reports as successful.
+It is a good idea to review the full log output for errors or warnings, even when the deployment reports as successful.
 {: note}
 
 The license plan that you select at deployment is permanent and cannot be changed after provisioning. You are billed for that license on the virtual server instance for as long as it runs. If you need a different license plan, you must place a new order and cancel the existing deployment. However, you can resize the virtual server instance without changing the license. For more information, see [Resizing a firewall virtual server instance](/docs/licensed-firewall?topic=licensed-firewall-changing-firewall-instance-profile-or-license-plan).
