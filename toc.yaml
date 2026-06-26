@@ -20,7 +20,6 @@ toc:
   - navgroup:
       id: howto
       topics:
-      - getting-started.md
       - how-to.md
       - pricing-plans.md
       - deploy.md
