@@ -28,14 +28,10 @@ toc:
       - security-services.md
       - monitoring.md
       - security-best-practices.md
-      - topicgroup:
-          id: advanced
-          label: Advanced content
-          topics:
-          - default-configuration.md
   - navgroup:
       id: reference
       topics:
+      - default-configuration.md
       - default-profile-mappings.md
       - roles.md
       - vulnerability-mgmt.md
