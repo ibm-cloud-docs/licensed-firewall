@@ -3,9 +3,9 @@
 copyright:
   years: 2026
 
-lastupdated: "2026-06-25"
+lastupdated: "2026-07-15"
 
-keywords: resize firewall, change license, vsi resize, firewall migration
+keywords: resize firewall, change license plan, vsi resize, firewall profile, firewall migration
 
 subcollection: licensed-firewall
 

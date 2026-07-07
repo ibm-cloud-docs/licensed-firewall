@@ -2,9 +2,9 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-07-15"
 
-keywords:
+keywords: FortiGate, IBM Cloud VPC, licensed firewall, fortinet, next-generation firewall, NGFW, paygo firewall
 
 subcollection: licensed-firewall
 
@@ -34,7 +34,7 @@ FortiGate PayGo combines enterprise-grade security with cloud-native simplicity,
 - **Comprehensive built-in security** – Protect workloads with integrated threat detection, application-aware policies, and services such as antivirus, web filtering, VPN, and continuous threat intelligence
 
 ## Highlights of FortiGate on IBM Cloud VPC
-{: #prereqs}
+{: #fortigate-features}
 
 FortiGate delivers core security capabilities that are critical for protecting workloads and maintaining strong security in IBM Cloud VPC environments.
 
@@ -70,3 +70,10 @@ Review the following prerequisites and planning considerations before deploying 
 * A secure access method (such as VPN or bastion host) to reach the firewall instance
 
 _This third-party product is provided by a vendor outside of IBM and is subject to a separate agreement between you and the third party if you accept their terms. IBM is not responsible for the product and makes no privacy, security, performance, support, or other commitments regarding the product._
+
+## Next steps
+{: #getting-started-next-steps}
+
+* [Order a licensed FortiGate firewall](/docs/licensed-firewall?topic=licensed-firewall-fortinet-firewall-order) — deploy a single VM, HA single zone, or HA cross zone configuration from the IBM Cloud catalog.
+* [Review license plans and instance profiles](/docs/licensed-firewall?topic=licensed-firewall-about-firewall-license-plans-and-instance-profiles) — understand the available license tiers, deployment sizes, and performance characteristics before ordering.
+* [Walk through the migration tutorial](/docs/licensed-firewall?topic=licensed-firewall-tutorial-fortigate-vpc-migration) — follow a step-by-step guide to migrate an existing Classic FortiGate deployment to VPC.

@@ -6,7 +6,7 @@ lastupdated: "2026-02-23"
 
 keywords: fortinet, vfsa, fortigate, security appliance, racii, licensing, support
 
-subcollection: vpc
+subcollection: licensed-firewall
 
 ---
 
@@ -54,7 +54,7 @@ Service: Fortinet vFSA (Virtual FortiGate Security Appliance) in IBM Cloud VPC
 {: caption="Table 2. Support responsibilities" caption-side="bottom"}
 
 ### Notes
-{: #support-notes}
+{: #support-section-notes}
 
 - Customers open support tickets with IBM Support for all vFSA technical issues
 - IBM Support performs initial triage and troubleshooting
@@ -76,7 +76,7 @@ Service: Fortinet vFSA (Virtual FortiGate Security Appliance) in IBM Cloud VPC
 {: caption="Table 3. Maintenance responsibilities" caption-side="bottom"}
 
 ### Notes
-{: #maintenance-notes}
+{: #maintenance-section-notes}
 
 - IBM communicates Fortinet EoL/EoS notices to license holders
 - Customers are responsible for all vFSA configuration and operational changes
@@ -96,7 +96,7 @@ Service: Fortinet vFSA (Virtual FortiGate Security Appliance) in IBM Cloud VPC
 {: caption="Table 4. Security fix responsibilities" caption-side="bottom"}
 
 ### Notes
-{: #security-notes}
+{: #security-section-notes}
 
 - IBM monitors Fortinet PSIRT advisories and communicates critical issues to license holders
 - IBM has no ability to publish images, modify vFSA configurations, or deploy patches
@@ -119,7 +119,7 @@ Service: Fortinet vFSA (Virtual FortiGate Security Appliance) in IBM Cloud VPC
 {: caption="Table 5. SLA responsibilities" caption-side="bottom"}
 
 ### Notes
-{: #sla-notes}
+{: #sla-section-notes}
 
 - IBM's SLA covers FortiFlex license provisioning only, not vFSA operational availability
 - FortiFlex platform downtime impacts license provisioning (control plane) but not existing vFSA data plane operations
@@ -146,7 +146,7 @@ Service: Fortinet vFSA (Virtual FortiGate Security Appliance) in IBM Cloud VPC
 {: caption="Table 6. Licensing responsibilities" caption-side="bottom"}
 
 ### Notes
-{: #licensing-notes}
+{: #licensing-section-notes}
 
 - IBM acts as License Provider/Reseller of Record
 - All license operations flow through FortiFlex platform

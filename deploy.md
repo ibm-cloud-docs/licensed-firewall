@@ -3,7 +3,7 @@
 copyright:
   years: 2026
 
-lastupdated: "2026-06-26"
+lastupdated: "2026-07-15"
 
 keywords: deploy firewall, FortiGate, single VM, HA single zone, HA cross zone, Terraform, Schematics
 
@@ -72,6 +72,9 @@ Save these values before you close the workspace — you need them to log in to 
 It is a good idea to review the full log output for errors or warnings, even when the deployment reports as successful.
 {: note}
 
+A floating IP is automatically assigned to port1 (the public-facing interface) and is visible in your VPC resources immediately after deployment. However, **you cannot connect to the firewall yet**. The security group created for your FortiGate denies all inbound traffic by default. Before you can reach the management interface, you must add an inbound rule that allows access from your administrator IP address. For more information, see [Accessing the FortiGate web console](/docs/licensed-firewall?topic=licensed-firewall-access-firewall).
+{: important}
+
 The license plan that you select at deployment is permanent and cannot be changed after provisioning. You are billed for that license on the virtual server instance for as long as it runs. If you need a different license plan, you must place a new order and cancel the existing deployment. However, you can resize the virtual server instance without changing the license. For more information, see [Resizing a firewall virtual server instance](/docs/licensed-firewall?topic=licensed-firewall-changing-firewall-instance-profile-or-license-plan).
 {: important}
 
@@ -109,6 +112,9 @@ IBM Cloud Schematics creates a workspace and runs the Terraform automation. You 
 
 It is a good idea to review the full log output for errors or warnings, even when the deployment reports as successful.
 {: note}
+
+A floating IP is automatically assigned to port1 and is visible in your VPC resources immediately after deployment. However, **you cannot connect to the firewall yet**. The security group created for your FortiGate denies all inbound traffic by default, except for one rule that permits HA heartbeat traffic between the two nodes. Before you can reach the management interface, you must add an inbound rule that allows access from your administrator IP address. For more information, see [Accessing the FortiGate web console](/docs/licensed-firewall?topic=licensed-firewall-access-firewall).
+{: important}
 
 The license plan that you select at deployment is permanent and cannot be changed after provisioning. You are billed for that license on the virtual server instance for as long as it runs. If you need a different license plan, you must place a new order and cancel the existing deployment. However, you can resize the virtual server instance without changing the license. For more information, see [Resizing a firewall virtual server instance](/docs/licensed-firewall?topic=licensed-firewall-changing-firewall-instance-profile-or-license-plan).
 {: important}
@@ -148,6 +154,9 @@ IBM Cloud Schematics creates a workspace and runs the Terraform automation. You 
 
 It is a good idea to review the full log output for errors or warnings, even when the deployment reports as successful.
 {: note}
+
+A floating IP is automatically assigned to port1 and is visible in your VPC resources immediately after deployment. However, **you cannot connect to the firewall yet**. The security group created for your FortiGate denies all inbound traffic by default, except for one rule that permits HA heartbeat traffic between the two nodes. Before you can reach the management interface, you must add an inbound rule that allows access from your administrator IP address. For more information, see [Accessing the FortiGate web console](/docs/licensed-firewall?topic=licensed-firewall-access-firewall).
+{: important}
 
 The license plan that you select at deployment is permanent and cannot be changed after provisioning. You are billed for that license on the virtual server instance for as long as it runs. If you need a different license plan, you must place a new order and cancel the existing deployment. However, you can resize the virtual server instance without changing the license. For more information, see [Resizing a firewall virtual server instance](/docs/licensed-firewall?topic=licensed-firewall-changing-firewall-instance-profile-or-license-plan).
 {: important}

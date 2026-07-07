@@ -1,11 +1,11 @@
 ---
 copyright:
    years: 2026
-lastupdated: "2026-06-25"
+lastupdated: "2026-07-15"
 
 keywords: ibm cloud, fortinet, fortigate, firewall, migration, vpc, paygo, tutorial
 
-subcollection: licensed-firewalls
+subcollection: licensed-firewall
 
 content-type: tutorial
 services: network, firewall, vpc
@@ -53,6 +53,7 @@ Ensure the following prerequisites are met before starting the migration:
 - You are familiar with IBM Cloud Marketplace deployments.
 
 **Notes:**
+
 - IBM automatically applies FortiGate licenses when provisioning instances based on the selected VPC profile.
 - For detailed deployment guidance, refer to the [FortiGate Transit VPC patterns and deployment guide](/docs/pattern-transit-vpc-fortigate).
 

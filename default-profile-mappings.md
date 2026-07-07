@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-07-15"
 
 keywords: virtual server mapping, firewall profiles, instance profiles, license mapping
 

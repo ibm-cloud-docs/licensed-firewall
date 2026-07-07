@@ -1,71 +1,57 @@
 {
   "version": 2,
-  "title": "Licensed Firewall",
-  "introduction": "This is a description of what the user will be able to find in the content for your product.",
-  "product_page": "https://www.ibm.com/products/product-value",
-  "console_page": "/relative/console/path",
+  "title": "Licensed Firewall for FortiGate",
+  "introduction": "Deploy and manage Fortinet FortiGate Next-Generation Firewalls on IBM Cloud VPC with automatic license management, pay-as-you-go billing, and integrated threat protection.",
+  "product_page": "https://www.ibm.com/products/network-security",
+  "console_page": "/vpc/provision/fortigate",
   "section_topics": {
     "links": [
       {
-        "title": "Topic title",
-        "href": "/docs/overview?topic=overview-get-started-checklist"
+        "title": "Getting started with FortiGate on IBM Cloud VPC",
+        "href": "/docs/licensed-firewall?topic=licensed-firewall-getting-started"
       },
       {
-        "title": "Topic title",
-        "href": "/docs/overview?topic=overview-get-started-checklist"
+        "title": "Ordering a licensed FortiGate firewall",
+        "href": "/docs/licensed-firewall?topic=licensed-firewall-fortinet-firewall-order"
       },
       {
-        "title": "Topic title",
-        "href": "/docs/overview?topic=overview-get-started-checklist"
+        "title": "About firewall license plans and instance profiles",
+        "href": "/docs/licensed-firewall?topic=licensed-firewall-about-firewall-license-plans-and-instance-profiles"
       },
       {
-        "title": "Topic title",
-        "href": "/docs/overview?topic=overview-get-started-checklist"
+        "title": "Accessing the FortiGate web console",
+        "href": "/docs/licensed-firewall?topic=licensed-firewall-access-firewall"
       },
       {
-        "title": "Topic title",
-        "href": "/docs/overview?topic=overview-get-started-checklist"
+        "title": "Enabling security services",
+        "href": "/docs/licensed-firewall?topic=licensed-firewall-enable-security-services"
       }
     ]
   },
   "section_highlights": [
     {
-      "title": "Resource title",
-      "description": "Short description of resource content.",
-      "href": "https://www.example.ibm.com/link/to/resource",
-      "type": "blog"
+      "title": "FortiGate Transit VPC patterns and deployment guide",
+      "description": "Reference architectures and deployment patterns for FortiGate in IBM Cloud VPC hub-and-spoke and transit topologies.",
+      "href": "/docs/pattern-transit-vpc-fortigate",
+      "type": "architecture"
     },
     {
-      "title": "Db2 Optimization Techniques for SAP Database Migration to the Cloud",
-      "description": "This IBM Redbook provides in-depth recommendations for the source system database export.",
-      "href": "https://www.redbooks.ibm.com/abstracts/sg248531.html",
-      "type": "redbook",
+      "title": "FortiGate Administration Guide",
+      "description": "Fortinet's official administration guide covering firewall policies, security profiles, VPN configuration, and system management.",
+      "href": "https://docs.fortinet.com/product/fortigate/",
+      "type": "documentation",
       "recommended": true
     }
   ],
   "section_devtools": {
-    "api": "/apidocs/acme-test-v1/acme-test-v1.2.0",
-    "cli": "/docs/acme-test",
-    "terraform": "https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/iam_access_group"
+    "terraform": "https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_instance"
   },
   "section_updates": {
-    "view_more": "/docs/overview?topic=overview-whatsnew",
+    "view_more": "/docs/licensed-firewall",
     "tiles": [
       {
-        "date": "07 August 2025",
-        "title": "Experimental: Access resources from the Resources tab"
-      },
-      {
-        "date": "07 August 2025",
-        "title": "View counts for all resources in the resource summary widget"
-      },
-      {
-        "date": "17 June 2025",
-        "title": "Experimental: Using AI to answer your questions about IBM Cloud"
-      },
-      {
-        "date": "17 June 2025",
-        "title": "Changes to IBM Cloud projects API method to list all deployed resources"
+        "date": "15 July 2026",
+        "title": "FortiGate licensed firewall now available on IBM Cloud VPC"
       }
     ]
   }

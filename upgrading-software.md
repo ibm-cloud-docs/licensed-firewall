@@ -3,9 +3,9 @@
 copyright:
   years: 2026
 
-lastupdated: "2026-06-26"
+lastupdated: "2026-07-15"
 
-keywords: resize firewall, change license, vsi resize, firewall migration
+keywords: upgrade fortigate, downgrade fortigate, firmware update, fortigate software, fabric upgrade, fortios
 
 subcollection: licensed-firewall
 
