@@ -35,7 +35,7 @@ Review the following considerations before selecting your license plan and deplo
 - The selected license plan determines the available sizing options and scaling limits.
 - Some instance configurations might be less suitable for high availability or hub-and-spoke architectures. Review network design requirements before selecting a deployment.
 - All deployments include FortiCare Premium support.
-- Availability varies by region. Check the IBM Cloud catalog for supported locations.
+- Availability varies by region. Check the [IBM Cloud catalog](https://cloud.ibm.com/catalog){: external} for supported locations.
 
 The license plan cannot be changed after deployment. You can resize the virtual server instance to a different profile without changing the license plan. For more information, see [Resizing a firewall virtual server instance](/docs/licensed-firewall?topic=licensed-firewall-changing-firewall-instance-profile-or-license-plan).
 {: important}

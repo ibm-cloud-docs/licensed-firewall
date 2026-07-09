@@ -59,7 +59,7 @@ Try the following steps to resolve the issue:
 
 1. **Destroy and redeploy.**
 
-   If the workspace is in a partially provisioned state, click **Actions > Destroy resources** to clean up any resources that were created, then place a new order from the IBM Cloud catalog with corrected inputs.
+   If the workspace is in a partially provisioned state, click **Actions > Destroy resources** to clean up any resources that were created, then place a new order from the [IBM Cloud catalog](https://cloud.ibm.com/catalog){: external} with corrected inputs.
 
 1. **Open a support case.**
 

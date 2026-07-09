@@ -33,7 +33,7 @@ Review the following important considerations before you order:
 ### Limitations
 {: #getting-started-limitations}
 
-- **Regional availability varies** — The ATP license plan uses gen2-cx instance profiles, which are not available in all regions. Specifically, the `cx2-2x4` and `cx2-8x16` profiles are not available in Mumbai, Chennai, and Montreal. Check the IBM Cloud catalog for supported locations before ordering.
+- **Regional availability varies** — The ATP license plan uses gen2-cx instance profiles, which are not available in all regions. Specifically, the `cx2-2x4` and `cx2-8x16` profiles are not available in Mumbai, Chennai, and Montreal. Check the [IBM Cloud catalog](https://cloud.ibm.com/catalog){: external} for supported locations before ordering.
 - **FortiGate Cloud and FortiCloud access is not available** — Because the license is managed through the IBM Fortinet account, access to FortiGate Cloud and FortiCloud is not supported. AI-based inline malware prevention (Enterprise license) can be configured and used locally but cannot connect to FortiGate Cloud services.
 - **FortiManager and FortiAnalyzer are not included** — The standard offering does not include FortiManager or FortiAnalyzer. You can deploy these separately in your VPC if centralized management or advanced analytics are required.
 - **This is not a managed service** — IBM manages licensing and provides support coordination, but you are responsible for deploying, configuring, and maintaining your FortiGate instances. IBM does not configure firewall policies or apply updates on your behalf. For more information, see [Shared responsibilities](/docs/licensed-firewall?topic=licensed-firewall-shared-responsibilities).
