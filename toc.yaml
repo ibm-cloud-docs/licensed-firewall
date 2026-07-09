@@ -33,6 +33,7 @@ toc:
       - default-configuration.md
       - default-profile-mappings.md
       - roles.md
+      - shared-responsibilities.md
       - vulnerability-mgmt.md
   - navgroup:
       id: help
