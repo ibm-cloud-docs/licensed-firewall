@@ -110,6 +110,6 @@ For instructions, see [Enabling security services](/docs/licensed-firewall?topic
 
 IBM does not back up your FortiGate configuration. You are responsible for maintaining backups.
 
-- Export the configuration from **System > Configuration > Backup** on a regular schedule.
+- Export the configuration from the FortiGate web console on a regular schedule. For step-by-step instructions, see [Backing up and restoring the FortiGate configuration](/docs/licensed-firewall?topic=licensed-firewall-backup-restore-fortigate-config).
 - Store the backup securely and off the FortiGate instance (for example, in IBM Cloud Object Storage).
 - Test configuration restore procedures before you need them in production.

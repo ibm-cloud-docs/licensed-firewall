@@ -30,8 +30,7 @@ Before upgrading the FortiGate software:
 - Schedule a maintenance window because the FortiGate restarts during the upgrade.
 - Verify that the appliance can access FortiGuard to download firmware.
 
-For more information, see the Fortinet documentation:
-- [Firmware & Registration](https://docs.fortinet.com/document/fortigate/7.4.1/administration-guide/788240/firmware-registration){: external}
+For more information, see the [FortiGate Administration Guide](https://docs.fortinet.com/product/fortigate/8.0){: external}.
 
 ## Upgrade the firmware
 {: #upgrading-firmware}
@@ -50,9 +49,7 @@ To upgrade the firmware:
 
 During the upgrade, FortiGate downloads the required firmware from FortiGuard, installs the firmware, restarts as needed, and displays the upgrade status. If the recommended upgrade path is selected, FortiGate automatically performs each intermediate upgrade until the target version is installed.
 
-For more information, see:
-- [Upgrading Fabric or managed devices](https://docs2.fortinet.com/document/fortigate/7.4.4/administration-guide/849341/upgrading-fabric-or-managed-devices){: external}
-- [Upgrading all device firmware by following the upgrade path (Federated Update)](https://docs2.fortinet.com/document/fortigate/7.4.0/administration-guide/294656/upgrading-all-device-firmware-by-following-the-upgrade-path-federated-update){: external}
+For more information, see the [FortiGate Administration Guide](https://docs.fortinet.com/product/fortigate/8.0){: external}.
 
 ## Downgrading the firmware
 {: #downgrading-firmware}
@@ -80,8 +77,4 @@ After the appliance restarts:
 ## Next steps
 {: #upgrading-fortigate-software-next-steps}
 
-For additional information, see the following Fortinet documentation:
-
-- [Firmware & Registration](https://docs.fortinet.com/document/fortigate/7.4.1/administration-guide/788240/firmware-registration){: external}
-- [Upgrading Fabric or managed devices](https://docs2.fortinet.com/document/fortigate/7.4.4/administration-guide/849341/upgrading-fabric-or-managed-devices){: external}
-- [Upgrading all device firmware by following the upgrade path (Federated Update)](https://docs2.fortinet.com/document/fortigate/7.4.0/administration-guide/294656/upgrading-all-device-firmware-by-following-the-upgrade-path-federated-update){: external}
+For more information, see the [FortiGate Administration Guide](https://docs.fortinet.com/product/fortigate/8.0){: external}.

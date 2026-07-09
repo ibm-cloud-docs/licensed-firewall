@@ -3,7 +3,7 @@
 copyright:
   years: 2026
 
-lastupdated: "2026-07-07"
+lastupdated: "2026-07-09"
 
 keywords: firewall default configuration, FortiGate default config, HA configuration, bootstrap configuration, SDN connector, PAR, cloud-init
 
@@ -29,6 +29,23 @@ Depending on the deployment model, the bootstrap configuration configures:
 
 After deployment, you can modify the default configuration to meet your networking and security requirements.
 
+## Deployment comparison
+{: #deployment-comparison}
+
+The following table summarizes how the three deployment models differ.
+
+| Feature | Single VM | HA single-zone | HA cross-zone |
+| ------- | --------- | -------------- | ------------- |
+| Firewall instances | 1 | 2 | 2 |
+| Availability zones | 1 | 1 | 2 |
+| High availability | No | Yes | Yes |
+| HA heartbeat | No | Yes | Yes |
+| Dedicated HA management interface | No | Yes | Yes |
+| IBM Cloud SDN connector | No | Yes | Yes |
+| Public Address Range | No | No | Yes |
+| Automatic failover | No | Yes | Yes |
+{: caption="Deployment model comparison" caption-side="bottom"}
+
 The bootstrap configuration differs across the following deployment models:
 
 - [Single VM](#single-vm-default-config)
@@ -36,8 +53,6 @@ The bootstrap configuration differs across the following deployment models:
 - [HA single-zone — passive node](#ha-single-zone-passive-node)
 - [HA cross-zone — active node](#ha-cross-zone-active-node)
 - [HA cross-zone — passive node](#ha-cross-zone-passive-node)
-
-For a summary of how the three deployment models compare, see [Deployment comparison](#deployment-comparison).
 
 Bootstrap configurations contain variables that are replaced with deployment-specific values at provisioning time. For a complete list of variables and their sources, see [Bootstrap variables](#bootstrap-variables).
 
@@ -354,20 +369,3 @@ The following table lists all bootstrap variables and their sources:
 | `${par_id}` | Created automatically by IBM Cloud | Public Address Range identifier (cross-zone only). |
 | `${netmask}` | Fixed value | Subnet mask (`255.255.255.0`). |
 {: caption="Bootstrap configuration variables" caption-side="bottom"}
-
-## Deployment comparison
-{: #deployment-comparison}
-
-The following table summarizes how the three deployment models differ.
-
-| Feature | Single VM | HA single-zone | HA cross-zone |
-| ------- | --------- | -------------- | ------------- |
-| Firewall instances | 1 | 2 | 2 |
-| Availability zones | 1 | 1 | 2 |
-| High availability | No | Yes | Yes |
-| HA heartbeat | No | Yes | Yes |
-| Dedicated HA management interface | No | Yes | Yes |
-| IBM Cloud SDN connector | No | Yes | Yes |
-| Public Address Range | No | No | Yes |
-| Automatic failover | No | Yes | Yes |
-{: caption="Deployment model comparison" caption-side="bottom"}

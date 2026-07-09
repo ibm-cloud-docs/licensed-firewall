@@ -22,6 +22,22 @@ Deployed in a VPC architecture, FortiGate provides centralized visibility and co
 
 Because FortiGate is deployed as a licensed virtual appliance in IBM Cloud VPC, organizations must also account for resource consumption, such as compute, storage, and network usage, to ensure effective monitoring and cost control.
 
+## Planning considerations
+{: #getting-started-planning}
+
+Review the following important considerations before you order:
+
+- **License plan is permanent** — The license plan that you select at deployment cannot be changed after provisioning. You are billed for that license on the virtual server instance for as long as it runs. If you need a different license plan, you must place a new order and cancel the existing deployment. You can resize the virtual server instance without changing the license. For more information, see [Resizing a firewall virtual server instance](/docs/licensed-firewall?topic=licensed-firewall-changing-firewall-instance-profile-or-license-plan).
+- **Security group denies all inbound traffic by default** — A floating IP is automatically assigned to port1 (the public-facing interface) and is visible in your VPC resources immediately after deployment. However, you cannot connect to the firewall until you add an inbound security group rule that allows management access from your administrator IP address. For more information, see [Accessing the FortiGate web console](/docs/licensed-firewall?topic=licensed-firewall-access-firewall).
+
+### Limitations
+{: #getting-started-limitations}
+
+- **Regional availability varies** — The ATP license plan uses gen2-cx instance profiles, which are not available in all regions. Specifically, the `cx2-2x4` and `cx2-8x16` profiles are not available in Mumbai, Chennai, and Montreal. Check the IBM Cloud catalog for supported locations before ordering.
+- **FortiGate Cloud and FortiCloud access is not available** — Because the license is managed through the IBM Fortinet account, access to FortiGate Cloud and FortiCloud is not supported. AI-based inline malware prevention (Enterprise license) can be configured and used locally but cannot connect to FortiGate Cloud services.
+- **FortiManager and FortiAnalyzer are not included** — The standard offering does not include FortiManager or FortiAnalyzer. You can deploy these separately in your VPC if centralized management or advanced analytics are required.
+- **This is not a managed service** — IBM manages licensing and provides support coordination, but you are responsible for deploying, configuring, and maintaining your FortiGate instances. IBM does not configure firewall policies or apply updates on your behalf. For more information, see [Shared responsibilities](/docs/licensed-firewall?topic=licensed-firewall-shared-responsibilities).
+
 ## Key benefits
 {: #fortigate-highlights}
 
@@ -33,14 +49,6 @@ FortiGate PayGo combines enterprise-grade security with cloud-native simplicity,
 - **Scale on demand** – Adjust capacity and security features as workloads change.
 - **Centralized visibility and control** – Monitor and control all network traffic entering, leaving, and moving within your VPC from a single management interface.
 - **Comprehensive built-in security** – Protect workloads with IPS, application-aware policy enforcement, antivirus, web filtering, VPN, and continuous threat intelligence updates.
-
-## Planning considerations
-{: #getting-started-planning}
-
-Review the following important considerations before you order:
-
-- **License plan is permanent** — The license plan that you select at deployment cannot be changed after provisioning. You are billed for that license on the virtual server instance for as long as it runs. If you need a different license plan, you must place a new order and cancel the existing deployment. You can resize the virtual server instance without changing the license. For more information, see [Resizing a firewall virtual server instance](/docs/licensed-firewall?topic=licensed-firewall-changing-firewall-instance-profile-or-license-plan).
-- **Security group denies all inbound traffic by default** — A floating IP is automatically assigned to port1 (the public-facing interface) and is visible in your VPC resources immediately after deployment. However, you cannot connect to the firewall until you add an inbound security group rule that allows management access from your administrator IP address. For more information, see [Accessing the FortiGate web console](/docs/licensed-firewall?topic=licensed-firewall-access-firewall).
 
 ## Getting started
 {: #getting-started-next-steps}
@@ -60,7 +68,12 @@ To get started, complete the following steps:
 1. [Understand the default firewall configuration](/docs/licensed-firewall?topic=licensed-firewall-understanding-default-firewall-configuration) — review the bootstrap configurations applied to each of the five deployment options (Single VM, HA single-zone active, HA single-zone passive, HA cross-zone active, HA cross-zone passive).
 1. [Order a licensed FortiGate firewall](/docs/licensed-firewall?topic=licensed-firewall-fortinet-firewall-order) — deploy a single VM, HA single zone, or HA cross zone configuration from the IBM Cloud catalog.
 1. [Access the FortiGate web console](/docs/licensed-firewall?topic=licensed-firewall-access-firewall) — add an inbound security group rule to allow management access, configure VPC routing to pass traffic through the firewall, and log in to the management interface for the first time. Step-by-step instructions for each of these tasks are provided in that topic.
+1. [Enable security services](/docs/licensed-firewall?topic=licensed-firewall-enable-security-services) — activate IPS, antivirus, web filtering, and other security profiles based on your license plan.
+1. [Back up the FortiGate configuration](/docs/licensed-firewall?topic=licensed-firewall-backup-restore-fortigate-config) — create an initial backup of your configuration after setup is complete and store it securely.
 1. [Monitor your FortiGate firewall](/docs/licensed-firewall?topic=licensed-firewall-monitoring) — review logs, check instance health, and verify that firewall policies are working as expected.
 
 If you are migrating an existing Classic FortiGate deployment to VPC, see [Migrating Fortinet FortiGate from Classic to VPC PayGo](/docs/licensed-firewall?topic=licensed-firewall-tutorial-fortigate-vpc-migration).
 {: note}
+
+For security hardening guidance after initial setup, see [Security best practices for FortiGate on IBM Cloud VPC](/docs/licensed-firewall?topic=licensed-firewall-fortigate-security-best-practices).
+{: tip}

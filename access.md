@@ -18,6 +18,13 @@ subcollection: licensed-firewall
 After you deploy a FortiGate firewall, you can access the management interface through a web browser or SSH. Before you can connect, you must add an inbound rule to the security group that was created for the firewall.
 {: shortdesc}
 
+## Before you begin
+{: #access-firewall-prereqs}
+
+- The FortiGate deployment must be complete and in a running state.
+- You need the public floating IP address assigned to port1 of your FortiGate instance. This is displayed as `FortiGate_Public_IP` in the Schematics workspace output after deployment.
+- You need the initial administrator password, displayed as `Default_Admin_Password` in the Schematics workspace output.
+
 ## Default network security posture
 {: #access-firewall-default-posture}
 
@@ -33,13 +40,6 @@ When deployment completes, the following is true by default:
 
 This default posture ensures that your firewall is not openly reachable on the internet immediately after provisioning. You will see a floating IP in your VPC resources, but attempts to connect to it in a browser or over SSH will time out until you add an inbound security group rule that allows access from your administrator IP address.
 {: important}
-
-## Before you begin
-{: #access-firewall-prereqs}
-
-- The FortiGate deployment must be complete and in a running state.
-- You need the public floating IP address assigned to port1 of your FortiGate instance. This is displayed as `FortiGate_Public_IP` in the Schematics workspace output after deployment.
-- You need the initial administrator password, displayed as `Default_Admin_Password` in the Schematics workspace output.
 
 ## Step 1: Allow management access in the security group
 {: #access-firewall-security-group}

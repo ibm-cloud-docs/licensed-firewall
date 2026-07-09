@@ -13,6 +13,7 @@ toc:
       topics:
       - getting-started.md
       - license-plans-instance-profiles-overview.md
+      - release-notes.md
   - navgroup:
       id: tutorial
       topics:
@@ -22,19 +23,20 @@ toc:
       topics:
       - deploy.md
       - access.md
-      - upgrading-software.md
       - pricing-plans.md
+      - backup-restore-config.md
+      - upgrading-software.md
       - security-services.md
       - monitoring.md
       - security-best-practices.md
+      - vulnerability-mgmt.md
   - navgroup:
       id: reference
       topics:
       - default-configuration.md
       - default-profile-mappings.md
-      - roles.md
       - shared-responsibilities.md
-      - vulnerability-mgmt.md
+      - roles.md
   - navgroup:
       id: help
       topics:

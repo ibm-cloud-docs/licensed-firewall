@@ -40,8 +40,8 @@ The virtual server instance restarts automatically after the resize is complete.
 The license plan cannot be changed on an existing firewall deployment. To use a different license plan, you must place a new order and cancel the existing one.
 
 1. From the IBM Cloud catalog, deploy a new firewall instance with the required license plan and deployment size.
-1. Export the configuration from the existing firewall.
-1. Import the configuration into the new instance.
+1. [Export the configuration from the existing firewall](/docs/licensed-firewall?topic=licensed-firewall-backup-restore-fortigate-config#backup-config).
+1. [Import the configuration into the new instance](/docs/licensed-firewall?topic=licensed-firewall-backup-restore-fortigate-config#restore-config).
 1. Validate firewall rules, routing, connectivity, and traffic flow.
 1. Redirect traffic to the new instance.
 1. Cancel the existing firewall deployment.

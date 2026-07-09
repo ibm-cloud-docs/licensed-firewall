@@ -12,7 +12,7 @@ subcollection: licensed-firewall
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Shared responsibilities for FortiGate licensed firewall
+# Shared responsibilities for FortiGate licensed firewall `alternative to RACII`{: tag-purple}
 {: #shared-responsibilities}
 
 The FortiGate licensed firewall is a customer-managed service. IBM provides license management and technical support coordination, but you are responsible for deploying, configuring, operating, and maintaining your FortiGate virtual server instances. Use this topic to understand where IBM's responsibilities end and yours begin.

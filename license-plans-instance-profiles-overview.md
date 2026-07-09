@@ -26,10 +26,24 @@ The license plan determines:
 
 The license plan and virtual server profile are linked at deployment time.
 
+## Planning considerations
+{: #considerations}
+
+Review the following considerations before selecting your license plan and deployment size:
+
+- Larger deployment sizes provide higher throughput and session capacity.
+- The selected license plan determines the available sizing options and scaling limits.
+- Some instance configurations might be less suitable for high availability or hub-and-spoke architectures. Review network design requirements before selecting a deployment.
+- All deployments include FortiCare Premium support.
+- Availability varies by region. Check the IBM Cloud catalog for supported locations.
+
+The license plan and virtual server profile are linked and cannot be changed after deployment.
+{: important}
+
 ## Choosing a license plan
 {: #choosing-a-license-plan}
 
-Select a license plan based on your workload requirements, performance needs, and scale.
+Select a license plan based on your workload requirements, performance needs, and scale. For more information about FortiGate Security Bundle features, see the [FortiGate Security Bundles page](https://www.fortinet.com/support/support-services/fortiguard-security-subscriptions/fortigate-security-bundles){: external}.
 
 | License plan | Best for | Supported sizes | Profile family | Key characteristics |
 |--------------|----------|------------------|----------------|--------------------|
@@ -37,6 +51,34 @@ Select a license plan based on your workload requirements, performance needs, an
 | UTP (Unified Threat Protection) | General-purpose security | Small, Medium, Large | gen3-cx | Balanced cost and performance |
 | Enterprise | High-performance environments | Medium, Large, X-large | gen3-cx | Highest scalability and throughput |
 {: caption="License plan comparison" caption-side="bottom"}
+
+## License plan feature entitlements
+{: #license-plan-features}
+
+The following table shows the security services and features included in each license plan.
+
+| Feature | ATP | UTP | Enterprise |
+|---------|-----|-----|------------|
+| Intrusion Prevention System (IPS) | ![Checkmark icon](../icons/checkmark-icon.svg "Checkmark") | ![Checkmark icon](../icons/checkmark-icon.svg "Checkmark") | ![Checkmark icon](../icons/checkmark-icon.svg "Checkmark") |
+| Application control | ![Checkmark icon](../icons/checkmark-icon.svg "Checkmark") | ![Checkmark icon](../icons/checkmark-icon.svg "Checkmark") | ![Checkmark icon](../icons/checkmark-icon.svg "Checkmark") |
+| Geo IP updates | ![Checkmark icon](../icons/checkmark-icon.svg "Checkmark") | ![Checkmark icon](../icons/checkmark-icon.svg "Checkmark") | ![Checkmark icon](../icons/checkmark-icon.svg "Checkmark") |
+| Advanced Malware Protection (AMP) | ![Checkmark icon](../icons/checkmark-icon.svg "Checkmark") | ![Checkmark icon](../icons/checkmark-icon.svg "Checkmark") | ![Checkmark icon](../icons/checkmark-icon.svg "Checkmark") |
+| Antivirus | ![Checkmark icon](../icons/checkmark-icon.svg "Checkmark") | ![Checkmark icon](../icons/checkmark-icon.svg "Checkmark") | ![Checkmark icon](../icons/checkmark-icon.svg "Checkmark") |
+| Botnet protection | ![Checkmark icon](../icons/checkmark-icon.svg "Checkmark") | ![Checkmark icon](../icons/checkmark-icon.svg "Checkmark") | ![Checkmark icon](../icons/checkmark-icon.svg "Checkmark") |
+| Device and OS detection | ![Checkmark icon](../icons/checkmark-icon.svg "Checkmark") | ![Checkmark icon](../icons/checkmark-icon.svg "Checkmark") | ![Checkmark icon](../icons/checkmark-icon.svg "Checkmark") |
+| Internet Service (SaaS) database | ![Checkmark icon](../icons/checkmark-icon.svg "Checkmark") | ![Checkmark icon](../icons/checkmark-icon.svg "Checkmark") | ![Checkmark icon](../icons/checkmark-icon.svg "Checkmark") |
+| Web and content filtering | | ![Checkmark icon](../icons/checkmark-icon.svg "Checkmark") | ![Checkmark icon](../icons/checkmark-icon.svg "Checkmark") |
+| Secure DNS filtering | | ![Checkmark icon](../icons/checkmark-icon.svg "Checkmark") | ![Checkmark icon](../icons/checkmark-icon.svg "Checkmark") |
+| Video filtering | | ![Checkmark icon](../icons/checkmark-icon.svg "Checkmark") | ![Checkmark icon](../icons/checkmark-icon.svg "Checkmark") |
+| AntiSpam | | ![Checkmark icon](../icons/checkmark-icon.svg "Checkmark") | ![Checkmark icon](../icons/checkmark-icon.svg "Checkmark") |
+| IoT query service | | | ![Checkmark icon](../icons/checkmark-icon.svg "Checkmark") |
+| OT protocol service | | | ![Checkmark icon](../icons/checkmark-icon.svg "Checkmark") |
+| Security Fabric rating and compliance monitoring | | | ![Checkmark icon](../icons/checkmark-icon.svg "Checkmark") |
+| AI-based inline malware prevention | | | ![Checkmark icon](../icons/checkmark-icon.svg "Checkmark") |
+{: caption="License plan feature entitlements" caption-side="bottom"}
+
+AI-based inline malware prevention is included with the Enterprise license and can be configured, used, and logged. However, access to FortiGate Cloud and FortiCloud is not available because the license is managed through the IBM Fortinet account.
+{: note}
 
 ## Sizing and scaling characteristics
 {: #sizing-and-scaling-characteristics}
@@ -143,17 +185,3 @@ Consider the following factors when evaluating instance profiles for your deploy
 - Profiles with higher memory ratios can benefit environments with high session counts.
 - Profiles with `-d` include additional instance storage, which can increase cost.
 - Profile selection impacts both performance characteristics and pricing.
-
-## Planning considerations
-{: #considerations}
-
-Review the following considerations before selecting your license plan and deployment size:
-
-- Larger deployment sizes provide higher throughput and session capacity.
-- The selected license plan determines the available sizing options and scaling limits.
-- Some instance configurations might be less suitable for high availability or hub-and-spoke architectures. Review network design requirements before selecting a deployment.
-- All deployments include FortiCare Premium support.
-- Availability varies by region. Check the IBM Cloud catalog for supported locations.
-
-The license plan and virtual server profile are linked and cannot be changed after deployment.
-{: important}
