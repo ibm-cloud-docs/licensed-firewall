@@ -98,7 +98,8 @@ Deployment sizes are mapped to vCPU allocations.
 | X-large | 32 |
 {: caption="Deployment size vCPU allocations" caption-side="bottom"}
 
-- Larger deployment sizes include increased memory, which improves session handling and overall scalability.
+Larger deployment sizes include increased memory, which improves session handling and overall scalability.
+{: note}
 
 ### Supported sizes by license plan
 {: #supported-deployment-sizes-by-license-plan}
