@@ -32,15 +32,12 @@
     {
       "title": "FortiGate Transit VPC patterns and deployment guide",
       "description": "Reference architectures and deployment patterns for FortiGate in IBM Cloud VPC hub-and-spoke and transit topologies.",
-      "href": "/docs/pattern-transit-vpc-fortigate",
-      "type": "architecture"
+      "href": "/docs/pattern-transit-vpc-fortigate"
     },
     {
       "title": "FortiGate Administration Guide",
       "description": "Fortinet's official administration guide covering firewall policies, security profiles, VPN configuration, and system management.",
-      "href": "https://docs.fortinet.com/product/fortigate/8.0",
-      "type": "documentation",
-      "recommended": true
+      "href": "https://docs.fortinet.com/product/fortigate/8.0"
     }
   ],
   "section_devtools": {
