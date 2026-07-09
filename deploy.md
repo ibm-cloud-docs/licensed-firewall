@@ -31,6 +31,7 @@ The number of subnets required depends on the topology you are deploying:
 | Single VM | 2 — one public (port1), one private (port2) |
 | HA Single Zone | 4 — public (port1), private (port2), HA heartbeat (port3), HA management (port4) |
 | HA Cross Zone | 8 — four per zone, one for each port |
+{: caption="Subnet requirements by topology" caption-side="bottom"}
 
 The security group is created automatically during deployment. You do not need to create one in advance.
 

@@ -22,15 +22,15 @@ After you deploy a FortiGate firewall, you can access the management interface t
 {: #access-firewall-prereqs}
 
 - The FortiGate deployment must be complete and in a running state.
-- You need the public floating IP address and initial administrator password from the Schematics workspace output. The output variable names differ by topology:
-
-  | Topology | Public IP output | Password output |
-  |---|---|---|
-  | Single VM | `FortiGate_Public_IP` | `Default_Admin_Password` |
-  | HA Single Zone | `FortiGate_Public_IP` (active node port1) | `FGT1_Default_Admin_Password`, `FGT2_Default_Admin_Password` |
-  | HA Cross Zone | `FGT1_Port1_Public_IP`, `FGT2_Port1_Public_IP` | `FGT1_Default_Admin_Password`, `FGT2_Default_Admin_Password` |
-
+- You need the public floating IP address and initial administrator password from the Schematics workspace output. The output variable names differ by topology.
 - The initial administrator password may be empty on first boot. If the password field is empty, use the virtual server instance ID as the initial password.
+
+| Topology | Public IP output | Password output |
+|---|---|---|
+| Single VM | `FortiGate_Public_IP` | `Default_Admin_Password` |
+| HA Single Zone | `FortiGate_Public_IP` (active node port1) | `FGT1_Default_Admin_Password`, `FGT2_Default_Admin_Password` |
+| HA Cross Zone | `FGT1_Port1_Public_IP`, `FGT2_Port1_Public_IP` | `FGT1_Default_Admin_Password`, `FGT2_Default_Admin_Password` |
+{: caption="Schematics workspace output variables by topology" caption-side="bottom"}
 
 ## Default network security posture
 {: #access-firewall-default-posture}
@@ -73,11 +73,13 @@ Restrict inbound access to known administrator IP addresses only. Avoid using `0
 
 Two methods are available to access the FortiGate management console. Use the method that best fits your security requirements.
 
-**Method 1: Floating IP with allowlist (default)**
+### Method 1: Floating IP with allowlist (default)
+{: #access-method-fip}
 
 The floating IP on port1 is assigned automatically and is internet-routable. To use it for management access, add an inbound security group rule (step 1 above) that restricts access to your administrator IP address.
 
-**Method 2: VPN access (no floating IP required)**
+### Method 2: VPN access (no floating IP required)
+{: #access-method-vpn}
 
 Configure a VPN connection into your VPC and access the FortiGate management interface using its private IP address on port 443. This method eliminates direct internet-facing management access entirely and does not require modification of the floating IP configuration. For guidance on setting up VPN access, see [Use a VPN or bastion host for management access](/docs/licensed-firewall?topic=licensed-firewall-fortigate-security-best-practices#bp-vpn-management).
 
