@@ -59,21 +59,23 @@ FortiGate is deployed as a virtual firewall inside your VPC and integrates with 
 
 You can deploy and operate enterprise firewall security using the same workflows as the rest of your cloud infrastructure.
 
-## Before you begin
-{: #before-you-begin}
+## Getting started
+{: #getting-started-next-steps}
 
-Review the following prerequisites and planning considerations before deploying this licensed firewall:
+Before you begin, ensure that the following resources exist in your IBM Cloud account:
 
-* An IBM Cloud account with access to VPC
-* A VPC with subnets configured for your deployment
-* Appropriate IAM permissions to create and manage resources
-* A secure access method (such as VPN or bastion host) to reach the firewall instance
+- An IBM Cloud account with access to VPC
+- A VPC with subnets configured for your deployment
+- Appropriate IAM permissions to create and manage resources
+- A secure access method (such as VPN or bastion host) to reach the firewall instance
 
 _This third-party product is provided by a vendor outside of IBM and is subject to a separate agreement between you and the third party if you accept their terms. IBM is not responsible for the product and makes no privacy, security, performance, support, or other commitments regarding the product._
 
-## Next steps
-{: #getting-started-next-steps}
+To get started, complete the following steps:
 
-* [Order a licensed FortiGate firewall](/docs/licensed-firewall?topic=licensed-firewall-fortinet-firewall-order) — deploy a single VM, HA single zone, or HA cross zone configuration from the IBM Cloud catalog.
-* [Review license plans and instance profiles](/docs/licensed-firewall?topic=licensed-firewall-about-firewall-license-plans-and-instance-profiles) — understand the available license tiers, deployment sizes, and performance characteristics before ordering.
-* [Walk through the migration tutorial](/docs/licensed-firewall?topic=licensed-firewall-tutorial-fortigate-vpc-migration) — follow a step-by-step guide to migrate an existing Classic FortiGate deployment to VPC.
+1. [Review license plans and instance profiles](/docs/licensed-firewall?topic=licensed-firewall-about-firewall-license-plans-and-instance-profiles) — understand the available license tiers, deployment sizes, and performance characteristics before ordering.
+1. [Understand the default firewall configuration](/docs/licensed-firewall?topic=licensed-firewall-understanding-default-firewall-configuration) — review the bootstrap configurations applied to each of the five deployment options (Single VM, HA single-zone active, HA single-zone passive, HA cross-zone active, HA cross-zone passive).
+1. [Order a licensed FortiGate firewall](/docs/licensed-firewall?topic=licensed-firewall-fortinet-firewall-order) — deploy a single VM, HA single zone, or HA cross zone configuration from the IBM Cloud catalog.
+
+If you are migrating an existing Classic FortiGate deployment to VPC, see [Migrating Fortinet FortiGate from Classic to VPC PayGo](/docs/licensed-firewall?topic=licensed-firewall-tutorial-fortigate-vpc-migration).
+{: note}
