@@ -3,7 +3,7 @@
   "title": "Licensed Firewall for FortiGate",
   "introduction": "Deploy and manage Fortinet FortiGate Next-Generation Firewalls on IBM Cloud VPC with automatic license management, pay-as-you-go billing, and integrated threat protection.",
   "product_page": "https://www.ibm.com/products/network-security",
-  "console_page": "/vpc/provision/fortigate",
+  "console_page": "/catalog#search=Fortinet%20FortiGate%20VM%20NGFW",
   "section_topics": {
     "links": [
       {
@@ -11,12 +11,12 @@
         "href": "/docs/licensed-firewall?topic=licensed-firewall-getting-started"
       },
       {
-        "title": "Ordering a licensed FortiGate firewall",
-        "href": "/docs/licensed-firewall?topic=licensed-firewall-fortinet-firewall-order"
+        "title": "Choosing a deployment topology and license plan",
+        "href": "/docs/licensed-firewall?topic=licensed-firewall-about-firewall-license-plans-and-instance-profiles"
       },
       {
-        "title": "About firewall license plans and instance profiles",
-        "href": "/docs/licensed-firewall?topic=licensed-firewall-about-firewall-license-plans-and-instance-profiles"
+        "title": "Ordering a licensed FortiGate firewall",
+        "href": "/docs/licensed-firewall?topic=licensed-firewall-fortinet-firewall-order"
       },
       {
         "title": "Accessing the FortiGate web console",
@@ -38,7 +38,7 @@
     {
       "title": "FortiGate Administration Guide",
       "description": "Fortinet's official administration guide covering firewall policies, security profiles, VPN configuration, and system management.",
-      "href": "https://docs.fortinet.com/product/fortigate/8.0",
+      "href": "https://docs.fortinet.com/product/fortigate/latest",
       "type": "article"
     }
   ],
