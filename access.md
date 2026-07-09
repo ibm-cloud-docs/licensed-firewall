@@ -25,15 +25,13 @@ Understanding the default network configuration helps explain why the firewall i
 
 When deployment completes, the following is true by default:
 
-- A **floating IP** is assigned to port1 (the public-facing interface). This IP is internet-routable and visible in your VPC.
-- A **dedicated security group** is created and attached to all FortiGate network interfaces.
-- All **inbound rules are deny-all** — no traffic can reach the firewall from the internet or your VPC until you explicitly allow it.
-- All **outbound rules are open** — the firewall can initiate traffic outbound, which is required for license activation and FortiGuard updates.
-- For HA deployments, **one inbound rule** is pre-configured to allow HA heartbeat traffic between the two FortiGate nodes on the cluster sync interface.
+- A floating IP is assigned to port1 (the public-facing interface). This IP is internet-routable and visible in your VPC.
+- A dedicated security group is created and attached to all FortiGate network interfaces.
+- All inbound traffic is denied by default — no traffic can reach the firewall from the internet or your VPC until you explicitly allow it.
+- All outbound traffic is allowed by default — the firewall can initiate outbound connections, which is required for license activation and FortiGuard updates.
+- For HA deployments, one inbound rule is pre-configured to allow HA heartbeat traffic between the two FortiGate nodes on the cluster sync interface.
 
-This posture is intentional. The CISO requirement is that the firewall must not be openly reachable on the internet immediately after provisioning. You must explicitly allow your own administrator IP address before you can log in.
-
-This means you will see a floating IP in your VPC resources, but attempts to connect to it in a browser or over SSH will time out until you complete Step 1 below.
+This default posture ensures that your firewall is not openly reachable on the internet immediately after provisioning. You will see a floating IP in your VPC resources, but attempts to connect to it in a browser or over SSH will time out until you add an inbound security group rule that allows access from your administrator IP address.
 {: important}
 
 ## Before you begin
@@ -61,7 +59,26 @@ The security group created during deployment denies all inbound traffic by defau
 Restrict inbound access to known administrator IP addresses only. Avoid using `0.0.0.0/0` as the source.
 {: important}
 
-## Step 2: Log in to the FortiGate web console
+## Step 2: Route traffic through the firewall
+{: #access-firewall-routing}
+
+The floating IP on port1 makes the firewall reachable from the internet for management purposes. However, for the FortiGate to actually inspect and control traffic between your VPC subnets or between your VPC and the internet, you must configure VPC routing to send traffic through the firewall.
+
+To route traffic through the FortiGate, update the VPC routing tables so that the FortiGate's private interface (port2) is the next hop for the traffic you want to inspect:
+
+1. In the [IBM Cloud console](https://cloud.ibm.com){: external}, click the navigation menu and select **VPC Infrastructure > Network > Routing tables**.
+1. Select the routing table associated with the subnet whose traffic you want to route through the firewall.
+1. Click **Create route**.
+1. Set the **Destination CIDR** to the traffic you want to inspect (for example, `0.0.0.0/0` for all outbound internet traffic, or a specific subnet CIDR for inter-subnet traffic).
+1. Set the **Next hop** type to **IP address** and enter the private IP address of the FortiGate port2 interface.
+1. Click **Save**.
+
+Repeat this for each subnet whose traffic should flow through the firewall.
+
+For traffic to flow correctly, the FortiGate must also have a firewall policy that allows the traffic between the source and destination interfaces (port1 and port2). Without a matching allow policy, the FortiGate drops the traffic even if routing is correctly configured. For guidance on creating firewall policies, see the [FortiGate Administration Guide](https://docs.fortinet.com/product/fortigate/8.0){: external}.
+{: important}
+
+## Step 3: Log in to the FortiGate web console
 {: #access-firewall-login}
 
 1. Open a web browser and navigate to `https://<FortiGate_Public_IP>`.
@@ -69,7 +86,7 @@ Restrict inbound access to known administrator IP addresses only. Avoid using `0
 1. Log in with the username `admin` and the initial password from the Schematics workspace output.
 1. When prompted, change the administrator password to a strong, unique value.
 
-## Step 3: Connect by using SSH (optional)
+## Step 4: Connect by using SSH (optional)
 {: #access-firewall-ssh}
 
 1. Open a terminal on your workstation.
@@ -88,5 +105,5 @@ SSH access requires a TCP port 22 inbound rule in the security group in addition
 ## Next steps
 {: #access-firewall-next-steps}
 
-- [Configure firewall policies](/docs/licensed-firewall?topic=licensed-firewall-configure-policies) to control traffic through your FortiGate instance.
+- [Configure firewall policies](https://docs.fortinet.com/product/fortigate/8.0){: external} using the FortiGate Administration Guide on the Fortinet documentation site.
 - [Enable security services](/docs/licensed-firewall?topic=licensed-firewall-enable-security-services) to activate IPS, antivirus, and web filtering.

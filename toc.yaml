@@ -24,7 +24,6 @@ toc:
       - access.md
       - upgrading-software.md
       - pricing-plans.md
-      - configure-policies.md
       - security-services.md
       - monitoring.md
       - security-best-practices.md
@@ -45,3 +44,4 @@ toc:
           label: Troubleshooting
           topics:
           - troubleshoot.md
+          - troubleshoot-schematics-deployment.md

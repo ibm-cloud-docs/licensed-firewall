@@ -71,6 +71,14 @@ Before you begin, ensure that the following resources exist in your IBM Cloud ac
 
 _This third-party product is provided by a vendor outside of IBM and is subject to a separate agreement between you and the third party if you accept their terms. IBM is not responsible for the product and makes no privacy, security, performance, support, or other commitments regarding the product._
 
+### Planning considerations
+{: #getting-started-planning}
+
+Review the following important considerations before you order:
+
+- **License plan is permanent** — The license plan that you select at deployment cannot be changed after provisioning. You are billed for that license on the virtual server instance for as long as it runs. If you need a different license plan, you must place a new order and cancel the existing deployment. You can resize the virtual server instance without changing the license. For more information, see [Resizing a firewall virtual server instance](/docs/licensed-firewall?topic=licensed-firewall-changing-firewall-instance-profile-or-license-plan).
+- **Security group denies all inbound traffic by default** — A floating IP is automatically assigned to port1 (the public-facing interface) and is visible in your VPC resources immediately after deployment. However, you cannot connect to the firewall until you add an inbound security group rule that allows management access from your administrator IP address. For more information, see [Accessing the FortiGate web console](/docs/licensed-firewall?topic=licensed-firewall-access-firewall).
+
 To get started, complete the following steps:
 
 1. [Review license plans and instance profiles](/docs/licensed-firewall?topic=licensed-firewall-about-firewall-license-plans-and-instance-profiles) — understand the available license tiers, deployment sizes, and performance characteristics before ordering.

@@ -22,7 +22,7 @@ You can order a licensed Fortinet FortiGate Next-Generation Firewall from the IB
 ## Before you begin
 {: #deploy-fortinet-prereqs}
 
-Before you deploy a FortiGate firewall, ensure that the following resources exist in your IBM Cloud account:
+Before you deploy a FortiGate firewall, ensure that the following resources exist in your IBM Cloud account and that you have reviewed the [planning considerations](/docs/licensed-firewall?topic=licensed-firewall-getting-started#getting-started-planning).
 
 - A VPC in the target region
 - At least two subnets in the VPC: one public subnet for port1 and one private subnet for port2
@@ -72,10 +72,7 @@ Save these values before you close the workspace — you need them to log in to 
 It is a good idea to review the full log output for errors or warnings, even when the deployment reports as successful.
 {: note}
 
-A floating IP is automatically assigned to port1 (the public-facing interface) and is visible in your VPC resources immediately after deployment. However, **you cannot connect to the firewall yet**. The security group created for your FortiGate denies all inbound traffic by default. Before you can reach the management interface, you must add an inbound rule that allows access from your administrator IP address. For more information, see [Accessing the FortiGate web console](/docs/licensed-firewall?topic=licensed-firewall-access-firewall).
-{: important}
-
-The license plan that you select at deployment is permanent and cannot be changed after provisioning. You are billed for that license on the virtual server instance for as long as it runs. If you need a different license plan, you must place a new order and cancel the existing deployment. However, you can resize the virtual server instance without changing the license. For more information, see [Resizing a firewall virtual server instance](/docs/licensed-firewall?topic=licensed-firewall-changing-firewall-instance-profile-or-license-plan).
+Before you attempt to connect, review the [planning considerations](/docs/licensed-firewall?topic=licensed-firewall-getting-started#getting-started-planning) for information about the default security group posture and license plan constraints.
 {: important}
 
 ## Deploying a FortiGate HA Single Zone firewall
@@ -113,10 +110,7 @@ IBM Cloud Schematics creates a workspace and runs the Terraform automation. You 
 It is a good idea to review the full log output for errors or warnings, even when the deployment reports as successful.
 {: note}
 
-A floating IP is automatically assigned to port1 and is visible in your VPC resources immediately after deployment. However, **you cannot connect to the firewall yet**. The security group created for your FortiGate denies all inbound traffic by default, except for one rule that permits HA heartbeat traffic between the two nodes. Before you can reach the management interface, you must add an inbound rule that allows access from your administrator IP address. For more information, see [Accessing the FortiGate web console](/docs/licensed-firewall?topic=licensed-firewall-access-firewall).
-{: important}
-
-The license plan that you select at deployment is permanent and cannot be changed after provisioning. You are billed for that license on the virtual server instance for as long as it runs. If you need a different license plan, you must place a new order and cancel the existing deployment. However, you can resize the virtual server instance without changing the license. For more information, see [Resizing a firewall virtual server instance](/docs/licensed-firewall?topic=licensed-firewall-changing-firewall-instance-profile-or-license-plan).
+Before you attempt to connect, review the [planning considerations](/docs/licensed-firewall?topic=licensed-firewall-getting-started#getting-started-planning) for information about the default security group posture and license plan constraints.
 {: important}
 
 ## Deploying a FortiGate HA Cross Zone firewall
@@ -155,8 +149,5 @@ IBM Cloud Schematics creates a workspace and runs the Terraform automation. You 
 It is a good idea to review the full log output for errors or warnings, even when the deployment reports as successful.
 {: note}
 
-A floating IP is automatically assigned to port1 and is visible in your VPC resources immediately after deployment. However, **you cannot connect to the firewall yet**. The security group created for your FortiGate denies all inbound traffic by default, except for one rule that permits HA heartbeat traffic between the two nodes. Before you can reach the management interface, you must add an inbound rule that allows access from your administrator IP address. For more information, see [Accessing the FortiGate web console](/docs/licensed-firewall?topic=licensed-firewall-access-firewall).
-{: important}
-
-The license plan that you select at deployment is permanent and cannot be changed after provisioning. You are billed for that license on the virtual server instance for as long as it runs. If you need a different license plan, you must place a new order and cancel the existing deployment. However, you can resize the virtual server instance without changing the license. For more information, see [Resizing a firewall virtual server instance](/docs/licensed-firewall?topic=licensed-firewall-changing-firewall-instance-profile-or-license-plan).
+Before you attempt to connect, review the [planning considerations](/docs/licensed-firewall?topic=licensed-firewall-getting-started#getting-started-planning) for information about the default security group posture and license plan constraints.
 {: important}
