@@ -44,41 +44,6 @@ As the virtual server owner, you are responsible for the following:
 - **Virtual server lifecycle** — Starting, stopping, resizing, and deleting your FortiGate virtual server instances.
 - **Compliance** — Ensuring your deployment meets applicable regulatory and compliance requirements (for example, PCI, HIPAA, ISO).
 
-## Getting support
-{: #shared-responsibilities-support}
-
-Open all FortiGate support cases with IBM Support. IBM Support performs initial triage and opens a Fortinet TAC case on your behalf when the issue requires Fortinet involvement. Do not open TAC cases directly with Fortinet.
-
-For more information, see [Getting help and support](/docs/licensed-firewall?topic=licensed-firewall-help-and-support).
-
-### What to expect when you open a support case
-{: #support-case-flow}
-
-**For general technical issues:**
-1. You open a support case with IBM Support and provide initial diagnostics.
-1. IBM Support performs triage and troubleshooting.
-1. If the issue requires Fortinet involvement, IBM Support opens a Fortinet TAC case and manages all Fortinet interactions on your behalf.
-1. IBM Support provides you with updates and coordinates the resolution.
-
-**For critical security vulnerabilities (PSIRT / zero-day):**
-1. Fortinet publishes a PSIRT advisory.
-1. IBM Support notifies you and provides mitigation guidance.
-1. You evaluate the risk and implement mitigations in your environment.
-1. When Fortinet delivers a patch, IBM Support coordinates support for your deployment.
-1. You apply the patch to your virtual server instances and validate the fix.
-
-**For end-of-life or end-of-support notices:**
-1. Fortinet publishes end-of-life notices.
-1. IBM Support communicates the notices to you and provides license upgrade or migration options.
-1. You plan and execute the migration or upgrade in your environment.
-
-### What IBM Support cannot do
-{: #support-limitations}
-
-- IBM Support cannot modify your FortiGate configuration, firewall policies, or network settings.
-- IBM Support cannot apply firmware updates or security patches to your virtual server instances.
-- IBM Support cannot access your FortiGate management interface.
-
 ## Summary
 {: #shared-responsibilities-summary}
 
