@@ -38,7 +38,7 @@
     {
       "title": "FortiGate Administration Guide",
       "description": "Fortinet's official administration guide covering firewall policies, security profiles, VPN configuration, and system management.",
-      "href": "https://docs.fortinet.com/product/fortigate/",
+      "href": "https://docs.fortinet.com/product/fortigate/8.0",
       "type": "documentation",
       "recommended": true
     }

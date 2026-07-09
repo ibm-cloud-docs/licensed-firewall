@@ -20,7 +20,7 @@ Define how traffic flows through your firewall.
 
 FortiGate firewall policies control the traffic that is allowed or denied between network interfaces. Policies are configured in the FortiGate web console and are evaluated in order from top to bottom.
 
-For detailed guidance on creating and managing firewall policies, refer to the [FortiGate Administration Guide](https://docs.fortinet.com/product/fortigate/){: external} on the Fortinet documentation site.
+For detailed guidance on creating and managing firewall policies, refer to the [FortiGate Administration Guide](https://docs.fortinet.com/product/fortigate/8.0){: external} on the Fortinet documentation site.
 
 ## Key policy concepts
 {: #policy-concepts}

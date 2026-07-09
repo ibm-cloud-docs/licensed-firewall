@@ -24,9 +24,6 @@ completion-time: 60m
 In this tutorial, you learn how to migrate your Fortinet FortiGate deployment from IBM Cloud Classic to the new VPC Pay-As-You-Go (PayGo) licensed firewall offering. You will deploy a new VPC firewall, migrate your configuration, and validate licensing using IBM Cloud and Fortinet tools.
 {: shortdesc}
 
-![Architecture diagram](images/fortigate-vpc-arch.svg)
-{: figure caption="High-level architecture for FortiGate migration from Classic infrastructure to VPC PayGo."}
-
 Workflow:
 
 1. Assess your current FortiGate Classic deployment
@@ -176,7 +173,7 @@ Cut over traffic from Classic to VPC carefully to avoid downtime:
 
 - Confirm that the FortiGate license is active; IBM automatically applies it based on the selected profile.
 - Apply all firewall rules and routing policies on the VPC FortiGate; customer remains responsible for these settings.
-- Map Classic FortiGate resources (VCPU, bandwidth) to the appropriate VPC profile. Refer to [Fortinet datasheets](https://www.fortinet.com/resources/datasheets){: external} or IBM Cloud guides as needed.
+- Map Classic FortiGate resources (VCPU, bandwidth) to the appropriate VPC profile. Refer to [Fortinet datasheets](https://www.fortinet.com/resources/data-sheets){: external} or IBM Cloud guides as needed.
 - Optionally, run Classic and VPC instances in parallel to validate traffic and performance.
 - Update DNS or routing to direct traffic to the VPC FortiGate and monitor flows.
 
