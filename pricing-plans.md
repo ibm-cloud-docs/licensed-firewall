@@ -48,3 +48,9 @@ The license plan cannot be changed on an existing firewall deployment. To use a 
 
 You are billed for both deployments until the existing one is cancelled.
 {: note}
+
+## Next steps
+{: #pricing-plans-next-steps}
+
+- [Access the FortiGate web console](/docs/licensed-firewall?topic=licensed-firewall-access-firewall) — log in to the new instance and verify the configuration after a resize or plan change.
+- [Backing up and restoring the FortiGate configuration](/docs/licensed-firewall?topic=licensed-firewall-backup-restore-fortigate-config) — export your configuration before making changes.

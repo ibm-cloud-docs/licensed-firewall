@@ -37,7 +37,7 @@ Review the following considerations before selecting your license plan and deplo
 - All deployments include FortiCare Premium support.
 - Availability varies by region. Check the IBM Cloud catalog for supported locations.
 
-The license plan and virtual server profile are linked and cannot be changed after deployment.
+The license plan cannot be changed after deployment. You can resize the virtual server instance to a different profile without changing the license plan. For more information, see [Resizing a firewall virtual server instance](/docs/licensed-firewall?topic=licensed-firewall-changing-firewall-instance-profile-or-license-plan).
 {: important}
 
 ## Choosing a license plan
@@ -60,7 +60,7 @@ The following table shows the security services and features included in each li
 | Feature | ATP | UTP | Enterprise |
 |---------|-----|-----|------------|
 | Intrusion Prevention System (IPS) | ![Checkmark icon](../icons/checkmark-icon.svg "Checkmark") | ![Checkmark icon](../icons/checkmark-icon.svg "Checkmark") | ![Checkmark icon](../icons/checkmark-icon.svg "Checkmark") |
-| Application control | ![Checkmark icon](../icons/checkmark-icon.svg "Checkmark") | ![Checkmark icon](../icons/checkmark-icon.svg "Checkmark") | ![Checkmark icon](../icons/checkmark-icon.svg "Checkmark") |
+| Application control | | ![Checkmark icon](../icons/checkmark-icon.svg "Checkmark") | ![Checkmark icon](../icons/checkmark-icon.svg "Checkmark") |
 | Geo IP updates | ![Checkmark icon](../icons/checkmark-icon.svg "Checkmark") | ![Checkmark icon](../icons/checkmark-icon.svg "Checkmark") | ![Checkmark icon](../icons/checkmark-icon.svg "Checkmark") |
 | Advanced Malware Protection (AMP) | ![Checkmark icon](../icons/checkmark-icon.svg "Checkmark") | ![Checkmark icon](../icons/checkmark-icon.svg "Checkmark") | ![Checkmark icon](../icons/checkmark-icon.svg "Checkmark") |
 | Antivirus | ![Checkmark icon](../icons/checkmark-icon.svg "Checkmark") | ![Checkmark icon](../icons/checkmark-icon.svg "Checkmark") | ![Checkmark icon](../icons/checkmark-icon.svg "Checkmark") |
@@ -185,3 +185,9 @@ Consider the following factors when evaluating instance profiles for your deploy
 - Profiles with higher memory ratios can benefit environments with high session counts.
 - Profiles with `-d` include additional instance storage, which can increase cost.
 - Profile selection impacts both performance characteristics and pricing.
+
+## Related links
+{: #license-plans-related-links}
+
+- [Ordering a licensed FortiGate firewall](/docs/licensed-firewall?topic=licensed-firewall-fortinet-firewall-order)
+- [Resizing a firewall virtual server instance](/docs/licensed-firewall?topic=licensed-firewall-changing-firewall-instance-profile-or-license-plan)

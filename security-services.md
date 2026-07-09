@@ -34,3 +34,9 @@ Security services are applied to traffic by attaching security profiles to firew
 
 Enabling multiple security services on the same firewall policy increases CPU usage and may reduce throughput. Size your deployment accordingly. For more information, see [About firewall license plans and instance profiles](/docs/licensed-firewall?topic=licensed-firewall-about-firewall-license-plans-and-instance-profiles).
 {: note}
+
+## Next steps
+{: #security-services-next-steps}
+
+- [Security best practices for FortiGate on IBM Cloud VPC](/docs/licensed-firewall?topic=licensed-firewall-fortigate-security-best-practices) — apply hardening guidance after enabling security services.
+- [Monitoring your FortiGate firewall](/docs/licensed-firewall?topic=licensed-firewall-monitoring) — verify that security profiles are generating logs and policy hits as expected.

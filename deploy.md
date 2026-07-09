@@ -38,7 +38,7 @@ The Single VM offering deploys a single FortiGate virtual machine into your VPC.
 1. Log in to the [IBM Cloud console](https://cloud.ibm.com){: external}.
 1. Click **Catalog** in the navigation bar.
 1. Search for **Fortinet FortiGate Next-Generation Firewall** and select the **Single VM - PAYG - TF** tile.
-1. Select the **product version** from the menu list.
+1. Select the **product version** from the version dropdown.
 1. Under **Deploy your workspace**, confirm that **IBM Cloud Schematics** is selected as the deployment method.
 1. In the **Configure your workspace** section, review or update the workspace name, location, and resource group.
 1. Scroll down to the **Input variables** section and complete the following required fields:
@@ -105,7 +105,7 @@ The HA Single Zone offering deploys an active-passive FortiGate HA pair within a
 
 1. Click **Install**.
 
-IBM Cloud Schematics creates a workspace and runs the Terraform automation. You can watch the Terraform execution in the **Log** section of the workspace. When the deployment completes successfully, the log displays the output values including the public IP address, administrator username, and initial administrator password. Save these values before you close the workspace — you need them to log in to the FortiGate web console for the first time. When **Terraform commands successful** and **Cart creation successful** are both displayed, your HA firewall pair is provisioned and ready to use.
+IBM Cloud Schematics creates a workspace and runs the Terraform automation. You can watch the Terraform execution in the **Log** section of the workspace. When the deployment completes successfully, the log displays the output values including the public IP address, administrator username, and initial administrator password. Save these values before you close the workspace. You need them to log in to the FortiGate web console for the first time. When **Terraform commands successful** and **Cart creation successful** are both displayed, your HA firewall pair is provisioned and ready to use.
 
 It is a good idea to review the full log output for errors or warnings, even when the deployment reports as successful.
 {: note}
@@ -144,10 +144,16 @@ The HA Cross Zone offering deploys an active-passive FortiGate HA pair across tw
 
 1. Click **Install**.
 
-IBM Cloud Schematics creates a workspace and runs the Terraform automation. You can watch the Terraform execution in the **Log** section of the workspace. When the deployment completes successfully, the log displays the output values including the public IP address, administrator username, and initial administrator password. Save these values before you close the workspace — you need them to log in to the FortiGate web console for the first time. When **Terraform commands successful** and **Cart creation successful** are both displayed, your HA cross-zone firewall pair is provisioned and ready to use.
+IBM Cloud Schematics creates a workspace and runs the Terraform automation. You can watch the Terraform execution in the **Log** section of the workspace. When the deployment completes successfully, the log displays the output values including the public IP address, administrator username, and initial administrator password. Save these values before you close the workspace. You need them to log in to the FortiGate web console for the first time. When **Terraform commands successful** and **Cart creation successful** are both displayed, your HA cross-zone firewall pair is provisioned and ready to use.
 
 It is a good idea to review the full log output for errors or warnings, even when the deployment reports as successful.
 {: note}
 
 Before you attempt to connect, review the [planning considerations](/docs/licensed-firewall?topic=licensed-firewall-getting-started#getting-started-planning) for information about the default security group posture and license plan constraints.
 {: important}
+
+## Next steps
+{: #deploy-fortigate-next-steps}
+
+- [Access the FortiGate web console](/docs/licensed-firewall?topic=licensed-firewall-access-firewall) — add a security group rule, configure routing, and log in for the first time.
+- [Understand the default firewall configuration](/docs/licensed-firewall?topic=licensed-firewall-understanding-default-firewall-configuration) — review what IBM applied during provisioning before making changes.

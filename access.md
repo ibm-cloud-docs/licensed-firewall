@@ -23,7 +23,7 @@ After you deploy a FortiGate firewall, you can access the management interface t
 
 - The FortiGate deployment must be complete and in a running state.
 - You need the public floating IP address assigned to port1 of your FortiGate instance. This is displayed as `FortiGate_Public_IP` in the Schematics workspace output after deployment.
-- You need the initial administrator password, displayed as `Default_Admin_Password` in the Schematics workspace output.
+- You need the initial administrator password, which is displayed as `Default_Admin_Password` in the Schematics workspace output after your order completes successfully.
 
 ## Default network security posture
 {: #access-firewall-default-posture}
@@ -34,8 +34,8 @@ When deployment completes, the following is true by default:
 
 - A floating IP is assigned to port1 (the public-facing interface). This IP is internet-routable and visible in your VPC.
 - A dedicated security group is created and attached to all FortiGate network interfaces.
-- All inbound traffic is denied by default — no traffic can reach the firewall from the internet or your VPC until you explicitly allow it.
-- All outbound traffic is allowed by default — the firewall can initiate outbound connections, which is required for license activation and FortiGuard updates.
+- All inbound traffic is denied by default. No traffic can reach the firewall from the internet or your VPC until you explicitly allow it.
+- All outbound traffic is allowed by default. The firewall can initiate outbound connections, which is required for license activation and FortiGuard updates.
 - For HA deployments, one inbound rule is pre-configured to allow HA heartbeat traffic between the two FortiGate nodes on the cluster sync interface.
 
 This default posture ensures that your firewall is not openly reachable on the internet immediately after provisioning. You will see a floating IP in your VPC resources, but attempts to connect to it in a browser or over SSH will time out until you add an inbound security group rule that allows access from your administrator IP address.

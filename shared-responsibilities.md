@@ -62,3 +62,9 @@ As the virtual server owner, you are responsible for the following:
 | Virtual server lifecycle management | | ✓ |
 | Compliance and regulatory controls | | ✓ |
 {: caption="Shared responsibilities summary" caption-side="bottom"}
+
+## Related links
+{: #shared-responsibilities-related-links}
+
+- [Getting help and support](/docs/licensed-firewall?topic=licensed-firewall-help-and-support)
+- [Subscribing to Fortinet notifications](/docs/licensed-firewall?topic=licensed-firewall-security-maintenance-vulnerability-management)

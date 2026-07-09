@@ -43,7 +43,7 @@ To back up the FortiGate configuration from the web console, complete the follow
 1. Optionally, enable **Encrypt configuration file** and enter a password to protect the backup file.
 1. Click **Backup**.
 
-The configuration file is downloaded to your local machine as a `.conf` file. Store it securely — the file contains sensitive information including interface configurations, firewall policies, and VPN settings.
+The configuration file is downloaded to your local machine as a `.conf` file. Store it securely, as the file contains sensitive information including interface configurations, firewall policies, and VPN settings.
 {: note}
 
 ### Back up using the CLI
@@ -94,7 +94,7 @@ Replace `<filename>` with the backup file name and `<tftp-server-ip>` with the I
 ## Adapting a configuration for a new deployment
 {: #adapt-config}
 
-If you are restoring a configuration to a different FortiGate instance — for example, when changing license plans or migrating from Classic to VPC — you must update the following before importing:
+If you are restoring a configuration to a different FortiGate instance (for example, when changing license plans or migrating from Classic to VPC), you must update the following before importing:
 
 - **Interface names** — VPC FortiGate deployments use `port1` and `port2`. Classic deployments may use different interface names. Update all references accordingly.
 - **IP addresses and subnets** — Replace all interface IPs, static routes, and gateway addresses with the values that correspond to the new VPC subnets.

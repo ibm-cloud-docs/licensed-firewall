@@ -74,4 +74,8 @@ If traffic is not flowing as expected, use the following FortiGate built-in tool
 - **Debug flow** — Use the FortiGate CLI command `diagnose debug flow` to trace traffic through the policy engine.
 - **Ping and traceroute** — Go to **Network > Diagnostics** to run ping or traceroute from the FortiGate to a destination.
 
-For issues with the underlying virtual server instance or IBM Cloud networking, see [Getting help and support](/docs/licensed-firewall?topic=licensed-firewall-help-and-support).
+## Related links
+{: #monitoring-related-links}
+
+- [Security best practices for FortiGate on IBM Cloud VPC](/docs/licensed-firewall?topic=licensed-firewall-fortigate-security-best-practices)
+- [Getting help and support](/docs/licensed-firewall?topic=licensed-firewall-help-and-support)

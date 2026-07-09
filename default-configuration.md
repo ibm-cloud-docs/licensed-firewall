@@ -3,7 +3,7 @@
 copyright:
   years: 2026
 
-lastupdated: "2026-07-09"
+lastupdated: "2026-07-15"
 
 keywords: firewall default configuration, FortiGate default config, HA configuration, bootstrap configuration, SDN connector, PAR, cloud-init
 
@@ -62,7 +62,7 @@ Every deployment creates a dedicated security group. By default, all inbound tra
 ## Default configuration of a Single VM deployment
 {: #single-vm-default-config}
 
-A Single VM deployment provisions one FortiGate firewall with one public interface (port1) and one private interface (port2). The bootstrap configuration is static — it contains no dynamic variables and applies the same defaults to every Single VM deployment.
+A Single VM deployment provisions one FortiGate firewall with one public interface (port1) and one private interface (port2). The bootstrap configuration is static. It contains no dynamic variables and applies the same defaults to every Single VM deployment.
 
 ```text
 config system global
@@ -369,3 +369,11 @@ The following table lists all bootstrap variables and their sources:
 | `${par_id}` | Created automatically by IBM Cloud | Public Address Range identifier (cross-zone only). |
 | `${netmask}` | Fixed value | Subnet mask (`255.255.255.0`). |
 {: caption="Bootstrap configuration variables" caption-side="bottom"}
+
+
+## Related links
+{: #default-config-related-links}
+
+- [Ordering a licensed FortiGate firewall](/docs/licensed-firewall?topic=licensed-firewall-fortinet-firewall-order)
+- [Accessing the FortiGate web console](/docs/licensed-firewall?topic=licensed-firewall-access-firewall)
+- [Backing up and restoring the FortiGate configuration](/docs/licensed-firewall?topic=licensed-firewall-backup-restore-fortigate-config)
