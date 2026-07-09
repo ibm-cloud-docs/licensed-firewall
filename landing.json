@@ -3,7 +3,7 @@
   "title": "Licensed Firewall for FortiGate",
   "introduction": "Deploy and manage Fortinet FortiGate Next-Generation Firewalls on IBM Cloud VPC with automatic license management, pay-as-you-go billing, and integrated threat protection.",
   "product_page": "https://www.ibm.com/products/network-security",
-  "console_page": "https://cloud.ibm.com/vpc/provision/fortigate",
+  "console_page": "/vpc/provision/fortigate",
   "section_topics": {
     "links": [
       {
@@ -43,13 +43,13 @@
     }
   ],
   "section_devtools": {
-    "terraform_url": "https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_instance"
+    "terraform": "https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_instance"
   },
   "section_updates": {
     "view_more": "/docs/licensed-firewall",
     "tiles": [
       {
-        "date": "2026-07-15",
+        "date": "15 July 2026",
         "title": "FortiGate licensed firewall now available on IBM Cloud VPC"
       }
     ]
