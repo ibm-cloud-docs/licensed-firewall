@@ -48,3 +48,4 @@ toc:
           topics:
           - troubleshoot.md
           - troubleshoot-schematics-deployment.md
+          - troubleshoot-ha-sync.md

@@ -39,7 +39,7 @@ Try the following steps to resolve the issue:
 
 1. **Review the Schematics workspace log.**
 
-   Open the Schematics workspace that was created for your deployment. Click **Jobs** and select the most recent apply job. Scroll to the end of the log and look for the specific Terraform error message. The error message typically identifies which resource failed and why.
+   Open the Schematics workspace that was created for your deployment. If you need to find the workspace manually, navigate to **IBM Cloud Menu > Platform Automation > Schematics > Terraform** and select your workspace. Click **Jobs** and select the most recent apply job. Scroll to the end of the log and look for the specific Terraform error message. The error message typically identifies which resource failed and why.
 
 1. **Check your input variables.**
 

@@ -40,6 +40,26 @@ Review the following considerations before selecting your license plan and deplo
 The license plan cannot be changed after deployment. You can resize the virtual server instance to a different profile without changing the license plan. For more information, see [Resizing a firewall virtual server instance](/docs/licensed-firewall?topic=licensed-firewall-changing-firewall-instance-profile-or-license-plan).
 {: important}
 
+## Choosing a deployment topology
+{: #choosing-a-deployment-topology}
+
+Select a deployment topology based on your availability requirements and tolerance for downtime. All three topologies are available as separate catalog tiles and are deployed by using IBM Cloud Schematics.
+
+| Topology | Catalog tile | Firewall instances | Availability zones | Automatic failover | Best for |
+|----------|-------------|-------------------|-------------------|-------------------|----------|
+| Single VM | Fortinet FortiGate VM Next-Generation Firewall - Single | 1 | 1 | No | Development, testing, or non-critical workloads |
+| Active/Passive HA - Single Zone | Fortinet FortiGate VM Next-Generation Firewall - A/P HA | 2 | 1 | Yes | Production workloads requiring zone-level redundancy |
+| Active/Passive HA - Cross Zone | Fortinet FortiGate VM Next-Generation Firewall - Cross Zone A/P HA | 2 | 2 | Yes | Production workloads requiring the highest availability |
+{: caption="Deployment topology comparison" caption-side="bottom"}
+
+Key differences between the topologies:
+
+- **Single VM** — Deploys one FortiGate instance with a public interface (port1) and a private interface (port2). There is no redundancy. If the instance fails, traffic is interrupted until it is restarted or replaced.
+- **Active/Passive HA - Single Zone** — Deploys two FortiGate instances in the same availability zone as an active-passive cluster. The IBM Cloud SDN connector enables automatic failover between nodes. If the active node fails, the passive node takes over without manual intervention.
+- **Active/Passive HA - Cross Zone** — Extends the single-zone HA topology across two availability zones. In addition to automatic failover, a Public Address Range (PAR) enables the floating IP to move between zones, providing resilience against a full zone outage. This is the highest-availability configuration.
+
+For details on what IBM applies to each topology at provisioning time, see [Understanding the default firewall configuration](/docs/licensed-firewall?topic=licensed-firewall-understanding-default-firewall-configuration).
+
 ## Choosing a license plan
 {: #choosing-a-license-plan}
 

@@ -60,7 +60,7 @@ Before you begin, ensure that the following resources exist in your IBM Cloud ac
 - Appropriate IAM permissions to create and manage resources
 - A secure access method (such as VPN or bastion host) to reach the firewall instance
 
-_This third-party product is provided by a vendor outside of IBM and is subject to a separate agreement between you and the third party if you accept their terms. IBM is not responsible for the product and makes no privacy, security, performance, support, or other commitments regarding the product._
+_This third-party product is provided by a vendor outside of IBM and is subject to a separate agreement between you and the third-party, if you accept their terms. IBM is not responsible for the product and makes no privacy, security, performance, support, or other commitments regarding the product._
 
 To get started, complete the following steps:
 
