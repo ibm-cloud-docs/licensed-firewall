@@ -23,7 +23,7 @@ After you deploy a FortiGate firewall, you can access the management interface t
 
 - The FortiGate deployment must be complete and in a running state.
 - You need the public floating IP address and initial administrator password from the Schematics workspace output. The output variable names differ by topology.
-- The initial administrator password may be empty on first boot. If the password field is empty, use the virtual server instance ID as the initial password.
+- The initial administrator password might be empty on the first start. If the password field is empty, use the virtual server instance ID as the initial password.
 
 | Topology | Public IP output | Password output |
 |---|---|---|
@@ -37,23 +37,23 @@ After you deploy a FortiGate firewall, you can access the management interface t
 
 Understanding the default network configuration helps explain why the firewall is not reachable immediately after deployment.
 
-When deployment completes, the following is true by default:
+When deployment completes, the following items are true by default:
 
 - A dedicated security group is created automatically and attached to all FortiGate network interfaces.
 - All inbound traffic is denied by default. No traffic can reach the firewall from the internet or your VPC until you explicitly allow it.
 - All outbound traffic is allowed. The firewall can initiate outbound connections, which is required for license activation and FortiGuard updates.
-- For **Single VM**: one floating IP is assigned to port1 (the public-facing interface).
-- For **HA Single Zone**: three floating IPs are assigned — one to the active node's port1 (which fails over), and one each to port4 (HA management) of both nodes.
-- For **HA Cross Zone**: four floating IPs are assigned — one to port1 and one to port4 on each FortiGate — plus a Public Address Range (PAR) for cross-zone failover.
+- For **Single VM*, one floating IP is assigned to port1 (the public-facing interface).
+- For **HA Single Zone**, three floating IPs are assigned — one to the active node's port1 (which fails over), and one each to port4 (HA management) of both nodes.
+- For **HA Cross Zone**, four floating IPs are assigned — one to port1 and one to port4 on each FortiGate — plus a Public Address Range (PAR) for cross-zone failover.
 - For HA deployments, inbound rules are pre-configured to allow HA heartbeat traffic between the two FortiGate nodes on the cluster sync interface (port3). No other inbound traffic is permitted.
 
-This default posture ensures that your firewall is not openly reachable on the internet immediately after provisioning. You will see a floating IP in your VPC resources, but attempts to connect to it in a browser or over SSH will time out until you add an inbound security group rule that allows access from your administrator IP address.
+This default posture helps ensure that your firewall is not openly reachable on the internet immediately after provisioning. You will see a floating IP in your VPC resources, but attempts to connect to it in a browser or over SSH will time out until you add an inbound security group rule that allows access from your administrator IP address.
 {: important}
 
 ## Step 1: Allow management access in the security group
 {: #access-firewall-security-group}
 
-The security group created during deployment denies all inbound traffic by default. You must add an inbound rule to allow access from your IP address before you can connect.
+The security group that is created during deployment denies all inbound traffic by default. Add an inbound rule to allow access from your IP address before you can connect.
 
 1. In the [IBM Cloud console](https://cloud.ibm.com){: external}, click the navigation menu and select **VPC Infrastructure > Security groups**.
 1. Locate the security group that was created for your FortiGate deployment. It is named after your deployment cluster.
@@ -76,28 +76,28 @@ Two methods are available to access the FortiGate management console. Use the me
 ### Method 1: Floating IP with allowlist (default)
 {: #access-method-fip}
 
-The floating IP on port1 is assigned automatically and is internet-routable. To use it for management access, add an inbound security group rule (step 1 above) that restricts access to your administrator IP address.
+The floating IP on port1 is assigned automatically and is internet-routable. To use it for management access, add an inbound security group rule (see step 1) that restricts access to your administrator IP address.
 
 ### Method 2: VPN access (no floating IP required)
 {: #access-method-vpn}
 
-Configure a VPN connection into your VPC and access the FortiGate management interface using its private IP address on port 443. This method eliminates direct internet-facing management access entirely and does not require modification of the floating IP configuration. For guidance on setting up VPN access, see [Use a VPN or bastion host for management access](/docs/licensed-firewall?topic=licensed-firewall-fortigate-security-best-practices#bp-vpn-management).
+Configure a VPN connection into your VPC and access the FortiGate management interface by using its private IP address on port 443. This method eliminates direct internet-facing management access entirely and does not require modification of the floating IP configuration. For guidance on setting up VPN access, see [Use a VPN or bastion host for management access](/docs/licensed-firewall?topic=licensed-firewall-fortigate-security-best-practices#bp-vpn-management).
 
 ## Step 3: Route traffic through the firewall
 {: #access-firewall-routing}
 
-The floating IP on port1 makes the firewall reachable from the internet for management purposes. However, for the FortiGate to actually inspect and control traffic between your VPC subnets or between your VPC and the internet, you must configure VPC routing to send traffic through the firewall.
+The floating IP on port1 makes the firewall reachable from the internet for management purposes. However, for the FortiGate to inspect and control traffic between your VPC subnets or between your VPC and the internet, you must configure VPC routing to send traffic through the firewall.
 
 To route traffic through the FortiGate, update the VPC routing tables so that the FortiGate's private interface (port2) is the next hop for the traffic you want to inspect:
 
 1. In the [IBM Cloud console](https://cloud.ibm.com){: external}, click the navigation menu and select **VPC Infrastructure > Network > Routing tables**.
 1. Select the routing table associated with the subnet whose traffic you want to route through the firewall.
 1. Click **Create route**.
-1. Set the **Destination CIDR** to the traffic you want to inspect (for example, `0.0.0.0/0` for all outbound internet traffic, or a specific subnet CIDR for inter-subnet traffic).
+1. Set the **Destination CIDR** to the traffic that you want to inspect (for example, `0.0.0.0/0` for all outbound internet traffic, or a specific subnet CIDR for inter-subnet traffic).
 1. Set the **Next hop** type to **IP address** and enter the private IP address of the FortiGate port2 interface.
 1. Click **Save**.
 
-Repeat this for each subnet whose traffic should flow through the firewall.
+Repeat this for each subnet whose traffic needs to flow through the firewall.
 
 For traffic to flow correctly, the FortiGate must also have a firewall policy that allows the traffic between the source and destination interfaces (port1 and port2). Without a matching allow policy, the FortiGate drops the traffic even if routing is correctly configured. For guidance on creating firewall policies, see the [FortiGate Administration Guide](https://docs.fortinet.com/product/fortigate/8.0){: external}.
 {: important}
@@ -105,7 +105,7 @@ For traffic to flow correctly, the FortiGate must also have a firewall policy th
 ## Step 4: Log in to the FortiGate web console
 {: #access-firewall-login}
 
-Use the public IP address from the Schematics workspace output for your topology (see [Before you begin](#access-firewall-prereqs)). For HA deployments, you can log in to either node using its individual port4 HA management IP, or to the active node using the port1 public IP.
+Use the public IP address from the Schematics workspace output for your topology (see [Before you begin](#access-firewall-prereqs)). For HA deployments, you can log in to either node using its individual port4 HA management IP, or to the active node that uses the port1 public IP.
 
 1. Open a web browser and navigate to `https://<public-ip>`, replacing `<public-ip>` with the appropriate IP address from the workspace output.
 1. Accept the self-signed certificate warning if prompted.
