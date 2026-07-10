@@ -47,7 +47,7 @@ Before you deploy a FortiGate firewall, ensure that the following resources exis
 - Appropriate IAM permissions to create and manage resources
 - A secure access method (such as VPN or bastion host) to reach the firewall instance
 
-To get started, complete the following steps:
+To get started, follow these steps:
 
 1. [Review planning considerations and limitations](/docs/licensed-firewall?topic=licensed-firewall-planning) — understand the constraints and requirements that affect your deployment before you order.
 1. [Review license plans and instance profiles](/docs/licensed-firewall?topic=licensed-firewall-about-firewall-license-plans-and-instance-profiles) — understand the available license tiers, deployment sizes, and performance characteristics before ordering.

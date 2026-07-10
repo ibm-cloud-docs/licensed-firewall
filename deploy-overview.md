@@ -38,6 +38,8 @@ The security group is created automatically during deployment. You do not need t
 HA Cross Zone deployments consume 4 floating IPs. Verify that your account has sufficient floating IP quota in the target region before deploying.
 {: note}
 
+Ensure that the following resources are available in your IBM Cloud account:
+
 - A VPC in the target region
 - Subnets in the VPC as required for your topology (see table above)
 - A pre-created SSH key in the target region

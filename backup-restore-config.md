@@ -24,6 +24,8 @@ IBM does not back up your FortiGate configuration. You are responsible for maint
 ## Before you begin
 {: #backup-restore-prereqs}
 
+Ensure that the following conditions are met before backing up or restoring:
+
 - You must be logged in to the FortiGate web console as an administrator. See [Accessing the FortiGate web console](/docs/licensed-firewall?topic=licensed-firewall-access-firewall).
 - If you are restoring a configuration to a different instance, ensure the target instance is running the same or a compatible FortiOS version.
 - If you are restoring a configuration from a different deployment type (for example, from a Classic FortiGate or a different VPC instance), you must update interface names, IP addresses, and gateway references before importing. See [Adapting a configuration for a new deployment](#adapt-config).
@@ -31,10 +33,13 @@ IBM does not back up your FortiGate configuration. You are responsible for maint
 ## Backing up the configuration
 {: #backup-config}
 
-### Backing up from the console
-{: #backup-web-console}
+You can back up the configuration in the console or from the CLI.
 
-To back up the FortiGate configuration from the console, complete the following steps.
+### Backing up in the console
+{: #backup-web-console}
+{: ui}
+
+To back up the FortiGate configuration in the console, follow these steps:
 
 1. Log in to the FortiGate web console.
 1. In the top-right corner, click the admin username and select **Configuration > Backup**.
@@ -48,6 +53,7 @@ The configuration file is downloaded to your local machine as a `.conf` file. St
 
 ### Backing up from the CLI
 {: #backup-cli}
+{: cli}
 
 To back up the configuration from the CLI, run the following command over SSH:
 
@@ -61,10 +67,13 @@ Replace `<filename>` with the desired backup file name and `<tftp-server-ip>` wi
 ## Restoring the configuration
 {: #restore-config}
 
-### Restoring from the console
-{: #restore-web-console}
+You can restore the configuration in the console or from the CLI.
 
-To restore the FortiGate configuration from the console, complete the following steps.
+### Restoring in the console
+{: #restore-web-console}
+{: ui}
+
+To restore the FortiGate configuration in the console, follow these steps:
 
 1. Log in to the FortiGate web console.
 1. In the top-right corner, click the admin username and select **Configuration > Restore**.
@@ -81,6 +90,7 @@ Restoring a configuration overwrites the current running configuration. Ensure y
 
 ### Restoring from the CLI
 {: #restore-cli}
+{: cli}
 
 To restore the configuration from the CLI, run the following command over SSH:
 

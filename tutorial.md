@@ -15,9 +15,8 @@ completion-time: 60m
 
 {{site.data.keyword.attribute-definition-list}}
 
-Attention
+`Attention`{: tag-purple}
 {: #tutorial-attention}
-{: purple}
 
 **Do we need here or plan to update the classic-to-vpc repo with the correct information before GA?**
 
