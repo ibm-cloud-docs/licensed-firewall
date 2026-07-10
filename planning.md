@@ -18,8 +18,8 @@ subcollection: licensed-firewall
 Before you deploy a FortiGate firewall, review the following topics and considerations to ensure that your configuration meets your security, compliance, and operational requirements.
 {: shortdesc}
 
-## Before you order
-{: #planning-before-you-order}
+## Before you deploy
+{: #planning-before-you-deploy}
 
 Ensure that the following resources exist in your IBM Cloud account before you deploy:
 
