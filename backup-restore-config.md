@@ -26,7 +26,7 @@ IBM does not back up your FortiGate configuration. You are responsible for maint
 
 Ensure that the following conditions are met before backing up or restoring:
 
-- You must be logged in to the FortiGate web console as an administrator. See [Accessing the FortiGate web console](/docs/licensed-firewall?topic=licensed-firewall-access-firewall).
+- You must be logged in to the FortiGate web console as an administrator. See [Accessing your FortiGate firewall](/docs/licensed-firewall?topic=licensed-firewall-access-firewall).
 - If you are restoring a configuration to a different instance, ensure the target instance is running the same or a compatible FortiOS version.
 - If you are restoring a configuration from a different deployment type (for example, from a Classic FortiGate or a different VPC instance), you must update interface names, IP addresses, and gateway references before importing. See [Adapting a configuration for a new deployment](#adapt-config).
 

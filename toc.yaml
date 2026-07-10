@@ -29,6 +29,7 @@ toc:
           - deploy-ha-single-zone.md
           - deploy-ha-cross-zone.md
       - access.md
+      - configuring-fortigate.md
       - pricing-plans.md
       - backup-restore-config.md
       - upgrading-software.md

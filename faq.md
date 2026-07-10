@@ -36,7 +36,7 @@ Yes. You can resize the underlying virtual server instance to a different profil
 {: #faq-cannot-connect}
 {: faq}
 
-The security group created during deployment denies all inbound traffic by default. You must add an inbound TCP rule for port 443 (HTTPS) or port 22 (SSH) that allows your administrator IP address before you can connect to the FortiGate web console. For more information, see [Accessing the FortiGate web console](/docs/licensed-firewall?topic=licensed-firewall-access-firewall).
+The security group created during deployment denies all inbound traffic by default. You must add an inbound TCP rule for port 443 (HTTPS) or port 22 (SSH) that allows your administrator IP address before you can connect to the FortiGate web console. For more information, see [Accessing your FortiGate firewall](/docs/licensed-firewall?topic=licensed-firewall-access-firewall).
 
 ## How is the FortiGate license applied?
 {: #faq-license-applied}

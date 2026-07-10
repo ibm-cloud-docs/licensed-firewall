@@ -28,7 +28,7 @@ Resizing the virtual server instance does not change, upgrade, or cancel the lic
 You must stop the virtual server instance before you can resize it.
 {: note}
 
-1. In the [IBM Cloud console](https://cloud.ibm.com){: external}, click the navigation menu and select **Infrastructure > Compute > Virtual server instances**.
+1. In the [IBM Cloud console](/login), click the navigation menu and select **Infrastructure > Compute > Virtual server instances**.
 1. Click the virtual server instance that you deployed to open its Details page.
 1. From the Details page, resize the instance by following the steps in [Resizing a virtual server instance](/docs/vpc?topic=vpc-resizing-an-instance&interface=ui).
 
@@ -52,5 +52,5 @@ You are billed for both deployments until the existing one is cancelled.
 ## Related links
 {: #pricing-plans-related-links}
 
-- [Accessing the FortiGate web console](/docs/licensed-firewall?topic=licensed-firewall-access-firewall)
+- [Accessing your FortiGate firewall](/docs/licensed-firewall?topic=licensed-firewall-access-firewall)
 - [Backing up and restoring the FortiGate configuration](/docs/licensed-firewall?topic=licensed-firewall-backup-restore-fortigate-config)

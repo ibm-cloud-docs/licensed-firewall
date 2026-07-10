@@ -51,7 +51,7 @@ Try the following steps to resolve the issue:
 
 1. **Check resource quotas.**
 
-   In the [IBM Cloud console](https://cloud.ibm.com){: external}, navigate to **Manage > Account > Quotas** and verify that you have not reached the limit for virtual server instances, floating IPs, or security groups in the target region.
+   In the [IBM Cloud console](/login), navigate to **Manage > Account > Quotas** and verify that you have not reached the limit for virtual server instances, floating IPs, or security groups in the target region.
 
 1. **Retry the deployment.**
 

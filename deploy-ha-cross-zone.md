@@ -48,7 +48,7 @@ Terraform deploys the following resources:
 
 Follow these steps:
 
-1. Log in to the [IBM Cloud console](https://cloud.ibm.com){: external}.
+1. Log in to the [IBM Cloud console](/login).
 1. Click **Catalog** in the navigation bar.
 1. Search for **Fortinet FortiGate VM NGFW** and select the **Fortinet FortiGate VM Next-Generation Firewall - Cross Zone A/P HA** tile.
 1. In **Select your deployment target**, select **IBM Cloud**.

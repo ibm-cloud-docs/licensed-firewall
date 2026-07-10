@@ -44,7 +44,7 @@ Terraform deploys the following resources:
 
 Follow these steps:
 
-1. Log in to the [IBM Cloud console](https://cloud.ibm.com){: external}.
+1. Log in to the [IBM Cloud console](/login).
 1. Click **Catalog** in the navigation bar.
 1. Search for **Fortinet FortiGate VM NGFW** and select the **Fortinet FortiGate VM Next-Generation Firewall - Single** tile.
 1. In **Configure your workspace**, review or update the following fields:
@@ -81,7 +81,7 @@ IBM Cloud Schematics creates a workspace and runs the Terraform automation. You 
 - `Username` — Administrator username (`admin`)
 - `Default_Admin_Password` — Initial administrator password. May be empty on first boot; if so, use the instance ID as the initial password.
 
-Save these values before you close the workspace — you need them to log in to the FortiGate web console for the first time. When **Terraform commands successful** and **Cart creation successful** are both displayed, your firewall is provisioned and ready to use.
+Save these values before you close the workspace. You need them to log in to the FortiGate web console for the first time. When **Terraform commands successful** and **Cart creation successful** are both displayed, your firewall is provisioned and ready to use.
 
 It is a good idea to review the full log output for errors or warnings, even when the deployment reports as successful.
 {: note}

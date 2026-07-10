@@ -40,7 +40,7 @@ FortiGate generates logs for traffic, events, security threats, and system activ
 
 You can monitor the underlying virtual server instance that runs your FortiGate from the IBM Cloud console.
 
-1. In the [IBM Cloud console](https://cloud.ibm.com){: external}, click the navigation menu and select **VPC Infrastructure > Compute > Virtual server instances**.
+1. In the [IBM Cloud console](/login), click the navigation menu and select **VPC Infrastructure > Compute > Virtual server instances**.
 1. Click the FortiGate virtual server instance to open its Details page.
 1. Review the **Activity** and **Monitoring** tabs for CPU, memory, and network metrics.
 

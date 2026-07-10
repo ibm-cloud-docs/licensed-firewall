@@ -12,10 +12,10 @@ subcollection: licensed-firewall
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Accessing the FortiGate web console
+# Accessing your FortiGate firewall
 {: #access-firewall}
 
-After you deploy a FortiGate firewall, you can access the management interface through a web browser or SSH. Before you can connect, you must add an inbound rule to the security group that was created for the firewall.
+After you deploy a FortiGate firewall, you can access it through the FortiGate web console or SSH.
 {: shortdesc}
 
 ## Before you begin
@@ -32,30 +32,15 @@ After you deploy a FortiGate firewall, you can access the management interface t
 | HA Cross Zone | `FGT1_Port1_Public_IP`, `FGT2_Port1_Public_IP` | `FGT1_Default_Admin_Password`, `FGT2_Default_Admin_Password` |
 {: caption="Schematics workspace output variables by topology" caption-side="bottom"}
 
-## Default network security posture
-{: #access-firewall-default-posture}
-
-Understanding the default network configuration helps explain why the firewall is not reachable immediately after deployment.
-
-When deployment completes, the following items are true by default:
-
-- A dedicated security group is created automatically and attached to all FortiGate network interfaces.
-- All inbound traffic is denied by default. No traffic can reach the firewall from the internet or your VPC until you explicitly allow it.
-- All outbound traffic is allowed. The firewall can initiate outbound connections, which is required for license activation and FortiGuard updates.
-- For **Single VM**, one floating IP is assigned to `port1` (the public-facing interface).
-- For **HA Single Zone**, three floating IPs are assigned — one to the active node's `port1` (which fails over), and one each to `port4` (HA management) of both nodes.
-- For **HA Cross Zone**, four floating IPs are assigned — one to `port1` and one to `port4` on each FortiGate — plus a public address range for cross-zone failover.
-- For HA deployments, inbound rules are pre-configured to allow HA heartbeat traffic between the two FortiGate nodes on the cluster sync interface (`port3`). No other inbound traffic is permitted.
-
-This default posture helps ensure that your firewall is not openly reachable on the internet immediately after provisioning. You will see a floating IP in your VPC resources, but attempts to connect to it in a browser or over SSH will time out until you add an inbound security group rule that allows access from your administrator IP address.
-{: important}
+The firewall is not reachable immediately after deployment. A dedicated security group is created automatically and denies all inbound traffic by default. You will see a floating IP in your VPC resources, but connection attempts will time out until you complete Step 1.
+{: note}
 
 ## Step 1: Allow management access in the security group
 {: #access-firewall-security-group}
 
 The security group that is created during deployment denies all inbound traffic by default. Add an inbound rule to allow access from your IP address before you can connect.
 
-1. In the [IBM Cloud console](https://cloud.ibm.com){: external}, click the navigation menu and select **VPC Infrastructure > Security groups**.
+1. In the [IBM Cloud console](/login), click the navigation menu and select **VPC Infrastructure > Security groups**.
 1. Locate the security group that was created for your FortiGate deployment. It is named after your deployment cluster.
 1. Click the security group name to open it.
 1. On the **Rules** tab, click **Create**.
@@ -92,7 +77,7 @@ The floating IP on `port1` makes the firewall reachable from the internet for ma
 
 To route traffic through the FortiGate, update the VPC routing tables so that the FortiGate's private interface (`port2`) is the next hop for the traffic you want to inspect:
 
-1. In the [IBM Cloud console](https://cloud.ibm.com){: external}, click the navigation menu and select **VPC Infrastructure > Network > Routing tables**.
+1. In the [IBM Cloud console](/login), click the navigation menu and select **VPC Infrastructure > Network > Routing tables**.
 1. Select the routing table associated with the subnet whose traffic you want to route through the firewall.
 1. Click **Create route**.
 1. Set the **Destination CIDR** to the traffic that you want to inspect (for example, `0.0.0.0/0` for all outbound internet traffic, or a specific subnet CIDR for inter-subnet traffic).

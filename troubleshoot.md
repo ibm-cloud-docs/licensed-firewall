@@ -38,7 +38,7 @@ Try the following steps to resolve the issue:
 
 1. **Verify that the Instance Metadata Service is enabled.**
 
-   In the [IBM Cloud console](https://cloud.ibm.com){: external}, navigate to **VPC Infrastructure > Compute > Virtual server instances** and open your FortiGate instance. Under **Instance details**, confirm that **Metadata service** is set to **Enabled**. If it is disabled, enable it and restart the instance.
+   In the [IBM Cloud console](/login), navigate to **VPC Infrastructure > Compute > Virtual server instances** and open your FortiGate instance. Under **Instance details**, confirm that **Metadata service** is set to **Enabled**. If it is disabled, enable it and restart the instance.
 
 2. **Review the Schematics workspace log.**
 

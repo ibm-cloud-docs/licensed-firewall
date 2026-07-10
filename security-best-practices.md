@@ -28,7 +28,7 @@ Every FortiGate deployment creates a dedicated security group with deny-all inbo
 - **Separate management access from data plane traffic.** If possible, access the FortiGate management interface from a dedicated management subnet or through a VPN, rather than directly over the public floating IP.
 - **Review the security group rules regularly.** Remove any inbound rules that are no longer needed, such as rules added for temporary access.
 
-For step-by-step instructions, see [Accessing the FortiGate web console](/docs/licensed-firewall?topic=licensed-firewall-access-firewall).
+For step-by-step instructions, see [Accessing your FortiGate firewall](/docs/licensed-firewall?topic=licensed-firewall-access-firewall).
 
 ## Change the default administrator password immediately
 {: #bp-change-default-password}
@@ -117,7 +117,7 @@ IBM does not back up your FortiGate configuration. You are responsible for maint
 ## Related links
 {: #security-best-practices-related-links}
 
-- [Accessing the FortiGate web console](/docs/licensed-firewall?topic=licensed-firewall-access-firewall)
+- [Accessing your FortiGate firewall](/docs/licensed-firewall?topic=licensed-firewall-access-firewall)
 - [Enabling security services](/docs/licensed-firewall?topic=licensed-firewall-enable-security-services)
 - [Subscribing to Fortinet notifications](/docs/licensed-firewall?topic=licensed-firewall-security-maintenance-vulnerability-management)
 - [Backing up and restoring the FortiGate configuration](/docs/licensed-firewall?topic=licensed-firewall-backup-restore-fortigate-config)
