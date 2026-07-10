@@ -31,7 +31,7 @@ Before you deploy, ensure that you have reviewed [Planning for FortiGate on IBM 
 
 The security group is created automatically during deployment. You do not need to create one in advance.
 
-## Deploying
+## Deploying a Single VM firewall
 {: #deploy-single-vm-steps}
 
 Terraform deploys the following resources:
@@ -75,7 +75,7 @@ IBM Cloud Schematics creates a workspace and runs the Terraform automation. You 
 - `FortiGate_Public_IP` — Public IP address of the FortiGate instance
 - `Security_Group_ID` — ID of the automatically created security group
 - `Security_Group_Name` — Name of the security group
-- `selected_vsi_profile` — VSI profile automatically selected based on the plan CRN
+- `selected_vsi_profile` — Virtual server instance profile automatically selected based on the plan CRN
 - `CATALOG_OFFERING_VERSION_CRN` — Catalog offering version CRN used
 - `CATALOG_OFFERING_PLAN_CRN` — Catalog offering plan CRN used
 - `Username` — Administrator username (`admin`)

@@ -34,7 +34,7 @@ The security group is created automatically during deployment. You do not need t
 This offering requires static IP addresses for all FortiGate interfaces across both zones. Allocate eight subnets — four per zone — and plan your IP assignments before you begin. Also verify that your account has sufficient floating IP quota in the target region, as four floating IPs are consumed.
 {: important}
 
-## Deploying
+## Deploying an HA Cross Zone firewall
 {: #deploy-ha-cross-zone-steps}
 
 Terraform deploys the following resources:
@@ -107,7 +107,7 @@ IBM Cloud Schematics creates a workspace and runs the Terraform automation. You 
 - `Par_CIDR` — Public address range CIDR block
 - `Security_Group_ID` — ID of the automatically created security group
 - `Security_Group_Name` — Name of the security group
-- `Selected_VSI_Profile` — VSI profile automatically selected based on the plan CRN
+- `Selected_VSI_Profile` — Virtual server instance profile automatically selected based on the plan CRN
 - `Catalog_Offering_Version_CRN` — Catalog offering version CRN used
 - `Catalog_Offering_Plan_CRN` — Catalog offering plan CRN used
 - `Username` — Administrator username (`admin`)
