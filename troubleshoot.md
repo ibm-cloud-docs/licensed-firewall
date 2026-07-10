@@ -61,4 +61,4 @@ Try the following steps to resolve the issue:
 
 5. **Open a support case.**
 
-   If the license is still not active after completing these steps, open a support case with IBM Support. Include the virtual server instance ID, VPC ID, Schematics workspace ID, and the relevant Schematics log output. For more information, see [Getting help and support](/docs/licensed-firewall?topic=licensed-firewall-help-and-support).
+   If the license is still not active after completing these steps, [open a support case](https://cloud.ibm.com/unifiedsupport/cases/add){: external} with IBM Support. Include the virtual server instance ID, VPC ID, Schematics workspace ID, and the relevant Schematics log output.

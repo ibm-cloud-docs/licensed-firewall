@@ -25,7 +25,7 @@ IBM is responsible for the following:
 
 - **License management** — Procuring, provisioning, renewing, and tracking FortiGate licenses through the FortiFlex platform. You do not need to manage licenses directly.
 - **License health monitoring** — Monitoring license expiry and coverage, and communicating any issues to you.
-- **Support coordination** — Acting as the single point of contact for all FortiGate technical issues. IBM Support performs initial triage and opens Fortinet TAC cases on your behalf when needed. You do not open TAC cases directly with Fortinet.
+- **Support coordination** — Acting as the single point of contact for all FortiGate technical issues. IBM Support performs initial triage and opens Fortinet Technical Assistance Center (TAC) cases on your behalf when needed. You do not open TAC cases directly with Fortinet.
 - **Security advisory communications** — Monitoring Fortinet PSIRT advisories and notifying you of critical vulnerabilities and recommended mitigations.
 - **End-of-life notifications** — Communicating Fortinet end-of-life and end-of-support notices to you and providing guidance on migration options.
 - **IBM Cloud VPC platform** — Maintaining the underlying VPC infrastructure (hypervisor, networking, storage) that your FortiGate virtual server instances run on.

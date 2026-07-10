@@ -56,4 +56,4 @@ Try the following steps to resolve the issue:
 
 4. **Open a support case.**
 
-   If HA synchronization is still failing after completing these steps, open a support case with IBM Support. Include the virtual server instance IDs, VPC ID, Schematics workspace ID, and the output of `get system ha status`. For more information, see [Getting help and support](/docs/licensed-firewall?topic=licensed-firewall-help-and-support).
+   If HA synchronization is still failing after completing these steps, [open a support case](https://cloud.ibm.com/unifiedsupport/cases/add){: external} with IBM Support. Include the virtual server instance IDs, VPC ID, Schematics workspace ID, and the output of `get system ha status`.

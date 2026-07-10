@@ -47,7 +47,7 @@ Try the following steps to resolve the issue:
 
 1. **Verify IAM permissions.**
 
-   Ensure that the IBM Cloud API key used for deployment has at minimum the **Editor** role on the VPC Infrastructure service and the **Operator** role on the Schematics service. For a full list of required permissions, see [Roles and responsibilities](/docs/licensed-firewall?topic=licensed-firewall-firewall-roles-responsibilities).
+   Ensure that the IBM Cloud API key used for deployment has at minimum the **Editor** role on the VPC Infrastructure service and the **Operator** role on the Schematics service. For a full list of required permissions, see [Roles and responsibilities](/docs/licensed-firewall?topic=licensed-firewall-fortinet-racii-v3).
 
 1. **Check resource quotas.**
 
@@ -63,4 +63,4 @@ Try the following steps to resolve the issue:
 
 1. **Open a support case.**
 
-   If the deployment continues to fail after completing these steps, open a support case with IBM Support. Include the Schematics workspace ID, the job ID of the failed apply, and the relevant log output. For more information, see [Getting help and support](/docs/licensed-firewall?topic=licensed-firewall-help-and-support).
+   If the deployment continues to fail after completing these steps, [open a support case](https://cloud.ibm.com/unifiedsupport/cases/add){: external} with IBM Support. Include the Schematics workspace ID, the job ID of the failed apply, and the relevant log output.
