@@ -22,6 +22,21 @@ Deployed in a VPC architecture, FortiGate provides centralized visibility and co
 
 Because FortiGate is deployed as a licensed virtual appliance in IBM Cloud VPC, organizations must also account for resource consumption, such as compute, storage, and network usage, to ensure effective monitoring and cost control.
 
+_**This third-party product is provided by a vendor outside of IBM and is subject to a separate agreement between you and the third-party, if you accept their terms. IBM is not responsible for the product and makes no privacy, security, performance, support, or other commitments regarding the product.**_
+
+
+## Key benefits
+{: #fortigate-highlights}
+
+FortiGate PayGo combines enterprise-grade security with cloud-native simplicity, helping you remove common deployment and operational barriers.
+
+- **Deploy instantly** – Launch firewalls directly from the IBM Cloud catalog with no procurement or setup delays, using the same workflows as the rest of your cloud infrastructure.
+- **Pay as you go** – Align costs to actual usage with a flexible OPEX model; billing is based on actual usage with no upfront commitment.
+- **No license management** – Licensing is automatically applied at provisioning time. Eliminate renewals, tracking, and administrative overhead.
+- **Scale on demand** – Adjust capacity and security features as workloads change.
+- **Centralized visibility and control** – Monitor and control all network traffic entering, leaving, and moving within your VPC from a single management interface.
+- **Comprehensive built-in security** – Protect workloads with IPS, application-aware policy enforcement, antivirus, web filtering, VPN, and continuous threat intelligence updates.
+
 ## Planning considerations
 {: #getting-started-planning}
 
@@ -38,18 +53,6 @@ Review the following important considerations before you order:
 - **FortiManager and FortiAnalyzer are not included** — The standard offering does not include FortiManager or FortiAnalyzer. You can deploy these separately in your VPC if centralized management or advanced analytics are required.
 - **This is not a managed service** — IBM manages licensing and provides support coordination, but you are responsible for deploying, configuring, and maintaining your FortiGate instances. IBM does not configure firewall policies or apply updates on your behalf. For more information, see [Shared responsibilities](/docs/licensed-firewall?topic=licensed-firewall-shared-responsibilities).
 
-## Key benefits
-{: #fortigate-highlights}
-
-FortiGate PayGo combines enterprise-grade security with cloud-native simplicity, helping you remove common deployment and operational barriers.
-
-- **Deploy instantly** – Launch firewalls directly from the IBM Cloud catalog with no procurement or setup delays, using the same workflows as the rest of your cloud infrastructure.
-- **Pay as you go** – Align costs to actual usage with a flexible OPEX model; billing is based on actual usage with no upfront commitment.
-- **No license management** – Licensing is automatically applied at provisioning time. Eliminate renewals, tracking, and administrative overhead.
-- **Scale on demand** – Adjust capacity and security features as workloads change.
-- **Centralized visibility and control** – Monitor and control all network traffic entering, leaving, and moving within your VPC from a single management interface.
-- **Comprehensive built-in security** – Protect workloads with IPS, application-aware policy enforcement, antivirus, web filtering, VPN, and continuous threat intelligence updates.
-
 ## Getting started
 {: #getting-started-next-steps}
 
@@ -59,8 +62,6 @@ Before you begin, ensure that the following resources exist in your IBM Cloud ac
 - A VPC with subnets configured for your deployment
 - Appropriate IAM permissions to create and manage resources
 - A secure access method (such as VPN or bastion host) to reach the firewall instance
-
-_This third-party product is provided by a vendor outside of IBM and is subject to a separate agreement between you and the third-party, if you accept their terms. IBM is not responsible for the product and makes no privacy, security, performance, support, or other commitments regarding the product._
 
 To get started, complete the following steps:
 
