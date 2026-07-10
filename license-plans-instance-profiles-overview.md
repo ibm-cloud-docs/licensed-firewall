@@ -56,7 +56,7 @@ Key differences between the topologies:
 
 - **Single VM** — Deploys one FortiGate instance with a public interface (`port1`) and a private interface (`port2`). There is no redundancy. If the instance fails, traffic is interrupted until it is restarted or replaced.
 - **Active/Passive HA - Single Zone** — Deploys two FortiGate instances in the same availability zone as an active-passive cluster. The IBM Cloud SDN connector enables automatic failover between nodes. If the active node fails, the passive node takes over without manual intervention.
-- **Active/Passive HA - Cross Zone** — Extends the single-zone HA topology across two availability zones. In addition to automatic failover, a Public Address Range (PAR) enables the floating IP to move between zones, providing resilience against a full zone outage. This is the highest-availability configuration.
+- **Active/Passive HA - Cross Zone** — Extends the single-zone HA topology across two availability zones. In addition to automatic failover, a public address range enables the floating IP to move between zones, providing resilience against a full zone outage. This is the highest-availability configuration.
 
 For details on what IBM applies to each topology at provisioning time, see [Understanding the default firewall configuration](/docs/licensed-firewall?topic=licensed-firewall-understanding-default-firewall-configuration).
 

@@ -5,7 +5,7 @@ copyright:
 
 lastupdated: "2026-07-15"
 
-keywords: deploy firewall, FortiGate, HA cross zone, high availability, Terraform, Schematics, PAR
+keywords: deploy firewall, FortiGate, HA cross zone, high availability, Terraform, Schematics, public address range
 
 subcollection: licensed-firewall
 
@@ -16,7 +16,7 @@ subcollection: licensed-firewall
 # Deploying a FortiGate HA Cross Zone firewall
 {: #deploy-ha-cross-zone}
 
-The HA Cross Zone offering deploys two FortiGate next-generation firewall instances as an active/passive (A/P) cluster across two separate availability zones. In addition to automatic failover via the IBM Cloud SDN connector, a Public Address Range (PAR) enables the cluster's floating IP address to move between zones, providing resilience against a full zone outage. This is the highest-availability topology and is recommended for production workloads with strict uptime requirements.
+The HA Cross Zone offering deploys two FortiGate next-generation firewall instances as an active/passive (A/P) cluster across two separate availability zones. In addition to automatic failover via the IBM Cloud SDN connector, a public address range enables the cluster's floating IP address to move between zones, providing resilience against a full zone outage. This is the highest-availability topology and is recommended for production workloads with strict uptime requirements.
 {: shortdesc}
 
 Before you begin, complete the prerequisites in [Deploying a licensed FortiGate firewall](/docs/licensed-firewall?topic=licensed-firewall-fortinet-firewall-order#deploy-fortinet-prereqs).
@@ -25,10 +25,10 @@ Terraform deploys the following resources:
 
 - Two FortiGate licensed instances across two availability zones, each with four network interfaces (`port1`–`port4`)
 - Four floating public IP addresses: one on `port1` and one on `port4` of each FortiGate
-- One Public Address Range (PAR) for floating IP failover across zones
+- One public address range for floating IP failover across zones
 - One log disk per FortiGate
 - One security group with inbound rules allowing HA traffic from each FortiGate's `port3` IP, and allow-all outbound rules
-- A bootstrap configuration with HA, SDN connector, PAR, and VDOM exception settings
+- A bootstrap configuration with HA, SDN connector, public address range, and VDOM exception settings
 
 This offering requires static IP addresses for all FortiGate interfaces across both zones. Allocate eight subnets — four per zone — and plan your IP assignments before you begin.
 {: important}
@@ -63,7 +63,7 @@ This offering requires static IP addresses for all FortiGate interfaces across b
    | `FGT2_STATIC_IP_PORT4` | Static IP address for `port4` (HA management interface) on the secondary (passive) FortiGate. |
    | `IBMCLOUD_API_KEY` | Your IBM Cloud API key. Required for the SDN connector for HA synchronization. |
    | `NETMASK` | Subnet mask for the static IP addresses and NICs of each FortiGate (default: `255.255.255.0`). |
-   | `PAR_ADDRESS_COUNT` | The number of IPv4 addresses in the Public Address Range (PAR). The PAR enables the floating IP to move between zones on failover. |
+   | `PAR_ADDRESS_COUNT` | The number of IPv4 addresses in the public address range. The public address range enables the floating IP to move between zones on failover. |
    | `REGION` | The IBM Cloud region where the firewall is deployed (for example, `us-east`). |
    | `RESOURCE_GRP` | The resource group name to attach to the FortiGate instances (default: `Default`). |
    | `SSH_PUBLIC_KEY_NAME` | The name or ID of your pre-created SSH public key in the target region. |

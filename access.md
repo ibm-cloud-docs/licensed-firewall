@@ -44,7 +44,7 @@ When deployment completes, the following items are true by default:
 - All outbound traffic is allowed. The firewall can initiate outbound connections, which is required for license activation and FortiGuard updates.
 - For **Single VM**, one floating IP is assigned to `port1` (the public-facing interface).
 - For **HA Single Zone**, three floating IPs are assigned — one to the active node's `port1` (which fails over), and one each to `port4` (HA management) of both nodes.
-- For **HA Cross Zone**, four floating IPs are assigned — one to `port1` and one to `port4` on each FortiGate — plus a Public Address Range (PAR) for cross-zone failover.
+- For **HA Cross Zone**, four floating IPs are assigned — one to `port1` and one to `port4` on each FortiGate — plus a public address range for cross-zone failover.
 - For HA deployments, inbound rules are pre-configured to allow HA heartbeat traffic between the two FortiGate nodes on the cluster sync interface (`port3`). No other inbound traffic is permitted.
 
 This default posture helps ensure that your firewall is not openly reachable on the internet immediately after provisioning. You will see a floating IP in your VPC resources, but attempts to connect to it in a browser or over SSH will time out until you add an inbound security group rule that allows access from your administrator IP address.

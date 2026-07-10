@@ -5,7 +5,7 @@ copyright:
 
 lastupdated: "2026-07-15"
 
-keywords: firewall default configuration, FortiGate default config, HA configuration, bootstrap configuration, SDN connector, PAR, cloud-init
+keywords: firewall default configuration, FortiGate default config, HA configuration, bootstrap configuration, SDN connector, public address range, cloud-init
 
 subcollection: licensed-firewall
 
@@ -25,7 +25,7 @@ Depending on the deployment model, the bootstrap configuration configures:
 - Network interfaces, interface aliases, and management access
 - High availability (HA) settings
 - IBM Cloud SDN connector integration
-- Public Address Range (PAR) integration for cross-zone deployments
+- Public Address Range integration for cross-zone deployments
 
 After deployment, you can modify the default configuration to meet your networking and security requirements.
 
@@ -207,7 +207,7 @@ The following table describes the default settings for the passive node:
 ## Default configuration of an HA cross-zone deployment — active node
 {: #ha-cross-zone-active-node}
 
-An HA cross-zone deployment provisions two FortiGate firewalls across separate availability zones. The cross-zone configuration extends the single-zone HA configuration with two additions: a Public Address Range (PAR) identifier in the SDN connector for cross-zone floating IP failover, and a VDOM exception list that ensures interfaces, static routes, and virtual IPs are synchronized between nodes.
+An HA cross-zone deployment provisions two FortiGate firewalls across separate availability zones. The cross-zone configuration extends the single-zone HA configuration with two additions: a public address range identifier in the SDN connector for cross-zone floating IP failover, and a VDOM exception list that ensures interfaces, static routes, and virtual IPs are synchronized between nodes.
 
 ```text
 config system global
@@ -278,7 +278,7 @@ The following table describes the default settings for the active node:
 ## Default configuration of an HA cross-zone deployment — passive node
 {: #ha-cross-zone-passive-node}
 
-The passive node in a cross-zone deployment mirrors the active node configuration with a lower HA priority and reversed peer IP references. It includes the same PAR-aware SDN connector and VDOM exception list as the active node.
+The passive node in a cross-zone deployment mirrors the active node configuration with a lower HA priority and reversed peer IP references. It includes the same public address range–enabled SDN connector and VDOM exception list as the active node.
 
 ```text
 config system global

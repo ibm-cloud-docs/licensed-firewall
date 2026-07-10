@@ -27,8 +27,8 @@ The FortiGate web console or CLI shows the passive node as out of sync, missing 
 
 HA synchronization failures are typically caused by:
 
-- The security group is blocking traffic between the FortiGate port3 (HA heartbeat) interfaces.
-- The static IP addresses or subnets provided for port3 are incorrect.
+- The security group is blocking traffic between the FortiGate `port3` (HA heartbeat) interfaces.
+- The static IP addresses or subnets provided for `port3` are incorrect.
 - The HA heartbeat subnet does not have connectivity between zones (cross-zone deployments).
 {: tsCauses}
 
@@ -37,7 +37,7 @@ Try the following steps to resolve the issue:
 
 1. **Verify security group rules.**
 
-   Confirm that the automatically created security group includes inbound rules that allow traffic from both FortiGate port3 IP addresses. For HA Single Zone, the rules allow TCP/UDP port 703 from the HA heartbeat subnet (`SUBNET_3`). For HA Cross Zone, the rules allow all protocols from the specific port3 IPs of each node.
+   Confirm that the automatically created security group includes inbound rules that allow traffic from both FortiGate `port3` IP addresses. For HA Single Zone, the rules allow TCP/UDP port 703 from the HA heartbeat subnet (`SUBNET_3`). For HA Cross Zone, the rules allow all protocols from the specific `port3` IPs of each node.
 
 2. **Check HA status from the CLI.**
 
@@ -52,7 +52,7 @@ Try the following steps to resolve the issue:
 
 3. **Verify static IP assignments.**
 
-   Confirm that the `FGT1_STATIC_IP_PORT3` and `FGT2_STATIC_IP_PORT3` values used during deployment match the actual IP addresses assigned to the port3 interfaces on each FortiGate.
+   Confirm that the `FGT1_STATIC_IP_PORT3` and `FGT2_STATIC_IP_PORT3` values used during deployment match the actual IP addresses assigned to the `port3` interfaces on each FortiGate.
 
 4. **Open a support case.**
 
