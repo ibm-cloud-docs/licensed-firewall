@@ -62,7 +62,7 @@ Policies with zero hits over an extended period may be candidates for review or 
 {: #monitoring-interface-status}
 
 1. Log in to the FortiGate web console.
-1. Go to **Network > Interfaces** to review the status and traffic statistics for port1 and port2.
+1. Go to **Network > Interfaces** to review the status and traffic statistics for `port1` and `port2`.
 1. Go to **Network > Routing** to verify that routing tables are correct and that the default gateway is reachable.
 
 ## Troubleshooting connectivity

@@ -42,15 +42,15 @@ The initial administrator password is generated at deployment time and is displa
 ## Disable unused management protocols on each interface
 {: #bp-disable-unused-protocols}
 
-The default configuration enables HTTPS, SSH, and ping on both port1 and port2. Disable any protocols that are not required for your operational workflow.
+The default configuration enables HTTPS, SSH, and ping on both `port1` and `port2`. Disable any protocols that are not required for your operational workflow.
 
 1. Log in to the FortiGate web console.
 1. Go to **Network > Interfaces**.
-1. Edit port1 and port2.
+1. Edit `port1` and `port2`.
 1. In **Administrative access**, uncheck any protocols that are not in use.
 1. Click **OK** to save.
 
-Leaving ping (`PING`) enabled on the public interface (port1) allows external hosts to probe the firewall's presence. Disable it if internet-facing discovery is a concern.
+Leaving ping (`PING`) enabled on the public interface (`port1`) allows external hosts to probe the firewall's presence. Disable it if internet-facing discovery is a concern.
 {: tip}
 
 ## Use a VPN or bastion host for management access

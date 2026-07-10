@@ -46,7 +46,7 @@ Try the following steps to resolve the issue:
 
 3. **Check outbound connectivity from the FortiGate.**
 
-   The FortiGate must be able to reach Fortinet's licensing servers on the internet. Verify that the VPC has a public gateway attached to the subnet used by port1, or that a floating IP is assigned to port1. From the FortiGate CLI, run:
+   The FortiGate must be able to reach Fortinet's licensing servers on the internet. Verify that the VPC has a public gateway attached to the subnet used by `port1`, or that a floating IP is assigned to `port1`. From the FortiGate CLI, run:
 
    ```sh
    execute ping guard.fortinet.net

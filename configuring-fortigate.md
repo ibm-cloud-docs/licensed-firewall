@@ -18,7 +18,7 @@ subcollection: licensed-firewall
 After you log in to the FortiGate web console for the first time, the firewall is running with its default bootstrap configuration. The bootstrap configuration initializes the system settings required for IBM Cloud integration, but it does not include any firewall policies. No traffic is inspected or permitted through the firewall until you create policies.
 {: shortdesc}
 
-Use this topic as a starting checklist for the configuration tasks you should complete before putting the firewall into production.
+Before making changes, review [Understanding the default firewall configuration](/docs/licensed-firewall?topic=licensed-firewall-understanding-default-firewall-configuration) to understand what IBM applied during provisioning. Use this topic as a starting checklist for the configuration tasks you should complete before putting the firewall into production.
 
 ## Change the administrator password
 {: #config-change-password}

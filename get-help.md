@@ -46,5 +46,5 @@ To ensure that the support team can start investigating your case and provide a 
 
 3. Provide network details if the issue involves connectivity:
    * Source and destination IP addresses.
-   * The subnet IDs for port1 and port2.
+   * The subnet IDs for `port1` and `port2`.
    * Any security group rules that might be relevant.
