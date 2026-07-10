@@ -32,12 +32,6 @@ No. The license plan is fixed at deployment time and cannot be changed on an exi
 
 Yes. You can resize the underlying virtual server instance to a different profile without changing the license plan. The license and associated billing remain unchanged after a resize. You must stop the instance before resizing it. For more information, see [Resizing a firewall virtual server instance](/docs/licensed-firewall?topic=licensed-firewall-changing-firewall-instance-profile-or-license-plan).
 
-## Why can't I connect to my FortiGate after deployment?
-{: #faq-cannot-connect}
-{: faq}
-
-The security group created during deployment denies all inbound traffic by default. You must add an inbound TCP rule for port 443 (HTTPS) or port 22 (SSH) that allows your administrator IP address before you can connect to the FortiGate web console. For more information, see [Accessing your FortiGate firewall](/docs/licensed-firewall?topic=licensed-firewall-access-firewall).
-
 ## How is the FortiGate license applied?
 {: #faq-license-applied}
 {: faq}

@@ -54,5 +54,6 @@ toc:
           label: Troubleshooting
           topics:
           - troubleshoot.md
+          - troubleshoot-cannot-connect.md
           - troubleshoot-schematics-deployment.md
           - troubleshoot-ha-sync.md

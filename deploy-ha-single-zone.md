@@ -93,8 +93,8 @@ Follow these steps:
 IBM Cloud Schematics creates a workspace and runs the Terraform automation. You can watch the Terraform execution in the **Log** section of the workspace. When the deployment completes successfully, the log displays the following output values:
 
 - `FortiGate_Public_IP` — Public IP address of the FortiGate cluster, attached to the active instance
-- `FGT1_Public_HA_Mangment_IP` — Public IP address for FortiGate 1 HA management (`port4`) `FIX`{: tag-purple}
-- `FGT2_Public_HA_Mangment_IP` — Public IP address for FortiGate 2 HA management (`port4`) `FIX`{: tag-purple}
+- `FGT1_Public_HA_Mangment_IP` — Public IP address for FortiGate 1 HA management (`port4`) [FIX]{: tag-purple}
+- `FGT2_Public_HA_Mangment_IP` — Public IP address for FortiGate 2 HA management (`port4`) [FIX]{: tag-purple}
 - `Security_Group_ID` — ID of the automatically created security group
 - `Security_Group_Name` — Name of the security group
 - `Selected_VSI_Profile` — Virtual server instance profile automatically selected based on the plan CRN

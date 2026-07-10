@@ -15,12 +15,8 @@ completion-time: 60m
 
 {{site.data.keyword.attribute-definition-list}}
 
-`Attention`{: tag-purple}
-{: #tutorial-attention}
-
-**Do we need here or plan to update the classic-to-vpc repo with the correct information before GA?**
-
 # Migrating Fortinet FortiGate from Classic to VPC PayGo
+[ATTENTION]{: tag-purple} **Do we need here or plan to update the classic-to-vpc repo with the correct information before GA?**
 {: #tutorial-fortigate-vpc-migration}
 {: toc-content-type="tutorial"}
 {: toc-services="network, firewall, vpc"}
