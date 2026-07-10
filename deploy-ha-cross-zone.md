@@ -19,7 +19,23 @@ subcollection: licensed-firewall
 The HA Cross Zone offering deploys two FortiGate next-generation firewall instances as an active/passive (A/P) cluster across two separate availability zones. In addition to automatic failover via the IBM Cloud SDN connector, a public address range enables the cluster's floating IP address to move between zones, providing resilience against a full zone outage. This is the highest-availability topology and is recommended for production workloads with strict uptime requirements.
 {: shortdesc}
 
-Before you begin, complete the prerequisites in [Deploying a licensed FortiGate firewall](/docs/licensed-firewall?topic=licensed-firewall-fortinet-firewall-order#deploy-fortinet-prereqs).
+## Before you begin
+{: #deploy-ha-cross-zone-prereqs}
+
+Before you deploy, ensure that you have reviewed [Planning for FortiGate on IBM Cloud VPC](/docs/licensed-firewall?topic=licensed-firewall-planning) and that the following resources are available in your IBM Cloud account:
+
+- A VPC in the target region
+- 8 subnets — four per zone, one for each port (`port1`–`port4`)
+- A pre-created SSH key in the target region
+- An IBM Cloud API key with sufficient permissions to create VPC resources
+
+The security group is created automatically during deployment. You do not need to create one in advance.
+
+This offering requires static IP addresses for all FortiGate interfaces across both zones. Allocate eight subnets — four per zone — and plan your IP assignments before you begin. Also verify that your account has sufficient floating IP quota in the target region, as four floating IPs are consumed.
+{: important}
+
+## Deploying
+{: #deploy-ha-cross-zone-steps}
 
 Terraform deploys the following resources:
 
@@ -30,21 +46,20 @@ Terraform deploys the following resources:
 - One security group with inbound rules allowing HA traffic from each FortiGate's `port3` IP, and allow-all outbound rules
 - A bootstrap configuration with HA, SDN connector, public address range, and VDOM exception settings
 
-This offering requires static IP addresses for all FortiGate interfaces across both zones. Allocate eight subnets — four per zone — and plan your IP assignments before you begin.
-{: important}
+Follow these steps:
 
 1. Log in to the [IBM Cloud console](https://cloud.ibm.com){: external}.
 1. Click **Catalog** in the navigation bar.
 1. Search for **Fortinet FortiGate VM NGFW** and select the **Fortinet FortiGate VM Next-Generation Firewall - Cross Zone A/P HA** tile.
-1. Under **Select your deployment target**, select **IBM Cloud**.
-1. Under **Select a delivery method**, select **Terraform**.
-1. Under **Select product version**, choose a product version from the dropdown.
-1. Under **Select engine type**, select **Schematics**.
-1. Under **Configure your workspace**, review or update the following fields:
-   - **Name** — a name for the Schematics workspace. A default name is pre-filled.
-   - **Location** — the region where the Schematics workspace is created.
-   - **Resource group** — the resource group for the workspace.
-   - **Tags** — optional tags to apply to the workspace.
+1. In **Select your deployment target**, select **IBM Cloud**.
+1. In **Select a delivery method**, select **Terraform**.
+1. In **Select product version**, choose a product version from the dropdown.
+1. In **Select engine type**, select **Schematics**.
+1. In **Configure your workspace**, review or update the following fields:
+   - **Name** — A name for the Schematics workspace. A default name is pre-filled.
+   - **Location** — The region where the Schematics workspace is created.
+   - **Resource group** — The resource group for the workspace.
+   - **Tags** — Optional tags to apply to the workspace.
 1. Scroll down to **Set the input variables** and complete the fields in the **Required input variables** table:
 
    | Parameter | Description |
@@ -84,25 +99,28 @@ This offering requires static IP addresses for all FortiGate interfaces across b
 
 IBM Cloud Schematics creates a workspace and runs the Terraform automation. You can watch the Terraform execution in the **Log** section of the workspace. When the deployment completes successfully, the log displays the following output values:
 
-- `FGT1_Port1_Public_IP` — the public IP address for FortiGate 1 primary management (`port1`)
-- `FGT1_Port4_Public_IP` — the public IP address for FortiGate 1 HA management (`port4`)
-- `FGT2_Port1_Public_IP` — the public IP address for FortiGate 2 primary management (`port1`)
-- `FGT2_Port4_Public_IP` — the public IP address for FortiGate 2 HA management (`port4`)
-- `Par_ID` — the Public Address Range ID
-- `Par_CIDR` — the Public Address Range CIDR block
-- `Security_Group_ID` — the ID of the automatically created security group
-- `Security_Group_Name` — the name of the security group
-- `Selected_VSI_Profile` — the VSI profile automatically selected based on the plan CRN
-- `Catalog_Offering_Version_CRN` — the catalog offering version CRN used
-- `Catalog_Offering_Plan_CRN` — the catalog offering plan CRN used
-- `Username` — the administrator username (`admin`)
-- `FGT1_Default_Admin_Password` — the initial password for FortiGate 1. The password may be empty on first boot; if so, use the instance ID as the initial password.
-- `FGT2_Default_Admin_Password` — the initial password for FortiGate 2. The password may be empty on first boot; if so, use the instance ID as the initial password.
+- `FGT1_Port1_Public_IP` — Public IP address for FortiGate 1 primary management (`port1`)
+- `FGT1_Port4_Public_IP` — Public IP address for FortiGate 1 HA management (`port4`)
+- `FGT2_Port1_Public_IP` — Public IP address for FortiGate 2 primary management (`port1`)
+- `FGT2_Port4_Public_IP` — Public IP address for FortiGate 2 HA management (`port4`)
+- `Par_ID` — Public address range ID
+- `Par_CIDR` — Public address range CIDR block
+- `Security_Group_ID` — ID of the automatically created security group
+- `Security_Group_Name` — Name of the security group
+- `Selected_VSI_Profile` — VSI profile automatically selected based on the plan CRN
+- `Catalog_Offering_Version_CRN` — Catalog offering version CRN used
+- `Catalog_Offering_Plan_CRN` — Catalog offering plan CRN used
+- `Username` — Administrator username (`admin`)
+- `FGT1_Default_Admin_Password` — Initial password for FortiGate 1. May be empty on first boot; if so, use the instance ID as the initial password.
+- `FGT2_Default_Admin_Password` — Initial password for FortiGate 2. May be empty on first boot; if so, use the instance ID as the initial password.
 
 Save these values before you close the workspace. When **Terraform commands successful** and **Cart creation successful** are both displayed, your HA cross-zone firewall pair is provisioned and ready to use.
 
 It is a good idea to review the full log output for errors or warnings, even when the deployment reports as successful.
 {: note}
 
-Before you attempt to connect, review the [planning considerations and limitations](/docs/licensed-firewall?topic=licensed-firewall-planning) for information about the default security group posture and license plan constraints.
-{: important}
+## Next steps
+{: #deploy-ha-cross-zone-next-steps}
+
+- [Access the FortiGate web console](/docs/licensed-firewall?topic=licensed-firewall-access-firewall) — Add a security group rule, configure routing, and log in for the first time.
+- [Understand the default firewall configuration](/docs/licensed-firewall?topic=licensed-firewall-understanding-default-firewall-configuration) — Review what IBM applied during provisioning before making changes.

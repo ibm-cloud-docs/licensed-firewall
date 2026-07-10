@@ -36,7 +36,7 @@ Yes. You can resize the underlying virtual server instance to a different profil
 {: #faq-cannot-connect}
 {: faq}
 
-The security group created during deployment denies all inbound traffic by default. You must add an inbound TCP rule for port 443 (HTTPS) or port 22 (SSH) that allows your administrator IP address before you can connect to the FortiGate management interface. For more information, see [Accessing the FortiGate web console](/docs/licensed-firewall?topic=licensed-firewall-access-firewall).
+The security group created during deployment denies all inbound traffic by default. You must add an inbound TCP rule for port 443 (HTTPS) or port 22 (SSH) that allows your administrator IP address before you can connect to the FortiGate web console. For more information, see [Accessing the FortiGate web console](/docs/licensed-firewall?topic=licensed-firewall-access-firewall).
 
 ## How is the FortiGate license applied?
 {: #faq-license-applied}
@@ -48,7 +48,7 @@ IBM applies the FortiGate license automatically when your instance is provisione
 {: #faq-deployment-configs}
 {: faq}
 
-Three configurations are available from the IBM Cloud catalog: a single virtual machine (VM), a high-availability (HA) pair in a single zone, and an HA pair across two zones. All three are deployed by using IBM Cloud Schematics with Terraform automation. For more information, see [Deploying a licensed FortiGate firewall](/docs/licensed-firewall?topic=licensed-firewall-fortinet-firewall-order).
+Three configurations are available from the IBM Cloud catalog: a single virtual machine (VM), a high-availability (HA) pair in a single zone, and an HA pair across two zones. All three are deployed by using IBM Cloud Schematics with Terraform automation. For more information, see [Deploying a licensed FortiGate firewall](/docs/licensed-firewall?topic=licensed-firewall-deploy-single-vm).
 
 ## Who is responsible for applying FortiGate software updates and security patches?
 {: #faq-updates-responsibility}

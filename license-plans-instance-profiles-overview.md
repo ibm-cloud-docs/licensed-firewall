@@ -212,6 +212,6 @@ Consider the following factors when evaluating instance profiles for your deploy
 ## Related links
 {: #license-plans-related-links}
 
-- [Deploying a licensed FortiGate firewall](/docs/licensed-firewall?topic=licensed-firewall-fortinet-firewall-order)
+- [Deploying a licensed FortiGate firewall](/docs/licensed-firewall?topic=licensed-firewall-deploy-single-vm)
 - [Resizing a firewall virtual server instance](/docs/licensed-firewall?topic=licensed-firewall-changing-firewall-instance-profile-or-license-plan)
 - [Default virtual server profile mappings for licensed firewalls](/docs/licensed-firewall?topic=licensed-firewall-default-vsi-profile-mappings)

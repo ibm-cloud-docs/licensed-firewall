@@ -40,7 +40,7 @@ FortiGate PayGo combines enterprise-grade security with cloud-native simplicity,
 ## Getting started
 {: #getting-started-next-steps}
 
-Before you deploy a FortiGate firewall, ensure that the following resources exist in your IBM Cloud account and that you have reviewed the [planning considerations and limitations](/docs/licensed-firewall?topic=licensed-firewall-planning):
+Before you deploy a FortiGate firewall, ensure that the following resources exist in your IBM Cloud account and that you have reviewed [Planning for FortiGate on IBM Cloud VPC](/docs/licensed-firewall?topic=licensed-firewall-planning):
 
 - An IBM Cloud account with access to VPC
 - A VPC with subnets configured for your deployment
@@ -49,18 +49,18 @@ Before you deploy a FortiGate firewall, ensure that the following resources exis
 
 To get started, follow these steps:
 
-1. [Review planning considerations and limitations](/docs/licensed-firewall?topic=licensed-firewall-planning) — understand the constraints and requirements that affect your deployment before you order.
-1. [Review license plans and instance profiles](/docs/licensed-firewall?topic=licensed-firewall-about-firewall-license-plans-and-instance-profiles) — understand the available license tiers, deployment sizes, and performance characteristics before ordering.
-1. [Understand the default firewall configuration](/docs/licensed-firewall?topic=licensed-firewall-understanding-default-firewall-configuration) — review the bootstrap configurations applied to each of the five deployment options (Single VM, HA single-zone active, HA single-zone passive, HA cross-zone active, HA cross-zone passive).
-1. [Deploy a licensed FortiGate firewall](/docs/licensed-firewall?topic=licensed-firewall-fortinet-firewall-order) — deploy a single VM, HA single zone, or HA cross zone configuration from the IBM Cloud catalog.
-1. [Access the FortiGate web console](/docs/licensed-firewall?topic=licensed-firewall-access-firewall) — add an inbound security group rule to allow management access, configure VPC routing to pass traffic through the firewall, and log in to the management interface for the first time. Step-by-step instructions for each of these tasks are provided in that topic.
-1. [Enable security services](/docs/licensed-firewall?topic=licensed-firewall-enable-security-services) — activate IPS, antivirus, web filtering, and other security profiles based on your license plan.
+1. [Review Planning for FortiGate on IBM Cloud VPC](/docs/licensed-firewall?topic=licensed-firewall-planning) — Understand constraints and requirements that affect your deployment before you order.
+1. [Review license plans and instance profiles](/docs/licensed-firewall?topic=licensed-firewall-about-firewall-license-plans-and-instance-profiles) — Understand the available license tiers, deployment sizes, and performance characteristics before ordering.
+1. [Understand the default firewall configuration](/docs/licensed-firewall?topic=licensed-firewall-understanding-default-firewall-configuration) — Review the bootstrap configurations applied to each of the five deployment options (Single VM, HA single-zone active, HA single-zone passive, HA cross-zone active, HA cross-zone passive).
+1. [Deploy a licensed FortiGate firewall](/docs/licensed-firewall?topic=licensed-firewall-deploy-single-vm) — Deploy a single VM, HA single zone, or HA cross zone configuration from the IBM Cloud catalog.
+1. [Access the FortiGate web console](/docs/licensed-firewall?topic=licensed-firewall-access-firewall) — Add an inbound security group rule to allow management access, configure VPC routing to pass traffic through the firewall, and log in to the management interface for the first time. Step-by-step instructions for each of these tasks are provided in that topic.
+1. [Enable security services](/docs/licensed-firewall?topic=licensed-firewall-enable-security-services) — Activate Intrusion Prevention System (IPS), antivirus, web filtering, and other security profiles based on your license plan.
 
    For security hardening guidance after initial setup, see [Security best practices for FortiGate on IBM Cloud VPC](/docs/licensed-firewall?topic=licensed-firewall-fortigate-security-best-practices).
    {: note}
 
-1. [Back up the FortiGate configuration](/docs/licensed-firewall?topic=licensed-firewall-backup-restore-fortigate-config) — create an initial backup of your configuration after setup is complete and store it securely.
-1. [Monitor your FortiGate firewall](/docs/licensed-firewall?topic=licensed-firewall-monitoring) — review logs, check instance health, and verify that firewall policies are working as expected.
+1. [Back up the FortiGate configuration](/docs/licensed-firewall?topic=licensed-firewall-backup-restore-fortigate-config) — Create an initial backup of your configuration after setup is complete and store it securely.
+1. [Monitor your FortiGate firewall](/docs/licensed-firewall?topic=licensed-firewall-monitoring) — Review logs, check instance health, and verify that firewall policies are working as expected.
 
 If you are migrating an existing Classic FortiGate deployment to VPC, see [VPC firewall options](/docs/classic-to-vpc?topic=classic-to-vpc-vpc-firewall-options).
 {: note}

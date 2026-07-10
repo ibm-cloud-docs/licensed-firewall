@@ -38,7 +38,7 @@ To back up the FortiGate configuration in the console, follow these steps:
 
 1. Log in to the FortiGate web console.
 1. In the top-right corner, click the admin username and select **Configuration > Backup**.
-1. Under **Backup to**, select **Local PC**.
+1. In **Backup to**, select **Local PC**.
 1. If VDOMs are enabled, select whether to back up the **Global** configuration, a specific VDOM, or all VDOMs.
 1. Optionally, enable **Encrypt configuration file** and enter a password to protect the backup file.
 1. Click **Backup**.
@@ -67,7 +67,7 @@ To restore the FortiGate configuration in the console, follow these steps:
 
 1. Log in to the FortiGate web console.
 1. In the top-right corner, click the admin username and select **Configuration > Restore**.
-1. Under **Restore from**, select **Local PC**.
+1. In **Restore from**, select **Local PC**.
 1. Click **Browse** and select the `.conf` backup file.
 1. If the backup was encrypted, enter the password.
 1. If VDOMs are enabled, select the scope to restore (**Global**, a specific VDOM, or all VDOMs).

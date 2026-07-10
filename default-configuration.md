@@ -374,6 +374,6 @@ The following table lists all bootstrap variables and their sources:
 ## Related links
 {: #default-config-related-links}
 
-- [Deploying a licensed FortiGate firewall](/docs/licensed-firewall?topic=licensed-firewall-fortinet-firewall-order)
+- [Deploying a licensed FortiGate firewall](/docs/licensed-firewall?topic=licensed-firewall-deploy-single-vm)
 - [Accessing the FortiGate web console](/docs/licensed-firewall?topic=licensed-firewall-access-firewall)
 - [Backing up and restoring the FortiGate configuration](/docs/licensed-firewall?topic=licensed-firewall-backup-restore-fortigate-config)

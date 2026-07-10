@@ -47,7 +47,7 @@ The default configuration enables HTTPS, SSH, and ping on both port1 and port2. 
 1. Log in to the FortiGate web console.
 1. Go to **Network > Interfaces**.
 1. Edit port1 and port2.
-1. Under **Administrative access**, uncheck any protocols that are not in use.
+1. In **Administrative access**, uncheck any protocols that are not in use.
 1. Click **OK** to save.
 
 Leaving ping (`PING`) enabled on the public interface (port1) allows external hosts to probe the firewall's presence. Disable it if internet-facing discovery is a concern.

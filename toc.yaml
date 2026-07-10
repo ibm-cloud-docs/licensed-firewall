@@ -25,7 +25,6 @@ toc:
       - topicgroup:
           label: Deploying a licensed FortiGate firewall
           topics:
-          - deploy-overview.md
           - deploy-single-vm.md
           - deploy-ha-single-zone.md
           - deploy-ha-cross-zone.md

@@ -15,8 +15,8 @@
         "href": "/docs/licensed-firewall?topic=licensed-firewall-about-firewall-license-plans-and-instance-profiles"
       },
       {
-        "title": "Ordering a licensed FortiGate firewall",
-        "href": "/docs/licensed-firewall?topic=licensed-firewall-fortinet-firewall-order"
+        "title": "Deploying a licensed FortiGate firewall",
+        "href": "/docs/licensed-firewall?topic=licensed-firewall-deploy-single-vm"
       },
       {
         "title": "Accessing the FortiGate web console",

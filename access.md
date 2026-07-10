@@ -62,18 +62,18 @@ The security group that is created during deployment denies all inbound traffic 
 1. Set **Direction** to **Inbound**.
 1. Set **Protocol** to **TCP**.
 1. Set the **Port range** to **443** for HTTPS access or **22** for SSH access.
-1. Under **Source type**, select **IP address** and enter your administrator IP address or CIDR range.
+1. In **Source type**, select **IP address** and enter your administrator IP address or CIDR range.
 1. Click **Create** to save the rule.
 
 Restrict inbound access to known administrator IP addresses only. Avoid using `0.0.0.0/0` as the source.
 {: important}
 
-For more information, see [About security groups](https://cloud.ibm.com/docs/vpc?topic=vpc-using-security-groups){: external}.
+For more information, see [About security groups](/docs/vpc?topic=vpc-using-security-groups).
 
 ## Step 2: Choose your management access method
 {: #access-firewall-access-method}
 
-Two methods are available to access the FortiGate management console. Use the method that best fits your security requirements.
+Two methods are available to access the FortiGate web console. Use the method that best fits your security requirements.
 
 ### Method 1: Floating IP with allowlist (default)
 {: #access-method-fip}
@@ -83,7 +83,7 @@ The floating IP on `port1` is assigned automatically and is internet-routable. T
 ### Method 2: VPN access (no floating IP required)
 {: #access-method-vpn}
 
-Configure a VPN connection into your VPC and access the FortiGate management interface by using its private IP address on port 443. This method eliminates direct internet-facing management access entirely and does not require modification of the floating IP configuration. For guidance on setting up VPN access, see [Use a VPN or bastion host for management access](/docs/licensed-firewall?topic=licensed-firewall-fortigate-security-best-practices#bp-vpn-management).
+Configure a VPN connection into your VPC and access the FortiGate web console by using its private IP address on port 443. This method eliminates direct internet-facing management access entirely and does not require modification of the floating IP configuration. For guidance on setting up VPN access, see [Use a VPN or bastion host for management access](/docs/licensed-firewall?topic=licensed-firewall-fortigate-security-best-practices#bp-vpn-management).
 
 ## Step 3: Route traffic through the firewall
 {: #access-firewall-routing}
