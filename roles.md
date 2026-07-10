@@ -15,7 +15,7 @@ subcollection: licensed-firewall
 # IBM-Fortinet RACII v3
 {: #fortinet-racii-v3}
 
-[PLACEHOLDER][: tag-purple}  **DO WE EVEN NEED THIS IN CUSTOMER-FACING DOCS?** HAVE PROVIDED ALTERNATIVE IN BELOW TOPIC.**
+[PLACEHOLDER][: tag-purple}  **RABINDRA: DO WE EVEN NEED THIS IN CUSTOMER-FACING DOCS? HAVE PROVIDED ALTERNATIVE IN TOPIC ABOVE.**
 
 Service: Fortinet vFSA (Virtual FortiGate Security Appliance) in IBM Cloud VPC
 {: shortdesc}
