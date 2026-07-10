@@ -30,12 +30,7 @@ Ensure that the following conditions are met before backing up or restoring:
 - If you are restoring a configuration to a different instance, ensure the target instance is running the same or a compatible FortiOS version.
 - If you are restoring a configuration from a different deployment type (for example, from a Classic FortiGate or a different VPC instance), you must update interface names, IP addresses, and gateway references before importing. See [Adapting a configuration for a new deployment](#adapt-config).
 
-## Backing up the configuration
-{: #backup-config}
-
-You can back up the configuration in the console or from the CLI.
-
-### Backing up in the console
+## Backing up the FortiGate configuration in the console
 {: #backup-web-console}
 {: ui}
 
@@ -51,7 +46,7 @@ To back up the FortiGate configuration in the console, follow these steps:
 The configuration file is downloaded to your local machine as a `.conf` file. Store it securely, as the file contains sensitive information including interface configurations, firewall policies, and VPN settings.
 {: note}
 
-### Backing up from the CLI
+## Backing up the FortiGate configuration from the CLI
 {: #backup-cli}
 {: cli}
 
@@ -64,12 +59,7 @@ execute backup config tftp <filename> <tftp-server-ip>
 
 Replace `<filename>` with the desired backup file name and `<tftp-server-ip>` with the IP address of your TFTP server. To back up to a USB drive (if supported by the instance type), use `execute backup config usb <filename>` instead.
 
-## Restoring the configuration
-{: #restore-config}
-
-You can restore the configuration in the console or from the CLI.
-
-### Restoring in the console
+## Restoring the FortiGate configuration in the console
 {: #restore-web-console}
 {: ui}
 
@@ -88,7 +78,7 @@ The FortiGate restarts automatically after the restore completes. Log in again w
 Restoring a configuration overwrites the current running configuration. Ensure you have a backup of the current configuration before restoring.
 {: important}
 
-### Restoring from the CLI
+## Restoring the FortiGate configuration from the CLI
 {: #restore-cli}
 {: cli}
 
