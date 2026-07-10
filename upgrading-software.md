@@ -74,7 +74,9 @@ After the appliance restarts:
 3. Verify that the upgrade completed successfully.
 4. Confirm network connectivity before returning the appliance to production.
 
-## Next steps
-{: #upgrading-fortigate-software-next-steps}
+## Related links
+{: #upgrading-fortigate-software-related-links}
 
-For more information, see the [FortiGate Administration Guide](https://docs.fortinet.com/product/fortigate/8.0){: external}.
+- [FortiGate Administration Guide](https://docs.fortinet.com/product/fortigate/8.0){: external}
+- [Subscribing to Fortinet notifications](/docs/licensed-firewall?topic=licensed-firewall-security-maintenance-vulnerability-management)
+- [Backing up and restoring the FortiGate configuration](/docs/licensed-firewall?topic=licensed-firewall-backup-restore-fortigate-config)

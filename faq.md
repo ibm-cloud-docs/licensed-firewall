@@ -48,7 +48,7 @@ IBM applies the FortiGate license automatically when your instance is provisione
 {: #faq-deployment-configs}
 {: faq}
 
-Three configurations are available from the IBM Cloud catalog: a single virtual machine (VM), a high-availability (HA) pair in a single zone, and an HA pair across two zones. All three are deployed by using IBM Cloud Schematics with Terraform automation. For more information, see [Ordering a licensed FortiGate firewall](/docs/licensed-firewall?topic=licensed-firewall-fortinet-firewall-order).
+Three configurations are available from the IBM Cloud catalog: a single virtual machine (VM), a high-availability (HA) pair in a single zone, and an HA pair across two zones. All three are deployed by using IBM Cloud Schematics with Terraform automation. For more information, see [Deploying a licensed FortiGate firewall](/docs/licensed-firewall?topic=licensed-firewall-fortinet-firewall-order).
 
 ## Who is responsible for applying FortiGate software updates and security patches?
 {: #faq-updates-responsibility}
@@ -60,7 +60,7 @@ You are responsible for applying FortiGate firmware updates and security patches
 {: #faq-open-support-case}
 {: faq}
 
-Open all FortiGate support cases with IBM Support. IBM Support performs initial triage and opens a Fortinet TAC case on your behalf when needed. Do not open TAC cases directly with Fortinet. For more information, including what details to include in your case, see [Getting help and support](/docs/licensed-firewall?topic=licensed-firewall-help-and-support).
+Open all FortiGate support cases with IBM Support. IBM Support performs initial triage and opens a Fortinet Technical Assistance Center (TAC) case on your behalf when needed. Do not open TAC cases directly with Fortinet. For more information, including what details to include in your case, see [Getting help and support](/docs/licensed-firewall?topic=licensed-firewall-help-and-support).
 
 ## Is the FortiGate licensed firewall a managed service?
 {: #faq-managed-service}

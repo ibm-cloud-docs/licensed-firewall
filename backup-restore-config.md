@@ -31,10 +31,10 @@ IBM does not back up your FortiGate configuration. You are responsible for maint
 ## Backing up the configuration
 {: #backup-config}
 
-### Back up using the web console
+### Backing up from the console
 {: #backup-web-console}
 
-To back up the FortiGate configuration from the web console, complete the following steps.
+To back up the FortiGate configuration from the console, complete the following steps.
 
 1. Log in to the FortiGate web console.
 1. In the top-right corner, click the admin username and select **Configuration > Backup**.
@@ -46,10 +46,10 @@ To back up the FortiGate configuration from the web console, complete the follow
 The configuration file is downloaded to your local machine as a `.conf` file. Store it securely, as the file contains sensitive information including interface configurations, firewall policies, and VPN settings.
 {: note}
 
-### Back up using the CLI
+### Backing up from the CLI
 {: #backup-cli}
 
-You can also back up the configuration using the FortiGate CLI over SSH:
+To back up the configuration from the CLI, run the following command over SSH:
 
 ```sh
 execute backup config tftp <filename> <tftp-server-ip>
@@ -61,10 +61,10 @@ Replace `<filename>` with the desired backup file name and `<tftp-server-ip>` wi
 ## Restoring the configuration
 {: #restore-config}
 
-### Restore using the web console
+### Restoring from the console
 {: #restore-web-console}
 
-To restore the FortiGate configuration from the web console, complete the following steps.
+To restore the FortiGate configuration from the console, complete the following steps.
 
 1. Log in to the FortiGate web console.
 1. In the top-right corner, click the admin username and select **Configuration > Restore**.
@@ -79,10 +79,10 @@ The FortiGate restarts automatically after the restore completes. Log in again w
 Restoring a configuration overwrites the current running configuration. Ensure you have a backup of the current configuration before restoring.
 {: important}
 
-### Restore using the CLI
+### Restoring from the CLI
 {: #restore-cli}
 
-You can also restore the configuration using the FortiGate CLI over SSH:
+To restore the configuration from the CLI, run the following command over SSH:
 
 ```sh
 execute restore config tftp <filename> <tftp-server-ip>
@@ -104,8 +104,8 @@ If you are restoring a configuration to a different FortiGate instance (for exam
 Edit the `.conf` file in a text editor before importing it. Search for the interface names and IP addresses from the original deployment and replace them with the correct values for the target deployment.
 {: tip}
 
-## Next steps
-{: #backup-restore-next-steps}
+## Related links
+{: #backup-restore-related-links}
 
-- [Resizing a firewall virtual server instance](/docs/licensed-firewall?topic=licensed-firewall-changing-firewall-instance-profile-or-license-plan) — if you are changing license plans, use this topic for the full procedure including configuration export and import steps.
-- [Security best practices](/docs/licensed-firewall?topic=licensed-firewall-fortigate-security-best-practices) — store backup files in IBM Cloud Object Storage and test restore procedures regularly.
+- [Resizing a firewall virtual server instance](/docs/licensed-firewall?topic=licensed-firewall-changing-firewall-instance-profile-or-license-plan)
+- [Security best practices for FortiGate on IBM Cloud VPC](/docs/licensed-firewall?topic=licensed-firewall-fortigate-security-best-practices)

@@ -13,6 +13,7 @@ toc:
       topics:
       - getting-started.md
       - license-plans-instance-profiles-overview.md
+      - planning.md
       - release-notes.md
   - navgroup:
       id: tutorial
@@ -21,7 +22,13 @@ toc:
   - navgroup:
       id: howto
       topics:
-      - deploy.md
+      - topicgroup:
+          label: Deploying a licensed FortiGate firewall
+          topics:
+          - deploy-overview.md
+          - deploy-single-vm.md
+          - deploy-ha-single-zone.md
+          - deploy-ha-cross-zone.md
       - access.md
       - pricing-plans.md
       - backup-restore-config.md

@@ -54,7 +54,7 @@ Select a deployment topology based on your availability requirements and toleran
 
 Key differences between the topologies:
 
-- **Single VM** — Deploys one FortiGate instance with a public interface (port1) and a private interface (port2). There is no redundancy. If the instance fails, traffic is interrupted until it is restarted or replaced.
+- **Single VM** — Deploys one FortiGate instance with a public interface (`port1`) and a private interface (`port2`). There is no redundancy. If the instance fails, traffic is interrupted until it is restarted or replaced.
 - **Active/Passive HA - Single Zone** — Deploys two FortiGate instances in the same availability zone as an active-passive cluster. The IBM Cloud SDN connector enables automatic failover between nodes. If the active node fails, the passive node takes over without manual intervention.
 - **Active/Passive HA - Cross Zone** — Extends the single-zone HA topology across two availability zones. In addition to automatic failover, a Public Address Range (PAR) enables the floating IP to move between zones, providing resilience against a full zone outage. This is the highest-availability configuration.
 
@@ -182,6 +182,8 @@ Instance profiles define the compute resources allocated to your firewall deploy
 
 Each license plan includes a specific number of vCPUs for your FortiGate virtual firewall (vFSA). Based on the selected license plan and deployment size, IBM automatically assigns a virtual server instance profile that provides the required vCPUs and throughput. Because available profiles vary by region, IBM manages profile selection and you cannot choose or override the assigned profile. For example, an Enterprise plan with 8 vFSA vCPUs is deployed with the `cx3d-8x20` virtual server instance profile.
 
+For a complete list of the exact instance profiles assigned per license plan and deployment size, see [Default virtual server profile mappings for licensed firewalls](/docs/licensed-firewall?topic=licensed-firewall-default-vsi-profile-mappings).
+
 ### Profile families
 {: #instance-profile-families}
 
@@ -210,5 +212,6 @@ Consider the following factors when evaluating instance profiles for your deploy
 ## Related links
 {: #license-plans-related-links}
 
-- [Ordering a licensed FortiGate firewall](/docs/licensed-firewall?topic=licensed-firewall-fortinet-firewall-order)
+- [Deploying a licensed FortiGate firewall](/docs/licensed-firewall?topic=licensed-firewall-fortinet-firewall-order)
 - [Resizing a firewall virtual server instance](/docs/licensed-firewall?topic=licensed-firewall-changing-firewall-instance-profile-or-license-plan)
+- [Default virtual server profile mappings for licensed firewalls](/docs/licensed-firewall?topic=licensed-firewall-default-vsi-profile-mappings)

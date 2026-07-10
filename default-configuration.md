@@ -62,7 +62,7 @@ Every deployment creates a dedicated security group. By default, all inbound tra
 ## Default configuration of a Single VM deployment
 {: #single-vm-default-config}
 
-A Single VM deployment provisions one FortiGate firewall with one public interface (port1) and one private interface (port2). The bootstrap configuration is static. It contains no dynamic variables and applies the same defaults to every Single VM deployment.
+A Single VM deployment provisions one FortiGate firewall with one public interface (`port1`) and one private interface (`port2`). The bootstrap configuration is static. It contains no dynamic variables and applies the same defaults to every Single VM deployment.
 
 ```text
 config system global
@@ -86,8 +86,8 @@ The following table describes the default interface settings:
 
 | Interface | Alias | Management access |
 | --------- | ----- | ----------------- |
-| port1 | `untrust` | HTTPS, SSH, ping |
-| port2 | `trust` | HTTPS, SSH, ping |
+| `port1` | `untrust` | HTTPS, SSH, ping |
+| `port2` | `trust` | HTTPS, SSH, ping |
 {: caption="Single VM default interface configuration" caption-side="bottom"}
 
 ## Default configuration of an HA single-zone deployment — active node
@@ -144,7 +144,7 @@ The following table describes the default settings for the active node:
 | HA mode | `a-p` | Configures active-passive HA. |
 | HA priority | `50` | Higher priority ensures this node is the active firewall. |
 | HA heartbeat peer | `${fgt_2_static_port3}` | IP address of the passive node heartbeat interface. |
-| HA management interface | port4 | Dedicated out-of-band management port for HA. |
+| HA management interface | `port4` | Dedicated out-of-band management port for HA. |
 | IBM Cloud SDN connector | `ibm` | Enables IBM Cloud integration for automatic failover. |
 {: caption="HA single-zone active node default settings" caption-side="bottom"}
 
@@ -200,7 +200,7 @@ The following table describes the default settings for the passive node:
 | HA mode | `a-p` | Configures active-passive HA. |
 | HA priority | `25` | Lower priority keeps this node in the standby role. |
 | HA heartbeat peer | `${fgt_1_static_port3}` | IP address of the active node heartbeat interface. |
-| HA management interface | port4 | Dedicated out-of-band management port for HA. |
+| HA management interface | `port4` | Dedicated out-of-band management port for HA. |
 | IBM Cloud SDN connector | `ibm` | Enables IBM Cloud integration for automatic failover. |
 {: caption="HA single-zone passive node default settings" caption-side="bottom"}
 
@@ -269,7 +269,7 @@ The following table describes the default settings for the active node:
 | HA mode | `a-p` | Configures active-passive HA. |
 | HA priority | `50` | Higher priority ensures this node is the active firewall. |
 | HA heartbeat peer | `${fgt_2_static_port3}` | IP address of the passive node heartbeat interface (Zone 2). |
-| HA management interface | port4 | Dedicated out-of-band management port for HA. |
+| HA management interface | `port4` | Dedicated out-of-band management port for HA. |
 | Public Address Range | `${par_id}` | Enables floating IP failover across availability zones. |
 | IBM Cloud SDN connector | `ibm` | Enables IBM Cloud integration. |
 | VDOM exceptions | `system.interface`, `router.static`, `firewall.vip` | Objects synchronized independently from the HA cluster sync. |
@@ -340,7 +340,7 @@ The following table describes the default settings for the passive node:
 | HA mode | `a-p` | Configures active-passive HA. |
 | HA priority | `25` | Lower priority keeps this node in the standby role. |
 | HA heartbeat peer | `${fgt_1_static_port3}` | IP address of the active node heartbeat interface (Zone 1). |
-| HA management interface | port4 | Dedicated out-of-band management port for HA. |
+| HA management interface | `port4` | Dedicated out-of-band management port for HA. |
 | Public Address Range | `${par_id}` | Enables floating IP failover across availability zones. |
 | IBM Cloud SDN connector | `ibm` | Enables IBM Cloud integration. |
 | VDOM exceptions | `system.interface`, `router.static`, `firewall.vip` | Objects synchronized independently from the HA cluster sync. |
@@ -374,6 +374,6 @@ The following table lists all bootstrap variables and their sources:
 ## Related links
 {: #default-config-related-links}
 
-- [Ordering a licensed FortiGate firewall](/docs/licensed-firewall?topic=licensed-firewall-fortinet-firewall-order)
+- [Deploying a licensed FortiGate firewall](/docs/licensed-firewall?topic=licensed-firewall-fortinet-firewall-order)
 - [Accessing the FortiGate web console](/docs/licensed-firewall?topic=licensed-firewall-access-firewall)
 - [Backing up and restoring the FortiGate configuration](/docs/licensed-firewall?topic=licensed-firewall-backup-restore-fortigate-config)
