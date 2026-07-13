@@ -27,10 +27,6 @@
         "href": "/docs/licensed-firewall?topic=licensed-firewall-enable-security-services"
       },
       {
-        "title": "Backing up the FortiGate configuration",
-        "href": "/docs/licensed-firewall?topic=licensed-firewall-backup-restore-fortigate-config"
-      },
-      {
         "title": "Monitoring your FortiGate firewall",
         "href": "/docs/licensed-firewall?topic=licensed-firewall-monitoring"
       },
