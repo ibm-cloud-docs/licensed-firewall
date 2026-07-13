@@ -152,24 +152,45 @@ Connection capacity increases with deployment size and available memory.
 
 Instance profiles define the compute resources allocated to your firewall deployment.
 
-Each license plan includes a specific number of vCPUs for your FortiGate virtual firewall (vFSA). Based on the selected license plan and deployment size, IBM automatically assigns a virtual server instance profile that provides the required vCPUs and throughput. Because available profiles vary by region, IBM manages profile selection and you cannot choose or override the assigned profile. For example, an Enterprise plan with 8 vFSA vCPUs is deployed with the `cx3d-8x20` virtual server instance profile.
+Each license plan includes a specific number of vCPUs for your FortiGate virtual firewall (vFSA). Based on the selected license plan and deployment size, IBM automatically assigns a virtual server instance profile that provides the required vCPUs and throughput. Because available profiles vary by region, IBM manages profile selection and you cannot choose or override the assigned profile.
 
-For a complete list of the exact instance profiles assigned per license plan and deployment size, see [Default virtual server profile mappings for licensed firewalls](/docs/licensed-firewall?topic=licensed-firewall-default-vsi-profile-mappings).
+Virtual server profiles are automatically assigned during provisioning based on the selected license plan and deployment size. You cannot manually select or override the instance profile during deployment.
+{: note}
 
-### Profile families
-{: #instance-profile-families}
+### Enterprise profile mappings
+{: #enterprise-profile-mappings}
 
-Each license plan uses a specific instance profile family.
+This license plan uses gen3-cx profiles and supports Medium, Large, and X-large deployment sizes.
 
-| License Plan | Profile Family |
-|--------------|----------------|
-| Enterprise | gen3-cx |
-| UTP | gen3-cx |
-| ATP | gen2-cx |
-{: caption="Instance profile families by license plan" caption-side="bottom"}
+| Deployment Size | vCPU | Instance Profile | Profile Family |
+|----------------|------|------------------|----------------|
+| Medium         | 8    | cx3d-8x20        | gen3-cx        |
+| Large          | 16   | cx3d-16x40       | gen3-cx        |
+| X-large        | 32   | cx3d-32x80       | gen3-cx        |
+{: caption="Enterprise license plan virtual server profile mappings" caption-side="bottom"}
 
-- Gen3 profiles use newer infrastructure and are recommended for most deployments.
-- Gen2 profiles are typically used for smaller or entry-level workloads.
+### UTP profile mappings
+{: #utp-profile-mappings}
+
+This license plan uses gen3-cx profiles and supports Small, Medium, and Large deployment sizes.
+
+| Deployment Size | vCPU | Instance Profile | Profile Family |
+|----------------|------|------------------|----------------|
+| Small          | 2    | cx3d-2x5         | gen3-cx        |
+| Medium         | 8    | cx3d-8x20        | gen3-cx        |
+| Large          | 16   | cx3d-16x40       | gen3-cx        |
+{: caption="Unified Threat Protection (UTP) license plan virtual server profile mappings" caption-side="bottom"}
+
+### ATP profile mappings
+{: #atp-profile-mappings}
+
+This license plan uses gen2-cx profiles and supports Small and Medium deployment sizes. Gen2-cx profiles are not available in all regions; the `cx2-2x4` and `cx2-8x16` profiles are not available in Mumbai, Chennai, and Montreal.
+
+| Deployment Size | vCPU | Instance Profile | Profile Family |
+|----------------|------|------------------|----------------|
+| Small          | 2    | cx2-2x4          | gen2-cx        |
+| Medium         | 8    | cx2-8x16         | gen2-cx        |
+{: caption="Advanced Threat Protection (ATP) license plan virtual server profile mappings" caption-side="bottom"}
 
 ### Profile considerations
 {: #instance-profile-considerations}
@@ -180,10 +201,11 @@ Consider the following factors when evaluating instance profiles for your deploy
 - Profiles with higher memory ratios can benefit environments with high session counts.
 - Profiles with `-d` include additional instance storage, which can increase cost.
 - Profile selection impacts both performance characteristics and pricing.
+- Gen3 profiles use newer infrastructure and are recommended for most deployments.
+- Gen2 profiles are typically used for smaller or entry-level workloads.
 
 ## Related links
 {: #license-plans-related-links}
 
 - [Deploying a licensed FortiGate firewall](/docs/licensed-firewall?topic=licensed-firewall-deploy-single-vm)
 - [Resizing a firewall virtual server instance](/docs/licensed-firewall?topic=licensed-firewall-changing-firewall-instance-profile-or-license-plan)
-- [Default virtual server profile mappings for licensed firewalls](/docs/licensed-firewall?topic=licensed-firewall-default-vsi-profile-mappings)

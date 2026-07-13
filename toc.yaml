@@ -37,7 +37,6 @@ toc:
       id: reference
       topics:
       - default-configuration.md
-      - default-profile-mappings.md
       - shared-responsibilities.md
       - roles.md
   - navgroup:
