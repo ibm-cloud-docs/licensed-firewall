@@ -18,22 +18,22 @@ subcollection: licensed-firewall
 After you deploy a FortiGate firewall, you can access it through the FortiGate web console or SSH.
 {: shortdesc}
 
+The firewall is not reachable immediately after deployment. A dedicated security group is created automatically and denies all inbound management traffic. When you open the security group, you will see a small number of pre-configured inbound rules. These exist solely to allow HA cluster nodes to communicate with each other and to reach licensing services. They do not permit management access. You will see a floating IP assigned to `port4` (the management interface) in your VPC resources, but all connection attempts will time out until you complete Step 1.
+{: attention}
+
 ## Before you begin
 {: #access-firewall-prereqs}
 
 - The FortiGate deployment must be complete and in a running state.
-- You need the public floating IP address and initial administrator password from the Schematics workspace output. The output variable names differ by topology.
+- You need the management floating IP address and initial administrator password from the Schematics workspace output. The output variable names differ by topology.
 - The initial administrator password might be empty on the first start. If the password field is empty, use the virtual server instance ID as the initial password.
 
-| Topology | Public IP Output | Password Output |
+| Topology | Management IP Output (`port4`) | Password Output |
 |---|---|---|
 | Single VM | `FortiGate_Public_IP` | `Default_Admin_Password` |
-| HA Single Zone | `FortiGate_Public_IP` (active node `port1`) | `FGT1_Default_Admin_Password`, `FGT2_Default_Admin_Password` |
-| HA Cross Zone | `FGT1_Port1_Public_IP`, `FGT2_Port1_Public_IP` | `FGT1_Default_Admin_Password`, `FGT2_Default_Admin_Password` |
+| HA Single Zone | `FGT1_Public_HA_Management_IP`, `FGT2_Public_HA_Management_IP` | `FGT1_Default_Admin_Password`, `FGT2_Default_Admin_Password` |
+| HA Cross Zone | `FGT1_Public_HA_Management_IP`, `FGT2_Public_HA_Management_IP` | `FGT1_Default_Admin_Password`, `FGT2_Default_Admin_Password` |
 {: caption="Schematics workspace output variables by topology" caption-side="bottom"}
-
-The firewall is not reachable immediately after deployment. A dedicated security group is created automatically and denies all inbound management traffic. When you open the security group, you will see a small number of pre-configured inbound rules — these exist solely to allow HA cluster nodes to communicate with each other and to reach licensing services. They do not permit management access. You will see a floating IP in your VPC resources, but all connection attempts will time out until you complete Step 1.
-{: note}
 
 ## Step 1: Allow management access in the security group
 {: #access-firewall-security-group}
@@ -63,7 +63,7 @@ Two methods are available to access the FortiGate web console. Use the method th
 ### Method 1: Floating IP with allowlist (default)
 {: #access-method-fip}
 
-The floating IP on `port1` is assigned automatically and is internet-routable. To use it for management access, add an inbound security group rule (see step 1) that restricts access to your administrator IP address.
+The floating IP on `port4` (management interface) is assigned automatically and is internet-routable. To use it for management access, add an inbound security group rule (see step 1) that restricts access to your administrator IP address.
 
 ### Method 2: VPN access (no floating IP required)
 {: #access-method-vpn}
@@ -73,7 +73,7 @@ Configure a VPN connection into your VPC and access the FortiGate web console by
 ## Step 3: Route traffic through the firewall
 {: #access-firewall-routing}
 
-The floating IP on `port1` makes the firewall reachable from the internet for management purposes. However, for the FortiGate to inspect and control traffic between your VPC subnets or between your VPC and the internet, you must configure VPC routing to send traffic through the firewall.
+The floating IP on `port4` (management interface) makes the firewall reachable for management purposes. `port1` is the public data interface and `port2` is the private data interface. For the FortiGate to inspect and control traffic between your VPC subnets or between your VPC and the internet, you must configure VPC routing to send traffic through `port1` and `port2`.
 
 To route traffic through the FortiGate, update the VPC routing tables so that the FortiGate's private interface (`port2`) is the next hop for the traffic you want to inspect:
 
@@ -92,7 +92,7 @@ For traffic to flow correctly, the FortiGate must also have a firewall policy th
 ## Step 4: Log in to the FortiGate web console
 {: #access-firewall-login}
 
-Use the public IP address from the Schematics workspace output for your topology (see [Before you begin](#access-firewall-prereqs)). For HA deployments, you can log in to either node using its individual `port4` HA management IP, or to the active node that uses the `port1` public IP.
+Use the `port4` management floating IP address from the Schematics workspace output for your topology (see [Before you begin](#access-firewall-prereqs)). For HA deployments, each node has its own `port4` management IP and you can log in to either node individually.
 
 1. Open a web browser and navigate to `https://<public-ip>`, replacing `<public-ip>` with the appropriate IP address from the workspace output.
 1. Accept the self-signed certificate warning if prompted.
