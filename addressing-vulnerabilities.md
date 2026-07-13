@@ -20,7 +20,7 @@ Keeping abreast of Fortinet security advisories and applying firmware updates in
 
 For a full description of customer and IBM responsibilities, see [Shared responsibilities for FortiGate licensed firewall](/docs/licensed-firewall?topic=licensed-firewall-shared-responsibilities).
 
-## Step 1: Subscribe to Fortinet security notifications
+## Step 1: Subscribing to Fortinet security notifications
 {: #vuln-subscribe}
 
 Subscribe to Fortinet notification services to receive alerts when new security advisories, firmware releases, and threat intelligence updates are published.
@@ -30,7 +30,7 @@ Subscribe to Fortinet notification services to receive alerts when new security 
 
 IBM recommends that you review Fortinet PSIRT advisories regularly and include them in your organization's vulnerability management processes.
 
-## Step 2: Assess the impact on your deployment
+## Step 2: Assessing the impact on your deployment
 {: #vuln-assess}
 
 When a new advisory is published, determine whether your deployment is affected before taking action.
@@ -41,14 +41,14 @@ When a new advisory is published, determine whether your deployment is affected 
 
 For guidance on interpreting FortiGate advisories and understanding severity ratings, see the [Fortinet PSIRT portal](https://www.fortiguard.com/psirt){: external} and the [FortiGate Administration Guide](https://docs.fortinet.com/product/fortigate/latest){: external}.
 
-## Step 3: Back up your configuration before patching
+## Step 3: Backing up your configuration before patching
 {: #vuln-backup}
 
 Before applying any firmware update, back up your FortiGate configuration. This protects you if the upgrade needs to be rolled back.
 
 For step-by-step instructions, see [Backing up and restoring the FortiGate configuration](/docs/licensed-firewall?topic=licensed-firewall-backup-restore-fortigate-config).
 
-## Step 4: Apply the firmware update
+## Step 4: Applying the firmware update
 {: #vuln-upgrade}
 
 Use the native Fortinet Fabric Upgrade tool to upgrade the FortiGate firmware. The Fabric Upgrade tool is the supported method for managing firmware versions for the IBM-licensed firewall. Schedule a maintenance window because the FortiGate restarts during the upgrade.
@@ -79,7 +79,7 @@ To upgrade the firmware:
 
 During the upgrade, FortiGate downloads the required firmware from FortiGuard, installs it, restarts as needed, and displays the upgrade status.
 
-## Step 5: Verify and confirm
+## Step 5: Verifying and confirming
 {: #vuln-verify}
 
 After the upgrade completes and the instance restarts:
