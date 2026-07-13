@@ -4,7 +4,7 @@ copyright:
   years: 2026
 lastupdated: "2026-07-15"
 
-keywords: FortiGate monitoring, firewall logs, FortiGate metrics, IBM Cloud Monitoring, fortigate health, traffic monitoring
+keywords: FortiGate monitoring, firewall logs, FortiGate metrics, IBM Cloud Monitoring, fortigate health, traffic monitoring, VPC flow logs
 
 subcollection: licensed-firewall
 
@@ -18,64 +18,53 @@ subcollection: licensed-firewall
 Monitor the health, performance, and traffic of your FortiGate firewall to detect issues and validate that policies are working as expected.
 {: shortdesc}
 
-## Viewing FortiGate logs and events
-{: #monitoring-fortigate-logs}
-
-FortiGate generates logs for traffic, events, security threats, and system activity. You can view these logs directly in the FortiGate web console.
-
-1. Log in to the FortiGate web console.
-1. Go to **Log & Report**.
-1. Select the log category you want to review:
-
-   | Category | Description |
-   |----------|-------------|
-   | **Traffic** | All traffic flows processed by firewall policies, including allowed and denied connections. |
-   | **Event** | System events such as logins, configuration changes, and HA state changes. |
-   | **Security** | Threats detected by security profiles such as IPS, antivirus, and web filtering. |
-   | **VPN** | VPN tunnel establishment, authentication, and traffic. |
-   {: caption="FortiGate log categories" caption-side="bottom"}
+Monitoring responsibilities are split between IBM Cloud infrastructure tooling and the FortiGate management interface. IBM Cloud provides visibility into the underlying virtual server instance health and network flow data. FortiGate provides traffic logs, security event logs, and policy-level diagnostics.
 
 ## Monitoring instance health in IBM Cloud
 {: #monitoring-instance-health}
 
-You can monitor the underlying virtual server instance that runs your FortiGate from the IBM Cloud console.
+The FortiGate firewall runs as a standard VPC virtual server instance. You can monitor its health, resource utilization, and lifecycle events the same way as any other virtual server instance. For more information, see [Monitoring your virtual server instances](/docs/vpc?topic=vpc-monitoring-virtual-server-instances).
 
-1. In the [IBM Cloud console](/login), click the navigation menu and select **Infrastructure > Compute > Virtual server instances**.
-1. Click the FortiGate virtual server instance to open its Details page.
-1. Review the **Activity** and **Monitoring** tabs for CPU, memory, and network metrics.
-
-For deeper observability, you can connect the instance to IBM Cloud Monitoring. For more information, see [Getting started with IBM Cloud Monitoring](/docs/monitoring?topic=monitoring-getting-started).
-
-## Checking firewall policy hit counts
-{: #monitoring-policy-hits}
-
-Policy hit counts show how often each firewall policy is matching traffic. Reviewing hit counts helps you identify unused policies or unexpected traffic patterns.
-
-1. Log in to the FortiGate web console.
-1. Go to **Policy & Objects > Firewall Policy**.
-1. Review the **Bytes** and **Sessions** columns to see traffic volumes per policy.
-
-Policies with zero hits over an extended period may be candidates for review or removal.
+For HA deployments, check both the active and passive node instances. A passive node that shows high CPU or unexpected restarts may indicate a failover event or a sync issue.
 {: tip}
 
-## Monitoring interface and routing status
-{: #monitoring-interface-status}
+## Monitoring network traffic with VPC Flow Logs
+{: #monitoring-flow-logs}
 
-1. Log in to the FortiGate web console.
-1. Go to **Network > Interfaces** to review the status and traffic statistics for `port1` and `port2`.
-1. Go to **Network > Routing** to verify that routing tables are correct and that the default gateway is reachable.
+VPC Flow Logs capture metadata about network traffic flowing through your VPC, including traffic to and from the FortiGate interfaces. Flow logs are useful for auditing traffic patterns, investigating incidents, and verifying that routing is directing traffic through the firewall as expected.
 
-## Troubleshooting connectivity
+Flow logs capture connection metadata (source IP, destination IP, port, protocol, bytes, and action) but do not capture packet payloads.
+{: note}
+
+To enable VPC Flow Logs for your FortiGate subnets, see [About Flow Logs for VPC](/docs/vpc?topic=vpc-flow-logs).
+
+## Monitoring FortiGate logs and events
+{: #monitoring-fortigate-logs}
+
+FortiGate generates detailed logs for traffic flows, security events, system activity, and VPN sessions. Review these logs in the FortiGate web console under **Log & Report**.
+
+Log categories include traffic logs, security threat logs (IPS, antivirus, web filter), system event logs, and VPN logs. For full details on log types, filtering, and export options, see the [FortiGate logging and reporting documentation](https://docs.fortinet.com/document/fortigate/latest/administration-guide/254572/logging-and-reporting){: external}.
+
+## Monitoring firewall policy activity
+{: #monitoring-policy-hits}
+
+Policy hit counts and session statistics show how often each firewall policy is matching traffic. Reviewing these helps identify unused policies or unexpected traffic patterns.
+
+In the FortiGate web console, go to **Policy & Objects > Firewall Policy** to review bytes and session counts per policy. For more information, see the [FortiGate firewall policy documentation](https://docs.fortinet.com/document/fortigate/latest/administration-guide/897250/firewall-policy){: external}.
+
+## Diagnosing connectivity issues
 {: #monitoring-troubleshoot-connectivity}
 
-If traffic is not flowing as expected, use the following FortiGate built-in tools:
+FortiGate provides built-in diagnostic tools for troubleshooting traffic flows, including packet capture, debug flow tracing, and ping and traceroute. For instructions on using these tools, see the [FortiGate diagnostic tools documentation](https://docs.fortinet.com/document/fortigate/latest/administration-guide/954635/troubleshooting){: external}.
 
-- **Packet capture** — Go to **Network > Diagnostics > Packet Capture** to capture traffic on a specific interface.
-- **Debug flow** — Use the FortiGate CLI command `diagnose debug flow` to trace traffic through the policy engine.
-- **Ping and traceroute** — Go to **Network > Diagnostics** to run ping or traceroute from the FortiGate to a destination.
+If you cannot connect to the FortiGate management interface, see [Troubleshooting: Cannot connect to FortiGate firewall](/docs/licensed-firewall?topic=licensed-firewall-troubleshoot-cannot-connect).
 
 ## Related links
 {: #monitoring-related-links}
 
+- [FortiGate logging and reporting documentation](https://docs.fortinet.com/document/fortigate/latest/administration-guide/254572/logging-and-reporting){: external}
+- [FortiGate Administration Guide](https://docs.fortinet.com/product/fortigate/latest){: external}
+- [About Flow Logs for VPC](/docs/vpc?topic=vpc-flow-logs)
+- [Getting started with IBM Cloud Monitoring](/docs/monitoring?topic=monitoring-getting-started)
 - [Security best practices for FortiGate on IBM Cloud VPC](/docs/licensed-firewall?topic=licensed-firewall-fortigate-security-best-practices)
 - [Getting help and support](/docs/licensed-firewall?topic=licensed-firewall-help-and-support)

@@ -169,6 +169,9 @@ This license plan uses gen3-cx profiles and supports Medium, Large, and X-large 
 | X-large        | 32   | cx3d-32x80       | gen3-cx        |
 {: caption="Enterprise license plan virtual server profile mappings" caption-side="bottom"}
 
+The X-large (32 vCPU) Enterprise deployment is the only configuration that supports virtual domains (VDOMs) and includes 8 VDOMs.
+{: note}
+
 ### UTP profile mappings
 {: #utp-profile-mappings}
 

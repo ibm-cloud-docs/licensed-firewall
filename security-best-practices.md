@@ -21,7 +21,7 @@ Follow these security best practices to reduce the attack surface of your FortiG
 ## Restrict management access through the security group
 {: #bp-restrict-management-access}
 
-Every FortiGate deployment creates a dedicated security group that denies all inbound traffic except for the ports and IP addresses required for HA clustering and licensing. When you open management access, follow these principles:
+Every FortiGate deployment creates a dedicated security group that denies all inbound management traffic. When you open the security group, you will see a small number of pre-configured inbound rules. These exist solely to allow HA cluster nodes to communicate with each other and to reach licensing services. They do not permit management access and must not be removed. When you open management access, follow these principles:
 
 - **Allow only your administrator IP addresses.** Add inbound TCP rules for port 443 (HTTPS) or port 22 (SSH) with a specific source IP address or CIDR range. Do not use `0.0.0.0/0` as the source.
 - **Use the narrowest CIDR possible.** If your administrators connect from a known IP range, restrict the source to that range only.
@@ -39,10 +39,10 @@ The initial administrator password is generated at deployment time and is displa
 - Use a strong, unique password that is not shared with other systems.
 - Store the password in a secrets manager or password vault rather than in plain text.
 
-## Disable unused management protocols on each interface
+## Disable unused management protocols on each FortiGate interface
 {: #bp-disable-unused-protocols}
 
-The default configuration enables HTTPS, SSH, and ping on both `port1` and `port2`. Disable any protocols that are not required for your operational workflow.
+Within the FortiGate itself, the default bootstrap configuration enables HTTPS, SSH, and ping on both `port1` and `port2`. This is independent of the IBM Cloud security group, which controls traffic at the VPC network layer. For additional hardening, you can use the FortiGate web console to disable any management protocols on each interface that are not required for your operational workflow.
 
 1. Log in to the FortiGate web console.
 1. Go to **Network > Interfaces**.

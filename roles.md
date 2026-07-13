@@ -176,10 +176,10 @@ IBM Support acts as single point of contact. Customer does not open TAC cases di
 |-------|---------|
 | **Fortinet** | Publish PSIRT advisory; provide mitigation guidance to IBM Support; deliver hotfix/patch with ETA |
 | **IBM Support** | Monitor PSIRT feeds; communicate critical advisories to all license holders; provide guidance on mitigations; coordinate patch deployment support |
-| **Customer** | Evaluate risk; implement mitigations with IBM Support guidance; apply patches to VSIs; manage change control |
+| **Customer** | Evaluate risk; implement mitigations with IBM Support guidance; apply patches to virtual server instances; manage change control |
 {: caption="Table 8. Emergency fix flow" caption-side="bottom"}
 
-IBM Support provides guidance and coordination but cannot modify customer vFSA configurations. Customers apply patches to their own VSIs.
+IBM Support provides guidance and coordination but cannot modify customer vFSA configurations. Customers apply patches to their own virtual server instances.
 
 ### Scenario 3: Hardware/Infrastructure Issue
 {: #scenario-infrastructure}
@@ -204,7 +204,7 @@ IBM Support performs initial triage and routes to appropriate team (IBM Cloud In
 | **Customer** | Assess impact with IBM Support; plan migration/upgrade; execute changes in their environment; manage change control |
 {: caption="Table 10. Lifecycle management flow" caption-side="bottom"}
 
-IBM Support facilitates license transitions and provides migration guidance. Customers execute technical changes to their VSIs.
+IBM Support facilitates license transitions and provides migration guidance. Customers execute technical changes to their own virtual server instances.
 
 ### Scenario 5: FortiFlex Platform Outage
 {: #scenario-outage}
