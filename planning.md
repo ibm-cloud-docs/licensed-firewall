@@ -57,6 +57,6 @@ The following limitations apply to this offering. Review them before you deploy.
 
 Known issues are identified bugs or unexpected behaviors that were not fixed before release, but weren't critical enough to delay it. These issues are communicated to you, often with workarounds, and are prioritized for resolution in the near term by the development team.
 
-- ?
+- WHAT ARE SOME KNOWN ISSUES?
 - ?
 - ?
