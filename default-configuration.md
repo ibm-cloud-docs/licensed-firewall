@@ -56,7 +56,7 @@ The bootstrap configuration differs across the following deployment models:
 
 Bootstrap configurations contain variables that are replaced with deployment-specific values at provisioning time. For a complete list of variables and their sources, see [Bootstrap variables](#bootstrap-variables).
 
-Every deployment creates a dedicated security group. By default, all inbound traffic is denied except the traffic that is required for HA communication. Before you can access the firewall by using HTTPS or SSH, add inbound security group rules that allow management access from trusted IP addresses.
+Every deployment creates a dedicated security group. By default, all inbound traffic is denied except for the ports and IP addresses required for HA clustering and licensing. Before you can access the firewall by using HTTPS or SSH, add inbound security group rules that allow management access from trusted IP addresses.
 {: important}
 
 ## Default configuration of a Single VM deployment

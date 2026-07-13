@@ -1,0 +1,80 @@
+---
+
+copyright:
+  years: 2026
+lastupdated: "2026-07-15"
+
+keywords: FortiGate vulnerability, firmware update, PSIRT advisory, FortiOS patch, security advisory, vulnerability management, FortiGate upgrade
+
+subcollection: licensed-firewall
+
+---
+
+{{site.data.keyword.attribute-definition-list}}
+
+# Keeping abreast of firmware updates and vulnerability patches
+{: #addressing-vulnerabilities}
+
+You are responsible for monitoring Fortinet security advisories, assessing the impact on your deployment, and applying firmware updates and patches in a timely manner. IBM manages licensing and provides support coordination but does not apply updates to customer-managed FortiGate instances on your behalf.
+{: shortdesc}
+
+For a full description of customer and IBM responsibilities, see [Shared responsibilities for FortiGate licensed firewall](/docs/licensed-firewall?topic=licensed-firewall-shared-responsibilities).
+
+## Step 1: Subscribe to Fortinet security notifications
+{: #vuln-subscribe}
+
+Subscribe to Fortinet notification services to receive alerts when new security advisories, firmware releases, and threat intelligence updates are published.
+
+- **Fortinet PSIRT portal** — Fortinet's Product Security Incident Response Team (PSIRT) publishes advisories for all known vulnerabilities affecting FortiGate products, including severity ratings, affected versions, and recommended remediation actions. Bookmark and review the [Fortinet PSIRT portal](https://www.fortiguard.com/psirt){: external} regularly.
+- **RSS feeds** — Subscribe to Fortinet RSS feeds for security advisories, firmware releases, and product announcements. For more information, see [Manage Your Subscriptions to Fortinet](https://www.fortinet.com/rss-feeds){: external}.
+
+## Step 2: Assess the impact on your deployment
+{: #vuln-assess}
+
+When a new advisory is published, determine whether your deployment is affected before taking action.
+
+1. Identify the FortiOS version running on your instance. In the FortiGate web console, go to **Dashboard > Status** and note the firmware version displayed under **System Information**.
+2. Compare your running version against the affected versions listed in the advisory.
+3. Review the advisory's CVSS severity score and any available mitigations or workarounds.
+
+For guidance on interpreting FortiGate advisories and understanding severity ratings, see the [Fortinet PSIRT portal](https://www.fortiguard.com/psirt){: external} and the [FortiGate Administration Guide](https://docs.fortinet.com/product/fortigate/latest){: external}.
+
+## Step 3: Back up your configuration before patching
+{: #vuln-backup}
+
+Before applying any firmware update, back up your FortiGate configuration. This protects you if the upgrade needs to be rolled back.
+
+For step-by-step instructions, see [Backing up and restoring the FortiGate configuration](/docs/licensed-firewall?topic=licensed-firewall-backup-restore-fortigate-config).
+
+## Step 4: Apply the firmware update
+{: #vuln-upgrade}
+
+Use the native Fortinet Fabric Upgrade tool to apply the firmware update. Schedule a maintenance window because the FortiGate restarts during the upgrade.
+
+For step-by-step upgrade and verification instructions, see [Upgrading the FortiGate software](/docs/licensed-firewall?topic=licensed-firewall-upgrading-fortigate-software).
+
+Network requirements for firmware upgrades:
+
+- The FortiGate must have egress internet access to reach Fortinet's update servers. Verify that the VPC has a public gateway attached to the subnet used by `port1`, or that a floating IP is assigned to `port1`.
+- HTTPS access to the FortiGate web console on port 443 is required. Ensure that your inbound security group rules allow HTTPS access from your management IP addresses, or use VPN access over a private IP address.
+
+## Step 5: Verify and confirm
+{: #vuln-verify}
+
+After the upgrade completes and the instance restarts:
+
+1. Log back in to the FortiGate web console.
+2. Confirm the firmware version under **Dashboard > Status > System Information**.
+3. Verify network connectivity and that firewall policies are operating as expected.
+4. Review the advisory to confirm that the installed version is listed as a remediated release.
+
+## Related links
+{: #addressing-vulnerabilities-related-links}
+
+- [Fortinet PSIRT portal](https://www.fortiguard.com/psirt){: external}
+- [Fortinet RSS feeds](https://www.fortinet.com/rss-feeds){: external}
+- [FortiGate Administration Guide](https://docs.fortinet.com/product/fortigate/latest){: external}
+- [Upgrading the FortiGate software](/docs/licensed-firewall?topic=licensed-firewall-upgrading-fortigate-software)
+- [Backing up and restoring the FortiGate configuration](/docs/licensed-firewall?topic=licensed-firewall-backup-restore-fortigate-config)
+- [Shared responsibilities for FortiGate licensed firewall](/docs/licensed-firewall?topic=licensed-firewall-shared-responsibilities)
+- [Security best practices for FortiGate on IBM Cloud VPC](/docs/licensed-firewall?topic=licensed-firewall-fortigate-security-best-practices)

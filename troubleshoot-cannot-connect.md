@@ -28,7 +28,7 @@ Attempts to reach the FortiGate in a browser or over SSH time out. The floating 
 Connection attempts fail for one or more of the following reasons:
 {: tsCauses}
 
-- No inbound security group rule exists to allow your administrator IP address. The security group created during deployment denies all inbound traffic by default.
+- No inbound security group rule exists to allow your administrator IP address. The security group created during deployment denies all inbound traffic by default, except for the ports and IP addresses required for HA clustering and licensing.
 - You are connecting to the wrong IP address. The public floating IP differs by topology. For HA deployments, the active node IP and the HA management IPs are separate.
 - A firewall policy is blocking the traffic. The FortiGate drops traffic that does not match an allow policy, even if the security group permits it.
 

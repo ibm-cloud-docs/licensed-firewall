@@ -32,13 +32,13 @@ After you deploy a FortiGate firewall, you can access it through the FortiGate w
 | HA Cross Zone | `FGT1_Port1_Public_IP`, `FGT2_Port1_Public_IP` | `FGT1_Default_Admin_Password`, `FGT2_Default_Admin_Password` |
 {: caption="Schematics workspace output variables by topology" caption-side="bottom"}
 
-The firewall is not reachable immediately after deployment. A dedicated security group is created automatically and denies all inbound traffic by default. You will see a floating IP in your VPC resources, but connection attempts will time out until you complete Step 1.
+The firewall is not reachable immediately after deployment. A dedicated security group is created automatically and denies all inbound management traffic. When you open the security group, you will see a small number of pre-configured inbound rules — these exist solely to allow HA cluster nodes to communicate with each other and to reach licensing services. They do not permit management access. You will see a floating IP in your VPC resources, but all connection attempts will time out until you complete Step 1.
 {: note}
 
 ## Step 1: Allow management access in the security group
 {: #access-firewall-security-group}
 
-The security group that is created during deployment denies all inbound traffic by default. Add an inbound rule to allow access from your IP address before you can connect.
+The security group created during deployment denies all inbound management traffic. When you open the security group, you will see a small number of pre-configured inbound rules for HA cluster communication and licensing — do not remove these. Add a new inbound rule to allow HTTPS or SSH access from your administrator IP address before you can connect.
 
 1. In the [IBM Cloud console](/login), click the navigation menu and select **VPC Infrastructure > Security groups**.
 1. Locate the security group that was created for your FortiGate deployment. It is named after your deployment cluster.

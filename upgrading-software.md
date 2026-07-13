@@ -24,7 +24,7 @@ Use the native Fortinet Fabric Upgrade tool to upgrade or downgrade the FortiGat
 
 Before upgrading the FortiGate software:
 
-- Verify that you have administrator access to the FortiGate Web Console.
+- Verify that you have administrator access to the FortiGate web console.
 - Review the release notes for the target firmware version.
 - Verify the supported upgrade path if upgrading across multiple FortiOS releases.
 - Schedule a maintenance window because the FortiGate restarts during the upgrade.
@@ -37,7 +37,7 @@ For more information, see the [FortiGate Administration Guide](https://docs.fort
 
 To upgrade the firmware:
 
-1. Log in to the FortiGate Web Console.
+1. Log in to the FortiGate web console.
 2. Go to **System > Firmware & Registration**.
 3. Click **Fabric Upgrade**.
 4. Select either the **Latest** or **All Upgrades** tab.
@@ -56,7 +56,7 @@ For more information, see the [FortiGate Administration Guide](https://docs.fort
 
 To downgrade the firmware:
 
-1. Log in to the FortiGate Web Console.
+1. Log in to the FortiGate web console.
 2. Go to **System > Firmware & Registration**.
 3. Click **Fabric Upgrade**.
 4. Select the required earlier supported firmware version.
@@ -69,7 +69,7 @@ The FortiGate installs the selected firmware and restarts automatically.
 
 After the appliance restarts:
 
-1. Log back in to the FortiGate Web Console.
+1. Log back in to the FortiGate web console.
 2. Verify that the expected firmware version is installed.
 3. Verify that the upgrade completed successfully.
 4. Confirm network connectivity before returning the appliance to production.

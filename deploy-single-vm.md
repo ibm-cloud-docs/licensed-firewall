@@ -39,7 +39,7 @@ Terraform deploys the following resources:
 - One FortiGate licensed instance with two network interfaces (`port1` and `port2`)
 - One floating public IP address attached to `port1`
 - One log disk
-- One security group with deny-all inbound and allow-all outbound rules
+- One security group that denies all inbound traffic except for the ports and IP addresses required for HA clustering and licensing, and allows all outbound traffic
 - A bootstrap configuration
 
 Follow these steps:

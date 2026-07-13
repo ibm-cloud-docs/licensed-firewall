@@ -21,7 +21,7 @@ Follow these security best practices to reduce the attack surface of your FortiG
 ## Restrict management access through the security group
 {: #bp-restrict-management-access}
 
-Every FortiGate deployment creates a dedicated security group with deny-all inbound rules. When you open management access, follow these principles:
+Every FortiGate deployment creates a dedicated security group that denies all inbound traffic except for the ports and IP addresses required for HA clustering and licensing. When you open management access, follow these principles:
 
 - **Allow only your administrator IP addresses.** Add inbound TCP rules for port 443 (HTTPS) or port 22 (SSH) with a specific source IP address or CIDR range. Do not use `0.0.0.0/0` as the source.
 - **Use the narrowest CIDR possible.** If your administrators connect from a known IP range, restrict the source to that range only.

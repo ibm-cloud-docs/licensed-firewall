@@ -32,6 +32,7 @@ toc:
       - security-services.md
       - monitoring.md
       - security-best-practices.md
+      - addressing-vulnerabilities.md
       - vulnerability-mgmt.md
   - navgroup:
       id: reference
