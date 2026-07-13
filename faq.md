@@ -48,7 +48,7 @@ Three configurations are available from the IBM Cloud catalog: a single virtual 
 {: #faq-updates-responsibility}
 {: faq}
 
-You are responsible for applying FortiGate firmware updates and security patches to your virtual server instances. IBM notifies license holders of critical security advisories from the Fortinet PSIRT and coordinates with Fortinet TAC when needed, but does not modify customer FortiGate configurations. For more information, see [Upgrading the FortiGate software](/docs/licensed-firewall?topic=licensed-firewall-upgrading-fortigate-software) and [Subscribing to Fortinet notifications](/docs/licensed-firewall?topic=licensed-firewall-security-maintenance-vulnerability-management).
+You are responsible for applying FortiGate firmware updates and security patches to your virtual server instances. IBM notifies license holders of critical security advisories from the Fortinet PSIRT and coordinates with Fortinet TAC when needed, but does not modify customer FortiGate configurations. For more information, see [Keeping abreast of firmware updates and vulnerability patches](/docs/licensed-firewall?topic=licensed-firewall-addressing-vulnerabilities).
 
 ## How do I open a support case for a FortiGate issue?
 {: #faq-open-support-case}

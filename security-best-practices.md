@@ -69,12 +69,12 @@ This approach eliminates direct internet-facing management access entirely.
 
 Running a supported and patched firmware version is one of the most effective defenses against known vulnerabilities.
 
-- Subscribe to Fortinet PSIRT advisories to be notified of new vulnerabilities. See [Subscribing to Fortinet notifications](/docs/licensed-firewall?topic=licensed-firewall-security-maintenance-vulnerability-management).
+- Subscribe to Fortinet PSIRT advisories to be notified of new vulnerabilities. See [Keeping abreast of firmware updates and vulnerability patches](/docs/licensed-firewall?topic=licensed-firewall-addressing-vulnerabilities).
 - Review the FortiGate release notes before upgrading to understand any behavior changes.
 - Schedule firmware upgrades during a maintenance window. The FortiGate restarts during an upgrade.
 - For HA deployments, follow Fortinet's recommended upgrade sequence to minimize downtime.
 
-For upgrade instructions, see [Upgrading the FortiGate software](/docs/licensed-firewall?topic=licensed-firewall-upgrading-fortigate-software).
+For upgrade instructions, see [Keeping abreast of firmware updates and vulnerability patches](/docs/licensed-firewall?topic=licensed-firewall-addressing-vulnerabilities).
 
 ## Enable logging for all firewall policies
 {: #bp-enable-logging}
@@ -119,5 +119,5 @@ IBM does not back up your FortiGate configuration. You are responsible for maint
 
 - [Accessing your FortiGate firewall](/docs/licensed-firewall?topic=licensed-firewall-access-firewall)
 - [Enabling security services](/docs/licensed-firewall?topic=licensed-firewall-enable-security-services)
-- [Subscribing to Fortinet notifications](/docs/licensed-firewall?topic=licensed-firewall-security-maintenance-vulnerability-management)
+- [Keeping abreast of firmware updates and vulnerability patches](/docs/licensed-firewall?topic=licensed-firewall-addressing-vulnerabilities)
 - [Backing up and restoring the FortiGate configuration](/docs/licensed-firewall?topic=licensed-firewall-backup-restore-fortigate-config)

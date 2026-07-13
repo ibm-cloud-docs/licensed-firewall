@@ -28,12 +28,10 @@ toc:
       - configuring-fortigate.md
       - pricing-plans.md
       - backup-restore-config.md
-      - upgrading-software.md
       - security-services.md
       - monitoring.md
       - security-best-practices.md
       - addressing-vulnerabilities.md
-      - vulnerability-mgmt.md
   - navgroup:
       id: reference
       topics:
