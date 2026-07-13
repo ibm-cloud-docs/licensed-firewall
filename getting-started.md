@@ -53,6 +53,7 @@ To get started, follow these steps:
 
 1. [Back up the FortiGate configuration](/docs/licensed-firewall?topic=licensed-firewall-backup-restore-fortigate-config) — Create a backup of your configuration after you complete your initial configuration and store it securely.
 1. [Monitor your FortiGate firewall](/docs/licensed-firewall?topic=licensed-firewall-monitoring) — Review logs, check instance health, and verify that firewall policies are working as expected.
+1. [Subscribe to Fortinet notifications](/docs/licensed-firewall?topic=licensed-firewall-security-maintenance-vulnerability-management) and [upgrade the FortiGate firmware](/docs/licensed-firewall?topic=licensed-firewall-upgrading-fortigate-software) — Subscribe to Fortinet security advisories to stay informed about vulnerabilities and patches, then apply the latest firmware to keep your firewall secure and up to date.
 
 If you are migrating an existing Classic FortiGate deployment to VPC, see [VPC firewall options](/docs/classic-to-vpc?topic=classic-to-vpc-vpc-firewall-options).
 {: note}

@@ -7,12 +7,8 @@
   "section_topics": {
     "links": [
       {
-        "title": "Getting started with FortiGate on IBM Cloud VPC",
-        "href": "/docs/licensed-firewall?topic=licensed-firewall-getting-started"
-      },
-      {
-        "title": "Choosing a deployment topology and license plan",
-        "href": "/docs/licensed-firewall?topic=licensed-firewall-about-firewall-license-plans-and-instance-profiles"
+        "title": "Planning for FortiGate on IBM Cloud VPC",
+        "href": "/docs/licensed-firewall?topic=licensed-firewall-planning"
       },
       {
         "title": "Deploying a licensed FortiGate firewall",
@@ -23,8 +19,24 @@
         "href": "/docs/licensed-firewall?topic=licensed-firewall-access-firewall"
       },
       {
+        "title": "Configuring your FortiGate firewall after deployment",
+        "href": "/docs/licensed-firewall?topic=licensed-firewall-configuring-fortigate"
+      },
+      {
         "title": "Enabling security services",
         "href": "/docs/licensed-firewall?topic=licensed-firewall-enable-security-services"
+      },
+      {
+        "title": "Backing up the FortiGate configuration",
+        "href": "/docs/licensed-firewall?topic=licensed-firewall-backup-restore-fortigate-config"
+      },
+      {
+        "title": "Monitoring your FortiGate firewall",
+        "href": "/docs/licensed-firewall?topic=licensed-firewall-monitoring"
+      },
+      {
+        "title": "Subscribing to Fortinet notifications and upgrading firmware",
+        "href": "/docs/licensed-firewall?topic=licensed-firewall-security-maintenance-vulnerability-management"
       }
     ]
   },
