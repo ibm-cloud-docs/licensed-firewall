@@ -72,6 +72,9 @@ Select a license plan based on your workload requirements, performance needs, an
 | Enterprise | High-performance environments | Medium, Large, X-large | gen3-cx | Highest scalability and throughput |
 {: caption="License plan comparison" caption-side="bottom"}
 
+VDOM support is available only with the Enterprise license plan at the X-large (32 vCPU) deployment size.
+{: note}
+
 ## License plan feature entitlements
 {: #license-plan-features}
 
@@ -133,23 +136,8 @@ The available deployment sizes vary by license plan.
 | ATP | Supported | Supported | Not available | Not available |
 {: caption="Supported deployment sizes by license plan" caption-side="bottom"}
 
-### Performance
-{: #performance-considerations}
-
-Firewall performance scales with deployment size and enabled security features, with larger deployments providing higher throughput.
-
-| Deployment Size | Typical NGFW Throughput | Typical IPS Throughput |
-|----------------|------------------------|------------------------|
-| Small (2 vCPU) | ~1–2 Gbps | ~2 Gbps |
-| Medium (8 vCPU) | ~4–5 Gbps | ~6 Gbps |
-| Large (16 vCPU) | ~9–10 Gbps | ~11–12 Gbps |
-| X-large (32 vCPU) | ~14–16 Gbps | ~16–22 Gbps |
-{: caption="Performance characteristics by deployment size" caption-side="bottom"}
-
-**Notes:**
-
-- Values vary based on configuration and traffic profile.
-- Enabling advanced security services (for example, IPS or threat protection) can reduce throughput.
+VDOM support is available only with the Enterprise license plan at the X-large (32 vCPU) deployment size.
+{: note}
 
 ### Session scaling
 {: #session-scaling}
@@ -158,22 +146,6 @@ Connection capacity increases with deployment size and available memory.
 
 - Smaller deployments support fewer concurrent sessions.
 - Larger deployments support significantly higher connection volumes and session tables.
-
-### VDOM support
-{: #vdom-support}
-
-The number of supported virtual domains (VDOMs) varies by deployment size.
-
-| Deployment Size | VDOM Support |
-|----------------|--------------|
-| Small | Limited |
-| Medium | Moderate |
-| Large | High |
-| X-large | Maximum |
-{: caption="VDOM support by deployment size" caption-side="bottom"}
-
-- VDOMs enable segmentation and multi-tenant configurations.
-- Higher deployment sizes support more complex environments and greater isolation.
 
 ## Instance profile details
 {: #instance-profile-details}
