@@ -37,30 +37,16 @@ Deployment failures in Schematics can have several causes:
 Try the following steps to resolve the issue:
 {: tsResolve}
 
-1. **Review the Schematics workspace log.**
+1. Review the Schematics workspace log. Open the workspace that was created for your deployment. If you need to find the workspace manually, navigate to **IBM Cloud Menu > Platform Automation > Schematics > Terraform** and select your workspace. Click **Jobs** and select the most recent apply job. Scroll to the end of the log and look for the specific Terraform error message. The error message typically identifies which resource failed and why.
 
-   Open the Schematics workspace that was created for your deployment. If you need to find the workspace manually, navigate to **IBM Cloud Menu > Platform Automation > Schematics > Terraform** and select your workspace. Click **Jobs** and select the most recent apply job. Scroll to the end of the log and look for the specific Terraform error message. The error message typically identifies which resource failed and why.
+1. Check your input variables. In the workspace, click **Settings** and review the values provided for all input variables. Verify that VPC names, subnet IDs, security group IDs, SSH key names, and region and zone values are correct and exist in your IBM Cloud account.
 
-1. **Check your input variables.**
+1. Verify IAM permissions. Ensure that the IBM Cloud API key used for deployment has at minimum the **Editor** role on the VPC Infrastructure service and the **Operator** role on the Schematics service. For a full list of required permissions, see [Shared responsibilities for FortiGate licensed firewall](/docs/licensed-firewall?topic=licensed-firewall-shared-responsibilities).
 
-   In the workspace, click **Settings** and review the values provided for all input variables. Verify that VPC names, subnet IDs, security group IDs, SSH key names, and region and zone values are correct and exist in your IBM Cloud account.
+1. Check resource quotas. In the [IBM Cloud console](/login), navigate to **Manage > Account > Quotas** and verify that you have not reached the limit for virtual server instances, floating IPs, or security groups in the target region.
 
-1. **Verify IAM permissions.**
+1. Retry the deployment. If the failure was caused by a transient platform error, click **Actions > Apply plan** in the Schematics workspace to re-run the Terraform automation without modifying your inputs. Review the log again after the job completes.
 
-   Ensure that the IBM Cloud API key used for deployment has at minimum the **Editor** role on the VPC Infrastructure service and the **Operator** role on the Schematics service. For a full list of required permissions, see [Roles and responsibilities](/docs/licensed-firewall?topic=licensed-firewall-fortinet-racii-v3).
+1. Destroy and redeploy. If the workspace is in a partially provisioned state, click **Actions > Destroy resources** to clean up any resources that were created, then place a new order from the [IBM Cloud catalog](https://cloud.ibm.com/catalog){: external} with corrected inputs.
 
-1. **Check resource quotas.**
-
-   In the [IBM Cloud console](/login), navigate to **Manage > Account > Quotas** and verify that you have not reached the limit for virtual server instances, floating IPs, or security groups in the target region.
-
-1. **Retry the deployment.**
-
-   If the failure was caused by a transient platform error, click **Actions > Apply plan** in the Schematics workspace to re-run the Terraform automation without modifying your inputs. Review the log again after the job completes.
-
-1. **Destroy and redeploy.**
-
-   If the workspace is in a partially provisioned state, click **Actions > Destroy resources** to clean up any resources that were created, then place a new order from the [IBM Cloud catalog](https://cloud.ibm.com/catalog){: external} with corrected inputs.
-
-1. **Open a support case.**
-
-   If the deployment continues to fail after completing these steps, [open a support case](https://cloud.ibm.com/unifiedsupport/cases/add){: external} with IBM Support. Include the Schematics workspace ID, the job ID of the failed apply, and the relevant log output.
+1. If the deployment continues to fail after completing these steps, [open a support case](https://cloud.ibm.com/unifiedsupport/cases/add){: external}. Include the Schematics workspace ID, the job ID of the failed apply, and the relevant log output.

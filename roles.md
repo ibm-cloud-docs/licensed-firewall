@@ -123,7 +123,7 @@ Service: Fortinet vFSA (Virtual FortiGate Security Appliance) in IBM Cloud VPC
 ### Notes
 {: #sla-section-notes}
 
-- IBM's SLA covers FortiFlex license provisioning only, not vFSA operational availability
+- IBM SLA covers FortiFlex license provisioning only, not vFSA operational availability
 - FortiFlex platform downtime impacts license provisioning (control plane) but not existing vFSA data plane operations
 - Customers are responsible for their own vFSA operational SLAs
 - Fortinet TAC SLOs apply to technical support cases

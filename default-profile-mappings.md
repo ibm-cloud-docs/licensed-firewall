@@ -23,7 +23,7 @@ The following tables list the exact virtual server instance profile assigned for
 
 This license plan uses gen3-cx profiles and supports Medium, Large, and X-large deployment sizes.
 
-| Deployment size | vCPU | Instance profile | Profile family |
+| Deployment Size | vCPU | Instance Profile | Profile Family |
 |----------------|------|------------------|----------------|
 | Medium         | 8    | cx3d-8x20        | gen3-cx        |
 | Large          | 16   | cx3d-16x40       | gen3-cx        |
@@ -35,7 +35,7 @@ This license plan uses gen3-cx profiles and supports Medium, Large, and X-large 
 
 This license plan uses gen3-cx profiles and supports Small, Medium, and Large deployment sizes.
 
-| Deployment size | vCPU | Instance profile | Profile family |
+| Deployment Size | vCPU | Instance Profile | Profile Family |
 |----------------|------|------------------|----------------|
 | Small          | 2    | cx3d-2x5         | gen3-cx        |
 | Medium         | 8    | cx3d-8x20        | gen3-cx        |
@@ -47,7 +47,7 @@ This license plan uses gen3-cx profiles and supports Small, Medium, and Large de
 
 This license plan uses gen2-cx profiles and supports Small and Medium deployment sizes. Note that gen2-cx profiles are not available in all regions. The `cx2-2x4` and `cx2-8x16` profiles are not available in Mumbai, Chennai, and Montreal.
 
-| Deployment size | vCPU | Instance profile | Profile family |
+| Deployment Size | vCPU | Instance Profile | Profile Family |
 |----------------|------|------------------|----------------|
 | Small          | 2    | cx2-2x4          | gen2-cx        |
 | Medium         | 8    | cx2-8x16         | gen2-cx        |

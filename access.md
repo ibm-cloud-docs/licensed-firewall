@@ -25,7 +25,7 @@ After you deploy a FortiGate firewall, you can access it through the FortiGate w
 - You need the public floating IP address and initial administrator password from the Schematics workspace output. The output variable names differ by topology.
 - The initial administrator password might be empty on the first start. If the password field is empty, use the virtual server instance ID as the initial password.
 
-| Topology | Public IP output | Password output |
+| Topology | Public IP Output | Password Output |
 |---|---|---|
 | Single VM | `FortiGate_Public_IP` | `Default_Admin_Password` |
 | HA Single Zone | `FortiGate_Public_IP` (active node `port1`) | `FGT1_Default_Admin_Password`, `FGT2_Default_Admin_Password` |

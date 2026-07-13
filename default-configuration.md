@@ -25,7 +25,7 @@ Depending on the deployment model, the bootstrap configuration configures:
 - Network interfaces, interface aliases, and management access
 - High availability (HA) settings
 - IBM Cloud SDN connector integration
-- Public Address Range integration for cross-zone deployments
+- Public address range integration for cross-zone deployments
 
 After deployment, you can modify the default configuration to meet your networking and security requirements.
 
@@ -34,7 +34,7 @@ After deployment, you can modify the default configuration to meet your networki
 
 The following table summarizes how the three deployment models differ.
 
-| Feature | Single VM | HA single-zone | HA cross-zone |
+| Feature | Single VM | HA Single-Zone | HA Cross-Zone |
 | ------- | --------- | -------------- | ------------- |
 | Firewall instances | 1 | 2 | 2 |
 | Availability zones | 1 | 1 | 2 |
@@ -84,7 +84,7 @@ end
 
 The following table describes the default interface settings:
 
-| Interface | Alias | Management access |
+| Interface | Alias | Management Access |
 | --------- | ----- | ----------------- |
 | `port1` | `untrust` | HTTPS, SSH, ping |
 | `port2` | `trust` | HTTPS, SSH, ping |

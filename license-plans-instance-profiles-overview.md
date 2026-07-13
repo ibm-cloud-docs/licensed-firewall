@@ -45,7 +45,7 @@ The license plan cannot be changed after deployment. You can resize the virtual 
 
 Select a deployment topology based on your availability requirements and tolerance for downtime. All three topologies are available as separate catalog tiles and are deployed by using IBM Cloud Schematics.
 
-| Topology | Catalog tile | Firewall instances | Availability zones | Automatic failover | Best for |
+| Topology | Catalog Tile | Firewall Instances | Availability Zones | Automatic Failover | Best For |
 |----------|-------------|-------------------|-------------------|-------------------|----------|
 | Single VM | Fortinet FortiGate VM Next-Generation Firewall - Single | 1 | 1 | No | Development, testing, or non-critical workloads |
 | Active/Passive HA - Single Zone | Fortinet FortiGate VM Next-Generation Firewall - A/P HA | 2 | 1 | Yes | Production workloads requiring zone-level redundancy |
@@ -65,7 +65,7 @@ For details on what IBM applies to each topology at provisioning time, see [Unde
 
 Select a license plan based on your workload requirements, performance needs, and scale. For more information about FortiGate Security Bundle features, see the [FortiGate Security Bundles page](https://www.fortinet.com/support/support-services/fortiguard-security-subscriptions/fortigate-security-bundles){: external}.
 
-| License plan | Best for | Supported sizes | Profile family | Key characteristics |
+| License Plan | Best For | Supported Sizes | Profile Family | Key Characteristics |
 |--------------|----------|------------------|----------------|--------------------|
 | ATP (Advanced Threat Protection) | Entry-level deployments | Small, Medium | gen2-cx | Lower cost, limited scale |
 | UTP (Unified Threat Protection) | General-purpose security | Small, Medium, Large | gen3-cx | Balanced cost and performance |
@@ -110,7 +110,7 @@ Understanding the sizing and scaling characteristics helps you select the approp
 
 Deployment sizes are mapped to vCPU allocations.
 
-| Deployment size | vCPU |
+| Deployment Size | vCPU |
 |----------------|------|
 | Small | 2 |
 | Medium | 8 |
@@ -126,7 +126,7 @@ Larger deployment sizes include increased memory, which improves session handlin
 
 The available deployment sizes vary by license plan.
 
-| License plan | Small (2 vCPU) | Medium (8 vCPU) | Large (16 vCPU) | X-large (32 vCPU) |
+| License Plan | Small (2 vCPU) | Medium (8 vCPU) | Large (16 vCPU) | X-large (32 vCPU) |
 |--------------|----------------|------------------|------------------|--------------------|
 | Enterprise | Not available | Supported | Supported | Supported |
 | UTP | Supported | Supported | Supported | Not available |
@@ -138,7 +138,7 @@ The available deployment sizes vary by license plan.
 
 Firewall performance scales with deployment size and enabled security features, with larger deployments providing higher throughput.
 
-| Deployment size | Typical NGFW throughput | Typical IPS throughput |
+| Deployment Size | Typical NGFW Throughput | Typical IPS Throughput |
 |----------------|------------------------|------------------------|
 | Small (2 vCPU) | ~1–2 Gbps | ~2 Gbps |
 | Medium (8 vCPU) | ~4–5 Gbps | ~6 Gbps |
@@ -164,7 +164,7 @@ Connection capacity increases with deployment size and available memory.
 
 The number of supported virtual domains (VDOMs) varies by deployment size.
 
-| Deployment size | VDOM support |
+| Deployment Size | VDOM Support |
 |----------------|--------------|
 | Small | Limited |
 | Medium | Moderate |
@@ -189,7 +189,7 @@ For a complete list of the exact instance profiles assigned per license plan and
 
 Each license plan uses a specific instance profile family.
 
-| License plan | Profile family |
+| License Plan | Profile Family |
 |--------------|----------------|
 | Enterprise | gen3-cx |
 | UTP | gen3-cx |
