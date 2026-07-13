@@ -42,7 +42,7 @@ FortiGate PayGo combines enterprise-grade security with cloud-native simplicity,
 
 To get started, follow these steps:
 
-1. [Review Planning for FortiGate on IBM Cloud VPC](/docs/licensed-firewall?topic=licensed-firewall-planning) — Verify account prerequisites, review license plans and instance profiles, understand the default firewall configuration, and review deployment constraints and limitations before you order.
+1. Review [Planning for FortiGate on IBM Cloud VPC](/docs/licensed-firewall?topic=licensed-firewall-planning) — Verify account prerequisites, review license plans and instance profiles, understand the default firewall configuration, and review deployment constraints and limitations before you order.
 1. [Deploy a licensed FortiGate firewall](/docs/licensed-firewall?topic=licensed-firewall-deploy-single-vm) — Deploy a single VM, HA single zone, or HA cross zone configuration from the IBM Cloud catalog.
 1. [Access the FortiGate web console](/docs/licensed-firewall?topic=licensed-firewall-access-firewall) — Add an inbound security group rule to allow management access, configure VPC routing to pass traffic through the firewall, and log in to the management interface for the first time. Step-by-step instructions for each of these tasks are provided in that topic.
 1. [Configure your FortiGate firewall after deployment](/docs/licensed-firewall?topic=licensed-firewall-configuring-fortigate) — Change the administrator password, verify interfaces, create firewall policies, and configure routing.
