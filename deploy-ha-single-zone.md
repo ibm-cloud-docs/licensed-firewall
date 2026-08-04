@@ -1,9 +1,9 @@
 ---
 
 copyright:
-  years: 2026
+  years: "2026"
 
-lastupdated: "2026-07-15"
+lastupdated: "2026-08-04"
 
 keywords: deploy firewall, FortiGate, HA single zone, high availability, Terraform, Schematics
 
@@ -26,10 +26,14 @@ Before you deploy, ensure that you have reviewed [Planning for FortiGate on IBM 
 
 - A VPC in the target region
 - 4 subnets in the VPC — public (`port1`), private (`port2`), HA heartbeat (`port3`), HA management (`port4`)
+- A Public Gateway attached to the `port1` (public) subnet
 - A pre-created SSH key in the target region
 - An IBM Cloud API key with sufficient permissions to create VPC resources
 
-The security group is created automatically during deployment. You do not need to create one in advance.
+Two security groups are created automatically during deployment — one for the public interface and one for the private interface. You do not need to create them in advance.
+
+A Public Gateway must be attached to the `port1` subnet before deployment. The FortiGate instances use it to reach IBM Cloud licensing services during initial boot.
+{: important}
 
 This offering requires static IP addresses for all FortiGate interfaces. Allocate four subnets and plan your IP assignments before you begin.
 {: important}
@@ -42,7 +46,7 @@ Terraform deploys the following resources:
 - Two FortiGate licensed instances, each with four network interfaces (`port1`–`port4`)
 - Three floating public IP addresses: one on the active node's `port1` (which fails over), and one each on `port4` (HA management) of both nodes
 - One log disk per FortiGate
-- One security group with inbound rules allowing HA traffic on TCP/UDP port 703 from the HA heartbeat subnet, and allow-all outbound rules
+- Two security groups — one for the public interface (`port1`) and one for the private interface (`port2`) — each with restrictive inbound rules that allow the instance to download the license and enable cluster synchronization, including HA traffic on TCP/UDP port 703 from the HA heartbeat subnet, and allow-all outbound rules
 - A bootstrap configuration with HA and SDN connector settings
 
 Follow these steps:
@@ -83,6 +87,7 @@ Follow these steps:
    | `SUBNET_1` | The ID of the primary, public subnet used for `port1` on both FortiGate instances. |
    | `SUBNET_2` | The ID of the secondary, private subnet used for `port2` on both FortiGate instances. |
    | `SUBNET_3` | The ID of the subnet used for the HA heartbeat mechanism. Tied to `port3`. |
+   | `PUBLIC_GATEWAY_ID` | The ID of the Public Gateway attached to the `port1` subnet. Required for the FortiGate instances to reach IBM Cloud licensing services during initial boot. |
    | `SUBNET_4` | The ID of the subnet used for the HA management interface. Tied to `port4`. |
    | `VPC` | The name of the VPC where the FortiGate instances are deployed. |
    | `ZONE` | The deployment zone within the region (for example, `us-east-1`). Only a single zone is supported for this topology. |

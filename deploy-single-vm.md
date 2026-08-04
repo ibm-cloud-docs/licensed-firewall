@@ -1,9 +1,9 @@
 ---
 
 copyright:
-  years: 2026
+  years: "2026"
 
-lastupdated: "2026-07-15"
+lastupdated: "2026-08-04"
 
 keywords: deploy firewall, FortiGate, single VM, Terraform, Schematics
 
@@ -29,7 +29,7 @@ Before you deploy, ensure that you have reviewed [Planning for FortiGate on IBM 
 - A pre-created SSH key in the target region
 - An IBM Cloud API key with sufficient permissions to create VPC resources
 
-The security group is created automatically during deployment. You do not need to create one in advance.
+Two security groups are created automatically during deployment — one for the public interface and one for the private interface. You do not need to create them in advance.
 
 ## Deploying a Single VM firewall
 {: #deploy-single-vm-steps}
@@ -39,14 +39,14 @@ Terraform deploys the following resources:
 - One FortiGate licensed instance with two network interfaces (`port1` and `port2`)
 - One floating public IP address attached to `port1`
 - One log disk
-- One security group that denies all inbound traffic except for the ports and IP addresses required for HA clustering and licensing, and allows all outbound traffic
+- Two security groups — one for the public interface (`port1`) and one for the private interface (`port2`) — each with restrictive inbound rules that allow the instance to download the license and enable cluster synchronization, and allow-all outbound rules
 - A bootstrap configuration
 
 Follow these steps:
 
 1. Log in to the [IBM Cloud console](/login).
 1. Click **Catalog** in the navigation bar.
-1. Search for **Fortinet FortiGate VM NGFW** and select the **Fortinet FortiGate VM Next-Generation Firewall - Single** tile.
+1. Search for **Fortinet FortiGate VM NGFW** and select the **Fortinet FortiGate VM NGFW - Single** tile.
 1. In **Configure your workspace**, review or update the following fields:
    - **Name** — A name for the Schematics workspace. A default name is pre-filled.
    - **Location** — The region where the Schematics workspace is created.

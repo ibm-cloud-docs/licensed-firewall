@@ -1,9 +1,9 @@
 ---
 
 copyright:
-  years: 2026
+  years: "2026"
 
-lastupdated: "2026-07-15"
+lastupdated: "2026-08-04"
 
 keywords: deploy firewall, FortiGate, HA cross zone, high availability, Terraform, Schematics, public address range
 
@@ -29,7 +29,7 @@ Before you deploy, ensure that you have reviewed [Planning for FortiGate on IBM 
 - A pre-created SSH key in the target region
 - An IBM Cloud API key with sufficient permissions to create VPC resources
 
-The security group is created automatically during deployment. You do not need to create one in advance.
+Two security groups are created automatically during deployment — one for the public interface and one for the private interface. You do not need to create them in advance.
 
 This offering requires static IP addresses for all FortiGate interfaces across both zones. Allocate eight subnets — four per zone — and plan your IP assignments before you begin. Also verify that your account has sufficient floating IP quota in the target region, as four floating IPs are consumed.
 {: important}
@@ -43,7 +43,7 @@ Terraform deploys the following resources:
 - Four floating public IP addresses: one on `port1` and one on `port4` of each FortiGate
 - One public address range for floating IP failover across zones
 - One log disk per FortiGate
-- One security group with inbound rules allowing HA traffic from each FortiGate's `port3` IP, and allow-all outbound rules
+- Two security groups — one for the public interface (`port1`) and one for the private interface (`port2`) — each with restrictive inbound rules that allow the instance to download the license and enable cluster synchronization, including HA traffic from each FortiGate's `port3` IP, and allow-all outbound rules
 - A bootstrap configuration with HA, SDN connector, public address range, and VDOM exception settings
 
 Follow these steps:

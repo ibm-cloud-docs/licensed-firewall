@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2026
-lastupdated: "2026-07-15"
+  years: "2026"
+lastupdated: "2026-08-04"
 
 keywords: FortiGate security, firewall best practices, security group, admin access, FortiGate hardening, management access, least privilege
 
@@ -21,7 +21,7 @@ Follow these security best practices to reduce the attack surface of your FortiG
 ## Restrict management access through the security group
 {: #bp-restrict-management-access}
 
-Every FortiGate deployment creates a dedicated security group that denies all inbound management traffic. When you open the security group, you will see a small number of pre-configured inbound rules. These exist solely to allow HA cluster nodes to communicate with each other and to reach licensing services. They do not permit management access and must not be removed. When you open management access, follow these principles:
+Every FortiGate deployment creates two dedicated security groups — one for the public interface and one for the private interface. Both include restrictive pre-configured inbound rules that allow the instance to download the license and enable cluster synchronization. They do not permit management access and must not be removed. When you open management access, follow these principles:
 
 - **Allow only your administrator IP addresses.** Add inbound TCP rules for port 443 (HTTPS) or port 22 (SSH) with a specific source IP address or CIDR range. Do not use `0.0.0.0/0` as the source.
 - **Use the narrowest CIDR possible.** If your administrators connect from a known IP range, restrict the source to that range only.
