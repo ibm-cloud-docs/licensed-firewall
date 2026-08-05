@@ -2,7 +2,8 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-07-15"
+
+lastupdated: "2026-08-05"
 
 keywords: FortiGate configuration, firewall policy, configure FortiGate, initial setup, routing, security profiles, FortiGate web console
 

@@ -1,8 +1,9 @@
 ---
 
 copyright:
-  years: "2026"
-lastupdated: "2026-08-04"
+  years: 2026
+
+lastupdated: "2026-08-05"
 
 keywords: FortiGate security, firewall best practices, security group, admin access, FortiGate hardening, management access, least privilege
 

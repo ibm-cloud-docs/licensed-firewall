@@ -2,7 +2,8 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-07-15"
+
+lastupdated: "2026-08-05"
 
 keywords: FortiGate support, licensed firewall help, open support case, firewall troubleshooting
 

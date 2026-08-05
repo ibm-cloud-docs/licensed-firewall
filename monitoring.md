@@ -1,7 +1,8 @@
 ---
 
 copyright:
-  years: "2026"
+  years: 2026
+
 lastupdated: "2026-08-05"
 
 keywords: FortiGate monitoring, firewall logs, FortiGate metrics, IBM Cloud Monitoring, fortigate health, traffic monitoring, VPC flow logs

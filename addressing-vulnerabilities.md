@@ -1,7 +1,8 @@
 ---
 
 copyright:
-  years: "2026"
+  years: 2026
+
 lastupdated: "2026-08-05"
 
 keywords: FortiGate vulnerability, firmware update, PSIRT advisory, FortiOS patch, security advisory, vulnerability management, FortiGate upgrade, Fortinet notifications, fabric upgrade

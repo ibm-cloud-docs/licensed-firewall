@@ -1,7 +1,8 @@
 ---
 
 copyright:
-  years: "2026"
+  years: 2026
+
 lastupdated: "2026-08-05"
 
 keywords: FortiGate, IBM Cloud VPC, licensed firewall, fortinet, next-generation firewall, NGFW, paygo firewall

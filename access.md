@@ -1,8 +1,9 @@
 ---
 
 copyright:
-  years: "2026"
-lastupdated: "2026-08-04"
+  years: 2026
+
+lastupdated: "2026-08-05"
 
 keywords: access fortigate, FortiGate web console, SSH fortigate, floating IP, fortigate login, security group inbound rule
 

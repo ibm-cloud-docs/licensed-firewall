@@ -2,6 +2,7 @@
 
 copyright:
   years: 2026
+
 lastupdated: "2026-08-05"
 
 keywords: shared responsibilities, customer responsibilities, IBM responsibilities, FortiGate support, firewall operations, patch management

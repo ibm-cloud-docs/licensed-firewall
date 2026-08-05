@@ -1,7 +1,8 @@
 ---
 
 copyright:
-  years: "2026"
+  years: 2026
+
 lastupdated: "2026-08-05"
 
 keywords: FortiGate IPS, antivirus, web filtering, application control, security profiles, FortiGate security services, intrusion prevention, deep packet inspection, SSL inspection, TLS inspection
