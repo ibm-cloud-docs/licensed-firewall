@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2026
-lastupdated: "2026-07-15"
+  years: "2026"
+lastupdated: "2026-08-05"
 
 keywords: FortiGate IPS, antivirus, web filtering, application control, security profiles, FortiGate security services, intrusion prevention, deep packet inspection, SSL inspection, TLS inspection
 
@@ -64,7 +64,7 @@ IPS monitors traffic for known attack signatures and anomalies and can block or 
 1. Add signatures relevant to your environment and set the action to **Block** or **Monitor**.
 1. Attach the IPS sensor to your firewall policy under **Security Profiles > IPS**.
 
-For more information, see the [FortiGate IPS documentation](https://docs.fortinet.com/document/fortigate/latest/administration-guide/895433/intrusion-prevention){: external}.
+For more information, see the [FortiGate IPS documentation](https://docs.fortinet.com/document/fortigate/latest/administration-guide/954635/getting-started){: external}.
 
 ### Antivirus
 {: #enable-antivirus}
@@ -75,7 +75,7 @@ Antivirus scanning inspects file transfers for malware in supported protocols (H
 1. Create or modify an antivirus profile and set the action for infected files.
 1. Attach the profile to your firewall policy under **Security Profiles > AntiVirus**.
 
-For more information, see the [FortiGate antivirus documentation](https://docs.fortinet.com/document/fortigate/latest/administration-guide/097566/antivirus){: external}.
+For more information, see the [FortiGate antivirus documentation](https://docs.fortinet.com/search?q=antivirus&p=fortigate){: external}.
 
 ### Web filtering
 {: #enable-web-filtering}
@@ -86,7 +86,7 @@ Web filtering controls access to websites based on categories, URLs, and content
 1. Create or modify a web filter profile, enabling or blocking categories as required.
 1. Attach the profile to your firewall policy under **Security Profiles > Web Filter**.
 
-For more information, see the [FortiGate web filtering documentation](https://docs.fortinet.com/document/fortigate/latest/administration-guide/687249/web-filter){: external}.
+For more information, see the [FortiGate web filtering documentation](https://docs.fortinet.com/document/fortigate/latest/administration-guide/954635/getting-started){: external}.
 
 ### Application control
 {: #enable-application-control}
@@ -97,12 +97,12 @@ Application control identifies and controls applications regardless of port or p
 1. Create or modify an application control profile and set actions for application categories.
 1. Attach the profile to your firewall policy under **Security Profiles > Application Control**.
 
-For more information, see the [FortiGate application control documentation](https://docs.fortinet.com/document/fortigate/latest/administration-guide/303658/application-control){: external}.
+For more information, see the [FortiGate application control documentation](https://docs.fortinet.com/document/fortigate/latest/administration-guide/954635/getting-started){: external}.
 
 ## Related links
 {: #security-services-related-links}
 
-- [FortiGate Administration Guide](https://docs.fortinet.com/product/fortigate/latest){: external}
+- [FortiGate Administration Guide](https://docs.fortinet.com/document/fortigate/latest/administration-guide/954635/getting-started){: external}
 - [FortiGate SSL/TLS inspection overview](https://docs.fortinet.com/document/fortigate/latest/administration-guide/255100/ssl-tls-inspection-overview){: external}
 - [Security best practices for FortiGate on IBM Cloud VPC](/docs/licensed-firewall?topic=licensed-firewall-fortigate-security-best-practices)
 - [Monitoring your FortiGate firewall](/docs/licensed-firewall?topic=licensed-firewall-monitoring)

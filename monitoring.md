@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2026
-lastupdated: "2026-07-15"
+  years: "2026"
+lastupdated: "2026-08-05"
 
 keywords: FortiGate monitoring, firewall logs, FortiGate metrics, IBM Cloud Monitoring, fortigate health, traffic monitoring, VPC flow logs
 
@@ -23,7 +23,7 @@ Monitoring responsibilities are split between IBM Cloud infrastructure tooling a
 ## Monitoring instance health in IBM Cloud
 {: #monitoring-instance-health}
 
-The FortiGate firewall runs as a standard VPC virtual server instance. You can monitor its health, resource utilization, and lifecycle events the same way as any other virtual server instance. For more information, see [Monitoring your virtual server instances](/docs/vpc?topic=vpc-monitoring-virtual-server-instances).
+The FortiGate firewall runs as a standard VPC virtual server instance. You can monitor its health, resource utilization, and lifecycle events the same way as any other virtual server instance. For more information, see [Monitoring your virtual server instances](/docs/vpc?topic=vpc-monitoring-virtual-server-instances-gen2).
 
 For HA deployments, check both the active and passive node instances. A passive node that shows high CPU or unexpected restarts may indicate a failover event or a sync issue.
 {: tip}
@@ -43,14 +43,14 @@ To enable VPC Flow Logs for your FortiGate subnets, see [About Flow Logs for VPC
 
 FortiGate generates detailed logs for traffic flows, security events, system activity, and VPN sessions. Review these logs in the FortiGate web console under **Log & Report**.
 
-Log categories include traffic logs, security threat logs (IPS, antivirus, web filter), system event logs, and VPN logs. For full details on log types, filtering, and export options, see the [FortiGate logging and reporting documentation](https://docs.fortinet.com/document/fortigate/latest/administration-guide/254572/logging-and-reporting){: external}.
+Log categories include traffic logs, security threat logs (IPS, antivirus, web filter), system event logs, and VPN logs. For full details on log types, filtering, and export options, see the [FortiGate logging and reporting documentation](https://docs.fortinet.com/document/fortigate/latest/administration-guide/954635/getting-started){: external}.
 
 ## Monitoring firewall policy activity
 {: #monitoring-policy-hits}
 
 Policy hit counts and session statistics show how often each firewall policy is matching traffic. Reviewing these helps identify unused policies or unexpected traffic patterns.
 
-In the FortiGate web console, go to **Policy & Objects > Firewall Policy** to review bytes and session counts per policy. For more information, see the [FortiGate firewall policy documentation](https://docs.fortinet.com/document/fortigate/latest/administration-guide/897250/firewall-policy){: external}.
+In the FortiGate web console, go to **Policy & Objects > Firewall Policy** to review bytes and session counts per policy. For more information, see the [FortiGate firewall policy documentation](https://docs.fortinet.com/document/fortigate/latest/administration-guide/954635/getting-started){: external}.
 
 ## Diagnosing connectivity issues
 {: #monitoring-troubleshoot-connectivity}
@@ -62,8 +62,8 @@ If you cannot connect to the FortiGate management interface, see [Troubleshootin
 ## Related links
 {: #monitoring-related-links}
 
-- [FortiGate logging and reporting documentation](https://docs.fortinet.com/document/fortigate/latest/administration-guide/254572/logging-and-reporting){: external}
-- [FortiGate Administration Guide](https://docs.fortinet.com/product/fortigate/latest){: external}
+- [FortiGate logging and reporting documentation](https://docs.fortinet.com/document/fortigate/latest/administration-guide/954635/getting-started){: external}
+- [FortiGate Administration Guide](https://docs.fortinet.com/document/fortigate/latest/administration-guide/954635/getting-started){: external}
 - [About Flow Logs for VPC](/docs/vpc?topic=vpc-flow-logs)
 - [Getting started with IBM Cloud Monitoring](/docs/monitoring?topic=monitoring-getting-started)
 - [Security best practices for FortiGate on IBM Cloud VPC](/docs/licensed-firewall?topic=licensed-firewall-fortigate-security-best-practices)

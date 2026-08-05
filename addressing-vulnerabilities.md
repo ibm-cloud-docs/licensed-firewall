@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2026
-lastupdated: "2026-07-15"
+  years: "2026"
+lastupdated: "2026-08-05"
 
 keywords: FortiGate vulnerability, firmware update, PSIRT advisory, FortiOS patch, security advisory, vulnerability management, FortiGate upgrade, Fortinet notifications, fabric upgrade
 
@@ -39,7 +39,7 @@ When a new advisory is published, determine whether your deployment is affected 
 2. Compare your running version against the affected versions listed in the advisory.
 3. Review the advisory's CVSS severity score and any available mitigations or workarounds.
 
-For guidance on interpreting FortiGate advisories and understanding severity ratings, see the [Fortinet PSIRT portal](https://www.fortiguard.com/psirt){: external} and the [FortiGate Administration Guide](https://docs.fortinet.com/product/fortigate/latest){: external}.
+For guidance on interpreting FortiGate advisories and understanding severity ratings, see the [Fortinet PSIRT portal](https://www.fortiguard.com/psirt){: external} and the [FortiGate Administration Guide](https://docs.fortinet.com/document/fortigate/latest/administration-guide/954635/getting-started){: external}.
 
 ## Step 3: Backing up your configuration before patching
 {: #vuln-backup}
@@ -107,7 +107,7 @@ The FortiGate installs the selected firmware and restarts automatically.
 
 - [Fortinet PSIRT portal](https://www.fortiguard.com/psirt){: external}
 - [Fortinet RSS feeds](https://www.fortinet.com/rss-feeds){: external}
-- [FortiGate Administration Guide](https://docs.fortinet.com/product/fortigate/latest){: external}
+- [FortiGate Administration Guide](https://docs.fortinet.com/document/fortigate/latest/administration-guide/954635/getting-started){: external}
 - [Backing up and restoring the FortiGate configuration](/docs/licensed-firewall?topic=licensed-firewall-backup-restore-fortigate-config)
 - [Shared responsibilities for FortiGate licensed firewall](/docs/licensed-firewall?topic=licensed-firewall-shared-responsibilities)
 - [Security best practices for FortiGate on IBM Cloud VPC](/docs/licensed-firewall?topic=licensed-firewall-fortigate-security-best-practices)

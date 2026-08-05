@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2026
-lastupdated: "2026-07-15"
+  years: "2026"
+lastupdated: "2026-08-05"
 
 keywords: FortiGate, IBM Cloud VPC, licensed firewall, fortinet, next-generation firewall, NGFW, paygo firewall
 
@@ -55,5 +55,5 @@ To get started, follow these steps:
 1. [Monitor your FortiGate firewall](/docs/licensed-firewall?topic=licensed-firewall-monitoring) — Review logs, check instance health, and verify that firewall policies are working as expected.
 1. [Manage firmware updates and vulnerability patches](/docs/licensed-firewall?topic=licensed-firewall-addressing-vulnerabilities) — Subscribe to Fortinet security advisories, assess the impact on your deployment, back up your configuration, and apply firmware updates to keep your firewall secure and up to date.
 
-If you are migrating an existing classic infrastructure FortiGate deployment to VPC, see [Migrating to a virtual firewall in VPC]([/docs/classic-to-vpc](/docs/classic-to-vpc?topic=classic-to-vpc-vpc-firewall-options).
+If you are migrating an existing classic infrastructure FortiGate deployment to VPC, see [Migrating to a virtual firewall in VPC](/docs/classic-to-vpc?topic=classic-to-vpc-vpc-firewall-options).
 {: attention}
