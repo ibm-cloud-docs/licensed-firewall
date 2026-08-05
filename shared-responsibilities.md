@@ -36,7 +36,7 @@ IBM is responsible for the following:
 
 As the virtual server owner, you are responsible for the following:
 
-- **Post-provisioning configuration** — Completing all configuration after IBM's initial provisioning is done, including firewall policies, network interfaces, routing, and VPN settings. IBM does not modify your configuration after handoff.
+- **Post-provisioning configuration** — Completing all configuration after IBM initial provisioning is done, including firewall policies, network interfaces, routing, and VPN settings. IBM does not modify your configuration after handoff.
 - **Firewall policy management** — Creating and maintaining all firewall policies and security profiles. IBM does not configure or modify your firewall policies.
 - **Firmware and software updates** — Applying FortiGate firmware updates and security patches to your virtual server instances. IBM notifies you of critical updates but does not apply them.
 - **Security patching** — Evaluating Fortinet PSIRT advisories, implementing recommended mitigations, and applying patches during your own change control process.
