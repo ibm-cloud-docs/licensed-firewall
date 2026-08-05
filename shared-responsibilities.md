@@ -25,6 +25,7 @@ IBM is responsible for the following:
 
 - **License management** — Procuring, provisioning, renewing, and tracking FortiGate licenses through the FortiFlex platform. You do not need to manage licenses directly.
 - **License health monitoring** — Monitoring license expiry and coverage, and communicating any issues to you.
+- **Initial provisioning and configuration** — Deploying and performing the initial configuration of your FortiGate virtual server instances, including applying the selected topology (standalone or HA). After provisioning is complete, all further configuration becomes your responsibility.
 - **Support coordination** — Acting as the single point of contact for all FortiGate technical issues. IBM Support performs initial triage and opens Fortinet Technical Assistance Center (TAC) cases on your behalf when needed. You do not open TAC cases directly with Fortinet.
 - **Security advisory communications** — Monitoring Fortinet PSIRT advisories and notifying you of critical vulnerabilities and recommended mitigations.
 - **End-of-life notifications** — Communicating Fortinet end-of-life and end-of-support notices to you and providing guidance on migration options.
@@ -35,7 +36,7 @@ IBM is responsible for the following:
 
 As the virtual server owner, you are responsible for the following:
 
-- **Deployment and configuration** — Deploying FortiGate instances from the IBM Cloud catalog, configuring firewall policies, network interfaces, routing, and VPN settings.
+- **Post-provisioning configuration** — Completing all configuration after IBM's initial provisioning is done, including firewall policies, network interfaces, routing, and VPN settings. IBM does not modify your configuration after handoff.
 - **Firewall policy management** — Creating and maintaining all firewall policies and security profiles. IBM does not configure or modify your firewall policies.
 - **Firmware and software updates** — Applying FortiGate firmware updates and security patches to your virtual server instances. IBM notifies you of critical updates but does not apply them.
 - **Security patching** — Evaluating Fortinet PSIRT advisories, implementing recommended mitigations, and applying patches during your own change control process.
