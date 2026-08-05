@@ -40,7 +40,7 @@
     {
       "title": "FortiGate Transit VPC patterns and deployment guide",
       "description": "Reference architectures and deployment patterns for FortiGate in IBM Cloud VPC hub-and-spoke and transit topologies.",
-      "href": "/docs/pattern-transit-vpc-fortigate",
+      "href": "https://cloud.ibm.com/docs/pattern-transit-vpc-fortigate",
       "type": "article"
     },
     {
@@ -50,19 +50,15 @@
       "type": "article"
     }
   ],
-  "section_devtools": [
-    {
-      "title": "Terraform",
-      "href": "https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_instance"
-    }
-  ],
+  "section_devtools": {
+    "terraform": "https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_instance"
+  },
   "section_updates": {
     "view_more": "/docs/licensed-firewall",
     "tiles": [
       {
         "date": "31 July 2026",
-        "title": "FortiGate licensed firewall now available on IBM Cloud VPC",
-        "description": "The licensed firewall for FortiGate is now available on IBM Cloud VPC, offering automatic license management, pay-as-you-go billing, and integrated threat protection."
+        "title": "FortiGate licensed firewall now available on IBM Cloud VPC"
       }
     ]
   }
