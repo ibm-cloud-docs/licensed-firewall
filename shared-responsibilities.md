@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: "2026"
+  years: 2026
 lastupdated: "2026-08-05"
 
 keywords: shared responsibilities, customer responsibilities, IBM responsibilities, FortiGate support, firewall operations, patch management
@@ -41,7 +41,7 @@ As the virtual server owner, you are responsible for the following:
 - **Firmware and software updates** — Applying FortiGate firmware updates and security patches to your virtual server instances. IBM notifies you of critical updates but does not apply them.
 - **Security patching** — Evaluating Fortinet PSIRT advisories, implementing recommended mitigations, and applying patches during your own change control process.
 - **Configuration backup** — Backing up your FortiGate configuration regularly. IBM does not back up your configuration.
-- **High availability and disaster recovery** — Configuring, testing, and validating HA cluster behaviour, failover thresholds, session synchronization, and recovery procedures. IBM provisions the HA topology you select but does not monitor cluster health, trigger failover, or recover failed nodes on your behalf. For HA upgrade sequencing guidance, see [Security best practices for FortiGate on IBM Cloud VPC](/docs/licensed-firewall?topic=licensed-firewall-fortigate-security-best-practices#bp-firmware-updates). For FortiGate HA configuration details, see the [FortiGate Administration Guide](https://docs.fortinet.com/product/fortigate/8.0){: external}.
+- **High availability and disaster recovery** — Configuring, testing, and validating HA cluster behavior, failover thresholds, session synchronization, and recovery procedures. IBM provisions the HA topology you select but does not monitor cluster health, trigger failover, or recover failed nodes on your behalf. For HA upgrade sequencing guidance, see [Security best practices for FortiGate on IBM Cloud VPC](/docs/licensed-firewall?topic=licensed-firewall-fortigate-security-best-practices#bp-firmware-updates). For FortiGate HA configuration details, see the [FortiGate Administration Guide](https://docs.fortinet.com/product/fortigate/8.0){: external}.
 - **Monitoring and alerting** — Monitoring the health, performance, and traffic of your FortiGate instances. See [Monitoring your FortiGate firewall](/docs/licensed-firewall?topic=licensed-firewall-monitoring).
 - **Virtual server lifecycle** — Starting, stopping, resizing, and deleting your FortiGate virtual server instances.
 - **Compliance** — Ensuring your deployment meets applicable regulatory and compliance requirements (for example, PCI, HIPAA, ISO).

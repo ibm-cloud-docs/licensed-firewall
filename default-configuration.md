@@ -1,9 +1,9 @@
 ---
 
 copyright:
-  years: "2026"
+  years: 2026
 
-lastupdated: "2026-08-04"
+lastupdated: "2026-08-05"
 
 keywords: firewall default configuration, FortiGate default config, HA configuration, bootstrap configuration, SDN connector, public address range, cloud-init
 
@@ -103,34 +103,72 @@ config system global
 end
 
 config system interface
+    edit port1
+        set alias public
+        set mode static
+        set ip ${fgt_1_static_port1} ${netmask}
+        set allowaccess ping https ssh fgfm
+        set mtu-override enable
+    next
     edit port2
+        set mode static
         set ip ${fgt_1_static_port2} ${netmask}
+        set allowaccess ping https ssh fgfm
+        set mtu-override enable
     next
     edit port3
+        set mode static
         set ip ${fgt_1_static_port3} ${netmask}
+        set allowaccess ping https ssh fgfm
+        set mtu-override enable
     next
     edit port4
+        set mode static
         set ip ${fgt_1_static_port4} ${netmask}
+        set allowaccess ping https ssh fgfm
+        set mtu-override enable
+    next
+end
+
+config router static
+    edit 1
+        set gateway ${port1_gateway}
+        set device "port1"
     next
 end
 
 config system ha
+    set group-name "IBM-HA"
     set mode a-p
-    set priority 50
-    set unicast-hb-peerip ${fgt_2_static_port3}
+    set hbdev "port3" 100
+    set session-pickup enable
+    set ha-mgmt-status enable
     set password ${ha_password}
     config ha-mgmt-interfaces
         edit 1
-            set interface port4
+            set interface "port4"
             set gateway ${fgt1_port_4_mgmt_gateway}
         next
     end
+    set override disable
+    set priority 50
+    set unicast-hb enable
+    set unicast-hb-peerip ${fgt_2_static_port3}
 end
 
 config system sdn-connector
-    edit "ibm"
+    edit "ibm-ha"
+        set type ibm
+        set ha-status enable
         set api-key ${ibm_api_key}
         set region ${region}
+        set update-interval 60
+    next
+end
+
+config system vdom-exception
+    edit 1
+        set object system.interface
     next
 end
 ```
@@ -159,34 +197,65 @@ config system global
 end
 
 config system interface
+    edit port1
+        set alias public
+        set mode static
+        set ip ${fgt_2_static_port1} ${netmask}
+        set allowaccess ping https ssh fgfm
+        set mtu-override enable
+    next
     edit port2
+        set mode static
         set ip ${fgt_2_static_port2} ${netmask}
+        set allowaccess ping https ssh fgfm
+        set mtu-override enable
     next
     edit port3
+        set mode static
         set ip ${fgt_2_static_port3} ${netmask}
+        set allowaccess ping https ssh fgfm
+        set mtu-override enable
     next
     edit port4
+        set mode static
         set ip ${fgt_2_static_port4} ${netmask}
+        set allowaccess ping https ssh fgfm
+        set mtu-override enable
     next
 end
 
 config system ha
+    set group-name "IBM-HA"
     set mode a-p
-    set priority 25
-    set unicast-hb-peerip ${fgt_1_static_port3}
+    set hbdev "port3" 100
+    set session-pickup enable
+    set ha-mgmt-status enable
     set password ${ha_password}
     config ha-mgmt-interfaces
         edit 1
-            set interface port4
+            set interface "port4"
             set gateway ${fgt2_port_4_mgmt_gateway}
         next
     end
+    set override disable
+    set priority 25
+    set unicast-hb enable
+    set unicast-hb-peerip ${fgt_1_static_port3}
 end
 
 config system sdn-connector
-    edit "ibm"
+    edit "ibm-ha"
+        set type ibm
+        set ha-status enable
         set api-key ${ibm_api_key}
         set region ${region}
+        set update-interval 60
+    next
+end
+
+config system vdom-exception
+    edit 1
+        set object system.interface
     next
 end
 ```
@@ -215,35 +284,67 @@ config system global
 end
 
 config system interface
+    edit port1
+        set alias public
+        set mode static
+        set ip ${fgt_1_static_port1} ${netmask}
+        set allowaccess ping https ssh fgfm
+        set mtu-override enable
+    next
     edit port2
+        set mode static
         set ip ${fgt_1_static_port2} ${netmask}
+        set allowaccess ping https ssh fgfm
+        set mtu-override enable
     next
     edit port3
+        set mode static
         set ip ${fgt_1_static_port3} ${netmask}
+        set allowaccess ping https ssh fgfm
+        set mtu-override enable
     next
     edit port4
+        set mode static
         set ip ${fgt_1_static_port4} ${netmask}
+        set allowaccess ping https ssh fgfm
+        set mtu-override enable
+    next
+end
+
+config router static
+    edit 1
+        set gateway ${port1_active_gateway}
+        set device "port1"
     next
 end
 
 config system ha
+    set group-name "IBM-HA"
     set mode a-p
-    set priority 50
-    set unicast-hb-peerip ${fgt_2_static_port3}
+    set hbdev "port3" 100
+    set session-pickup enable
+    set ha-mgmt-status enable
     set password ${ha_password}
     config ha-mgmt-interfaces
         edit 1
-            set interface port4
+            set interface "port4"
             set gateway ${fgt1_port_4_mgmt_gateway}
         next
     end
+    set override disable
+    set priority 50
+    set unicast-hb enable
+    set unicast-hb-peerip ${fgt_2_static_port3}
 end
 
 config system sdn-connector
     edit "ibm"
+        set type ibm
         set par-id ${par_id}
+        set ha-status enable
         set api-key ${ibm_api_key}
         set region ${region}
+        set update-interval 60
     next
 end
 
@@ -286,35 +387,67 @@ config system global
 end
 
 config system interface
+    edit port1
+        set alias public
+        set mode static
+        set ip ${fgt_2_static_port1} ${netmask}
+        set allowaccess ping https ssh fgfm
+        set mtu-override enable
+    next
     edit port2
+        set mode static
         set ip ${fgt_2_static_port2} ${netmask}
+        set allowaccess ping https ssh fgfm
+        set mtu-override enable
     next
     edit port3
+        set mode static
         set ip ${fgt_2_static_port3} ${netmask}
+        set allowaccess ping https ssh fgfm
+        set mtu-override enable
     next
     edit port4
+        set mode static
         set ip ${fgt_2_static_port4} ${netmask}
+        set allowaccess ping https ssh fgfm
+        set mtu-override enable
+    next
+end
+
+config router static
+    edit 1
+        set gateway ${port1_passive_gateway}
+        set device "port1"
     next
 end
 
 config system ha
+    set group-name "IBM-HA"
     set mode a-p
-    set priority 25
-    set unicast-hb-peerip ${fgt_1_static_port3}
+    set hbdev "port3" 100
+    set session-pickup enable
+    set ha-mgmt-status enable
     set password ${ha_password}
     config ha-mgmt-interfaces
         edit 1
-            set interface port4
+            set interface "port4"
             set gateway ${fgt2_port_4_mgmt_gateway}
         next
     end
+    set override disable
+    set priority 25
+    set unicast-hb enable
+    set unicast-hb-peerip ${fgt_1_static_port3}
 end
 
 config system sdn-connector
     edit "ibm"
+        set type ibm
         set par-id ${par_id}
+        set ha-status enable
         set api-key ${ibm_api_key}
         set region ${region}
+        set update-interval 60
     next
 end
 
@@ -355,14 +488,19 @@ The following table lists all bootstrap variables and their sources:
 
 | Variable | Source | Description |
 | -------- | ------ | ----------- |
+| `${fgt_1_static_port1}` | `FGT1_STATIC_IP_PORT1` order input | Public interface IP for FortiGate 1. |
 | `${fgt_1_static_port2}` | `FGT1_STATIC_IP_PORT2` order input | Private interface IP for FortiGate 1. |
 | `${fgt_1_static_port3}` | `FGT1_STATIC_IP_PORT3` order input | HA heartbeat IP for FortiGate 1. |
 | `${fgt_1_static_port4}` | `FGT1_STATIC_IP_PORT4` order input | HA management IP for FortiGate 1. |
+| `${fgt_2_static_port1}` | `FGT2_STATIC_IP_PORT1` order input | Public interface IP for FortiGate 2. |
 | `${fgt_2_static_port2}` | `FGT2_STATIC_IP_PORT2` order input | Private interface IP for FortiGate 2. |
 | `${fgt_2_static_port3}` | `FGT2_STATIC_IP_PORT3` order input | HA heartbeat IP for FortiGate 2. |
 | `${fgt_2_static_port4}` | `FGT2_STATIC_IP_PORT4` order input | HA management IP for FortiGate 2. |
 | `${fgt1_port_4_mgmt_gateway}` | `FGT1_PORT4_MGMT_GATEWAY` order input | Gateway for FortiGate 1 HA management subnet. |
 | `${fgt2_port_4_mgmt_gateway}` | `FGT2_PORT4_MGMT_GATEWAY` order input | Gateway for FortiGate 2 HA management subnet. |
+| `${port1_gateway}` | `PORT1_GATEWAY` order input | Default gateway for the public interface (HA single-zone). |
+| `${port1_active_gateway}` | `PORT1_ACTIVE_GATEWAY` order input | Default gateway for the active node public interface (HA cross-zone). |
+| `${port1_passive_gateway}` | `PORT1_PASSIVE_GATEWAY` order input | Default gateway for the passive node public interface (HA cross-zone). |
 | `${ha_password}` | Derived internally by IBM Cloud | HA cluster authentication password. |
 | `${ibm_api_key}` | `IBMCLOUD_API_KEY` order input | IBM Cloud API key for the SDN connector. |
 | `${region}` | `REGION` order input | IBM Cloud region where the firewall is deployed. |
