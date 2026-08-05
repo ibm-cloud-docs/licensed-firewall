@@ -55,7 +55,7 @@ As the virtual server owner, you are responsible for the following:
 | Security advisory notifications | ✓ | |
 | IBM Cloud VPC platform maintenance | ✓ | |
 | Support triage and TAC coordination | ✓ | |
-| FortiGate deployment and configuration[^fn1] | | ✓ |
+| FortiGate deployment and configuration[^fn1] | ✓ | ✓ |
 | HA topology provisioning | ✓ | |
 | HA cluster monitoring and failover management | | ✓ |
 | Disaster recovery planning and testing | | ✓ |
