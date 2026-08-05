@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2026
-lastupdated: "2026-07-15"
+  years: "2026"
+lastupdated: "2026-08-05"
 
 keywords: shared responsibilities, customer responsibilities, IBM responsibilities, FortiGate support, firewall operations, patch management
 
@@ -55,7 +55,7 @@ As the virtual server owner, you are responsible for the following:
 | Security advisory notifications | ✓ | |
 | IBM Cloud VPC platform maintenance | ✓ | |
 | Support triage and TAC coordination | ✓ | |
-| FortiGate deployment and configuration | | ✓ |
+| FortiGate deployment and configuration[^fn1] | | ✓ |
 | HA topology provisioning | ✓ | |
 | HA cluster monitoring and failover management | | ✓ |
 | Disaster recovery planning and testing | | ✓ |
@@ -66,6 +66,8 @@ As the virtual server owner, you are responsible for the following:
 | Virtual server lifecycle management | | ✓ |
 | Compliance and regulatory controls | | ✓ |
 {: caption="Shared responsibilities summary" caption-side="bottom"}
+
+[^fn1]: IBM is responsible for the initial provisioning and configuration. After provisioning is complete, the customer is responsible for all subsequent configuration.
 
 ## Related links
 {: #shared-responsibilities-related-links}
