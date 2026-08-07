@@ -3,7 +3,7 @@
 copyright:
   years: 2026
 
-lastupdated: "2026-08-05"
+lastupdated: "2026-08-07"
 
 keywords: FortiGate monitoring, firewall logs, FortiGate metrics, IBM Cloud Monitoring, fortigate health, traffic monitoring, VPC flow logs
 
@@ -24,9 +24,9 @@ Monitoring responsibilities are split between IBM Cloud infrastructure tooling a
 ## Monitoring instance health in IBM Cloud
 {: #monitoring-instance-health}
 
-The FortiGate firewall runs as a standard VPC virtual server instance. You can monitor its health, resource utilization, and lifecycle events the same way as any other virtual server instance. For more information, see [Monitoring your virtual server instances](/docs/vpc?topic=vpc-monitoring-virtual-server-instances-gen2).
+The FortiGate firewall runs as a standard VPC virtual server instance. You can monitor its health, resource utilization, and lifecycle events the same way as any other virtual server instance. For more information, see [Getting started with IBM Cloud monitoring](/docs/monitoring?topic=monitoring-getting-started).
 
-For HA deployments, check both the active and passive node instances. A passive node that shows high CPU or unexpected restarts may indicate a failover event or a sync issue.
+For HA deployments, check both the active and passive node instances. A passive node that shows high CPU or unexpected restarts might indicate a failover event or a sync issue.
 {: tip}
 
 ## Monitoring network traffic with VPC Flow Logs
