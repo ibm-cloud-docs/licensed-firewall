@@ -38,7 +38,7 @@ The firewall is not reachable immediately after deployment. Two dedicated securi
 ## Step 1: Allow management access in the security group
 {: #access-firewall-security-group}
 
-The security groups created during deployment deny all inbound management traffic. When you open a security group, you will see a small number of pre-configured inbound rules for licensing and cluster synchronization — do not remove these. Add a new inbound rule to allow HTTPS or SSH access from your administrator IP address before you can connect.
+The security groups created during deployment deny all inbound management traffic. When you open a security group, you will see pre-configured inbound rules for licensing and cluster synchronization — do not remove these. Add a new inbound rule to allow HTTPS or SSH access from your administrator IP address before you can connect.
 
 1. In the [IBM Cloud console](/login), click the navigation menu and select **VPC Infrastructure > Security groups**.
 1. Locate the security group for the public interface that was created for your FortiGate deployment. It is named after your deployment cluster.

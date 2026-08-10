@@ -32,7 +32,7 @@ Security services are applied to traffic by attaching security profiles to firew
 | Application Control | | ![Checkmark icon](../icons/checkmark-icon.svg "Checkmark") | ![Checkmark icon](../icons/checkmark-icon.svg "Checkmark") |
 {: caption="Security services available by license tier" caption-side="bottom"}
 
-Enabling multiple security services on the same firewall policy increases CPU usage and may reduce throughput. Size your deployment accordingly. For more information, see [About firewall license plans and instance profiles](/docs/licensed-firewall?topic=licensed-firewall-about-firewall-license-plans-and-instance-profiles).
+Enabling multiple security services on the same firewall policy increases CPU usage and may reduce throughput. Select a deployment with sufficient vCPU capacity for your workload. For more information, see [About firewall license plans and instance profiles](/docs/licensed-firewall?topic=licensed-firewall-about-firewall-license-plans-and-instance-profiles).
 {: note}
 
 ## Deep packet inspection
