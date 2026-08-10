@@ -37,7 +37,6 @@ toc:
       topics:
       - default-configuration.md
       - shared-responsibilities.md
-      - roles.md
       - techxchange-blogs.md
   - navgroup:
       id: help

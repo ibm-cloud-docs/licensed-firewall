@@ -3,7 +3,7 @@
 copyright:
   years: 2026
 
-lastupdated: "2026-08-05"
+lastupdated: "2026-08-10"
 
 keywords: FortiGate, IBM Cloud VPC, licensed firewall, fortinet, next-generation firewall, NGFW, paygo firewall
 
@@ -23,8 +23,7 @@ Deployed in a VPC architecture, FortiGate provides centralized visibility and co
 
 Because FortiGate is deployed as a licensed virtual appliance in IBM Cloud VPC, organizations must also account for resource consumption, such as compute, storage, and network usage, to ensure effective monitoring and cost control.
 
-This third-party product is provided by a vendor outside of IBM and is subject to a separate agreement between you and the third-party, if you accept their terms. IBM is not responsible for the product and makes no privacy, security, performance, support, or other commitments regarding the product.
-{: attention}
+**Disclaimer:** This third-party product is provided by a vendor outside of IBM and is subject to a separate agreement between you and the third-party, if you accept their terms. IBM is not responsible for the product and makes no privacy, security, performance, support, or other commitments regarding the product, unless otherwise noted in the provided terms.
 
 ## Key benefits
 {: #fortigate-highlights}
@@ -58,3 +57,8 @@ To get started, follow these steps:
 
 If you are migrating an existing classic infrastructure FortiGate deployment to VPC, see [Migrating to a virtual firewall in VPC](/docs/classic-to-vpc?topic=classic-to-vpc-vpc-firewall-options).
 {: attention}
+
+## Related references
+{: #getting-started-related-references}
+
+- [IBM Cloud VPC firewall options](/docs/vpc?topic=vpc-firewall-options) — Overview of FortiGate deployment patterns available in IBM Cloud VPC, including stand-alone, Active/Passive, and Active/Active high-availability configurations, and how FortiGate integrates with VPC networking constructs, such as the SDN Connector and public address ranges.
