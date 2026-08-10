@@ -40,7 +40,7 @@
     {
       "title": "FortiGate Transit VPC patterns and deployment guide",
       "description": "Reference architectures and deployment patterns for FortiGate in IBM Cloud VPC hub-and-spoke and transit topologies.",
-      "href": "/docs/pattern-transit-vpc-fortigate",
+      "href": "https://cloud.ibm.com/docs/pattern-transit-vpc-fortigate",
       "type": "article"
     },
     {
