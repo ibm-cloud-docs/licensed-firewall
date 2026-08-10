@@ -21,7 +21,15 @@ Follow these security best practices to reduce the attack surface of your FortiG
 ## Restrict management access through the security group
 {: #bp-restrict-management-access}
 
-Every FortiGate deployment creates two dedicated security groups — one for the public interface and one for the private interface. Both include restrictive pre-configured inbound rules that allow the instance to download the license and enable cluster synchronization. They do not permit management access and must not be removed. When you open management access, follow these principles:
+Every FortiGate deployment creates two dedicated security groups — one for the public interface and one for the private interface. Both include restrictive pre-configured inbound rules that allow the instance to download the license and enable cluster synchronization. They do not permit management access and must not be removed.
+
+The public security group also restricts outbound (egress) traffic for all three FortiGate offerings to only what is required for Fortinet services:
+
+- **UDP 53** — FortiGuard DNS and SDNS queries
+- **TCP 443** — Licensing, FortiCare, and entitlements
+- **TCP 8890** — FortiGuard distribution updates
+
+When you open management access, follow these principles:
 
 - **Allow only your administrator IP addresses.** Add inbound TCP rules for port 443 (HTTPS) or port 22 (SSH) with a specific source IP address or CIDR range. Do not use `0.0.0.0/0` as the source.
 - **Use the narrowest CIDR possible.** If your administrators connect from a known IP range, restrict the source to that range only.
@@ -121,3 +129,4 @@ IBM does not back up your FortiGate configuration. You are responsible for maint
 - [Enabling security services](/docs/licensed-firewall?topic=licensed-firewall-enable-security-services)
 - [Keeping abreast of firmware updates and vulnerability patches](/docs/licensed-firewall?topic=licensed-firewall-addressing-vulnerabilities)
 - [Backing up and restoring the FortiGate configuration](/docs/licensed-firewall?topic=licensed-firewall-backup-restore-fortigate-config)
+- [Understanding FortiGate licensing](/docs/licensed-firewall?topic=licensed-firewall-understanding-fortigate-licensing)

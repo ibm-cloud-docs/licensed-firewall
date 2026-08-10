@@ -105,8 +105,8 @@ IBM Cloud Schematics creates a workspace and runs the Terraform automation. You 
 - `Catalog_Offering_Version_CRN` — Catalog offering version CRN used
 - `Catalog_Offering_Plan_CRN` — Catalog offering plan CRN used
 - `Username` — Administrator username (`admin`)
-- `FGT1_Default_Admin_Password` — Initial password for FortiGate 1. May be empty on first boot; if so, use the instance ID as the initial password.
-- `FGT2_Default_Admin_Password` — Initial password for FortiGate 2. May be empty on first boot; if so, use the instance ID as the initial password.
+- `FGT1_Default_Admin_Password` — Initial password for FortiGate 1. May be empty on initial startup; if so, use the instance ID as the initial password.
+- `FGT2_Default_Admin_Password` — Initial password for FortiGate 2. May be empty on initial startup; if so, use the instance ID as the initial password.
 
 Save these values before you close the workspace. When **Terraform commands successful** and **Cart creation successful** are both displayed, your HA firewall pair is provisioned and ready to use.
 
@@ -118,3 +118,4 @@ It is a good idea to review the full log output for errors or warnings, even whe
 
 - [Access the FortiGate web console](/docs/licensed-firewall?topic=licensed-firewall-access-firewall) — Add a security group rule, configure routing, and log in for the first time.
 - [Understand the default firewall configuration](/docs/licensed-firewall?topic=licensed-firewall-understanding-default-firewall-configuration) — Review what IBM applied during provisioning before making changes.
+- [Understanding FortiGate licensing](/docs/licensed-firewall?topic=licensed-firewall-understanding-fortigate-licensing) — Understand the Public Gateway requirement for the secondary node and how licensing is activated on initial startup.

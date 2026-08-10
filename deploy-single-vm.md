@@ -78,7 +78,7 @@ IBM Cloud Schematics creates a workspace and runs the Terraform automation. You 
 - `CATALOG_OFFERING_VERSION_CRN` — Catalog offering version CRN used
 - `CATALOG_OFFERING_PLAN_CRN` — Catalog offering plan CRN used
 - `Username` — Administrator username (`admin`)
-- `Default_Admin_Password` — Initial administrator password. May be empty on first boot; if so, use the instance ID as the initial password.
+- `Default_Admin_Password` — Initial administrator password. May be empty on initial startup; if so, use the instance ID as the initial password.
 
 Save these values before you close the workspace. You need them to log in to the FortiGate web console for the first time. When **Terraform commands successful** and **Cart creation successful** are both displayed, your firewall is provisioned and ready to use.
 

@@ -110,8 +110,8 @@ IBM Cloud Schematics creates a workspace and runs the Terraform automation. You 
 - `Catalog_Offering_Version_CRN` — Catalog offering version CRN used
 - `Catalog_Offering_Plan_CRN` — Catalog offering plan CRN used
 - `Username` — Administrator username (`admin`)
-- `FGT1_Default_Admin_Password` — Initial password for FortiGate 1. May be empty on first boot; if so, use the instance ID as the initial password.
-- `FGT2_Default_Admin_Password` — Initial password for FortiGate 2. May be empty on first boot; if so, use the instance ID as the initial password.
+- `FGT1_Default_Admin_Password` — Initial password for FortiGate 1. May be empty on initial startup; if so, use the instance ID as the initial password.
+- `FGT2_Default_Admin_Password` — Initial password for FortiGate 2. May be empty on initial startup; if so, use the instance ID as the initial password.
 
 Save these values before you close the workspace. When **Terraform commands successful** and **Cart creation successful** are both displayed, your HA cross-zone firewall pair is provisioned and ready to use.
 
