@@ -2,8 +2,7 @@
 
 copyright:
   years: 2026
-
-lastupdated: "2026-08-05"
+lastupdated: "2026-08-10"
 
 keywords: firewall default configuration, FortiGate default config, HA configuration, bootstrap configuration, SDN connector, public address range, cloud-init
 

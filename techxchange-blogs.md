@@ -2,8 +2,7 @@
 
 copyright:
   years: 2026
-
-lastupdated: "2026-08-05"
+lastupdated: "2026-08-10"
 
 keywords: licensed firewall, fortigate, blogs, techxchange, community
 

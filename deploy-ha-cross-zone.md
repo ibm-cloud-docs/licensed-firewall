@@ -1,9 +1,8 @@
 ---
 
 copyright:
-  years: "2026"
-
-lastupdated: "2026-08-04"
+  years: 2026
+lastupdated: "2026-08-10"
 
 keywords: deploy firewall, FortiGate, HA cross zone, high availability, Terraform, Schematics, public address range
 

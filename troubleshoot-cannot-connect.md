@@ -2,8 +2,7 @@
 
 copyright:
   years: 2026
-
-lastupdated: "2026-08-05"
+lastupdated: "2026-08-10"
 
 keywords: FortiGate cannot connect, FortiGate connection timeout, security group inbound rule, floating IP, FortiGate access
 

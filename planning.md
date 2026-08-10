@@ -2,8 +2,7 @@
 
 copyright:
   years: 2026
-
-lastupdated: "2026-08-05"
+lastupdated: "2026-08-10"
 
 keywords: FortiGate planning, licensed firewall planning, FortiGate limitations, security group, Fortinet notifications
 
