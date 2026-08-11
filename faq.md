@@ -3,7 +3,7 @@
 copyright:
   years: 2026
 
-lastupdated: "2026-08-05"
+lastupdated: "2026-08-11"
 
 keywords: FortiGate FAQ, licensed firewall questions, license plan, FortiGate VPC, firewall billing, resize firewall, HA firewall
 
@@ -37,7 +37,7 @@ Yes. You can resize the underlying virtual server instance to a different profil
 {: #faq-license-applied}
 {: faq}
 
-IBM applies the FortiGate license automatically when your instance is provisioned. You do not need to upload or activate a license manually. The license is retrieved by cloud-init through the Instance Metadata Service during startup. To verify that the license is active, log in to the FortiGate web console and check the license status under **System > FortiGuard**.
+IBM applies the FortiGate license automatically when your instance is provisioned. You do not need to upload or activate a license manually. The license is retrieved by cloud-init through the Instance Metadata Service during startup. To verify that the license is active, log in to the FortiGate web console and check the license status under **System > FortiGuard**. For information on how to access the FortiGate web console, see [Accessing your FortiGate firewall](/docs/licensed-firewall?topic=licensed-firewall-access-firewall).
 
 ## What deployment configurations are available?
 {: #faq-deployment-configs}

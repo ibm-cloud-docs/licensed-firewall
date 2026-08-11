@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-08-10"
+lastupdated: "2026-08-11"
 
 keywords: access fortigate, FortiGate web console, SSH fortigate, floating IP, fortigate login, security group inbound rule
 
@@ -58,7 +58,7 @@ For more information, see [About security groups](/docs/vpc?topic=vpc-using-secu
 ## Step 2: Choose your management access method
 {: #access-firewall-access-method}
 
-Two methods are available to access the FortiGate web console. Use the method that best fits your security requirements.
+Three methods are available to access the FortiGate web console. Use the method that best fits your security requirements.
 
 ### Method 1: Floating IP with allowlist (default)
 {: #access-method-fip}
@@ -69,6 +69,13 @@ The floating IP on `port4` (management interface) is assigned automatically and 
 {: #access-method-vpn}
 
 Configure a VPN connection into your VPC and access the FortiGate web console by using its private IP address on port 443. This method eliminates direct internet-facing management access entirely and does not require modification of the floating IP configuration. For guidance on setting up VPN access, see [Use a VPN or bastion host for management access](/docs/licensed-firewall?topic=licensed-firewall-fortigate-security-best-practices#bp-vpn-management).
+
+### Method 3: VNC or serial console (no security group changes required)
+{: #access-method-vnc-serial}
+
+You can access the firewall through the local VNC or serial console provided by the VSI. This is useful for emergency access or initial configuration, and does not require any security group modifications. However, this method is not a permanent solution. For example, it does not work well when you need to upgrade or downgrade firmware.
+
+To open the console, navigate to your VSI in the [IBM Cloud console](/login) under **VPC Infrastructure > Virtual server instances**, click **Actions**, and select **Open VNC console** or **Open serial console**.
 
 ## Step 3: Route traffic through the firewall
 {: #access-firewall-routing}
