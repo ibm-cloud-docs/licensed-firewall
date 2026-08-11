@@ -56,11 +56,10 @@ To get started, follow these steps:
 1. [Monitor your FortiGate firewall](/docs/licensed-firewall?topic=licensed-firewall-monitoring) — Review logs, check instance health, and verify that firewall policies are working as expected.
 1. [Manage firmware updates and vulnerability patches](/docs/licensed-firewall?topic=licensed-firewall-addressing-vulnerabilities) — Subscribe to Fortinet security advisories, assess the impact on your deployment, back up your configuration, and apply firmware updates to keep your firewall secure and up to date.
 
-If you are migrating an existing classic infrastructure FortiGate deployment to VPC, see [Migrating to a virtual firewall in VPC](/docs/classic-to-vpc?topic=classic-to-vpc-vpc-firewall-options).
+If you are migrating an existing classic infrastructure FortiGate deployment to VPC, see [Migrating to a virtual firewall in VPC](/docs/classic-to-vpc?topic=classic-to-vpc-vpc-firewall-options) for available deployment patterns, including stand-alone, Active/Passive, and Active/Active configurations, and integration with VPC networking constructs, such as the SDN Connector and public address ranges.
 {: attention}
 
-## Related references
+## Related reference
 {: #getting-started-related-references}
 
 - [Understanding FortiGate licensing](/docs/licensed-firewall?topic=licensed-firewall-understanding-fortigate-licensing) — How licensing is activated on initial startup, public connectivity requirements per topology, and license status verification.
-- [IBM Cloud VPC firewall options](/docs/vpc?topic=vpc-firewall-options) — Overview of FortiGate deployment patterns available in IBM Cloud VPC, including stand-alone, Active/Passive, and Active/Active high-availability configurations, and how FortiGate integrates with VPC networking constructs, such as the SDN Connector and public address ranges.
