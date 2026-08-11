@@ -43,14 +43,14 @@ A floating IP is attached to the public interface (`port1`) of both the primary 
 
 The Fortinet FortiFlex infrastructure registers and installs the license during the initial startup of each FortiGate instance. After a successful registration, each vFSA node displays a `Valid` license status. You can verify the license status by running the following command on the FortiGate CLI:
 
-```
+```text
 get system status
 ```
 {: pre}
 
 The output looks similar to the following example:
 
-```
+```text
 IBM-HA-Active(Primary) # get system status
 Version: FortiGate-VM64-IBM v8.0.1,...
 Serial-Number: FGVMMLTM2XXX
