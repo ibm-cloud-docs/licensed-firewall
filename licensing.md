@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-08-10"
+lastupdated: "2026-08-11"
 
 keywords: FortiGate licensing, FortiFlex, license registration, FortiCare, public gateway, floating IP, license status
 
@@ -31,7 +31,7 @@ A floating IP is automatically attached to the public interface (`port1`) at dep
 ### Active/Passive HA - Single Zone
 {: #licensing-ha-single-zone}
 
-A floating IP is attached to the public interface (`port1`) of the primary node only. The secondary node does not have a floating IP, so a public gateway must be attached to the subnet on `port1` to provide outbound internet access for licensing. You are prompted to supply the public gateway ID during the Schematics deployment.
+A floating IP is attached to the public interface (`port1`) of the primary node only. The secondary node does not have a floating IP, so a public gateway must be attached to the subnet on `port1` to provide outbound internet access for licensing. `PUBLIC_GATEWAY_ID` is the ID of the public gateway that you attach to the `port1` subnet so that the secondary FortiGate node can reach the internet and register its license. You are prompted to supply the public gateway ID during the Schematics deployment.
 
 ### Active/Passive HA - Cross Zone
 {: #licensing-ha-cross-zone}
@@ -41,7 +41,7 @@ A floating IP is attached to the public interface (`port1`) of both the primary 
 ## License registration and status
 {: #licensing-registration-and-status}
 
-The Fortinet FortiFlex infrastructure registers and installs the license during the initial startup of each FortiGate instance. After a successful registration, each node displays a `Valid` license status. You can verify the license status by running the following command on the FortiGate CLI:
+The Fortinet FortiFlex infrastructure registers and installs the license during the initial startup of each FortiGate instance. After a successful registration, each vFSA node displays a `Valid` license status. You can verify the license status by running the following command on the FortiGate CLI:
 
 ```
 get system status

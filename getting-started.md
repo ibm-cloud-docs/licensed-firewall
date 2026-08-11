@@ -3,7 +3,7 @@
 copyright:
   years: 2026
 
-lastupdated: "2026-08-10"
+lastupdated: "2026-08-11"
 
 keywords: FortiGate, IBM Cloud VPC, licensed firewall, fortinet, next-generation firewall, NGFW, paygo firewall
 
@@ -24,6 +24,7 @@ Deployed in a VPC architecture, FortiGate provides centralized visibility and co
 Because FortiGate is deployed as a licensed virtual appliance in IBM Cloud VPC, organizations must also account for resource consumption, such as compute, storage, and network usage, to ensure effective monitoring and cost control.
 
 **Disclaimer:** This third-party product is provided by a vendor outside of IBM and is subject to a separate agreement between you and the third-party, if you accept their terms. IBM is not responsible for the product and makes no privacy, security, performance, support, or other commitments regarding the product, unless otherwise noted in the provided terms.
+{: important}
 
 ## Key benefits
 {: #fortigate-highlights}
