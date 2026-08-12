@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-08-10"
+lastupdated: "2026-08-12"
 
 keywords: deploy firewall, FortiGate, HA cross zone, high availability, Terraform, Schematics, public address range
 
@@ -42,7 +42,7 @@ Terraform deploys the following resources:
 - Four floating public IP addresses: one on `port1` and one on `port4` of each FortiGate
 - One public address range for floating IP failover across zones
 - One log disk per FortiGate
-- Two security groups — one for the public interface (`port1`) and one for the private interface (`port2`) — each with restrictive inbound rules that allow the instance to download the license and enable cluster synchronization, including HA traffic from each FortiGate's `port3` IP, and allow-all outbound rules
+- Two security groups — one for the public interfaces (`port1` and `port4`) and one for the private interfaces (`port2` and `port3`) — with restrictive inbound rules (license download on the public group; HA heartbeat traffic on TCP/UDP port 703 on the private group) and allow-all outbound rules
 - A bootstrap configuration with HA, SDN connector, public address range, and VDOM exception settings
 
 Follow these steps:

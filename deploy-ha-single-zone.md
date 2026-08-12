@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-08-10"
+lastupdated: "2026-08-12"
 
 keywords: deploy firewall, FortiGate, HA single zone, high availability, Terraform, Schematics
 
@@ -29,7 +29,7 @@ Before you deploy, ensure that you have reviewed [Planning for FortiGate on IBM 
 - A pre-created SSH key in the target region
 - An IBM Cloud API key with sufficient permissions to create VPC resources
 
-Two security groups are created automatically during deployment — one for the public interface and one for the private interface. You do not need to create them in advance.
+Two security groups are created automatically during deployment, one for the public interface and one for the private interface. You do not need to create them in advance.
 
 A Public Gateway must be attached to the `port1` subnet before deployment. The FortiGate instances use it to reach IBM Cloud licensing services during initial boot.
 {: important}
@@ -45,7 +45,7 @@ Terraform deploys the following resources:
 - Two FortiGate licensed instances, each with four network interfaces (`port1`–`port4`)
 - Three floating public IP addresses: one on the active node's `port1` (which fails over), and one each on `port4` (HA management) of both nodes
 - One log disk per FortiGate
-- Two security groups — one for the public interface (`port1`) and one for the private interface (`port2`) — each with restrictive inbound rules that allow the instance to download the license and enable cluster synchronization, including HA traffic on TCP/UDP port 703 from the HA heartbeat subnet, and allow-all outbound rules
+- Two security groups: one for the public interfaces (`port1` and `port4`) and one for the private interfaces (`port2` and `port3`) — each with restrictive inbound rules that allow the instance to download the license and enable cluster synchronization, including HA traffic on TCP/UDP port `703` from the HA heartbeat subnet, and allow-all outbound rules
 - A bootstrap configuration with HA and SDN connector settings
 
 Follow these steps:

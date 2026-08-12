@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-08-11"
+lastupdated: "2026-08-12"
 
 keywords: FortiGate licensing, FortiFlex, license registration, FortiCare, public gateway, floating IP, license status
 
@@ -31,12 +31,14 @@ A floating IP is automatically attached to the public interface (`port1`) at dep
 ### Active/Passive HA - Single Zone
 {: #licensing-ha-single-zone}
 
-A floating IP is attached to the public interface (`port1`) of the primary node only. The secondary node does not have a floating IP, so a public gateway must be attached to the subnet on `port1` to provide outbound internet access for licensing. `PUBLIC_GATEWAY_ID` is the ID of the public gateway that you attach to the `port1` subnet so that the secondary FortiGate node can reach the internet and register its license. You are prompted to supply the public gateway ID during the Schematics deployment.
+AA floating IP is attached to the public interface (`port1`) and the management interface (`port4`) of the primary node. For the secondary node, the floating IP is assigned only to the management interface (`port4)`.
+
+`PUBLIC_GATEWAY_ID` is the ID of the public gateway that you attach to the `port1` subnet so that the secondary FortiGate node can reach the internet and register its license. You are prompted to supply the public gateway ID during the Schematics deployment.
 
 ### Active/Passive HA - Cross Zone
 {: #licensing-ha-cross-zone}
 
-A floating IP is attached to the public interface (`port1`) of both the primary and secondary nodes. No public gateway is required.
+A floating IP is attached to the public interface (`port1`) and the management interface (`port4`) of both the primary and secondary nodes. No public gateway is required.
 
 ## License registration and status
 {: #licensing-registration-and-status}
