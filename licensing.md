@@ -26,24 +26,6 @@ Disclaimer: Each FortiGate instance must maintain outbound connectivity to Forti
 
 When you provision a FortiGate instance from the IBM Cloud catalog, IBM automatically handles the full license lifecycle. The FortiFlex license is retrieved and installed by the FortiGate image when the instance first starts. You do not need to register or apply a license manually. After provisioning, each node periodically validates its license by contacting Fortinet FortiGuard infrastructure over the public internet. Interrupting that outbound connectivity is the most common cause of license issues after deployment.
 
-## Where is the Terraform? [INTERNAL ONLY]{: tag-red}
-{: #licensing-terraform}
-
-For Fortinet there are three distinct Terraform-based offerings in the catalog. Each offering has Terraform source code that is maintained and built by IBM:
-
-- Fortinet FortiGate VM NGFW - Single — [Terraform repository]({REPO_URL}){: external} [INTERNAL ONLY]{: tag-red}
-- Fortinet FortiGate VM NGFW - A/P HA — [Terraform repository]({REPO_URL}){: external} [INTERNAL ONLY]{: tag-red}
-- Fortinet FortiGate VM NGFW - Cross Zone A/P HA — [Terraform repository]({REPO_URL}){: external} [INTERNAL ONLY]{: tag-red}
-
-A fourth virtual server instance product is hidden from the customer and is referenced by the three Terraform-based products. The Terraform references the Fortinet vFSA image using the `CATALOG_OFFERING_VERSION_CRN` Terraform variable.
-
-## Where is the Fortinet vFSA image? [INTERNAL ONLY]{: tag-red}
-{: #licensing-vfsa-image}
-
-The Fortinet image is stored and maintained by Fortinet in the Fortinet IBM Cloud account. The image is created as a custom image and deployed to all IBM Cloud regions. It is then referenced in the Fortinet vFSA virtual server instance product (which is hidden from customers) as a software version. This software version has a CRN. The Terraform references this CRN at deployment time using the `CATALOG_OFFERING_VERSION_CRN` variable.
-
-The pricing plans are attached to the virtual server instance-based product. The Terraform-based products reference those pricing plans using the `CATALOG_OFFERING_PLAN_CRN` Terraform variable.
-
 ## How the FortiFlex license is installed
 {: #licensing-fortiflex-install}
 
