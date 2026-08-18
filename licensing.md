@@ -18,12 +18,11 @@ subcollection: licensed-firewall
 Learn how FortiGate licenses are activated, what public connectivity each deployment topology requires, how to verify that a license is valid, and how to resolve common licensing issues.
 {: shortdesc}
 
-**DISCLAIMER** Each FortiGate instance must maintain outbound connectivity to Fortinet's licensing infrastructure over the public internet for license registration and periodic license validation ("call home" requirements). The default configuration provides the required connectivity. Blocking this access can cause the license status to change to `Invalid`. See the following section for details about the connectivity required for each deployment topology. A 30-day grace period applies to FortiGate instances that cannot communicate with FortiGuard. If an instance remains offline for longer than 30 days, the following degraded behaviors occur:
-{: important}
+**DISCLAIMER** Each FortiGate instance must maintain outbound connectivity to Fortinet's licensing infrastructure over the public internet for license registration and periodic license validation ("call home" requirements). The default configuration provides the required connectivity. Blocking this access can cause the license status to change to `Invalid`. See the following section for details about the connectivity required for each deployment topology.
 
-- **Web and URL filtering** — Category-based lookups stop functioning.
-- **IPS, antivirus, application control, botnet protection, IP reputation, and web and URL filtering** — Features continue to operate using cached databases and previously downloaded signatures. No new updates are received.
-- **Traffic processing** — The VM may stop processing traffic altogether.
+There is a 30 day grace period for Fortigate instances that cannot communicate with FortiGuard. If an instance remains offline for longer than 30 days, real time lookup services for certain features will stop and the VM may stop processing traffic altogether.
+- Web/URL Filtering - Category Based lookups will stop functioning.
+- IPS/AV/AppCntrl/Botnet/IP Reputation/Web & URL Filtering - will use cached and previously downloaded DBs and signatures. No new updates will occur.
 
 ## Overview
 {: #licensing-overview}
