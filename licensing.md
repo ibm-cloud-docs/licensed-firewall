@@ -35,14 +35,14 @@ For Fortinet there are three distinct Terraform-based offerings in the catalog. 
 - Fortinet FortiGate VM NGFW - A/P HA — [Terraform repository]({REPO_URL}){: external} [INTERNAL ONLY]{: tag-red}
 - Fortinet FortiGate VM NGFW - Cross Zone A/P HA — [Terraform repository]({REPO_URL}){: external} [INTERNAL ONLY]{: tag-red}
 
-A fourth VSI product is hidden from the customer and is referenced by the three Terraform-based products. The Terraform references the Fortinet vFSA image using the `CATALOG_OFFERING_VERSION_CRN` Terraform variable.
+A fourth virtual server instance product is hidden from the customer and is referenced by the three Terraform-based products. The Terraform references the Fortinet vFSA image using the `CATALOG_OFFERING_VERSION_CRN` Terraform variable.
 
 ## Where is the Fortinet vFSA image? [INTERNAL ONLY]{: tag-red}
 {: #licensing-vfsa-image}
 
-The Fortinet image is stored and maintained by Fortinet in the Fortinet IBM Cloud account. The image is created as a custom image and deployed to all IBM Cloud regions. It is then referenced in the Fortinet vFSA VSI product (which is hidden from customers) as a software version. This software version has a CRN. The Terraform references this CRN at deployment time using the `CATALOG_OFFERING_VERSION_CRN` variable.
+The Fortinet image is stored and maintained by Fortinet in the Fortinet IBM Cloud account. The image is created as a custom image and deployed to all IBM Cloud regions. It is then referenced in the Fortinet vFSA virtual server instance product (which is hidden from customers) as a software version. This software version has a CRN. The Terraform references this CRN at deployment time using the `CATALOG_OFFERING_VERSION_CRN` variable.
 
-The pricing plans are attached to the VSI-based product. The Terraform-based products reference those pricing plans using the `CATALOG_OFFERING_PLAN_CRN` Terraform variable.
+The pricing plans are attached to the virtual server instance-based product. The Terraform-based products reference those pricing plans using the `CATALOG_OFFERING_PLAN_CRN` Terraform variable.
 
 ## How the FortiFlex license is installed
 {: #licensing-fortiflex-install}
@@ -56,7 +56,7 @@ When the FortiGate virtual machine starts for the first time, FortiOS runs a bui
 
 After a successful activation, `get system status` shows `License Status: Valid`.
 
-For the license injection to succeed, your virtual server instance must have the **metadata service** and **secure access** options enabled (visible under **Virtual server instance > Overview**), and it must have outbound internet access via a floating IP or public gateway so that it can reach FortiCloud.
+For the license injection to succeed, your virtual server instance must have the **metadata service** and **secure access** options enabled (visible under **Virtual server instance > Overview**), and it must have outbound internet access through a floating IP or public gateway so that it can reach FortiCloud.
 
 ### Checking FortiOS cloud-init logs
 {: #licensing-cloudinit-logs}
@@ -140,20 +140,6 @@ License expiration is handled automatically by IBM. You do not need to take any 
 ## Troubleshooting
 {: #licensing-troubleshooting}
 
-### Schematics or Terraform provisioning failure
-{: #licensing-troubleshooting-schematics}
-
-If the FortiGate deployment fails during the Terraform apply phase, check the Schematics logs for details. Access the workspace at **Platform Automation > Schematics > Terraform**, select the region where you created the workspace, then open the workspace and review the log output.
-
-Common causes:
-
-- A VPC name, SSH key, or other input variable does not exist in your account.
-- You do not have permission to deploy to the target resource group or region.
-- Specified IP addresses are already in use.
-- An ongoing outage in the target region for VPC or Schematics.
-
-Verify your input values and permissions, then retry the deployment.
-
 ### Terraform provisioning fails with a public gateway quota error
 {: #licensing-troubleshooting-public-gateway}
 
@@ -208,14 +194,7 @@ Common causes and fixes:
 
 - **Security group egress rules removed.** Restore the three default egress rules (UDP 53, TCP 443, TCP 8890) on the public interface security group.
 - **Floating IP or public gateway removed.** Each node requires a route to the public internet for both license validation and IPS/antivirus signature updates. Re-attach the floating IP and, for Single Zone HA deployments, the public gateway.
-
-### HA cluster is out of sync
-{: #licensing-troubleshooting-ha-sync}
-
-If `get system ha status` shows the secondary node as `out-of-sync`, check the following:
-
-1. **HA heartbeat traffic is allowed.** Verify that the security group for the heartbeat interface (`port3`) allows TCP and UDP traffic on port 703. This rule is configured by default; confirm it has not been removed.
-1. **Both nodes are licensed.** Run `get system status` on each node. If the secondary node shows `License Status: Invalid`, resolve the licensing issue first. An unlicensed secondary node cannot sync with the primary.
+- **Network ACL blocking egress traffic.** [New]{: tag-green} If a Network Access Control List (NACL) is applied to the public subnet, confirm that it includes egress rules that allow outbound traffic to FortiGuard on UDP 53, TCP 443, and TCP 8890. Modify the NACL to add the missing rules if any are blocked.
 
 ## Getting support
 {: #licensing-getting-support}
