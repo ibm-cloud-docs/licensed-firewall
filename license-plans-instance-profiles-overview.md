@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-08-10"
+lastupdated: "2026-08-18"
 
 keywords: firewall, license plans, vsi profiles, instance sizing, deployment sizes
 
@@ -47,9 +47,9 @@ Select a deployment topology based on your availability requirements and toleran
 
 | Topology | Catalog Tile | Firewall Instances | Availability Zones | Automatic Failover | Best For |
 |----------|-------------|-------------------|-------------------|-------------------|----------|
-| Single VM | Fortinet FortiGate VM NGFW - Single | 1 | 1 | No | Development, testing, or non-critical workloads |
-| Active/Passive HA - Single Zone | Fortinet FortiGate VM NGFW - A/P HA | 2 | 1 | Yes | Production workloads requiring zone-level redundancy |
-| Active/Passive HA - Cross Zone | Fortinet FortiGate VM NGFW - Cross Zone A/P HA | 2 | 2 | Yes | Production workloads requiring the highest availability |
+| Single VM | [Fortinet FortiGate VM NGFW - Single](#){: external} [NEED]{: tag-red} | 1 | 1 | No | Development, testing, or non-critical workloads |
+| Active/Passive HA - Single Zone | [Fortinet FortiGate VM NGFW - A/P HA](#){: external} [NEED]{: tag-red} | 2 | 1 | Yes | Production workloads requiring zone-level redundancy |
+| Active/Passive HA - Cross Zone | [Fortinet FortiGate VM NGFW - Cross Zone A/P HA](#){: external} [NEED]{: tag-red} | 2 | 2 | Yes | Production workloads requiring the highest availability |
 {: caption="Deployment topology comparison" caption-side="bottom"}
 
 Key differences between the topologies:
