@@ -53,6 +53,8 @@ Try the following steps to restore connectivity and resolve the grace period:
    ```
    {: pre}
 
+   For a detailed explanation of every field in the output, see [VM license — display license information from FortiGuard](https://docs.fortinet.com/document/fortigate/8.0.0/administration-guide/416169/vm-license#ipt-to-display-license-information-from-fortiguard){: external}.
+
    A `code` value of `502` or similar indicates that FortiGuard is returning an error, which typically means the request is reaching Fortinet but is being rejected — usually because outbound traffic is being blocked upstream.
 
 1. Check the security group egress rules. On the IBM Cloud console, open the security group attached to the public interface (`port1`) and confirm that it includes the following egress rules. If any are missing, add them back.

@@ -172,6 +172,8 @@ diagnose hardware sysinfo vm full
 ```
 {: pre}
 
+For a detailed explanation of every field in the output, see [VM license — display license information from FortiGuard](https://docs.fortinet.com/document/fortigate/8.0.0/administration-guide/416169/vm-license#ipt-to-display-license-information-from-fortiguard){: external}.
+
 Common causes and fixes:
 
 - **Security group egress rules removed.** Restore the three default egress rules (UDP 53, TCP 443, TCP 8890) on the public interface security group.
