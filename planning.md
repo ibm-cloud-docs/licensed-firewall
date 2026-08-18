@@ -27,6 +27,7 @@ Ensure that the following resources exist in your IBM Cloud account before you d
 - A VPC with subnets configured for your deployment
 - Appropriate IAM permissions to create and manage resources
 - A secure access method (such as VPN or bastion host) to reach the firewall instance
+- If a Network Access Control List (NACL) is applied to the public subnet, confirm that it includes egress rules that allow outbound traffic on UDP 53, TCP 443, and TCP 8890. These ports are required for FortiGate license registration and periodic FortiGuard validation.
 
 Review the following topics before you deploy. Understanding your options upfront helps you avoid configuration decisions after deployment that require redeployment.
 

@@ -31,6 +31,7 @@ The FortiFlex license requires periodic contact with Fortinet's FortiGuard serve
 - The egress rules on the public interface security group were removed or modified, blocking outbound traffic to FortiGuard.
 - The floating IP was detached from `port1`, removing the instance's route to the public internet.
 - For Active/Passive HA Single Zone deployments, the public gateway was removed from the public subnet, leaving the secondary node without internet access.
+- A Network Access Control List (NACL) applied to the public subnet is blocking egress traffic on UDP 53, TCP 443, or TCP 8890.
 
 Try the following steps to restore connectivity and resolve the grace period:
 {: tsResolve}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-08-12"
+lastupdated: "2026-08-18"
 
 keywords: deploy firewall, FortiGate, HA single zone, high availability, Terraform, Schematics
 
@@ -28,6 +28,7 @@ Before you deploy, ensure that you have reviewed [Planning for FortiGate on IBM 
 - A Public Gateway attached to the `port1` (public) subnet
 - A pre-created SSH key in the target region
 - An IBM Cloud API key with sufficient permissions to create VPC resources
+- If a Network Access Control List (NACL) is applied to the public subnet, confirm that it includes egress rules that allow outbound traffic on UDP 53, TCP 443, and TCP 8890. These ports are required for FortiGate license registration and periodic FortiGuard validation.
 
 Two security groups are created automatically during deployment, one for the public interface and one for the private interface. You do not need to create them in advance.
 

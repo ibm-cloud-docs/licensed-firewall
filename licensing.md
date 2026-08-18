@@ -18,12 +18,12 @@ subcollection: licensed-firewall
 Learn how FortiGate licenses are activated, what public connectivity each deployment topology requires, how to verify that a license is valid, and how to resolve common licensing issues.
 {: shortdesc}
 
-**DISCLAIMER** Each FortiGate instance must maintain outbound connectivity to Fortinet's licensing infrastructure over the public internet for license registration and periodic license validation ("call home" requirements). The default configuration provides the required connectivity. Blocking this access can cause the license status to change to `Invalid`. See the following section for details about the connectivity required for each deployment topology. \n \n
-A 30-day grace period applies to FortiGate instances that cannot communicate with FortiGuard. If an instance remains offline for longer than 30 days, the following degraded behaviors occur:
+**DISCLAIMER** Each FortiGate instance must maintain outbound connectivity to Fortinet's licensing infrastructure over the public internet for license registration and periodic license validation ("call home" requirements). The default configuration provides the required connectivity. Blocking this access can cause the license status to change to `Invalid`. See the following section for details about the connectivity required for each deployment topology. A 30-day grace period applies to FortiGate instances that cannot communicate with FortiGuard. If an instance remains offline for longer than 30 days, the following degraded behaviors occur:
+{: important}
+
 - **Web and URL filtering** — Category-based lookups stop functioning.
 - **IPS, antivirus, application control, botnet protection, IP reputation, and web and URL filtering** — Features continue to operate using cached databases and previously downloaded signatures. No new updates are received.
 - **Traffic processing** — The VM may stop processing traffic altogether.
-{: important}
 
 ## Overview
 {: #licensing-overview}
@@ -182,7 +182,7 @@ Common causes and fixes:
 
 - **Security group egress rules removed.** Restore the three default egress rules (UDP 53, TCP 443, TCP 8890) on the public interface security group.
 - **Floating IP or public gateway removed.** Each node requires a route to the public internet for both license validation and IPS/antivirus signature updates. Re-attach the floating IP and, for Single Zone HA deployments, the public gateway.
-- **Network ACL blocking egress traffic.** [New]{: tag-green} If a Network Access Control List (NACL) is applied to the public subnet, confirm that it includes egress rules that allow outbound traffic to FortiGuard on UDP 53, TCP 443, and TCP 8890. Modify the NACL to add the missing rules if any are blocked.
+- **Network ACL blocking egress traffic.** If a Network Access Control List (NACL) is applied to the public subnet, confirm that it includes egress rules that allow outbound traffic to FortiGuard on UDP 53, TCP 443, and TCP 8890. Modify the NACL to add the missing rules if any are blocked.
 
 ## Getting support
 {: #licensing-getting-support}
