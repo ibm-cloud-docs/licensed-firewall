@@ -48,12 +48,18 @@ toc:
           id: troubleshooting
           label: Troubleshooting
           topics:
-          - troubleshoot.md
-          - troubleshoot-check-vnf-license-service.md
-          - troubleshoot-fortiflex-not-accessible.md
-          - troubleshoot-vsi-failed-state.md
-          - troubleshoot-cannot-connect.md
-          - troubleshoot-schematics-deployment.md
-          - troubleshoot-public-gateway-quota.md
-          - troubleshoot-ha-sync.md
-          - troubleshoot-license-grace-period.md
+          - topicgroup:
+              label: Provisioning failures
+              topics:
+              - troubleshoot-schematics-deployment.md
+              - troubleshoot-check-vnf-license-service.md
+              - troubleshoot-fortiflex-not-accessible.md
+              - troubleshoot-vsi-failed-state.md
+              - troubleshoot-public-gateway-quota.md
+          - topicgroup:
+              label: Post-provisioning failures
+              topics:
+              - troubleshoot.md
+              - troubleshoot-cannot-connect.md
+              - troubleshoot-ha-sync.md
+              - troubleshoot-license-grace-period.md
