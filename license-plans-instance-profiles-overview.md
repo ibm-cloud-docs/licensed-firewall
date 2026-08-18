@@ -35,7 +35,7 @@ Review the following considerations before selecting your license plan and deplo
 - The selected license plan determines the available sizing options and scaling limits.
 - Some instance configurations might be less suitable for high availability or hub-and-spoke architectures. Review network design requirements before selecting a deployment.
 - All deployments include FortiCare Premium support.
-- Availability varies by region. Check the [IBM Cloud catalog](https://cloud.ibm.com/catalog){: external} for supported locations.
+- All license plans, including ATP, are available in all supported regions.
 
 The license plan cannot be changed after deployment. You can resize the virtual server instance to a different profile without changing the license plan. For more information, see [Resizing a firewall virtual server instance](/docs/licensed-firewall?topic=licensed-firewall-changing-firewall-instance-profile-or-license-plan).
 {: important}
@@ -187,13 +187,16 @@ This license plan uses gen3-cx profiles and supports Small, Medium, and Large de
 ### ATP profile mappings
 {: #atp-profile-mappings}
 
-This license plan uses gen2-cx profiles and supports Small and Medium deployment sizes. Gen2-cx profiles are not available in all regions; the `cx2-2x4` and `cx2-8x16` profiles are not available in Mumbai, Chennai, and Montreal.
+This license plan uses gen2-cx profiles and supports Small and Medium deployment sizes. In some regions, IBM automatically assigns an equivalent alternate profile where the standard gen2-cx profile is unavailable.
 
 | Deployment Size | vCPU | Instance Profile | Profile Family |
 |----------------|------|------------------|----------------|
 | Small          | 2    | cx2-2x4          | gen2-cx        |
 | Medium         | 8    | cx2-8x16         | gen2-cx        |
 {: caption="Advanced Threat Protection (ATP) license plan virtual server profile mappings" caption-side="bottom"}
+
+In a small number of regions, IBM automatically assigns an alternate gen3-cx profile where the standard gen2-cx profile is unavailable. The deployment size and entitlement remain equivalent.
+{: note}
 
 ### Profile considerations
 {: #instance-profile-considerations}

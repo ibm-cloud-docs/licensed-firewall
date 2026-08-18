@@ -50,7 +50,7 @@ Review the following important considerations before you order:
 
 The following limitations apply to this offering. Review them before you deploy.
 
-- **Regional availability varies** — The ATP license plan is not available in all regions. Verify availability in the [IBM Cloud catalog](https://cloud.ibm.com/catalog){: external} before you order.
+- **Regional availability** — All license plans, including ATP, are available in all supported regions.
 - **FortiGate Cloud and FortiCloud access is not available** — Because the license is managed through the IBM Fortinet account, access to FortiGate Cloud and FortiCloud is not supported. AI-based inline malware prevention (Enterprise license) can be configured and used locally but cannot connect to FortiGate Cloud services.
 - **This is not a managed service** — IBM manages licensing and provides support coordination, but you are responsible for deploying, configuring, and maintaining your FortiGate instances. IBM does not configure firewall policies or apply updates on your behalf. For more information, see [Shared responsibilities](/docs/licensed-firewall?topic=licensed-firewall-shared-responsibilities).
 
