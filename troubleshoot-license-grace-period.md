@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-08-18"
+lastupdated: "2026-08-20"
 
 keywords: FortiGate license grace period, FortiFlex grace period, FortiGuard connectivity, license expiring, license warning
 
@@ -25,7 +25,7 @@ The FortiGate license shows a grace period warning instead of a valid status.
 Running `get system status` on the FortiGate CLI shows that the license is in a grace period. FortiGuard subscription services may be degraded or unavailable.
 {: tsSymptoms}
 
-The FortiFlex license requires periodic contact with Fortinet's FortiGuard servers over the public internet to remain valid. If the FortiGate instance loses that outbound connectivity, a 30-day grace period begins. If connectivity is not restored within 30 days, the license becomes invalid. Common causes include:
+The FortiFlex license requires periodic contact with Fortinet's FortiGuard servers over the public internet to remain valid. If the FortiGate instance loses that outbound connectivity, a 30-day grace period begins. A single failed check is enough to set the license status to `Warning`; if connectivity is not restored within 30 days, the license becomes `Invalid` and the VM stops processing traffic and the management UI becomes inaccessible. For the full call-home sequence, see [How license validation works](/docs/licensed-firewall?topic=licensed-firewall-understanding-fortigate-licensing#licensing-call-home). Common causes include:
 {: tsCauses}
 
 - The egress rules on the public interface security group were removed or modified, blocking outbound traffic to FortiGuard.

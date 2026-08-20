@@ -2,9 +2,9 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-08-18"
+lastupdated: "2026-08-20"
 
-keywords: FortiGate licensing, FortiFlex, license registration, FortiCare, public gateway, floating IP, license status, troubleshooting, license invalid, grace period, HA cluster
+keywords: FortiGate licensing, FortiFlex, license registration, FortiCare, public gateway, floating IP, license status, troubleshooting, license invalid, license warning, grace period, call-home, HA cluster
 
 subcollection: licensed-firewall
 
@@ -18,13 +18,32 @@ subcollection: licensed-firewall
 Learn how FortiGate licenses are activated, what public connectivity each deployment topology requires, how to verify that a license is valid, and how to resolve common licensing issues.
 {: shortdesc}
 
-**DISCLAIMER** Each FortiGate instance must maintain outbound connectivity to Fortinet's licensing infrastructure over the public internet for license registration and periodic license validation ("call home" requirements). The default configuration provides the required connectivity. Blocking this access can cause the license status to change to `Invalid`. See the following section for details about the connectivity required for each deployment topology. There is a 30 day grace period for Fortigate instances that cannot communicate with FortiGuard. If an instance remains offline for longer than 30 days, real time lookup services for certain features will stop and the VM may stop processing traffic altogether.
+**DISCLAIMER** Each FortiGate instance must maintain outbound connectivity to Fortinet's licensing infrastructure over the public internet for license registration and periodic license validation ("call home" requirements). The default configuration provides the required connectivity. Blocking this access can cause the license status to change to `Invalid`. See the following section for details about the connectivity required for each deployment topology. There is a 30 day grace period for Fortigate instances that cannot communicate with FortiGuard. If an instance remains offline for longer than 30 days, real time lookup services for certain features will stop and the VM may stop processing traffic altogether. Note that a single failed check is enough to trigger the `Warning` status. For the full call-home sequence, see [How license validation works](#licensing-call-home).
 {: important}
 
 ## Overview
 {: #licensing-overview}
 
 When you provision a FortiGate instance from the IBM Cloud catalog, IBM automatically handles the full license lifecycle. The FortiFlex license is retrieved and installed by the FortiGate image when the instance first starts. You do not need to register or apply a license manually. After provisioning, each node periodically validates its license by contacting Fortinet FortiGuard infrastructure over the public internet. Interrupting that outbound connectivity is the most common cause of license issues after deployment.
+
+## How license validation works (call-home)
+{: #licensing-call-home}
+
+Every running FortiGate instance checks in with Fortinet's FortiGuard Network (FDN) to confirm that its license is still valid. This is called a "call-home" check. The following steps describe what happens if that check fails.
+
+1. **Every 60 minutes, FortiOS contacts FDN.** As long as each check succeeds, the license status remains `Valid` and nothing changes.
+1. **One failed check triggers a `Warning`.** FortiOS does not wait for repeated failures — a single missed check is enough to change the license status to `Warning`. The VM continues to process traffic normally.
+1. **The VM has 30 days to restore connectivity.** During the warning period, everything keeps working. This window exists so that brief or accidental connectivity disruptions do not immediately affect operations.
+1. **After 30 days without a successful check, the license becomes `Invalid`.** After the license is marked `Invalid`, the VM immediately stops processing traffic and the management UI becomes inaccessible. Recovery requires restoring connectivity and re-validating the license.
+
+To check the current license status at any time, run the following command on the FortiGate CLI:
+
+```text
+get system status
+```
+{: pre}
+
+Look for the `License Status` field in the output. If it shows `Warning`, act promptly — restore outbound connectivity to FortiGuard before the 30-day window expires. See [Troubleshooting — License is in grace period](#licensing-troubleshooting-grace-period) for diagnostic steps.
 
 ## How the FortiFlex license is installed
 {: #licensing-fortiflex-install}
@@ -152,7 +171,7 @@ If the instance cannot be recovered, delete the virtual server instance and rede
 ### License is in grace period
 {: #licensing-troubleshooting-grace-period}
 
-If the license status shows a grace period warning, the FortiGate instance has lost periodic contact with Fortinet FortiGuard. A 30-day grace period applies before the license becomes invalid.
+If the license status shows a grace period warning, the FortiGate instance has lost periodic contact with Fortinet FortiGuard. A single failed check sets the status to `Warning`; if connectivity is not restored within 30 days, the license becomes `Invalid` and the VM stops processing traffic. See [How license validation works](#licensing-call-home) for the full call-home sequence.
 
 To diagnose the connectivity issue, run the following commands on the FortiGate CLI:
 
