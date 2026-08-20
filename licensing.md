@@ -18,7 +18,7 @@ subcollection: licensed-firewall
 Learn how FortiGate licenses are activated, what public connectivity each deployment topology requires, how to verify that a license is valid, and how to resolve common licensing issues.
 {: shortdesc}
 
-**DISCLAIMER** Each FortiGate instance must maintain outbound connectivity to Fortinet's licensing infrastructure over the public internet for license registration and periodic license validation ("call home" requirements). The default configuration provides the required connectivity. Blocking this access can cause the license status to change to `Invalid`. See the following section for details about the connectivity required for each deployment topology. There is a 30 day grace period for Fortigate instances that cannot communicate with FortiGuard. If an instance remains offline for longer than 30 days, real time lookup services for certain features will stop and the VM may stop processing traffic altogether. Note that a single failed check is enough to trigger the `Warning` status. For the full call-home sequence, see [How license validation works](#licensing-call-home).
+**DISCLAIMER** Each FortiGate instance must maintain outbound connectivity to Fortinet's licensing infrastructure over the public internet for license registration and periodic license validation ("call home" requirements). The default configuration provides the required connectivity. Blocking this access can cause the license status to change to `Invalid`. See [Public connectivity requirement](#licensing-public-connectivity) for details about the connectivity required for each deployment topology. There is a 30 day grace period for Fortigate instances that cannot communicate with FortiGuard. If an instance remains offline for longer than 30 days, real time lookup services for certain features will stop and the VM may stop processing traffic altogether. Note that a single failed check is enough to trigger the `Warning` status. For the full call-home sequence, see [How license validation works](#licensing-call-home).
 {: important}
 
 ## Overview
@@ -44,6 +44,28 @@ get system status
 {: pre}
 
 Look for the `License Status` field in the output. If it shows `Warning`, act promptly — restore outbound connectivity to FortiGuard before the 30-day window expires. See [Troubleshooting — License is in grace period](#licensing-troubleshooting-grace-period) for diagnostic steps.
+
+## Public connectivity requirement
+{: #licensing-public-connectivity}
+
+Each FortiGate instance, including the secondary node in an HA deployment, must be able to reach the Fortinet licensing infrastructure over the public internet. The public security group's egress rules permit the required outbound traffic on UDP 53, TCP 443, and TCP 8890. How public connectivity is provided depends on the deployment topology.
+
+### Single VM
+{: #licensing-single-vm}
+
+A floating IP is automatically attached to the public interface (`port1`) at deployment time. The pre-configured egress security group rules allow the instance to reach the Fortinet licensing servers without any additional configuration.
+
+### Active/Passive HA - Single Zone
+{: #licensing-ha-single-zone}
+
+A floating IP is attached to the public interface (`port1`) and the management interface (`port4`) of the primary node. For the secondary node, the floating IP is assigned only to the management interface (`port4`).
+
+`PUBLIC_GATEWAY_ID` is the ID of the public gateway that you attach to the `port1` subnet so that the secondary FortiGate node can reach the internet and register its license. You are prompted to supply the public gateway ID during the Schematics deployment.
+
+### Active/Passive HA - Cross Zone
+{: #licensing-ha-cross-zone}
+
+A floating IP is attached to the public interface (`port1`) and the management interface (`port4`) of both the primary and secondary nodes. No public gateway is required.
 
 ## How the FortiFlex license is installed
 {: #licensing-fortiflex-install}
@@ -85,28 +107,6 @@ If the log shows repeated `Failed to request forticare license` lines, the most 
 - [FortiFlex Instance Grace Period](https://docs.fortinet.com/fortiflex){: external}
 - [FortiFlex Troubleshooting](https://docs.fortinet.com/fortiflex){: external}
 - [FortiFlex General Documentation](https://docs.fortinet.com/fortiflex){: external}
-
-## Public connectivity requirement
-{: #licensing-public-connectivity}
-
-Each FortiGate instance, including the secondary node in an HA deployment, must be able to reach the Fortinet licensing infrastructure over the public internet. The public security group's egress rules permit the required outbound traffic on UDP 53, TCP 443, and TCP 8890. How public connectivity is provided depends on the deployment topology.
-
-### Single VM
-{: #licensing-single-vm}
-
-A floating IP is automatically attached to the public interface (`port1`) at deployment time. The pre-configured egress security group rules allow the instance to reach the Fortinet licensing servers without any additional configuration.
-
-### Active/Passive HA - Single Zone
-{: #licensing-ha-single-zone}
-
-A floating IP is attached to the public interface (`port1`) and the management interface (`port4`) of the primary node. For the secondary node, the floating IP is assigned only to the management interface (`port4`).
-
-`PUBLIC_GATEWAY_ID` is the ID of the public gateway that you attach to the `port1` subnet so that the secondary FortiGate node can reach the internet and register its license. You are prompted to supply the public gateway ID during the Schematics deployment.
-
-### Active/Passive HA - Cross Zone
-{: #licensing-ha-cross-zone}
-
-A floating IP is attached to the public interface (`port1`) and the management interface (`port4`) of both the primary and secondary nodes. No public gateway is required.
 
 ## License registration and status
 {: #licensing-registration-and-status}
