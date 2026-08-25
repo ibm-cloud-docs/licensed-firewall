@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-08-18"
+lastupdated: "2026-08-25"
 
 keywords: FortiGate license not active, license error, fortigate license, metadata service, cloud-init license, cloud-init logs, FortiFlex, license injection
 
@@ -36,10 +36,10 @@ The FortiGate license is retrieved and installed automatically during initial st
 Try the following steps to resolve the issue:
 {: tsResolve}
 
-1. Verify that the Instance Metadata Service is enabled. In the [IBM Cloud console](/login), navigate to **Infrastructure > Compute > Virtual server instances** and open your FortiGate instance. Under **Instance details**, confirm that **Metadata service** is set to **Enabled**. If it is disabled, enable it and restart the instance.
+1. Verify that the Instance Metadata Service and Secure options are enabled. In the [IBM Cloud console](/login), navigate to **Infrastructure > Compute > Virtual server instances** and open your FortiGate instance. Scroll to the bottom of the overview page and confirm that **Metadata service** is set to **Enabled** and that the **Secure** option is also enabled. If either is disabled, enable it and restart the instance.
 
-   ![{ALT TEXT}]({IMAGE_FILE})
-   {: caption="{CAPTION}"}
+   ![PLACEHOLDER]({IMAGE_FILE})
+   {: caption="PLACEHOLDER" caption-side="bottom"}
 
 1. Review the Schematics workspace log. Open the Schematics workspace that was used to deploy the firewall and review the Terraform log for errors. Confirm that both **Terraform commands successful** and **Cart creation successful** are displayed at the end of the log.
 
@@ -59,14 +59,31 @@ Try the following steps to resolve the issue:
    ```
    {: pre}
 
-   A successful injection ends with:
+   A successful injection ends with `VM license install succeeded. Will reboot firewall.`, as shown in the following example:
 
-   ```text
+   ```screen
+   >> 2026-06-26 10:36:56 IBM metadata swat found entitlement, key: ***, sku: fortiflex, vendor name: fortinet
+   >> 2026-06-26 10:36:56 IBM metadata swat successfully parsed entitlement
+   >> 2026-06-26 10:36:56 Trying to install vmlicense ...
+   >> 2026-06-26 10:36:56 License-token:***
    VM license install succeeded. Will reboot firewall.
    ```
    {: screen}
 
-   If the log shows repeated `Failed to request forticare license` lines, the instance could not reach FortiCloud. Resolve the connectivity issue in the previous step, then stop and start the virtual server instance to retrigger the injection.
+   If the log shows `Failed to request forticare license` lines, as shown in the following example, the instance could not reach FortiCloud during the initial boot:
+
+   ```screen
+   >> 2026-06-26 10:36:56 Trying to install vmlicense ...
+   >> 2026-06-26 10:36:56 License-token:***
+   >> 2026-06-26 10:37:27 Failed to request forticare license 28.
+   >> 2026-06-26 10:37:27 Forticare response error 58.
+   >> 2026-06-26 10:38:27 Failed to request forticare license 28.
+   >> 2026-06-26 10:38:42 Failed to request forticare license -1.
+   >> 2026-06-26 10:39:44 Failed to install license-token:-1
+   ```
+   {: screen}
+
+   Resolve the connectivity issue described in the previous step, then stop and start the virtual server instance to retrigger the injection.
 
 1. Restart the FortiGate instance. If the Instance Metadata Service is now enabled and outbound connectivity is confirmed, stop and start the virtual server instance to trigger cloud-init to run again. License validation by FortiCloud typically completes within a few minutes but can take up to an hour.
 
