@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-08-20"
+lastupdated: "2026-08-26"
 
 keywords: FortiGate licensing, FortiFlex, license registration, FortiCare, public gateway, floating IP, license status, troubleshooting, license invalid, license warning, grace period, call-home, HA cluster
 
@@ -152,10 +152,7 @@ Allocated: 1, Requested: 1, Quota: 1
 ```
 {: screen}
 
-To resolve this issue, choose one of the following options:
-
-- Provide the ID of your existing public gateway in the `PUBLIC_GATEWAY_ID` Terraform input variable and attach it to the public subnet.
-- Delete the existing public gateway in that zone and retry the deployment.
+To resolve this issue, provide the ID of your existing public gateway in the `PUBLIC_GATEWAY_ID` Terraform input variable. The `PUBLIC_GATEWAY_ID` variable is required — you must either use an existing gateway or create a new one in the same zone and supply its ID before retrying the deployment.
 
 ### License shows Invalid after provisioning
 {: #licensing-troubleshooting-invalid}
