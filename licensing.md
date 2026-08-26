@@ -103,10 +103,10 @@ If the log shows repeated `Failed to request forticare license` lines, the most 
 ### Additional Fortinet FortiFlex resources
 {: #licensing-fortiflex-resources}
 
-- [FortiFlex License Life-cycle](https://docs.fortinet.com/fortiflex){: external}
-- [FortiFlex Instance Grace Period](https://docs.fortinet.com/fortiflex){: external}
-- [FortiFlex Troubleshooting](https://docs.fortinet.com/fortiflex){: external}
-- [FortiFlex General Documentation](https://docs.fortinet.com/fortiflex){: external}
+- [FortiFlex License Life-cycle](https://docs.fortinet.com/document/flex-vm/26.2.0/fortiflex-concept-guide/275983/fortiflex-concepts){: external}
+- [FortiFlex Instance Grace Period](https://docs.fortinet.com/document/flex-vm/26.2.0/administration-guide/9363/grace-periods){: external}
+- [FortiFlex Troubleshooting](https://docs.fortinet.com/document/fortigate/7.6.5/administration-guide/416169){: external}
+- [FortiFlex General Documentation](https://docs.fortinet.com/product/flex-vm){: external}
 
 ## License registration and status
 {: #licensing-registration-and-status}
@@ -213,4 +213,4 @@ If you are unable to resolve a licensing issue by using the steps in this topic,
 
 - [Understanding the default firewall configuration](/docs/licensed-firewall?topic=licensed-firewall-understanding-default-firewall-configuration) — Review the full bootstrap configuration applied to each deployment topology at provisioning time, including interface and security group setup.
 - [Security best practices for FortiGate on IBM Cloud VPC](/docs/licensed-firewall?topic=licensed-firewall-fortigate-security-best-practices) — Details on the egress security group rules that enable licensing traffic.
-- [FortiFlex documentation](https://docs.fortinet.com/fortiflex){: external} — Fortinet's official FortiFlex licensing documentation, including grace period and troubleshooting guides.
+- [FortiFlex documentation](https://docs.fortinet.com/document/flex-vm/26.2.0/administration-guide/461449/introduction){: external} — Fortinet's official FortiFlex licensing documentation, including grace period and troubleshooting guides.
