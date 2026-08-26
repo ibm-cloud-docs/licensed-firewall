@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-08-18"
+lastupdated: "2026-08-26"
 
 keywords: FortiFlex not accessible, Fortinet license infrastructure, FortiGate license failure, FortiFlex outage, license service unavailable
 
@@ -31,7 +31,7 @@ The VNF License Service depends on the Fortinet FortiFlex API to create, start, 
 Try the following steps to determine whether FortiFlex is the cause and to work around the issue:
 {: tsResolve}
 
-1. Check the Fortinet FortiFlex service status. Visit the [Fortinet support portal](https://support.fortinet.com){: external} to check for any reported outages or degraded service affecting FortiFlex.
+1. Check the Fortinet FortiFlex service status. Visit the [Fortinet support portal](https://support.fortinet.com/welcome/#/){: external} to check for any reported outages or degraded service affecting FortiFlex.
 
 1. Check outbound connectivity from the FortiGate instance. Confirm that the public security group egress rules include UDP 53, TCP 443, and TCP 8890, and that a floating IP or public gateway is attached. From the FortiGate CLI, run:
 
