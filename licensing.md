@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-08-26"
+lastupdated: "2026-08-27"
 
 keywords: FortiGate licensing, FortiFlex, license registration, FortiCare, public gateway, floating IP, license status, troubleshooting, license invalid, license warning, grace period, call-home, HA cluster
 
@@ -106,7 +106,7 @@ If the log shows repeated `Failed to request forticare license` lines, the most 
 - [FortiFlex License Life-cycle](https://docs.fortinet.com/document/flex-vm/26.2.0/fortiflex-concept-guide/275983/fortiflex-concepts){: external}
 - [FortiFlex Instance Grace Period](https://docs.fortinet.com/document/flex-vm/26.2.0/administration-guide/9363/grace-periods){: external}
 - [FortiFlex Troubleshooting](https://docs.fortinet.com/document/fortigate/7.6.5/administration-guide/416169){: external}
-- [FortiFlex General Documentation](https://docs.fortinet.com/product/flex-vm){: external}
+- [FortiFlex General Documentation](https://docs.fortinet.com/product/flex-vm/26.3){: external}
 
 ## License registration and status
 {: #licensing-registration-and-status}
