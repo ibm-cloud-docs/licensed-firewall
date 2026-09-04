@@ -33,10 +33,10 @@ Try the following steps to verify that the instance is using the VNF License Ser
 
 1. In the [IBM Cloud console](/login), navigate to **Infrastructure > Compute > Virtual server instances** and open your FortiGate instance.
 
-1. On the instance overview page, scroll to **Image details**. Confirm that the image shown is the Fortinet vFSA image.
+1. On the instance overview page, scroll to **Image details**. Confirm that the image shown is the Fortinet-VM image.
 
-   ![VSI overview showing Instance details and Image details](images/vsi-instance.png){: caption-side="bottom"}
-   {: caption="VSI overview showing Instance details and Image details"}
+   ![Virtual server instance overview showing Instance details and Image details](images/vsi-instance.png){: caption-side="bottom"}
+   {: caption="Virtual server instance overview showing instance details and Image details"}
 
 1. Click the software instance link shown under the image details. Confirm that the product and pricing plan are shown.
 

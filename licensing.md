@@ -111,7 +111,7 @@ If the log shows repeated `Failed to request forticare license` lines, the most 
 ## License registration and status
 {: #licensing-registration-and-status}
 
-The Fortinet FortiFlex infrastructure registers and installs the license during the initial startup of each FortiGate instance. After a successful registration, each vFSA node displays a `Valid` license status. You can verify the license status by running the following command on the FortiGate CLI:
+The Fortinet FortiFlex infrastructure registers and installs the license during the initial startup of each FortiGate instance. After a successful registration, each FortiGate-VM node displays a `Valid` license status. You can verify the license status by running the following command on the FortiGate CLI:
 
 ```text
 get system status

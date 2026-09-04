@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-08-18"
+lastupdated: "2026-09-04"
 
 keywords: firewall, license plans, vsi profiles, instance sizing, deployment sizes
 
@@ -152,7 +152,7 @@ Connection capacity increases with deployment size and available memory.
 
 Instance profiles define the compute resources allocated to your firewall deployment.
 
-Each license plan includes a specific number of vCPUs for your FortiGate virtual firewall (vFSA). Based on the selected license plan and deployment size, IBM automatically assigns a virtual server instance profile that provides the required vCPUs and throughput. Because available profiles vary by region, IBM manages profile selection and you cannot choose or override the assigned profile.
+Each license plan includes a specific number of vCPUs for your FortiGate-VM. Based on the selected license plan and deployment size, IBM automatically assigns a virtual server instance profile that provides the required vCPUs and throughput. Because available profiles vary by region, IBM manages profile selection and you cannot choose or override the assigned profile.
 
 Virtual server profiles are automatically assigned during provisioning based on the selected license plan and deployment size. You cannot manually select or override the instance profile during deployment.
 {: note}
