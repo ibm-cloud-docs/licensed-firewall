@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-08-11"
+lastupdated: "2026-09-04"
 
 keywords: access fortigate, FortiGate web console, SSH fortigate, floating IP, fortigate login, security group inbound rule
 
@@ -18,7 +18,7 @@ subcollection: licensed-firewall
 After you deploy a FortiGate firewall, you can access it through the FortiGate web console or SSH.
 {: shortdesc}
 
-The firewall is not reachable immediately after deployment. Two dedicated security groups are created automatically — one for the public interface and one for the private interface. Both include restrictive pre-configured inbound rules that allow the instance to download the license and enable cluster synchronization. They do not permit management access. You will see a floating IP assigned to `port4` (the management interface) in your VPC resources, but all connection attempts will time out until you complete Step 1.
+The firewall is not reachable immediately after deployment. Two dedicated security groups are created automatically — one for the public interface and one for the private interface. Both include restrictive pre-configured inbound rules that allow the instance to download the license and enable cluster synchronization. They do not permit management access. A floating IP is assigned to `port4` (the management interface) and is visible in your VPC resources, but all connection attempts time out until you complete Step 1.
 {: attention}
 
 ## Before you begin
@@ -125,5 +125,5 @@ SSH access requires a TCP port 22 inbound rule in the security group in addition
 ## Next steps
 {: #access-firewall-next-steps}
 
-- [Configure firewall policies](https://docs.fortinet.com/product/fortigate/8.0){: external} using the FortiGate Administration Guide on the Fortinet documentation site.
+- For more information about configuring firewall policies, see the [FortiGate Administration Guide](https://docs.fortinet.com/product/fortigate/8.0){: external}.
 - [Enable security services](/docs/licensed-firewall?topic=licensed-firewall-enable-security-services) to activate IPS, antivirus, and web filtering.

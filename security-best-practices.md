@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-08-10"
+lastupdated: "2026-09-04"
 
 keywords: FortiGate security, firewall best practices, security group, admin access, FortiGate hardening, management access, least privilege
 
@@ -77,12 +77,10 @@ This approach eliminates direct internet-facing management access entirely.
 
 Running a supported and patched firmware version is one of the most effective defenses against known vulnerabilities.
 
-- Subscribe to Fortinet PSIRT advisories to be notified of new vulnerabilities. See [Keeping abreast of firmware updates and vulnerability patches](/docs/licensed-firewall?topic=licensed-firewall-addressing-vulnerabilities).
+- Subscribe to Fortinet PSIRT advisories to be notified of new vulnerabilities. For more information, see [Keeping abreast of firmware updates and vulnerability patches](/docs/licensed-firewall?topic=licensed-firewall-addressing-vulnerabilities).
 - Review the FortiGate release notes before upgrading to understand any behavior changes.
 - Schedule firmware upgrades during a maintenance window. The FortiGate restarts during an upgrade.
-- For HA deployments, follow Fortinet's recommended upgrade sequence to minimize downtime.
-
-For upgrade instructions, see [Keeping abreast of firmware updates and vulnerability patches](/docs/licensed-firewall?topic=licensed-firewall-addressing-vulnerabilities).
+- For HA deployments, follow Fortinet recommended upgrade sequence to minimize downtime.
 
 ## Enable logging for all firewall policies
 {: #bp-enable-logging}

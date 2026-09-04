@@ -3,7 +3,7 @@
 copyright:
   years: 2026
 
-lastupdated: "2026-08-11"
+lastupdated: "2026-09-04"
 
 keywords: FortiGate, IBM Cloud VPC, licensed firewall, fortinet, next-generation firewall, NGFW, paygo firewall
 
@@ -32,7 +32,7 @@ Because FortiGate is deployed as a licensed virtual appliance in IBM Cloud VPC, 
 FortiGate PayGo combines enterprise-grade security with cloud-native simplicity, helping you remove common deployment and operational barriers.
 
 - **Deploy instantly** – Launch firewalls directly from the IBM Cloud catalog with no procurement or setup delays, using the same workflows as the rest of your cloud infrastructure.
-- **Pay as you go** – Align costs to actual usage with a flexible OPEX model; billing is based on actual usage with no upfront commitment.
+- **Pay as you go** – Align costs to actual usage with a flexible pay-as-you-go model, with no upfront commitment.
 - **No license management** – Licensing is automatically applied at provisioning time. Eliminate renewals, tracking, and administrative overhead.
 - **Scale on demand** – Adjust capacity and security features as workloads change.
 - **Centralized visibility and control** – Monitor and control all network traffic entering, leaving, and moving within your VPC from a single management interface.

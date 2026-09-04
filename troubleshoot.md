@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-08-25"
+lastupdated: "2026-09-04"
 
 keywords: FortiGate license not active, license error, fortigate license, metadata service, cloud-init license, cloud-init logs, FortiFlex, license injection
 
@@ -25,7 +25,7 @@ After deploying a FortiGate instance, the license status shows as inactive or un
 When you log in to the FortiGate web console and navigate to **System > FortiGuard**, the license status is shown as **Invalid**, **Expired**, or **Not registered**, and FortiGuard services are not available.
 {: tsSymptoms}
 
-The FortiGate license is retrieved and installed automatically during initial startup. FortiOS calls the IBM Cloud instance metadata API to obtain an identity token, then calls the software attachments endpoint to retrieve the FortiFlex license key. It installs the key and restarts, then contacts Fortinet FortiCloud to complete validation. License activation can fail for several reasons:
+The FortiGate license is retrieved and installed automatically during initial startup. FortiOS calls the IBM Cloud instance metadata [authentication APIs](https://cloud.ibm.com/docs/apis/vpc-identity/latest#create-identity-token){: external} to obtain an identity token, then calls the software attachments endpoint to retrieve the FortiFlex license key. It installs the key and restarts, then contacts Fortinet FortiCloud to complete validation. License activation can fail for several reasons:
 {: tsCauses}
 
 - The Instance Metadata Service was not enabled at deployment time.
@@ -38,12 +38,12 @@ Try the following steps to resolve the issue:
 
 1. Verify that the Instance Metadata Service and Secure options are enabled. In the [IBM Cloud console](/login), navigate to **Infrastructure > Compute > Virtual server instances** and open your FortiGate instance. Scroll to the bottom of the overview page and confirm that **Metadata service** is set to **Enabled** and that the **Secure** option is also enabled. If either is disabled, enable it and restart the instance.
 
-   ![PLACEHOLDER]({IMAGE_FILE})
-   {: caption="PLACEHOLDER" caption-side="bottom"}
+   ![VSI Metadata details showing Metadata service and Secure access enabled](images/metadata.png){: caption-side="bottom"}
+   {: caption="VSI Metadata details showing Metadata service and Secure access enabled"}
 
 1. Review the Schematics workspace log. Open the Schematics workspace that was used to deploy the firewall and review the Terraform log for errors. Confirm that both **Terraform commands successful** and **Cart creation successful** are displayed at the end of the log.
 
-1. Check outbound connectivity from the FortiGate. The FortiGate must be able to reach Fortinet's licensing servers on the internet. Verify that the VPC has a public gateway attached to the subnet used by `port1`, or that a floating IP is assigned to `port1`. Also confirm that the security group on `port1` allows egress traffic on UDP 53, TCP 443, and TCP 8890. From the FortiGate CLI, run:
+1. Check outbound connectivity from the FortiGate. The FortiGate must be able to reach Fortinet licensing servers on the internet. Verify that the VPC has a public gateway attached to the subnet used by `port1`, or that a floating IP is assigned to `port1`. Also confirm that the security group on `port1` allows egress traffic on UDP 53, TCP 443, and TCP 8890. From the FortiGate CLI, run:
 
    ```sh
    execute ping guard.fortinet.net

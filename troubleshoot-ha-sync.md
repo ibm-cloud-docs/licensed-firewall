@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-08-25"
+lastupdated: "2026-09-04"
 
 keywords: FortiGate HA sync, HA synchronization, HA heartbeat, FortiGate cluster, passive node, out of sync, license invalid
 
@@ -38,8 +38,8 @@ Try the following steps to resolve the issue:
 
 1. Verify security group rules. Confirm that the automatically created security group includes inbound rules that allow traffic from both FortiGate `port3` IP addresses. For HA Single Zone, the rules allow TCP/UDP port 703 from the HA heartbeat subnet (`SUBNET_3`). For HA Cross Zone, the rules allow all protocols from the specific `port3` IPs of each node.
 
-   ![PLACEHOLDER]({IMAGE_FILE})
-   {: caption="PLACEHOLDER" caption-side="bottom"}
+   ![Security group showing HA heartbeat inbound rules for TCP and UDP port 703](images/sg1.png){: caption-side="bottom"}
+   {: caption="Security group showing HA heartbeat inbound rules for TCP and UDP port 703"}
 
 1. Check HA status from the CLI. Log in to the FortiGate and run the following command to verify the HA cluster state:
 
@@ -57,10 +57,10 @@ Try the following steps to resolve the issue:
    ```
    {: screen}
 
-   Both nodes must show `in-sync` for the cluster to be operating correctly. If the secondary shows `out-of-sync`, continue with the steps below.
+   Both nodes must show `in-sync` for the cluster to be operating correctly. If the secondary shows `out-of-sync`, continue with the remaining steps.
 
 1. Verify static IP assignments. Confirm that the `FGT1_STATIC_IP_PORT3` and `FGT2_STATIC_IP_PORT3` values used during deployment match the actual IP addresses assigned to the `port3` interfaces on each FortiGate.
 
-1. Check the license status on both nodes. Run `get system status` on each FortiGate node and confirm that `License Status: Valid` is shown on both the primary and secondary. If the secondary node shows `Invalid`, resolve the licensing issue first. An unlicensed secondary node cannot sync with the primary. See [Why is the FortiGate license not active after deployment?](/docs/licensed-firewall?topic=licensed-firewall-troubleshoot-licensed-firewall) for steps.
+1. Check the license status on both nodes. Run `get system status` on each FortiGate node and confirm that `License Status: Valid` is shown on both the primary and secondary. If the secondary node shows `Invalid`, resolve the licensing issue first. An unlicensed secondary node cannot sync with the primary. For more information, see [Why is the FortiGate license not active after deployment?](/docs/licensed-firewall?topic=licensed-firewall-troubleshoot-licensed-firewall).
 
 1. If HA synchronization is still failing after completing these steps, [open a support case](https://cloud.ibm.com/unifiedsupport/cases/add){: external}. Include the virtual server instance IDs, VPC ID, Schematics workspace ID, the output of `get system ha status`, and the output of `get system status` from each node.

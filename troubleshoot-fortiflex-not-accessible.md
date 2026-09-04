@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-08-26"
+lastupdated: "2026-09-04"
 
 keywords: FortiFlex not accessible, Fortinet license infrastructure, FortiGate license failure, FortiFlex outage, license service unavailable
 
@@ -31,7 +31,7 @@ The VNF License Service depends on the Fortinet FortiFlex API to create, start, 
 Try the following steps to determine whether FortiFlex is the cause and to work around the issue:
 {: tsResolve}
 
-1. Check the Fortinet FortiFlex service status. Visit the [Fortinet support portal](https://support.fortinet.com/welcome/#/){: external} to check for any reported outages or degraded service affecting FortiFlex.
+1. Check the Fortinet FortiFlex service status. Visit the [FortiFlex API Dashboard](https://status.fortimonitor.forticloud.com/Fortiflex_API){: external} to check for any reported outages or degraded service affecting FortiFlex.
 
 1. Check outbound connectivity from the FortiGate instance. Confirm that the public security group egress rules include UDP 53, TCP 443, and TCP 8890, and that a floating IP or public gateway is attached. From the FortiGate CLI, run:
 
@@ -40,7 +40,7 @@ Try the following steps to determine whether FortiFlex is the cause and to work 
    ```
    {: pre}
 
-   If the ping fails, the issue is local connectivity rather than a FortiFlex outage. See [Why is the FortiGate license not active after deployment?](/docs/licensed-firewall?topic=licensed-firewall-troubleshoot-licensed-firewall) for steps to restore connectivity.
+   If the ping fails, the issue is local connectivity rather than a FortiFlex outage. For more information, see [Why is the FortiGate license not active after deployment?](/docs/licensed-firewall?topic=licensed-firewall-troubleshoot-licensed-firewall).
 
 1. If a FortiFlex outage is confirmed, wait for the outage to be resolved before retrying license registration. There is no in-place recovery while FortiFlex is unavailable.
 

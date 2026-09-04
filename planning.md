@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-08-18"
+lastupdated: "2026-09-04"
 
 keywords: FortiGate planning, licensed firewall planning, FortiGate limitations, security group, Fortinet notifications
 
@@ -54,12 +54,3 @@ The following limitations apply to this offering. Review them before you deploy.
 - **Regional availability** — All license plans, including ATP, are available in all supported regions.
 - **FortiGate Cloud and FortiCloud access is not available** — Because the license is managed through the IBM Fortinet account, access to FortiGate Cloud and FortiCloud is not supported. AI-based inline malware prevention (Enterprise license) can be configured and used locally but cannot connect to FortiGate Cloud services.
 - **This is not a managed service** — IBM manages licensing and provides support coordination, but you are responsible for deploying, configuring, and maintaining your FortiGate instances. IBM does not configure firewall policies or apply updates on your behalf. For more information, see [Shared responsibilities](/docs/licensed-firewall?topic=licensed-firewall-shared-responsibilities).
-
-## Known issues
-{: #planning-known-issues}
-
-Known issues are identified bugs or unexpected behaviors that were not fixed before release, but weren't critical enough to delay it. These issues are communicated to you, often with workarounds, and are prioritized for resolution in the near term by the development team.
-
-- WHAT ARE SOME KNOWN ISSUES?
-- ?
-- ?

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-08-27"
+lastupdated: "2026-09-04"
 
 keywords: FortiGate licensing, FortiFlex, license registration, FortiCare, public gateway, floating IP, license status, troubleshooting, license invalid, license warning, grace period, call-home, HA cluster
 
@@ -72,7 +72,7 @@ A floating IP is attached to the public interface (`port1`) and the management i
 
 When the FortiGate virtual machine starts for the first time, FortiOS runs a built-in license injection process:
 
-1. FortiOS calls the IBM Cloud instance metadata API to obtain an identity token.
+1. FortiOS calls the IBM Cloud instance metadata [authentication APIs](https://cloud.ibm.com/docs/apis/vpc-identity/latest#create-identity-token){: external} to obtain an identity token.
 1. Using that token, FortiOS calls the software attachments metadata endpoint to retrieve the FortiFlex license key associated with your virtual server instance.
 1. FortiOS installs the key and restarts to complete activation.
 1. After the restart, FortiOS contacts Fortinet FortiCloud to validate the license. This handshake typically completes within a few minutes but can take up to an hour.

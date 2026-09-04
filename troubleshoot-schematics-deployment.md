@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-08-25"
+lastupdated: "2026-09-04"
 
 keywords: FortiGate deployment failed, Schematics error, Terraform failed, cart creation failed, firewall deployment error
 
@@ -39,13 +39,13 @@ Try the following steps to resolve the issue:
 
 1. Review the Schematics workspace log. Open the workspace that was created for your deployment. If you need to find the workspace manually, navigate to **IBM Cloud Menu > Platform Automation > Schematics > Terraform** and select your workspace.
 
-   ![PLACEHOLDER]({IMAGE_FILE})
-   {: caption="PLACEHOLDER" caption-side="bottom"}
+   ![Configure your workspace in the IBM Cloud catalog](images/pricing-plan.png){: caption-side="bottom"}
+   {: caption="Configure your workspace in the IBM Cloud catalog"}
 
    Click **Jobs** and select the most recent apply job. Scroll to the end of the log and look for the specific Terraform error message. The error message typically identifies which resource failed and why.
 
-   ![PLACEHOLDER]({IMAGE_FILE})
-   {: caption="PLACEHOLDER" caption-side="bottom"}
+   ![Schematics log showing a Terraform apply failure](images/failure.png){: caption-side="bottom"}
+   {: caption="Schematics log showing a Terraform apply failure"}
 
 1. Check your input variables. In the workspace, click **Settings** and review the values provided for all input variables. Verify that VPC names, subnet IDs, security group IDs, SSH key names, and region and zone values are correct and exist in your IBM Cloud account.
 
@@ -65,8 +65,8 @@ Try the following steps to resolve the issue:
 
    The Active/Passive Single Zone deployment requires a public gateway on the public subnet so that the secondary node can reach FortiGuard. If you already have a public gateway in the same zone, you can either specify the existing gateway ID in the `PUBLIC_GATEWAY_ID` input variable, or delete the existing gateway and retry the deployment.
 
-1. Retry the deployment. If the failure was caused by a transient platform error, click **Actions > Apply plan** in the Schematics workspace to re-run the Terraform automation without modifying your inputs. Review the log again after the job completes.
+1. Retry the deployment by clicking **Actions > Apply plan** in the Schematics workspace to re-run the Terraform automation without modifying your inputs. Review the log again after the job completes.
 
-1. Destroy and redeploy. If the workspace is in a partially provisioned state, click **Actions > Destroy resources** to clean up any resources that were created, then place a new order from the [IBM Cloud catalog](https://cloud.ibm.com/catalog){: external} with corrected inputs.
+1. If the workspace is in a partially provisioned state, click **Actions > Destroy resources** to clean up any resources that were created, then place a new order from the [IBM Cloud catalog](https://cloud.ibm.com/catalog){: external} with corrected inputs.
 
 1. If the deployment continues to fail after completing these steps, [open a support case](https://cloud.ibm.com/unifiedsupport/cases/add){: external}. Include the Schematics workspace ID, the job ID of the failed apply, and the relevant log output.
