@@ -3,7 +3,7 @@
 copyright:
   years: 2026
 
-lastupdated: "2026-08-05"
+lastupdated: "2026-09-25"
 
 keywords: FortiGate support, licensed firewall help, open support case, firewall troubleshooting
 
@@ -18,7 +18,7 @@ subcollection: licensed-firewall
 # Getting help and support for FortiGate licensed firewall
 {: #help-and-support}
 
-If you experience an issue or have questions when using the FortiGate licensed firewall, you can use the following resources before you open a support case.
+If you experience an issue or have questions when using the FortiGate licensed firewall, you can use the following resources before you open an IBM support case.
 {: shortdesc}
 
 * Ask a question in the [AI assistant](/docs/overview?topic=overview-ask-ai-assistant) from the console or the {{site.data.keyword.cloud_notm}} CLI.
@@ -27,12 +27,12 @@ If you experience an issue or have questions when using the FortiGate licensed f
 * Check the status of the {{site.data.keyword.Bluemix_notm}} platform and resources by going to the [Status page](/status){: external}.
 * Review [Stack Overflow](https://stackoverflow.com/questions/tagged/ibm-cloud){: external} to see whether other users experienced the same problem. When you ask a question, tag the question with `ibm-cloud` and `fortigate`, so that it's seen by the {{site.data.keyword.Bluemix_notm}} development teams.
 
-If you still can't resolve the problem, you can open a support case. For more information, see [Creating support cases](/docs/support?topic=support-open-case&interface=ui). And if you're looking to provide feedback, see [Submitting feedback](/docs/overview?topic=overview-feedback).
+If you still can't resolve the problem, you can open an IBM support case. For more information, see [Creating support cases](/docs/support?topic=support-open-case&interface=ui). And if you're looking to provide feedback, see [Submitting feedback](/docs/overview?topic=overview-feedback).
 
 ## Providing support case details
 {: #support-case-details}
 
-To ensure that the support team can start investigating your case and provide a timely resolution, include the following information when you open a support case for the FortiGate licensed firewall.
+To ensure that the support team can start investigating your case and provide a timely resolution, include the following information when you open an IBM support case for the FortiGate licensed firewall.
 
 1. Provide your firewall instance details:
    * The virtual server instance ID and name for the FortiGate instance.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-09-04"
+lastupdated: "2026-09-25"
 
 keywords: FortiGate license not active, license error, fortigate license, metadata service, cloud-init license, cloud-init logs, FortiFlex, license injection
 
@@ -19,10 +19,10 @@ content-type: troubleshoot
 {: troubleshoot}
 {: support}
 
-After deploying a FortiGate instance, the license status shows as inactive or unlicensed in the FortiGate web console.
+After you deploy a FortiGate instance, the license status shows as inactive or unlicensed in the FortiGate web console.
 {: shortdesc}
 
-When you log in to the FortiGate web console and navigate to **System > FortiGuard**, the license status is shown as **Invalid**, **Expired**, or **Not registered**, and FortiGuard services are not available.
+When you log in to the FortiGate web console and navigate to **System > FortiGuard**, the license status appears as **Invalid**, **Expired**, or **Not registered**, and FortiGuard services are not available.
 {: tsSymptoms}
 
 The FortiGate license is retrieved and installed automatically during initial startup. FortiOS calls the IBM Cloud instance metadata [authentication APIs](https://cloud.ibm.com/docs/apis/vpc-identity/latest#create-identity-token){: external} to obtain an identity token, then calls the software attachments endpoint to retrieve the FortiFlex license key. It installs the key and restarts, then contacts Fortinet FortiCloud to complete validation. License activation can fail for several reasons:
@@ -87,4 +87,4 @@ Try the following steps to resolve the issue:
 
 1. Restart the FortiGate instance. If the Instance Metadata Service is now enabled and outbound connectivity is confirmed, stop and start the virtual server instance to trigger cloud-init to run again. License validation by FortiCloud typically completes within a few minutes but can take up to an hour.
 
-1. If the license is still not active after completing these steps, [open a support case](https://cloud.ibm.com/unifiedsupport/cases/add){: external}. Include the virtual server instance ID, VPC ID, Schematics workspace ID, the output of `diagnose debug cloudinit show`, and the relevant Schematics log output.
+1. If the license is still not active after completing these steps, [open an IBM support case](https://cloud.ibm.com/unifiedsupport/cases/add){: external}. Include the virtual server instance ID, VPC ID, Schematics workspace ID, the output of `diagnose debug cloudinit show`, and the relevant Schematics log output.

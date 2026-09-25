@@ -3,7 +3,7 @@
 copyright:
   years: 2026
 
-lastupdated: "2026-08-05"
+lastupdated: "2026-09-25"
 
 keywords: FortiGate backup, FortiGate restore, export configuration, import configuration, FortiGate config backup
 
@@ -41,7 +41,7 @@ To back up the FortiGate configuration in the console, follow these steps:
 1. In the top-right corner, click the admin username and select **Configuration > Backup**.
 1. In **Backup to**, select **Local PC**.
 1. If VDOMs are enabled, select whether to back up the **Global** configuration, a specific VDOM, or all VDOMs.
-1. Optionally, enable **Encrypt configuration file** and enter a password to protect the backup file.
+1. (Optional) Enable **Encrypt configuration file** and enter a password to protect the backup file.
 1. Click **Backup**.
 
 The configuration file is downloaded to your local machine as a `.conf` file. Store it securely, as the file contains sensitive information including interface configurations, firewall policies, and VPN settings.

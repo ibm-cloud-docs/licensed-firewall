@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-09-04"
+lastupdated: "2026-09-25"
 
 keywords: FortiFlex not accessible, Fortinet license infrastructure, FortiGate license failure, FortiFlex outage, license service unavailable
 
@@ -46,4 +46,4 @@ Try the following steps to determine whether FortiFlex is the cause and to work 
 
 1. If the instance failed to provision because FortiFlex was unavailable at provisioning time, delete the virtual server instance and retry the deployment after the outage is resolved.
 
-1. If the issue persists after FortiFlex availability is confirmed, [open a support case](https://cloud.ibm.com/unifiedsupport/cases/add){: external}. Include the virtual server instance ID, the output of `get system status`, and the output of `diagnose debug cloudinit show`.
+1. If the issue persists after FortiFlex availability is confirmed, [open an IBM support case](https://cloud.ibm.com/unifiedsupport/cases/add){: external}. Include the virtual server instance ID, the output of `get system status`, and the output of `diagnose debug cloudinit show`.

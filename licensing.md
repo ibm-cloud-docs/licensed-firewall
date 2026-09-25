@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-09-04"
+lastupdated: "2026-09-25"
 
 keywords: FortiGate licensing, FortiFlex, license registration, FortiCare, public gateway, floating IP, license status, troubleshooting, license invalid, license warning, grace period, call-home, HA cluster
 
@@ -163,7 +163,7 @@ If `get system status` shows `License Status: Invalid`, the FortiOS license inje
 1. **Outbound internet access is available.** Each node must be able to reach FortiCloud. Confirm that a floating IP or public gateway is attached to the instance and that the public security group egress rules include UDP 53, TCP 443, and TCP 8890.
 1. **Review cloud-init logs.** Run `diagnose debug cloudinit show` on the FortiGate CLI. Repeated `Failed to request forticare license` lines confirm a connectivity problem to FortiCloud.
 
-If the instance cannot be recovered, delete the virtual server instance and redeploy. There is no in-place recovery path for a failed license injection.
+If the instance cannot be recovered, delete the virtual server instance and deploy again. There is no in-place recovery path for a failed license injection.
 
 ### License is in grace period
 {: #licensing-troubleshooting-grace-period}

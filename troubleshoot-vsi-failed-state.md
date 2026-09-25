@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-08-18"
+lastupdated: "2026-09-25"
 
 keywords: FortiGate VSI failed, virtual server instance failed, provisioning failed state, FortiGate deployment failed
 
@@ -41,4 +41,4 @@ Try the following steps to resolve the issue:
 
 1. Retry the deployment by placing a new order from the [IBM Cloud catalog](https://cloud.ibm.com/catalog){: external} with the same input values.
 
-1. If the virtual server instance fails again, [open a support case](https://cloud.ibm.com/unifiedsupport/cases/add){: external}. Include the virtual server instance ID, the Schematics workspace ID if applicable, and a description of the failure.
+1. If the virtual server instance fails again, [open an IBM support case](https://cloud.ibm.com/unifiedsupport/cases/add){: external}. Include the virtual server instance ID, the Schematics workspace ID if applicable, and a description of the failure.
