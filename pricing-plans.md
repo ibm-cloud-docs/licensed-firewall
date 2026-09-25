@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-08-10"
+lastupdated: "2026-09-25"
 
 keywords: resize firewall, change license plan, vsi resize, firewall profile, firewall migration
 
@@ -24,7 +24,7 @@ Resizing the virtual server instance does not change, upgrade, or cancel the lic
 ## Resizing the virtual server instance
 {: #resize-vsi}
 
-You must stop the virtual server instance before you can resize it.
+Stop the virtual server instance before you can resize it.
 {: note}
 
 1. In the [IBM Cloud console](/login), click the navigation menu and select **Infrastructure > Compute > Virtual server instances**.
@@ -45,7 +45,7 @@ The license plan cannot be changed on an existing firewall deployment. To use a 
 1. Redirect traffic to the new instance.
 1. Cancel the existing firewall deployment.
 
-You are billed for both deployments until the existing one is cancelled.
+You are billed for both deployments until the existing one is canceled.
 {: note}
 
 ## Related links

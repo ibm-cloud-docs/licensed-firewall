@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-09-04"
+lastupdated: "2026-09-25"
 
 keywords: FortiGate security, firewall best practices, security group, admin access, FortiGate hardening, management access, least privilege
 
@@ -43,7 +43,7 @@ For step-by-step instructions, see [Accessing your FortiGate firewall](/docs/lic
 
 The initial administrator password is generated at deployment time and is displayed in the IBM Cloud Schematics workspace output. This password is visible to anyone with access to the Schematics workspace.
 
-- Change the administrator password the first time you log in to the FortiGate web console.
+- Change the administrator password the first time that you log in to the FortiGate web console.
 - Use a strong, unique password that is not shared with other systems.
 - Store the password in a secrets manager or password vault rather than in plain text.
 
@@ -55,7 +55,7 @@ Within the FortiGate itself, the default bootstrap configuration enables HTTPS, 
 1. Log in to the FortiGate web console.
 1. Go to **Network > Interfaces**.
 1. Edit `port1` and `port2`.
-1. In **Administrative access**, uncheck any protocols that are not in use.
+1. In **Administrative access**, clear any protocols that are not in use.
 1. Click **OK** to save.
 
 Leaving ping (`PING`) enabled on the public interface (`port1`) allows external hosts to probe the firewall's presence. Disable it if internet-facing discovery is a concern.
@@ -78,7 +78,7 @@ This approach eliminates direct internet-facing management access entirely.
 Running a supported and patched firmware version is one of the most effective defenses against known vulnerabilities.
 
 - Subscribe to Fortinet PSIRT advisories to be notified of new vulnerabilities. For more information, see [Keeping abreast of firmware updates and vulnerability patches](/docs/licensed-firewall?topic=licensed-firewall-addressing-vulnerabilities).
-- Review the FortiGate release notes before upgrading to understand any behavior changes.
+- Review the FortiGate release notes before you upgrade to understand any behavior changes.
 - Schedule firmware upgrades during a maintenance window. The FortiGate restarts during an upgrade.
 - For HA deployments, follow Fortinet recommended upgrade sequence to minimize downtime.
 

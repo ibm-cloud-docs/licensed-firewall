@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-09-04"
+lastupdated: "2026-09-25"
 
 keywords: firewall, license plans, vsi profiles, instance sizing, deployment sizes
 
@@ -29,11 +29,11 @@ The license plan and virtual server profile are linked at deployment time.
 ## Planning considerations
 {: #considerations}
 
-Review the following considerations before selecting your license plan and deployment size:
+Review the following considerations before you select your license plan and deployment size:
 
 - Larger deployment sizes provide higher throughput and session capacity.
 - The selected license plan determines the available sizing options and scaling limits.
-- Some instance configurations might be less suitable for high availability or hub-and-spoke architectures. Review network design requirements before selecting a deployment.
+- Some instance configurations might be less suitable for high availability or hub-and-spoke architectures. Review network design requirements before you select a deployment.
 - All deployments include FortiCare Premium support.
 - All license plans, including ATP, are available in all supported regions.
 
@@ -47,7 +47,7 @@ Select a deployment topology based on your availability requirements and toleran
 
 | Topology | Catalog Tile | Firewall Instances | Availability Zones | Automatic Failover | Best For |
 |----------|-------------|-------------------|-------------------|-------------------|----------|
-| Single VM | [Fortinet FortiGate VM NGFW - Single](#){: external} [NEED]{: tag-red} | 1 | 1 | No | Development, testing, or non-critical workloads |
+| Single VM | [Fortinet FortiGate VM NGFW - Single](#){: external} [NEED]{: tag-red} | 1 | 1 | No | Development, testing, or noncritical workloads |
 | Active/Passive HA - Single Zone | [Fortinet FortiGate VM NGFW - A/P HA](#){: external} [NEED]{: tag-red} | 2 | 1 | Yes | Production workloads requiring zone-level redundancy |
 | Active/Passive HA - Cross Zone | [Fortinet FortiGate VM NGFW - Cross Zone A/P HA](#){: external} [NEED]{: tag-red} | 2 | 2 | Yes | Production workloads requiring the highest availability |
 {: caption="Deployment topology comparison" caption-side="bottom"}
@@ -78,7 +78,7 @@ VDOM support is available only with the Enterprise license plan at the X-large (
 ## License plan feature entitlements
 {: #license-plan-features}
 
-The following table shows the security services and features included in each license plan.
+The following table shows the security services and features that are included in each license plan.
 
 | Feature | ATP | UTP | Enterprise |
 |---------|-----|-----|------------|
@@ -150,7 +150,7 @@ Connection capacity increases with deployment size and available memory.
 ## Instance profile details
 {: #instance-profile-details}
 
-Instance profiles define the compute resources allocated to your firewall deployment.
+Instance profiles define the compute resources that are allocated to your firewall deployment.
 
 Each license plan includes a specific number of vCPUs for your FortiGate-VM. Based on the selected license plan and deployment size, IBM automatically assigns a virtual server instance profile that provides the required vCPUs and throughput. Because available profiles vary by region, IBM manages profile selection and you cannot choose or override the assigned profile.
 
@@ -187,7 +187,7 @@ This license plan uses gen3-cx profiles and supports Small, Medium, and Large de
 ### ATP profile mappings
 {: #atp-profile-mappings}
 
-This license plan uses gen2-cx profiles and supports Small and Medium deployment sizes. In some regions, IBM automatically assigns an equivalent alternate profile where the standard gen2-cx profile is unavailable.
+This license plan uses gen2-cx profiles and supports Small and Medium deployment sizes. In some regions, IBM automatically assigns an equivalent alternative profile where the standard gen2-cx profile is unavailable.
 
 | Deployment Size | vCPU | Instance Profile | Profile Family |
 |----------------|------|------------------|----------------|
@@ -195,13 +195,13 @@ This license plan uses gen2-cx profiles and supports Small and Medium deployment
 | Medium         | 8    | cx2-8x16         | gen2-cx        |
 {: caption="Advanced Threat Protection (ATP) license plan virtual server profile mappings" caption-side="bottom"}
 
-In a small number of regions, IBM automatically assigns an alternate gen3-cx profile where the standard gen2-cx profile is unavailable. The deployment size and entitlement remain equivalent.
+In a few regions, IBM automatically assigns an alternate gen3-cx profile where the standard gen2-cx profile is unavailable. The deployment size and entitlement remain equivalent.
 {: note}
 
 ### Profile considerations
 {: #instance-profile-considerations}
 
-Consider the following factors when evaluating instance profiles for your deployment:
+Consider the following factors when you evaluate instance profiles for your deployment:
 
 - `cx` profiles provide a balanced cost-to-performance ratio and are suitable for most workloads.
 - Profiles with higher memory ratios can benefit environments with high session counts.

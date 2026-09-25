@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-08-18"
+lastupdated: "2026-09-25"
 
 keywords: deploy firewall, FortiGate, HA cross zone, high availability, Terraform, Schematics, public address range
 
@@ -43,7 +43,7 @@ Terraform deploys the following resources:
 - Four floating public IP addresses: one on `port1` and one on `port4` of each FortiGate
 - One public address range for floating IP failover across zones
 - One log disk per FortiGate
-- Two security groups — one for the public interfaces (`port1` and `port4`) and one for the private interfaces (`port2` and `port3`) — with restrictive inbound rules (license download on the public group; HA heartbeat traffic on TCP/UDP port 703 on the private group) and allow-all outbound rules
+- Two security groups: one for the public interfaces (`port1` and `port4`) and one for the private interfaces (`port2` and `port3`): with restrictive inbound rules (license download on the public group; HA heartbeat traffic on TCP/UDP port 703 on the private group) and allow-all outbound rules
 - A bootstrap configuration with HA, SDN connector, public address range, and VDOM exception settings
 
 Follow these steps:
@@ -53,13 +53,13 @@ Follow these steps:
 1. Search for **Fortinet FortiGate VM NGFW** and select the **Fortinet FortiGate VM Next-Generation Firewall - Cross Zone A/P HA** tile.
 1. In **Select your deployment target**, select **IBM Cloud**.
 1. In **Select a delivery method**, select **Terraform**.
-1. In **Select product version**, choose a product version from the dropdown.
+1. In **Select product version**, choose a product version from the menu.
 1. In **Select engine type**, select **Schematics**.
 1. In **Configure your workspace**, review or update the following fields:
-   - **Name** — A name for the Schematics workspace. A default name is pre-filled.
-   - **Location** — The region where the Schematics workspace is created.
-   - **Resource group** — The resource group for the workspace.
-   - **Tags** — Optional tags to apply to the workspace.
+   - **Name**: A name for the Schematics workspace. A default name is pre-filled.
+   - **Location**: The region where the Schematics workspace is created.
+   - **Resource group**: The resource group for the workspace.
+   - **Tags**: Optional tags to apply to the workspace.
 1. Scroll down to **Set the input variables** and complete the fields in the **Required input variables** table:
 
    | Parameter | Description |
@@ -99,20 +99,20 @@ Follow these steps:
 
 IBM Cloud Schematics creates a workspace and runs the Terraform automation. You can watch the Terraform execution in the **Log** section of the workspace. When the deployment completes successfully, the log displays the following output values:
 
-- `FGT1_Port1_Public_IP` — Public IP address for FortiGate 1 primary management (`port1`)
-- `FGT1_Port4_Public_IP` — Public IP address for FortiGate 1 HA management (`port4`)
-- `FGT2_Port1_Public_IP` — Public IP address for FortiGate 2 primary management (`port1`)
-- `FGT2_Port4_Public_IP` — Public IP address for FortiGate 2 HA management (`port4`)
-- `Par_ID` — Public address range ID
-- `Par_CIDR` — Public address range CIDR block
-- `Security_Group_ID` — ID of the automatically created security group
-- `Security_Group_Name` — Name of the security group
-- `Selected_VSI_Profile` — Virtual server instance profile automatically selected based on the plan CRN
-- `Catalog_Offering_Version_CRN` — Catalog offering version CRN used
-- `Catalog_Offering_Plan_CRN` — Catalog offering plan CRN used
-- `Username` — Administrator username (`admin`)
-- `FGT1_Default_Admin_Password` — Initial password for FortiGate 1. May be empty on initial startup; if so, use the instance ID as the initial password.
-- `FGT2_Default_Admin_Password` — Initial password for FortiGate 2. May be empty on initial startup; if so, use the instance ID as the initial password.
+- `FGT1_Port1_Public_IP`: Public IP address for FortiGate 1 primary management (`port1`)
+- `FGT1_Port4_Public_IP`: Public IP address for FortiGate 1 HA management (`port4`)
+- `FGT2_Port1_Public_IP`: Public IP address for FortiGate 2 primary management (`port1`)
+- `FGT2_Port4_Public_IP`: Public IP address for FortiGate 2 HA management (`port4`)
+- `Par_ID`: Public address range ID
+- `Par_CIDR`: Public address range CIDR block
+- `Security_Group_ID`: ID of the automatically created security group
+- `Security_Group_Name`: Name of the security group
+- `Selected_VSI_Profile`: Virtual server instance profile automatically selected based on the plan CRN
+- `Catalog_Offering_Version_CRN`: Catalog offering CRN version used
+- `Catalog_Offering_Plan_CRN`: Catalog offering plan CRN used
+- `Username`: Administrator username (`admin`)
+- `FGT1_Default_Admin_Password`: Initial password for FortiGate 1. Might be empty on initial startup; if so, use the instance ID as the initial password.
+- `FGT2_Default_Admin_Password`: Initial password for FortiGate 2. Might be empty on initial startup; if so, use the instance ID as the initial password.
 
 Save these values before you close the workspace. When **Terraform commands successful** and **Cart creation successful** are both displayed, your HA cross-zone firewall pair is provisioned and ready to use.
 
@@ -122,5 +122,5 @@ It is a good idea to review the full log output for errors or warnings, even whe
 ## Next steps
 {: #deploy-ha-cross-zone-next-steps}
 
-- [Access the FortiGate web console](/docs/licensed-firewall?topic=licensed-firewall-access-firewall) — Add a security group rule, configure routing, and log in for the first time.
-- [Understand the default firewall configuration](/docs/licensed-firewall?topic=licensed-firewall-understanding-default-firewall-configuration) — Review what IBM applied during provisioning before making changes.
+- [Access the FortiGate web console](/docs/licensed-firewall?topic=licensed-firewall-access-firewall): Add a security group rule, configure routing, and log in for the first time.
+- [Understand the default firewall configuration](/docs/licensed-firewall?topic=licensed-firewall-understanding-default-firewall-configuration): Review what IBM applied during provisioning before you make changes.

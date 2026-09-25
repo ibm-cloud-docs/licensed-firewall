@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-08-10"
+lastupdated: "2026-09-25"
 
 keywords: FortiGate IPS, antivirus, web filtering, application control, security profiles, FortiGate security services, intrusion prevention, deep packet inspection, SSL inspection, TLS inspection
 
@@ -91,7 +91,7 @@ For more information, see the [FortiGate web filtering documentation](https://do
 ### Application control
 {: #enable-application-control}
 
-Application control identifies and controls applications regardless of port or protocol, using Fortinet's application signature database.
+Application control identifies and controls applications regardless of port or protocol by using Fortinet's application signature database.
 
 1. In the FortiGate web console, go to **Security Profiles > Application Control**.
 1. Create or modify an application control profile and set actions for application categories.

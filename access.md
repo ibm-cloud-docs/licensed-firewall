@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-09-04"
+lastupdated: "2026-09-25"
 
 keywords: access fortigate, FortiGate web console, SSH fortigate, floating IP, fortigate login, security group inbound rule
 
@@ -18,14 +18,14 @@ subcollection: licensed-firewall
 After you deploy a FortiGate firewall, you can access it through the FortiGate web console or SSH.
 {: shortdesc}
 
-The firewall is not reachable immediately after deployment. Two dedicated security groups are created automatically — one for the public interface and one for the private interface. Both include restrictive pre-configured inbound rules that allow the instance to download the license and enable cluster synchronization. They do not permit management access. A floating IP is assigned to `port4` (the management interface) and is visible in your VPC resources, but all connection attempts time out until you complete Step 1.
+The firewall is not reachable immediately after deployment. Two dedicated security groups are created automatically, one for the public interface and one for the private interface. Both include restrictive pre-configured inbound rules that allow the instance to download the license and enable cluster synchronization. They do not permit management access. A floating IP is assigned to `port4` (the management interface) and is visible in your VPC resources, but all connection attempts time out until you complete Step 1.
 {: attention}
 
 ## Before you begin
 {: #access-firewall-prereqs}
 
 - The FortiGate deployment must be complete and in a running state.
-- You need the management floating IP address and initial administrator password from the Schematics workspace output. The output variable names differ by topology.
+- You need the management-floating IP address and initial administrator password from the Schematics workspace output. The output variable names differ by topology.
 - The initial administrator password might be empty on the first start. If the password field is empty, use the virtual server instance ID as the initial password.
 
 | Topology | Management IP Output (`port4`) | Password Output |
@@ -38,16 +38,16 @@ The firewall is not reachable immediately after deployment. Two dedicated securi
 ## Step 1: Allow management access in the security group
 {: #access-firewall-security-group}
 
-The security groups created during deployment deny all inbound management traffic. When you open a security group, you will see pre-configured inbound rules for licensing and cluster synchronization — do not remove these. Add a new inbound rule to allow HTTPS or SSH access from your administrator IP address before you can connect.
+The security groups that are created during deployment deny all inbound management traffic. When you open a security group, you see pre-configured inbound rules for licensing and cluster synchronization. Do not remove these rules. Add a new inbound rule to allow HTTPS or SSH access from your administrator IP address before you can connect.
 
 1. In the [IBM Cloud console](/login), click the navigation menu and select **VPC Infrastructure > Security groups**.
 1. Locate the security group for the public interface that was created for your FortiGate deployment. It is named after your deployment cluster.
 1. Click the security group name to open it.
 1. On the **Rules** tab, click **Create**.
 1. Set **Direction** to **Inbound**.
-1. Set **Protocol** to **TCP**.
+1. Set the **Protocol** to **TCP**.
 1. Set the **Port range** to **443** for HTTPS access or **22** for SSH access.
-1. In **Source type**, select **IP address** and enter your administrator IP address or CIDR range.
+1. In **Source type**, select the **IP address** and enter your administrator IP address or CIDR range.
 1. Click **Create** to save the rule.
 
 Restrict inbound access to known administrator IP addresses only. Avoid using `0.0.0.0/0` as the source.
@@ -73,7 +73,7 @@ Configure a VPN connection into your VPC and access the FortiGate web console by
 ### Method 3: VNC or serial console (no security group changes required)
 {: #access-method-vnc-serial}
 
-You can access the firewall through the local VNC or serial console provided by the VSI. This is useful for emergency access or initial configuration, and does not require any security group modifications. However, this method is not a permanent solution. For example, it does not work well when you need to upgrade or downgrade firmware.
+You can access the firewall through the local VNC or serial console that is provided by the VSI. This is useful for emergency access or initial configuration, and does not require any security group modifications. However, this method is not a permanent solution. For example, it does not work well when you need to upgrade or downgrade firmware.
 
 To open the console, navigate to your VSI in the [IBM Cloud console](/login) under **VPC Infrastructure > Virtual server instances**, click **Actions**, and select **Open VNC console** or **Open serial console**.
 
@@ -99,7 +99,7 @@ For traffic to flow correctly, the FortiGate must also have a firewall policy th
 ## Step 4: Log in to the FortiGate web console
 {: #access-firewall-login}
 
-Use the `port4` management floating IP address from the Schematics workspace output for your topology (see [Before you begin](#access-firewall-prereqs)). For HA deployments, each node has its own `port4` management IP and you can log in to either node individually.
+Use the `port4` management-floating IP address from the Schematics workspace output for your topology (see [Before you begin](#access-firewall-prereqs)). For HA deployments, each node has its own `port4` management IP and you can log in to either node individually.
 
 1. Open a web browser and navigate to `https://<public-ip>`, replacing `<public-ip>` with the appropriate IP address from the workspace output.
 1. Accept the self-signed certificate warning if prompted.

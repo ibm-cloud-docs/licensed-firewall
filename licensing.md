@@ -18,7 +18,7 @@ subcollection: licensed-firewall
 Learn how FortiGate licenses are activated, what public connectivity each deployment topology requires, how to verify that a license is valid, and how to resolve common licensing issues.
 {: shortdesc}
 
-**DISCLAIMER** Each FortiGate instance must maintain outbound connectivity to Fortinet's licensing infrastructure over the public internet for license registration and periodic license validation ("call home" requirements). The default configuration provides the required connectivity. Blocking this access can cause the license status to change to `Invalid`. See [Public connectivity requirement](#licensing-public-connectivity) for details about the connectivity required for each deployment topology. There is a 30 day grace period for Fortigate instances that cannot communicate with FortiGuard. If an instance remains offline for longer than 30 days, real time lookup services for certain features will stop and the VM may stop processing traffic altogether. Note that a single failed check is enough to trigger the `Warning` status. For the full call-home sequence, see [How license validation works](#licensing-call-home).
+**DISCLAIMER** Each FortiGate instance must maintain outbound connectivity to Fortinet's licensing infrastructure over the public internet for license registration and periodic license validation ("call home" requirements). The default configuration provides the required connectivity. Blocking this access can cause the license status to change to `Invalid`. See [Public connectivity requirement](#licensing-public-connectivity) for details about the connectivity required for each deployment topology. There is a 30-day grace period for Fortigate instances that cannot communicate with FortiGuard. If an instance remains offline for longer than 30 days, real-time lookup services for certain features stop and the VM might stop processing traffic altogether. A single failed check is enough to trigger the `Warning` status. For the full call-home sequence, see [How license validation works](#licensing-call-home).
 {: important}
 
 ## Overview
@@ -32,9 +32,9 @@ When you provision a FortiGate instance from the IBM Cloud catalog, IBM automati
 Every running FortiGate instance checks in with Fortinet's FortiGuard Network (FDN) to confirm that its license is still valid. This is called a "call-home" check. The following steps describe what happens if that check fails.
 
 1. **Every 60 minutes, FortiOS contacts FDN.** As long as each check succeeds, the license status remains `Valid` and nothing changes.
-1. **One failed check triggers a `Warning`.** FortiOS does not wait for repeated failures — a single missed check is enough to change the license status to `Warning`. The VM continues to process traffic normally.
+1. **One failed check triggers a `Warning`.** FortiOS does not wait for repeated failures. A single missed check is enough to change the license status to `Warning`. The VM continues to process traffic normally.
 1. **The VM has 30 days to restore connectivity.** During the warning period, everything keeps working. This window exists so that brief or accidental connectivity disruptions do not immediately affect operations.
-1. **After 30 days without a successful check, the license becomes `Invalid`.** After the license is marked `Invalid`, the VM immediately stops processing traffic and the management UI becomes inaccessible. Recovery requires restoring connectivity and re-validating the license.
+1. **After 30 days without a successful check, the license becomes `Invalid`.** After the license is marked `Invalid`, the VM immediately stops processing traffic and the management UI becomes inaccessible. Recovery requires restoring connectivity and revalidating the license.
 
 To check the current license status at any time, run the following command on the FortiGate CLI:
 
@@ -43,7 +43,7 @@ get system status
 ```
 {: pre}
 
-Look for the `License Status` field in the output. If it shows `Warning`, act promptly — restore outbound connectivity to FortiGuard before the 30-day window expires. See [Troubleshooting — License is in grace period](#licensing-troubleshooting-grace-period) for diagnostic steps.
+Look for the `License Status` field in the output. If it shows `Warning`, act promptly. Restore outbound connectivity to FortiGuard before the 30-day window expires. See [Troubleshooting — License is in grace period](#licensing-troubleshooting-grace-period) for diagnostic steps.
 
 ## Public connectivity requirement
 {: #licensing-public-connectivity}
@@ -136,7 +136,7 @@ A `Valid` status on each node confirms that the instance is fully licensed and t
 ## License expiration and renewal
 {: #licensing-expiration}
 
-License expiration is handled automatically by IBM. You do not need to take any action to renew or extend the license.
+License expiration is handled automatically by IBM. You do not need to act to renew or extend the license.
 
 ## Troubleshooting
 {: #licensing-troubleshooting}
@@ -144,7 +144,7 @@ License expiration is handled automatically by IBM. You do not need to take any 
 ### Terraform provisioning fails with a public gateway quota error
 {: #licensing-troubleshooting-public-gateway}
 
-For the Active/Passive HA - Single Zone offering, a public gateway is required on the public subnet so that the secondary node can reach FortiCloud for license registration. If you already have a public gateway in the same zone, provisioning may fail with an error similar to:
+For the Active/Passive HA - Single Zone offering, a public gateway is required on the public subnet so that the secondary node can reach FortiCloud for license registration. If you already have a public gateway in the same zone, provisioning might fail with an error similar to:
 
 ```text
 Creating a new public gateway will put the user over quota.
@@ -152,20 +152,20 @@ Allocated: 1, Requested: 1, Quota: 1
 ```
 {: screen}
 
-To resolve this issue, provide the ID of your existing public gateway in the `PUBLIC_GATEWAY_ID` Terraform input variable. The `PUBLIC_GATEWAY_ID` variable is required — you must either use an existing gateway or create a new one in the same zone and supply its ID before retrying the deployment.
+To resolve this issue, provide the ID of your existing public gateway in the `PUBLIC_GATEWAY_ID` Terraform input variable. The `PUBLIC_GATEWAY_ID` variable is required. You must either use an existing gateway or create a new one in the same zone and supply its ID before you retry the deployment.
 
 ### License shows Invalid after provisioning
 {: #licensing-troubleshooting-invalid}
 
 If `get system status` shows `License Status: Invalid`, the FortiOS license injection process was not able to complete successfully. Check the following:
 
-1. **Metadata service is enabled.** On the virtual server instance overview page, scroll to the bottom and confirm that the metadata service and secure access options are both enabled.
+1. **Metadata service is enabled.** On the virtual server instance overview page, scroll to the end and confirm that the metadata service and secure access options are both enabled.
 1. **Outbound internet access is available.** Each node must be able to reach FortiCloud. Confirm that a floating IP or public gateway is attached to the instance and that the public security group egress rules include UDP 53, TCP 443, and TCP 8890.
 1. **Review cloud-init logs.** Run `diagnose debug cloudinit show` on the FortiGate CLI. Repeated `Failed to request forticare license` lines confirm a connectivity problem to FortiCloud.
 
 If the instance cannot be recovered, delete the virtual server instance and deploy again. There is no in-place recovery path for a failed license injection.
 
-### License is in grace period
+### License is in a grace period
 {: #licensing-troubleshooting-grace-period}
 
 If the license status shows a grace period warning, the FortiGate instance has lost periodic contact with Fortinet FortiGuard. A single failed check sets the status to `Warning`; if connectivity is not restored within 30 days, the license becomes `Invalid` and the VM stops processing traffic. See [How license validation works](#licensing-call-home) for the full call-home sequence.
@@ -193,7 +193,7 @@ For a detailed explanation of every field in the output, see [VM license — dis
 Common causes and fixes:
 
 - **Security group egress rules removed.** Restore the three default egress rules (UDP 53, TCP 443, TCP 8890) on the public interface security group.
-- **Floating IP or public gateway removed.** Each node requires a route to the public internet for both license validation and IPS/antivirus signature updates. Re-attach the floating IP and, for Single Zone HA deployments, the public gateway.
+- **Floating IP or public gateway removed.** Each node requires a route to the public internet for both license validation and IPS/antivirus signature updates. Reattach the floating IP and for Single Zone HA deployments, the public gateway.
 - **Network ACL blocking egress traffic.** If a Network Access Control List (NACL) is applied to the public subnet, confirm that it includes egress rules that allow outbound traffic to FortiGuard on UDP 53, TCP 443, and TCP 8890. Modify the NACL to add the missing rules if any are blocked.
 
 ## Getting support
@@ -211,6 +211,6 @@ If you are unable to resolve a licensing issue by using the steps in this topic,
 ## Related links
 {: #licensing-related-links}
 
-- [Understanding the default firewall configuration](/docs/licensed-firewall?topic=licensed-firewall-understanding-default-firewall-configuration) — Review the full bootstrap configuration applied to each deployment topology at provisioning time, including interface and security group setup.
-- [Security best practices for FortiGate on IBM Cloud VPC](/docs/licensed-firewall?topic=licensed-firewall-fortigate-security-best-practices) — Details on the egress security group rules that enable licensing traffic.
-- [FortiFlex documentation](https://docs.fortinet.com/document/flex-vm/26.2.0/administration-guide/461449/introduction){: external} — Fortinet's official FortiFlex licensing documentation, including grace period and troubleshooting guides.
+- [Understanding the default firewall configuration](/docs/licensed-firewall?topic=licensed-firewall-understanding-default-firewall-configuration): Review the full bootstrap configuration applied to each deployment topology at provisioning time, including interface and security group setup.
+- [Security best practices for FortiGate on IBM Cloud VPC](/docs/licensed-firewall?topic=licensed-firewall-fortigate-security-best-practices): Details on the egress security group rules that enable licensing traffic.
+- [FortiFlex documentation](https://docs.fortinet.com/document/flex-vm/26.2.0/administration-guide/461449/introduction){: external}: Fortinet's official FortiFlex licensing documentation, including grace period and troubleshooting guides.

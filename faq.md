@@ -3,7 +3,7 @@
 copyright:
   years: 2026
 
-lastupdated: "2026-08-11"
+lastupdated: "2026-09-25"
 
 keywords: FortiGate FAQ, licensed firewall questions, license plan, FortiGate VPC, firewall billing, resize firewall, HA firewall
 
@@ -18,26 +18,26 @@ content-type: faq
 # FAQ for FortiGate licensed firewall
 {: #my-service-faq}
 
-Frequently asked questions for the FortiGate licensed firewall on IBM Cloud VPC. To find all of the FAQs for {{site.data.keyword.cloud}}, see our [FAQ library](/docs/faqs).
+Frequently asked questions for the FortiGate licensed firewall on IBM Cloud VPC.
 {: shortdesc}
 
 ## Can I change my license plan after deployment?
 {: #faq-change-license}
 {: faq}
 
-No. The license plan is fixed at deployment time and cannot be changed on an existing instance. To use a different license plan, you must place a new order with the required plan, migrate your configuration to the new instance, and cancel the existing deployment. You are billed for both instances until the existing one is cancelled. For more information, see [Resizing a firewall virtual server instance](/docs/licensed-firewall?topic=licensed-firewall-changing-firewall-instance-profile-or-license-plan).
+No. The license plan is fixed at deployment time and cannot be changed on an existing instance. To use a different license plan, you must place a new order with the required plan, migrate your configuration to the new instance, and cancel the existing deployment. You are billed for both instances until the existing one is canceled. For more information, see [Resizing a firewall virtual server instance](/docs/licensed-firewall?topic=licensed-firewall-changing-firewall-instance-profile-or-license-plan).
 
 ## Can I resize the virtual server instance without changing the license?
 {: #faq-resize-vsi}
 {: faq}
 
-Yes. You can resize the underlying virtual server instance to a different profile without changing the license plan. The license and associated billing remain unchanged after a resize. You must stop the instance before resizing it. For more information, see [Resizing a firewall virtual server instance](/docs/licensed-firewall?topic=licensed-firewall-changing-firewall-instance-profile-or-license-plan).
+Yes. You can resize the underlying virtual server instance to a different profile without changing the license plan. The license and associated billing remain unchanged after a resize. Stop the instance before you resize it. For more information, see [Resizing a firewall virtual server instance](/docs/licensed-firewall?topic=licensed-firewall-changing-firewall-instance-profile-or-license-plan).
 
 ## How is the FortiGate license applied?
 {: #faq-license-applied}
 {: faq}
 
-IBM applies the FortiGate license automatically when your instance is provisioned. You do not need to upload or activate a license manually. The license is retrieved by cloud-init through the Instance Metadata Service during startup. To verify that the license is active, log in to the FortiGate web console and check the license status under **System > FortiGuard**. For information on how to access the FortiGate web console, see [Accessing your FortiGate firewall](/docs/licensed-firewall?topic=licensed-firewall-access-firewall).
+IBM applies the FortiGate license automatically when your instance is provisioned. You do not need to upload or activate a license manually. The license is retrieved by `cloud-init` through the Instance Metadata Service during startup. To verify that the license is active, log in to the FortiGate web console and check the license status under **System > FortiGuard**. For information on how to access the FortiGate web console, see [Accessing your FortiGate firewall](/docs/licensed-firewall?topic=licensed-firewall-access-firewall).
 
 ## What deployment configurations are available?
 {: #faq-deployment-configs}

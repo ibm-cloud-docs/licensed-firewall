@@ -18,14 +18,14 @@ subcollection: licensed-firewall
 # Getting help and support for FortiGate licensed firewall
 {: #help-and-support}
 
-If you experience an issue or have questions when using the FortiGate licensed firewall, you can use the following resources before you open an IBM support case.
+If you experience an issue or have questions when you use the FortiGate licensed firewall, you can use the following resources before you open an IBM support case.
 {: shortdesc}
 
 * Ask a question in the [AI assistant](/docs/overview?topic=overview-ask-ai-assistant) from the console or the {{site.data.keyword.cloud_notm}} CLI.
 * Review the [FAQs](/docs/licensed-firewall?topic=licensed-firewall-my-service-faq) in the product documentation.
 * Review the [troubleshooting documentation](/docs/licensed-firewall?topic=licensed-firewall-troubleshoot-licensed-firewall) to troubleshoot and resolve common issues.
 * Check the status of the {{site.data.keyword.Bluemix_notm}} platform and resources by going to the [Status page](/status){: external}.
-* Review [Stack Overflow](https://stackoverflow.com/questions/tagged/ibm-cloud){: external} to see whether other users experienced the same problem. When you ask a question, tag the question with `ibm-cloud` and `fortigate`, so that it's seen by the {{site.data.keyword.Bluemix_notm}} development teams.
+* Review [Stack Overflow](https://stackoverflow.com/questions/tagged/ibm-cloud){: external} to see whether other users experienced the same problem. When you ask a question, tag the question with `ibm-cloud` and `fortigate` so that it's seen by the {{site.data.keyword.Bluemix_notm}} development teams.
 
 If you still can't resolve the problem, you can open an IBM support case. For more information, see [Creating support cases](/docs/support?topic=support-open-case&interface=ui). And if you're looking to provide feedback, see [Submitting feedback](/docs/overview?topic=overview-feedback).
 
@@ -42,7 +42,7 @@ To ensure that the support team can start investigating your case and provide a 
 
 2. Describe the issue:
    * Steps to reproduce the problem.
-   * Any error messages displayed in the FortiGate web console or IBM Cloud console.
+   * Any error messages that are displayed in the FortiGate web console or IBM Cloud console.
    * Relevant FortiGate log output (available under **Log & Report** in the FortiGate web console).
 
 3. Provide network details if the issue involves connectivity:

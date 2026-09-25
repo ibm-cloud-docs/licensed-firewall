@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-08-10"
+lastupdated: "2026-09-25"
 
 keywords: firewall default configuration, FortiGate default config, HA configuration, bootstrap configuration, SDN connector, public address range, cloud-init
 
@@ -179,7 +179,7 @@ The following table describes the default settings for the active node:
 | ------- | ----- | ----------- |
 | Hostname | `IBM-HA-Active` | Identifies the active node. |
 | HA mode | `a-p` | Configures active-passive HA. |
-| HA priority | `50` | Higher priority ensures this node is the active firewall. |
+| HA priority | `50` | A higher priority ensures that this node is the active firewall. |
 | HA heartbeat peer | `${fgt_2_static_port3}` | IP address of the passive node heartbeat interface. |
 | HA management interface | `port4` | Dedicated out-of-band management port for HA. |
 | IBM Cloud SDN connector | `ibm` | Enables IBM Cloud integration for automatic failover. |
@@ -266,7 +266,7 @@ The following table describes the default settings for the passive node:
 | ------- | ----- | ----------- |
 | Hostname | `IBM-HA-Passive` | Identifies the passive node. |
 | HA mode | `a-p` | Configures active-passive HA. |
-| HA priority | `25` | Lower priority keeps this node in the standby role. |
+| HA priority | `25` | A lower priority keeps this node in the standby role. |
 | HA heartbeat peer | `${fgt_1_static_port3}` | IP address of the active node heartbeat interface. |
 | HA management interface | `port4` | Dedicated out-of-band management port for HA. |
 | IBM Cloud SDN connector | `ibm` | Enables IBM Cloud integration for automatic failover. |
@@ -275,7 +275,7 @@ The following table describes the default settings for the passive node:
 ## Default configuration of an HA cross-zone deployment — active node
 {: #ha-cross-zone-active-node}
 
-An HA cross-zone deployment provisions two FortiGate firewalls across separate availability zones. The cross-zone configuration extends the single-zone HA configuration with two additions: a public address range identifier in the SDN connector for cross-zone floating IP failover, and a VDOM exception list that ensures interfaces, static routes, and virtual IPs are synchronized between nodes.
+An HA cross-zone deployment provisions two FortiGate firewalls across separate availability zones. The cross-zone configuration extends the single-zone HA configuration with two additions: a public address range identifier in the SDN connector for cross-zone floating IP failover, and a VDOM exception list that helps ensure interfaces, static routes, and virtual IPs are synchronized between nodes.
 
 ```text
 config system global
@@ -367,7 +367,7 @@ The following table describes the default settings for the active node:
 | ------- | ----- | ----------- |
 | Hostname | `IBM-HA-Active` | Identifies the active node. |
 | HA mode | `a-p` | Configures active-passive HA. |
-| HA priority | `50` | Higher priority ensures this node is the active firewall. |
+| HA priority | `50` | A higher priority ensures that this node is the active firewall. |
 | HA heartbeat peer | `${fgt_2_static_port3}` | IP address of the passive node heartbeat interface (Zone 2). |
 | HA management interface | `port4` | Dedicated out-of-band management port for HA. |
 | Public Address Range | `${par_id}` | Enables floating IP failover across availability zones. |
@@ -470,7 +470,7 @@ The following table describes the default settings for the passive node:
 | ------- | ----- | ----------- |
 | Hostname | `IBM-HA-Passive` | Identifies the passive node. |
 | HA mode | `a-p` | Configures active-passive HA. |
-| HA priority | `25` | Lower priority keeps this node in the standby role. |
+| HA priority | `25` | A lower priority keeps this node in the standby role. |
 | HA heartbeat peer | `${fgt_1_static_port3}` | IP address of the active node heartbeat interface (Zone 1). |
 | HA management interface | `port4` | Dedicated out-of-band management port for HA. |
 | Public Address Range | `${par_id}` | Enables floating IP failover across availability zones. |
@@ -487,12 +487,12 @@ The following table lists all bootstrap variables and their sources:
 
 | Variable | Source | Description |
 | -------- | ------ | ----------- |
-| `${fgt_1_static_port1}` | `FGT1_STATIC_IP_PORT1` order input | Public interface IP for FortiGate 1. |
-| `${fgt_1_static_port2}` | `FGT1_STATIC_IP_PORT2` order input | Private interface IP for FortiGate 1. |
+| `${fgt_1_static_port1}` | `FGT1_STATIC_IP_PORT1` order input | Public IP interface for FortiGate 1. |
+| `${fgt_1_static_port2}` | `FGT1_STATIC_IP_PORT2` order input | Private IP interface for FortiGate 1. |
 | `${fgt_1_static_port3}` | `FGT1_STATIC_IP_PORT3` order input | HA heartbeat IP for FortiGate 1. |
 | `${fgt_1_static_port4}` | `FGT1_STATIC_IP_PORT4` order input | HA management IP for FortiGate 1. |
-| `${fgt_2_static_port1}` | `FGT2_STATIC_IP_PORT1` order input | Public interface IP for FortiGate 2. |
-| `${fgt_2_static_port2}` | `FGT2_STATIC_IP_PORT2` order input | Private interface IP for FortiGate 2. |
+| `${fgt_2_static_port1}` | `FGT2_STATIC_IP_PORT1` order input | Public IP interface for FortiGate 2. |
+| `${fgt_2_static_port2}` | `FGT2_STATIC_IP_PORT2` order input | Private IP interface for FortiGate 2. |
 | `${fgt_2_static_port3}` | `FGT2_STATIC_IP_PORT3` order input | HA heartbeat IP for FortiGate 2. |
 | `${fgt_2_static_port4}` | `FGT2_STATIC_IP_PORT4` order input | HA management IP for FortiGate 2. |
 | `${fgt1_port_4_mgmt_gateway}` | `FGT1_PORT4_MGMT_GATEWAY` order input | Gateway for FortiGate 1 HA management subnet. |

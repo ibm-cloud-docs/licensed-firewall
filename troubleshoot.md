@@ -36,14 +36,14 @@ The FortiGate license is retrieved and installed automatically during initial st
 Try the following steps to resolve the issue:
 {: tsResolve}
 
-1. Verify that the Instance Metadata Service and Secure options are enabled. In the [IBM Cloud console](/login), navigate to **Infrastructure > Compute > Virtual server instances** and open your FortiGate instance. Scroll to the bottom of the overview page and confirm that **Metadata service** is set to **Enabled** and that the **Secure** option is also enabled. If either is disabled, enable it and restart the instance.
+1. Verify that the Instance Metadata Service and Secure options are enabled. In the [IBM Cloud console](/login), navigate to **Infrastructure > Compute > Virtual server instances** and open your FortiGate instance. Scroll to the end of the overview page and confirm that the **Metadata service** is set to **Enabled** and that the **Secure** option is also enabled. If either is disabled, enable it and restart the instance.
 
    ![VSI Metadata details showing Metadata service and Secure access enabled](images/metadata.png){: caption-side="bottom"}
    {: caption="VSI Metadata details showing Metadata service and Secure access enabled"}
 
 1. Review the Schematics workspace log. Open the Schematics workspace that was used to deploy the firewall and review the Terraform log for errors. Confirm that both **Terraform commands successful** and **Cart creation successful** are displayed at the end of the log.
 
-1. Check outbound connectivity from the FortiGate. The FortiGate must be able to reach Fortinet licensing servers on the internet. Verify that the VPC has a public gateway attached to the subnet used by `port1`, or that a floating IP is assigned to `port1`. Also confirm that the security group on `port1` allows egress traffic on UDP 53, TCP 443, and TCP 8890. From the FortiGate CLI, run:
+1. Check outbound connectivity from the FortiGate. The FortiGate must be able to reach Fortinet licensing servers on the internet. Verify that the VPC has a public gateway that is attached to the subnet used by `port1`, or that a floating IP is assigned to `port1`. Also confirm that the security group on `port1` allows egress traffic on UDP 53, TCP 443, and TCP 8890. From the FortiGate CLI, run:
 
    ```sh
    execute ping guard.fortinet.net
