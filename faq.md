@@ -3,7 +3,7 @@
 copyright:
   years: 2026
 
-lastupdated: "2026-09-25"
+lastupdated: "2026-09-28"
 
 keywords: FortiGate FAQ, licensed firewall questions, license plan, FortiGate VPC, firewall billing, resize firewall, HA firewall
 
@@ -62,3 +62,9 @@ Open all FortiGate support cases with IBM Support. IBM Support performs initial 
 {: faq}
 
 No. IBM provides license management and support coordination, but the FortiGate licensed firewall is a customer-managed service. You are responsible for deploying, configuring, operating, and maintaining your FortiGate virtual server instances. IBM does not configure or manage your firewall policies or network settings.
+
+## Can I use IBM Cloud VPC snapshots to back up or restore my FortiGate firewall?
+{: #faq-vpc-snapshots}
+{: faq}
+
+No. VPC boot volume snapshots and whole-volume restores are not supported for FortiGate licensed firewall instances. Restoring a snapshot carries over the previous instance's FortiFlex license registration, which FortiOS cannot automatically refresh on the new instance, and bypasses the `cloud-init` and Terraform automation required to provision VPC networking resources and licensing properly. To back up and restore your firewall, export and import the FortiGate `.conf` configuration file. For more information, see [Backing up and restoring the FortiGate configuration](/docs/licensed-firewall?topic=licensed-firewall-backup-restore-fortigate-config#unsupported-backup-methods).

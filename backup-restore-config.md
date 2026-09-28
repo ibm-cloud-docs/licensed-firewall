@@ -3,7 +3,7 @@
 copyright:
   years: 2026
 
-lastupdated: "2026-09-25"
+lastupdated: "2026-09-28"
 
 keywords: FortiGate backup, FortiGate restore, export configuration, import configuration, FortiGate config backup
 
@@ -104,6 +104,18 @@ If you are restoring a configuration to a different FortiGate instance (for exam
 
 Edit the `.conf` file in a text editor before you import it. Search for the interface names and IP addresses from the original deployment and replace them with the correct values for the target deployment.
 {: tip}
+
+## Unsupported backup methods
+{: #unsupported-backup-methods}
+
+**IBM Cloud VPC boot volume snapshots and whole-volume backups are not supported** for FortiGate licensed firewall instances.
+
+Do not use VPC volume snapshots to back up or restore a firewall instance for the following reasons:
+
+- **Licensing incompatibility**: FortiOS registers a FortiFlex license specific to the original virtual server instance. A boot volume restored from a snapshot retains the previous instance's license registration, and FortiOS cannot automatically detect or acquire a new license on the new instance.
+- **Bypassed deployment automation**: Deploying directly from a snapshot bypasses the Terraform and `cloud-init` automation required to configure instance metadata, licensing services, and associated VPC networking resources.
+
+To back up and restore your firewall, export the configuration `.conf` file as described in [Backing up the FortiGate configuration in the console](#backup-web-console). If you need to replace an instance, deploy a new firewall from the IBM Cloud catalog and import your configuration file.
 
 ## Related links
 {: #backup-restore-related-links}

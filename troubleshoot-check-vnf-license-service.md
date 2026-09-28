@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-09-25"
+lastupdated: "2026-09-28"
 
 keywords: VNF license service, FortiGate license check, software attachment, entitlement, license service verification
 
@@ -48,13 +48,11 @@ Try the following steps to verify that the instance is using the VNF License Ser
    ![Pricing plan details showing Plan licenses and Entitlement ID](images/vsi-instance3.png){: caption-side="bottom"}
    {: caption="Pricing plan details showing Plan licenses and Entitlement ID"}
 
-
 1. (Optional) Cross-reference the entitlement ID in the Fortinet FortiFlex portal. Log in to [FortiCloud](https://support.fortinet.com){: external}, navigate to **Flex Entitlements**, and select the **VPC-VNF** asset folder. Confirm that a record exists with a matching entitlement ID, a status of **ACTIVE**, and the correct product type and configuration.
 
    ![FortiFlex portal showing an active VPC-VNF entitlement record](images/forticloud.png){: caption-side="bottom"}
    {: caption="FortiFlex portal showing an active VPC-VNF entitlement record"}
 
-
-1. If no software attachment or entitlement is shown, the instance was not provisioned through the IBM Cloud catalog automation. Delete the instance and deploy it again by using the FortiGate offering in the [IBM Cloud catalog](https://cloud.ibm.com/catalog){: external}.
+1. If no software attachment or entitlement is shown, the instance was not provisioned through the IBM Cloud catalog automation. Delete the instance and deploy it again by using the FortiGate offering in the [IBM Cloud catalog](/catalog){: external}.
 
 1. If a software attachment is present but the FortiGate license still shows as invalid, see [Why is the FortiGate license not active after deployment?](/docs/licensed-firewall?topic=licensed-firewall-troubleshoot-licensed-firewall).

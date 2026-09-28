@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-09-25"
+lastupdated: "2026-09-28"
 
 keywords: FortiGate deployment failed, Schematics error, Terraform failed, cart creation failed, firewall deployment error
 
@@ -67,6 +67,6 @@ Try the following steps to resolve the issue:
 
 1. Retry the deployment by clicking **Actions > Apply plan** in the Schematics workspace to run the Terraform automation again without modifying your inputs. Review the log again after the job completes.
 
-1. If the workspace is in a partially provisioned state, click **Actions > Destroy resources** to clean up any resources that were created, then place a new order from the [IBM Cloud catalog](https://cloud.ibm.com/catalog){: external} with corrected inputs.
+1. If the workspace is in a partially provisioned state, click **Actions > Destroy resources** to clean up any resources that were created, then place a new order from the [IBM Cloud catalog](/catalog){: external} with corrected inputs.
 
-1. If the deployment continues to fail after completing these steps, [open an IBM support case](https://cloud.ibm.com/unifiedsupport/cases/add){: external}. Include the Schematics workspace ID, the job ID of the failed apply, and the relevant log output.
+1. If the deployment continues to fail after completing these steps, [open an IBM support case](/unifiedsupport/cases/add){: external}. Include the Schematics workspace ID, the job ID of the failed apply, and the relevant log output.

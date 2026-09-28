@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-09-25"
+lastupdated: "2026-09-28"
 
 keywords: FortiGate cannot connect, FortiGate connection timeout, security group inbound rule, floating IP, FortiGate access
 
@@ -51,4 +51,4 @@ Try the following steps to resolve the issue:
 
 1. Check the FortiGate firewall policy. If the security group rule is in place and you are using the correct IP, verify that a firewall policy on the FortiGate allows HTTPS or SSH traffic on the management interface. Log in through an alternative access method (for example, the HA management IP on `port4`) and review the policies under **Policy & Objects > Firewall Policy**.
 
-1. If the issue persists after completing these steps, [open an IBM support case](https://cloud.ibm.com/unifiedsupport/cases/add){: external}. Include the virtual server instance ID, VPC ID, Schematics workspace ID, and a description of the steps already tried.
+1. If the issue persists after completing these steps, [open an IBM support case](/unifiedsupport/cases/add){: external}. Include the virtual server instance ID, VPC ID, Schematics workspace ID, and a description of the steps already tried.

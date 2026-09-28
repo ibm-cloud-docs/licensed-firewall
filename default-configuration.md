@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-09-25"
+lastupdated: "2026-09-28"
 
 keywords: firewall default configuration, FortiGate default config, HA configuration, bootstrap configuration, SDN connector, public address range, cloud-init
 
@@ -506,7 +506,6 @@ The following table lists all bootstrap variables and their sources:
 | `${par_id}` | Created automatically by IBM Cloud | Public Address Range identifier (cross-zone only). |
 | `${netmask}` | Fixed value | Subnet mask (`255.255.255.0`). |
 {: caption="Bootstrap configuration variables" caption-side="bottom"}
-
 
 ## Related links
 {: #default-config-related-links}

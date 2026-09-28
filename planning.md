@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-09-25"
+lastupdated: "2026-09-28"
 
 keywords: FortiGate planning, licensed firewall planning, FortiGate limitations, security group, Fortinet notifications
 
@@ -52,5 +52,6 @@ Review the following important considerations before you order:
 The following limitations apply to this offering. Review them before you deploy.
 
 - **Regional availability**: All license plans, including ATP, are available in all supported regions.
+- **VPC boot volume snapshots are not supported**: You cannot use IBM Cloud VPC volume snapshots or whole-volume backups to back up or restore FortiGate instances. Restoring from a boot volume snapshot creates licensing conflicts with FortiFlex and bypasses required deployment automation. Use FortiGate configuration file (`.conf`) export and import instead. For more information, see [Backing up and restoring the FortiGate configuration](/docs/licensed-firewall?topic=licensed-firewall-backup-restore-fortigate-config#unsupported-backup-methods).
 - **FortiGate Cloud and FortiCloud access is not available**: Because the license is managed through the IBM Fortinet account, access to FortiGate Cloud and FortiCloud is not supported. AI-based inline malware prevention (Enterprise license) can be configured and used locally but cannot connect to FortiGate Cloud services.
 - **This is not a managed service**: IBM manages licensing and provides support coordination, but you are responsible for deploying, configuring, and maintaining your FortiGate instances. IBM does not configure firewall policies or apply updates on your behalf. For more information, see [Shared responsibilities](/docs/licensed-firewall?topic=licensed-firewall-shared-responsibilities).

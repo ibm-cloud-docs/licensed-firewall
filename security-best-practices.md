@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-09-25"
+lastupdated: "2026-09-28"
 
 keywords: FortiGate security, firewall best practices, security group, admin access, FortiGate hardening, management access, least privilege
 
@@ -119,6 +119,7 @@ IBM does not back up your FortiGate configuration. You are responsible for maint
 - Export the configuration from the FortiGate web console on a regular schedule. For step-by-step instructions, see [Backing up and restoring the FortiGate configuration](/docs/licensed-firewall?topic=licensed-firewall-backup-restore-fortigate-config).
 - Store the backup securely and off the FortiGate instance (for example, in IBM Cloud Object Storage).
 - Test configuration restore procedures before you need them in production.
+- Do not use IBM Cloud VPC volume snapshots or whole-volume backups for firewall recovery. Use FortiGate `.conf` export and restore procedures instead. For more information, see [Unsupported backup methods](/docs/licensed-firewall?topic=licensed-firewall-backup-restore-fortigate-config#unsupported-backup-methods).
 
 ## Related links
 {: #security-best-practices-related-links}

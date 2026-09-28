@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-09-25"
+lastupdated: "2026-09-28"
 
 keywords: resize firewall, change license plan, vsi resize, firewall profile, firewall migration
 
@@ -38,7 +38,7 @@ The virtual server instance restarts automatically after the resize is complete.
 
 The license plan cannot be changed on an existing firewall deployment. To use a different license plan, you must place a new order and cancel the existing one.
 
-1. From the [IBM Cloud catalog](https://cloud.ibm.com/catalog){: external}, deploy a new firewall instance with the required license plan and deployment size.
+1. From the [IBM Cloud catalog](/catalog){: external}, deploy a new firewall instance with the required license plan and deployment size.
 1. [Export the configuration from the existing firewall](/docs/licensed-firewall?topic=licensed-firewall-backup-restore-fortigate-config#backup-web-console).
 1. [Import the configuration into the new instance](/docs/licensed-firewall?topic=licensed-firewall-backup-restore-fortigate-config#restore-web-console).
 1. Validate firewall rules, routing, connectivity, and traffic flow.
