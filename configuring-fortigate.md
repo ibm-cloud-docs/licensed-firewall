@@ -3,7 +3,7 @@
 copyright:
   years: 2026
 
-lastupdated: "2026-09-25"
+lastupdated: "2026-09-29"
 
 keywords: FortiGate configuration, firewall policy, configure FortiGate, initial setup, routing, security profiles, FortiGate web console
 
@@ -48,16 +48,16 @@ For guidance on interface configuration, see the [FortiGate Administration Guide
 ## Configure routing
 {: #config-routing}
 
-The FortiGate requires static routes to direct traffic correctly between interfaces. At minimum, you need a default route on `port1` pointing to the public subnet gateway so that outbound internet traffic can flow, including license validation and FortiGuard updates.
+The FortiGate VM requires static routes to direct traffic correctly between interfaces. At minimum, you need a default route on `port1` pointing to the public subnet gateway so that outbound internet traffic can flow, including license validation and FortiGuard updates.
 
-For inter-subnet or internet-bound traffic to flow through the firewall, you must also update the VPC routing tables to send traffic to the FortiGate's private interface (`port2`) as the next hop. For step-by-step instructions, see [Step 3: Route traffic through the firewall](/docs/licensed-firewall?topic=licensed-firewall-access-firewall#access-firewall-routing).
+For inter-subnet or internet-bound traffic to flow through the firewall, you must also update the VPC routing tables to send traffic to the FortiGate VM's private interface (`port2`) as the next hop. For step-by-step instructions, see [Step 3: Route traffic through the firewall](/docs/licensed-firewall?topic=licensed-firewall-access-firewall#access-firewall-routing).
 
-For guidance on static route configuration on the FortiGate itself, see the [FortiGate Administration Guide](https://docs.fortinet.com/product/fortigate/8.0){: external}.
+For guidance on static route configuration on the FortiGate VM itself, see the [FortiGate Administration Guide](https://docs.fortinet.com/product/fortigate/8.0){: external}.
 
 ## Create firewall policies
 {: #config-firewall-policies}
 
-The bootstrap configuration does not include any firewall policies. Without at least one allow policy, the FortiGate drops all traffic that passes between interfaces, even if VPC routing is correctly configured.
+The bootstrap configuration does not include any firewall policies. Without at least one allow policy, the FortiGate VM drops all traffic that passes between interfaces, even if VPC routing is correctly configured.
 
 Create firewall policies that match your traffic requirements. At minimum, consider:
 

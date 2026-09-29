@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-09-25"
+lastupdated: "2026-09-29"
 
 keywords: access fortigate, FortiGate web console, SSH fortigate, floating IP, fortigate login, security group inbound rule
 
@@ -15,7 +15,7 @@ subcollection: licensed-firewall
 # Accessing your FortiGate firewall
 {: #access-firewall}
 
-After you deploy a FortiGate firewall, you can access it through the FortiGate web console or SSH.
+After you deploy a FortiGate VM firewall, you can access it through the FortiGate web console or SSH.
 {: shortdesc}
 
 The firewall is not reachable immediately after deployment. Two dedicated security groups are created automatically, one for the public interface and one for the private interface. Both include restrictive pre-configured inbound rules that allow the instance to download the license and enable cluster synchronization. They do not permit management access. A floating IP is assigned to `port4` (the management interface) and is visible in your VPC resources, but all connection attempts time out until you complete Step 1.
@@ -24,7 +24,7 @@ The firewall is not reachable immediately after deployment. Two dedicated securi
 ## Before you begin
 {: #access-firewall-prereqs}
 
-- The FortiGate deployment must be complete and in a running state.
+- The FortiGate VM deployment must be complete and in a running state.
 - You need the management-floating IP address and initial administrator password from the Schematics workspace output. The output variable names differ by topology.
 - The initial administrator password might be empty on the first start. If the password field is empty, use the virtual server instance ID as the initial password.
 
@@ -41,7 +41,7 @@ The firewall is not reachable immediately after deployment. Two dedicated securi
 The security groups that are created during deployment deny all inbound management traffic. When you open a security group, you see pre-configured inbound rules for licensing and cluster synchronization. Do not remove these rules. Add a new inbound rule to allow HTTPS or SSH access from your administrator IP address before you can connect.
 
 1. In the [IBM Cloud console](/login), click the navigation menu and select **VPC Infrastructure > Security groups**.
-1. Locate the security group for the public interface that was created for your FortiGate deployment. It is named after your deployment cluster.
+1. Locate the security group for the public interface that was created for your FortiGate VM deployment. It is named after your deployment cluster.
 1. Click the security group name to open it.
 1. On the **Rules** tab, click **Create**.
 1. Set **Direction** to **Inbound**.
@@ -80,20 +80,20 @@ To open the console, navigate to your VSI in the [IBM Cloud console](/login) und
 ## Step 3: Route traffic through the firewall
 {: #access-firewall-routing}
 
-The floating IP on `port4` (management interface) makes the firewall reachable for management purposes. `port1` is the public data interface and `port2` is the private data interface. For the FortiGate to inspect and control traffic between your VPC subnets or between your VPC and the internet, you must configure VPC routing to send traffic through `port1` and `port2`.
+The floating IP on `port4` (management interface) makes the firewall reachable for management purposes. `port1` is the public data interface and `port2` is the private data interface. For the FortiGate VM to inspect and control traffic between your VPC subnets or between your VPC and the internet, you must configure VPC routing to send traffic through `port1` and `port2`.
 
-To route traffic through the FortiGate, update the VPC routing tables so that the FortiGate's private interface (`port2`) is the next hop for the traffic you want to inspect:
+To route traffic through the FortiGate VM, update the VPC routing tables so that the FortiGate VM's private interface (`port2`) is the next hop for the traffic you want to inspect:
 
 1. In the [IBM Cloud console](/login), click the navigation menu and select **VPC Infrastructure > Network > Routing tables**.
 1. Select the routing table associated with the subnet whose traffic you want to route through the firewall.
 1. Click **Create route**.
 1. Set the **Destination CIDR** to the traffic that you want to inspect (for example, `0.0.0.0/0` for all outbound internet traffic, or a specific subnet CIDR for inter-subnet traffic).
-1. Set the **Next hop** type to **IP address** and enter the private IP address of the FortiGate `port2` interface.
+1. Set the **Next hop** type to **IP address** and enter the private IP address of the FortiGate VM `port2` interface.
 1. Click **Save**.
 
 Repeat this for each subnet whose traffic needs to flow through the firewall.
 
-For traffic to flow correctly, the FortiGate must also have a firewall policy that allows the traffic between the source and destination interfaces (`port1` and `port2`). Without a matching allow policy, the FortiGate drops the traffic even if routing is correctly configured. For guidance on creating firewall policies, see the [FortiGate Administration Guide](https://docs.fortinet.com/product/fortigate/8.0){: external}.
+For traffic to flow correctly, the FortiGate VM must also have a firewall policy that allows the traffic between the source and destination interfaces (`port1` and `port2`). Without a matching allow policy, the FortiGate VM drops the traffic even if routing is correctly configured. For guidance on creating firewall policies, see the [FortiGate Administration Guide](https://docs.fortinet.com/product/fortigate/8.0){: external}.
 {: important}
 
 ## Step 4: Log in to the FortiGate web console

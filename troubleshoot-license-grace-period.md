@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-09-28"
+lastupdated: "2026-09-29"
 
 keywords: FortiGate license grace period, FortiFlex grace period, FortiGuard connectivity, license expiring, license warning, license invalid
 
@@ -19,7 +19,7 @@ content-type: troubleshoot
 {: troubleshoot}
 {: support}
 
-The FortiGate FortiFlex license shows a status of `Invalid`, `Warning`, or `Grace Period` instead of `Valid`.
+The FortiGate VM FortiFlex license shows a status of `Invalid`, `Warning`, or `Grace Period` instead of `Valid`.
 {: shortdesc}
 
 The FortiGate CLI or FortiGuard subscription service shows a license status of `Warning`, `Grace Period`, or `Invalid`. FortiGuard subscription services may be degraded or unavailable, and the instance may have stopped processing traffic.
@@ -36,7 +36,7 @@ The FortiFlex license requires periodic contact with Fortinet's FortiGuard serve
 Try the following steps to restore connectivity and resolve the issue:
 {: tsResolve}
 
-1. Check whether the FortiGate can reach FortiGuard. Run the following commands on the FortiGate CLI:
+1. Check whether the FortiGate VM can reach FortiGuard. Run the following commands on the FortiGate CLI:
 
    ```sh
    diagnose debug application update -1
@@ -58,7 +58,7 @@ Try the following steps to restore connectivity and resolve the issue:
    ```
    {: screen}
 
-   If the output shows repeated `SETUP failed` lines, as shown in the following example, the FortiGate cannot reach FortiGuard:
+   If the output shows repeated `SETUP failed` lines, as shown in the following example, the FortiGate VM cannot reach FortiGuard:
 
    ```screen
    IBM-HA-Active(Primary) (Interim)# execute update-now
@@ -115,7 +115,7 @@ Try the following steps to restore connectivity and resolve the issue:
    ![Security group missing the required egress rules for FortiGuard connectivity](images/sg3.png){: caption-side="bottom"}
    {: caption="Security group missing the required egress rules for FortiGuard connectivity"}
 
-1. Verify that the floating IP and public gateway are attached. Each FortiGate node must have a route to the public internet. Confirm that a floating IP is attached to `port1` on each node. For Active/Passive HA Single Zone deployments, also confirm that a public gateway is attached to the public subnet for the secondary node. For more information, see [Public connectivity requirements](/docs/licensed-firewall?topic=licensed-firewall-understanding-fortigate-licensing#licensing-public-connectivity).
+1. Verify that the floating IP and public gateway are attached. Each FortiGate VM node must have a route to the public internet. Confirm that a floating IP is attached to `port1` on each node. For Active/Passive HA Single Zone deployments, also confirm that a public gateway is attached to the public subnet for the secondary node. For more information, see [Public connectivity requirements](/docs/licensed-firewall?topic=licensed-firewall-understanding-fortigate-licensing#licensing-public-connectivity).
 
 1. Check any Network Access Control Lists (NACLs). If a NACL is applied to the public subnet, confirm that it includes egress rules that allow outbound traffic to FortiGuard on UDP 53, TCP 443, and TCP 8890. Add the missing rules if any are blocked.
 

@@ -3,7 +3,7 @@
 copyright:
   years: 2026
 
-lastupdated: "2026-09-28"
+lastupdated: "2026-09-29"
 
 keywords: FortiGate backup, FortiGate restore, export configuration, import configuration, FortiGate config backup
 
@@ -16,10 +16,10 @@ subcollection: licensed-firewall
 # Backing up and restoring the FortiGate configuration
 {: #backup-restore-fortigate-config}
 
-Back up your FortiGate configuration regularly to protect against data loss and to simplify migration between deployments. You can back up and restore the configuration by using the FortiGate web console or the CLI.
+Back up your FortiGate VM configuration regularly to protect against data loss and to simplify migration between deployments. You can back up and restore the configuration by using the FortiGate web console or the CLI.
 {: shortdesc}
 
-IBM does not back up your FortiGate configuration. You are responsible for maintaining backups and storing them securely.
+IBM does not back up your FortiGate VM configuration. You are responsible for maintaining backups and storing them securely.
 {: important}
 
 ## Before you begin
@@ -74,7 +74,7 @@ To restore the FortiGate configuration in the console, follow these steps:
 1. If VDOMs are enabled, select the scope to restore (**Global**, a specific VDOM, or all VDOMs).
 1. Click **Restore**.
 
-The FortiGate restarts automatically after the restore completes. Log in again when the instance is back online to verify the configuration.
+The FortiGate VM restarts automatically after the restore completes. Log in again when the instance is back online to verify the configuration.
 
 Restoring a configuration overwrites the current running configuration. Make sure that you have a backup of the current configuration before you restore.
 {: important}
@@ -95,9 +95,9 @@ Replace `<filename>` with the backup file name and `<tftp-server-ip>` with the I
 ## Adapting a configuration for a new deployment
 {: #adapt-config}
 
-If you are restoring a configuration to a different FortiGate instance (for example, when you change license plans or migrating from Classic to VPC), you must update these items before you import:
+If you are restoring a configuration to a different FortiGate VM instance (for example, when you change license plans or migrating from Classic to VPC), you must update these items before you import:
 
-- **Interface names**: VPC FortiGate deployments use `port1` and `port2`. Classic deployments can use different interface names. Update all references.
+- **Interface names**: VPC FortiGate VM deployments use `port1` and `port2`. Classic deployments can use different interface names. Update all references.
 - **IP addresses and subnets**: Replace all interface IPs, static routes, and gateway addresses with the values that correspond to the new VPC subnets.
 - **HA settings**: If you move from a single VM to an HA deployment, or between HA configurations, update the HA peer IP addresses, management interface, and heartbeat interface settings.
 - **SDN connector**: Update the IBM Cloud SDN connector API key and region to match the new deployment.
@@ -108,14 +108,14 @@ Edit the `.conf` file in a text editor before you import it. Search for the inte
 ## Unsupported backup methods
 {: #unsupported-backup-methods}
 
-**IBM Cloud VPC boot volume snapshots and whole-volume backups are not supported** for FortiGate licensed firewall instances.
+**IBM Cloud VPC boot volume snapshots and whole-volume backups are not supported** for FortiGate VM licensed firewall instances.
 
 Do not use VPC volume snapshots to back up or restore a firewall instance for the following reasons:
 
 - **Licensing incompatibility**: FortiOS registers a FortiFlex license specific to the original virtual server instance. A boot volume restored from a snapshot retains the previous instance's license registration, and FortiOS cannot automatically detect or acquire a new license on the new instance.
 - **Bypassed deployment automation**: Deploying directly from a snapshot bypasses the Terraform and `cloud-init` automation required to configure instance metadata, licensing services, and associated VPC networking resources.
 
-To back up and restore your firewall, export the configuration `.conf` file as described in [Backing up the FortiGate configuration in the console](#backup-web-console). If you need to replace an instance, deploy a new firewall from the IBM Cloud catalog and import your configuration file.
+To back up and restore your firewall, export the configuration `.conf` file as described in [Backing up the FortiGate VM configuration in the console](#backup-web-console). If you need to replace an instance, deploy a new firewall from the IBM Cloud catalog and import your configuration file.
 
 ## Related links
 {: #backup-restore-related-links}

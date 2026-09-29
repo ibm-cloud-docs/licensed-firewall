@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-09-28"
+lastupdated: "2026-09-29"
 
 keywords: FortiGate security, firewall best practices, security group, admin access, FortiGate hardening, management access, least privilege
 
@@ -15,15 +15,15 @@ subcollection: licensed-firewall
 # Security best practices for FortiGate on IBM Cloud VPC
 {: #fortigate-security-best-practices}
 
-Follow these security best practices to reduce the attack surface of your FortiGate deployment, protect management access, and maintain a strong security posture throughout the lifecycle of your firewall.
+Follow these security best practices to reduce the attack surface of your FortiGate VM deployment, protect management access, and maintain a strong security posture throughout the lifecycle of your firewall.
 {: shortdesc}
 
 ## Restrict management access through the security group
 {: #bp-restrict-management-access}
 
-Every FortiGate deployment creates two dedicated security groups — one for the public interface and one for the private interface. Both include restrictive pre-configured inbound rules that allow the instance to download the license and enable cluster synchronization. They do not permit management access and must not be removed.
+Every FortiGate VM deployment creates two dedicated security groups — one for the public interface and one for the private interface. Both include restrictive pre-configured inbound rules that allow the instance to download the license and enable cluster synchronization. They do not permit management access and must not be removed.
 
-The public security group also restricts outbound (egress) traffic for all three FortiGate offerings to only what is required for Fortinet services:
+The public security group also restricts outbound (egress) traffic for all three FortiGate VM offerings to only what is required for Fortinet services:
 
 - **UDP 53** — FortiGuard DNS and SDNS queries
 - **TCP 443** — Licensing, FortiCare, and entitlements
@@ -50,7 +50,7 @@ The initial administrator password is generated at deployment time and is displa
 ## Disable unused management protocols on each FortiGate interface
 {: #bp-disable-unused-protocols}
 
-Within the FortiGate itself, the default bootstrap configuration enables HTTPS, SSH, and ping on both `port1` and `port2`. This is independent of the IBM Cloud security group, which controls traffic at the VPC network layer. For additional hardening, you can use the FortiGate web console to disable any management protocols on each interface that are not required for your operational workflow.
+Within the FortiGate VM itself, the default bootstrap configuration enables HTTPS, SSH, and ping on both `port1` and `port2`. This is independent of the IBM Cloud security group, which controls traffic at the VPC network layer. For additional hardening, you can use the FortiGate web console to disable any management protocols on each interface that are not required for your operational workflow.
 
 1. Log in to the FortiGate web console.
 1. Go to **Network > Interfaces**.
@@ -78,8 +78,8 @@ This approach eliminates direct internet-facing management access entirely.
 Running a supported and patched firmware version is one of the most effective defenses against known vulnerabilities.
 
 - Subscribe to Fortinet PSIRT advisories to be notified of new vulnerabilities. For more information, see [Keeping abreast of firmware updates and vulnerability patches](/docs/licensed-firewall?topic=licensed-firewall-addressing-vulnerabilities).
-- Review the FortiGate release notes before you upgrade to understand any behavior changes.
-- Schedule firmware upgrades during a maintenance window. The FortiGate restarts during an upgrade.
+- Review the FortiGate VM release notes before you upgrade to understand any behavior changes.
+- Schedule firmware upgrades during a maintenance window. The FortiGate VM restarts during an upgrade.
 - For HA deployments, follow Fortinet recommended upgrade sequence to minimize downtime.
 
 ## Enable logging for all firewall policies
@@ -114,10 +114,10 @@ For instructions, see [Enabling security services](/docs/licensed-firewall?topic
 ## Back up your configuration regularly
 {: #bp-configuration-backup}
 
-IBM does not back up your FortiGate configuration. You are responsible for maintaining backups.
+IBM does not back up your FortiGate VM configuration. You are responsible for maintaining backups.
 
 - Export the configuration from the FortiGate web console on a regular schedule. For step-by-step instructions, see [Backing up and restoring the FortiGate configuration](/docs/licensed-firewall?topic=licensed-firewall-backup-restore-fortigate-config).
-- Store the backup securely and off the FortiGate instance (for example, in IBM Cloud Object Storage).
+- Store the backup securely and off the FortiGate VM instance (for example, in IBM Cloud Object Storage).
 - Test configuration restore procedures before you need them in production.
 - Do not use IBM Cloud VPC volume snapshots or whole-volume backups for firewall recovery. Use FortiGate `.conf` export and restore procedures instead. For more information, see [Unsupported backup methods](/docs/licensed-firewall?topic=licensed-firewall-backup-restore-fortigate-config#unsupported-backup-methods).
 

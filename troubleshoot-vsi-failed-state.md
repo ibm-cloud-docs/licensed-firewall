@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-09-28"
+lastupdated: "2026-09-29"
 
 keywords: FortiGate VSI failed, virtual server instance failed, provisioning failed state, FortiGate deployment failed
 
@@ -19,13 +19,13 @@ content-type: troubleshoot
 {: troubleshoot}
 {: support}
 
-After ordering a FortiGate instance from the IBM Cloud catalog, the virtual server instance is in a `Failed` state.
+After ordering a FortiGate VM instance from the IBM Cloud catalog, the virtual server instance is in a `Failed` state.
 {: shortdesc}
 
-The virtual server instance shows a `Failed` status in the IBM Cloud console. The instance is shut down and the FortiGate is not accessible.
+The virtual server instance shows a `Failed` status in the IBM Cloud console. The instance is shut down and the FortiGate VM is not accessible.
 {: tsSymptoms}
 
-When a FortiGate instance is provisioned, several IBM Cloud components are involved in sequence: Catalog Manager, Resource Controller, License Manager, and the VNF License Provider. If an error occurs in any of these components during provisioning, the virtual server instance is marked as `Failed` and shut down automatically. Common causes include:
+When a FortiGate VM instance is provisioned, several IBM Cloud components are involved in sequence: Catalog Manager, Resource Controller, License Manager, and the VNF License Provider. If an error occurs in any of these components during provisioning, the virtual server instance is marked as `Failed` and shut down automatically. Common causes include:
 {: tsCauses}
 
 - An error occurred in the VNF License Provider while retrieving or creating the FortiFlex license token.

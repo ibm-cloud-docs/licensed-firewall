@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-09-25"
+lastupdated: "2026-09-29"
 
 keywords: FortiGate IPS, antivirus, web filtering, application control, security profiles, FortiGate security services, intrusion prevention, deep packet inspection, SSL inspection, TLS inspection
 
@@ -38,11 +38,12 @@ Enabling multiple security services on the same firewall policy increases CPU us
 ## Deep packet inspection
 {: #deep-packet-inspection}
 
-Security services such as IPS, antivirus, web filtering, and application control require deep packet inspection (DPI) to examine the contents of network traffic. For encrypted traffic (HTTPS and other TLS-based protocols), FortiGate must perform SSL/TLS inspection to decrypt, inspect, and re-encrypt the traffic before it reaches its destination.
+Security services such as IPS, antivirus, web filtering, and application control require deep packet inspection (DPI) to examine the contents of network traffic. For encrypted traffic (HTTPS and other TLS-based protocols), FortiGate VM must perform SSL/TLS inspection to decrypt, inspect, and re-encrypt the traffic before it reaches its destination.
 
-Without SSL/TLS inspection enabled, FortiGate can only inspect unencrypted traffic. Security profiles attached to firewall policies will not detect threats or enforce policies within encrypted sessions.
 
-FortiGate supports two SSL inspection modes:
+Without SSL/TLS inspection enabled, FortiGate VM can only inspect unencrypted traffic. Security profiles attached to firewall policies will not detect threats or enforce policies within encrypted sessions.
+
+FortiGate VM supports two SSL inspection modes:
 
 - **Certificate inspection** — Inspects the certificate presented during the TLS handshake without decrypting the payload. This is a lighter-weight option that can identify the destination and enforce basic controls, but cannot detect threats hidden inside encrypted content.
 - **Full SSL inspection** — Decrypts, inspects, and re-encrypts traffic. This enables all security services to operate on encrypted traffic, providing the highest level of protection. It requires deploying the FortiGate CA certificate to client devices so that they trust the re-signed certificates.

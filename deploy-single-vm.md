@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-08-18"
+lastupdated: "2026-09-29"
 
 keywords: deploy firewall, FortiGate, single VM, Terraform, Schematics
 
@@ -15,7 +15,7 @@ subcollection: licensed-firewall
 # Deploying a FortiGate Single VM firewall
 {: #deploy-single-vm}
 
-The Single VM offering deploys one FortiGate next-generation firewall virtual machine into your VPC. It provides a single public interface (`port1`) and a single private interface (`port2`) with no redundancy. This topology is suited for development, testing, or workloads where a brief interruption during instance recovery is acceptable.
+The Single VM offering deploys one FortiGate VM next-generation firewall virtual machine into your VPC. It provides a single public interface (`port1`) and a single private interface (`port2`) with no redundancy. This topology is suited for development, testing, or workloads where a brief interruption during instance recovery is acceptable.
 {: shortdesc}
 
 ## Before you begin
@@ -27,7 +27,7 @@ Before you deploy, ensure that you have reviewed [Planning for FortiGate on IBM 
 - 2 subnets in the VPC — one public (`port1`), one private (`port2`)
 - A pre-created SSH key in the target region
 - An IBM Cloud API key with sufficient permissions to create VPC resources
-- If a Network Access Control List (NACL) is applied to the public subnet, confirm that it includes egress rules that allow outbound traffic on UDP 53, TCP 443, and TCP 8890. These ports are required for FortiGate license registration and periodic FortiGuard validation.
+- If a Network Access Control List (NACL) is applied to the public subnet, confirm that it includes egress rules that allow outbound traffic on UDP 53, TCP 443, and TCP 8890. These ports are required for FortiGate VM license registration and periodic FortiGuard validation.
 
 Two security groups are created automatically during deployment — one for the public interface and one for the private interface. You do not need to create them in advance.
 
@@ -36,7 +36,7 @@ Two security groups are created automatically during deployment — one for the 
 
 Terraform deploys the following resources:
 
-- One FortiGate licensed instance with two network interfaces (`port1` and `port2`)
+- One FortiGate VM licensed instance with two network interfaces (`port1` and `port2`)
 - One floating public IP address attached to `port1`
 - One log disk
 - Two security groups — one for the public interface (`port1`) and one for the private interface (`port2`) — each with restrictive inbound rules that allow the instance to download the license and enable cluster synchronization, and allow-all outbound rules

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-09-25"
+lastupdated: "2026-09-29"
 
 keywords: deploy firewall, FortiGate, HA cross zone, high availability, Terraform, Schematics, public address range
 
@@ -15,7 +15,7 @@ subcollection: licensed-firewall
 # Deploying a FortiGate HA Cross Zone firewall
 {: #deploy-ha-cross-zone}
 
-The HA Cross Zone offering deploys two FortiGate next-generation firewall instances as an active/passive (A/P) cluster across two separate availability zones. In addition to automatic failover via the IBM Cloud SDN connector, a public address range enables the cluster's floating IP address to move between zones, providing resilience against a full zone outage. This is the highest-availability topology and is recommended for production workloads with strict uptime requirements.
+The HA Cross Zone offering deploys two FortiGate VM next-generation firewall instances as an active/passive (A/P) cluster across two separate availability zones. In addition to automatic failover via the IBM Cloud SDN connector, a public address range enables the cluster's floating IP address to move between zones, providing resilience against a full zone outage. This is the highest-availability topology and is recommended for production workloads with strict uptime requirements.
 {: shortdesc}
 
 ## Before you begin
@@ -27,11 +27,11 @@ Before you deploy, ensure that you have reviewed [Planning for FortiGate on IBM 
 - 8 subnets — four per zone, one for each port (`port1`–`port4`)
 - A pre-created SSH key in the target region
 - An IBM Cloud API key with sufficient permissions to create VPC resources
-- If a Network Access Control List (NACL) is applied to the public subnets, confirm that it includes egress rules that allow outbound traffic on UDP 53, TCP 443, and TCP 8890. These ports are required for FortiGate license registration and periodic FortiGuard validation.
+- If a Network Access Control List (NACL) is applied to the public subnets, confirm that it includes egress rules that allow outbound traffic on UDP 53, TCP 443, and TCP 8890. These ports are required for FortiGate VM license registration and periodic FortiGuard validation.
 
 Two security groups are created automatically during deployment — one for the public interface and one for the private interface. You do not need to create them in advance.
 
-This offering requires static IP addresses for all FortiGate interfaces across both zones. Allocate eight subnets — four per zone — and plan your IP assignments before you begin. Also verify that your account has sufficient floating IP quota in the target region, as four floating IPs are consumed.
+This offering requires static IP addresses for all FortiGate VM interfaces across both zones. Allocate eight subnets — four per zone — and plan your IP assignments before you begin. Also verify that your account has sufficient floating IP quota in the target region, as four floating IPs are consumed.
 {: important}
 
 ## Deploying an HA Cross Zone firewall
@@ -39,10 +39,10 @@ This offering requires static IP addresses for all FortiGate interfaces across b
 
 Terraform deploys the following resources:
 
-- Two FortiGate licensed instances across two availability zones, each with four network interfaces (`port1`–`port4`)
-- Four floating public IP addresses: one on `port1` and one on `port4` of each FortiGate
+- Two FortiGate VM licensed instances across two availability zones, each with four network interfaces (`port1`–`port4`)
+- Four floating public IP addresses: one on `port1` and one on `port4` of each FortiGate VM
 - One public address range for floating IP failover across zones
-- One log disk per FortiGate
+- One log disk per FortiGate VM
 - Two security groups: one for the public interfaces (`port1` and `port4`) and one for the private interfaces (`port2` and `port3`): with restrictive inbound rules (license download on the public group; HA heartbeat traffic on TCP/UDP port 703 on the private group) and allow-all outbound rules
 - A bootstrap configuration with HA, SDN connector, public address range, and VDOM exception settings
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-08-10"
+lastupdated: "2026-09-29"
 
 keywords: licensed firewall release notes, FortiGate updates, licensed firewall changes
 
@@ -17,7 +17,7 @@ content-type: release-note
 # Release notes for FortiGate licensed firewall
 {: #licensed-firewall-release-notes}
 
-Use these release notes to learn about the latest updates to the FortiGate licensed firewall on IBM Cloud VPC.
+Use these release notes to learn about the latest updates to the FortiGate VM licensed firewall on IBM Cloud VPC.
 {: shortdesc}
 
 ## July 2026
@@ -27,4 +27,4 @@ Use these release notes to learn about the latest updates to the FortiGate licen
 {: #licensed-firewall-31-july-2026}
 
 **Initial release**
-:   The FortiGate licensed firewall on IBM Cloud VPC is now available. Deploy a single VM, HA single zone, or HA cross zone FortiGate firewall directly from the IBM Cloud catalog using a pay-as-you-go license model. See [Getting started with Fortinet FortiGate for IBM Cloud VPC](/docs/licensed-firewall?topic=licensed-firewall-getting-started).
+:   The FortiGate VM licensed firewall on IBM Cloud VPC is now available. Deploy a single VM, HA single zone, or HA cross zone FortiGate VM firewall directly from the IBM Cloud catalog using a pay-as-you-go license model. See [Getting started with Fortinet FortiGate for IBM Cloud VPC](/docs/licensed-firewall?topic=licensed-firewall-getting-started).

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-09-28"
+lastupdated: "2026-09-29"
 
 keywords: FortiGate deployment failed, Schematics error, Terraform failed, cart creation failed, firewall deployment error
 
@@ -19,7 +19,7 @@ content-type: troubleshoot
 {: troubleshoot}
 {: support}
 
-A FortiGate firewall deployment started from the IBM Cloud catalog did not complete successfully.
+A FortiGate VM firewall deployment started from the IBM Cloud catalog did not complete successfully.
 {: shortdesc}
 
 The IBM Cloud Schematics workspace log shows one or more Terraform errors, the deployment stops before finishing, or the log completes without displaying both **Terraform commands successful** and **Cart creation successful**.

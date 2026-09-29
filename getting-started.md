@@ -3,7 +3,7 @@
 copyright:
   years: 2026
 
-lastupdated: "2026-09-25"
+lastupdated: "2026-09-29"
 
 keywords: FortiGate, IBM Cloud VPC, licensed firewall, fortinet, next-generation firewall, NGFW, paygo firewall
 
@@ -19,9 +19,9 @@ subcollection: licensed-firewall
 IBM Cloud Virtual Private Cloud (VPC) provides a scalable and secure foundation for hosting modern cloud workloads. Within this environment, Fortinet FortiGate next-generation firewall technology delivers complete content and network protection and is available for deployment on IBM Cloud VPC.
 {: shortdesc}
 
-Deployed in a VPC architecture, FortiGate provides centralized visibility and control over network traffic entering, leaving, and moving within the virtual private network. This enables organizations to apply consistent security policies, improve workload segmentation, and protect applications from a wide range of evolving cyberthreats while maintaining cloud agility and scalability.
+Deployed in a VPC architecture, FortiGate VM provides centralized visibility and control over network traffic entering, leaving, and moving within the virtual private network. This enables organizations to apply consistent security policies, improve workload segmentation, and protect applications from a wide range of evolving cyberthreats while maintaining cloud agility and scalability.
 
-Because FortiGate is deployed as a licensed virtual appliance in IBM Cloud VPC, organizations must also account for resource consumption, such as compute, storage, and network usage, to ensure effective monitoring and cost control.
+Because FortiGate VM is deployed as a licensed virtual appliance in IBM Cloud VPC, organizations must also account for resource consumption, such as compute, storage, and network usage, to ensure effective monitoring and cost control.
 
 **Disclaimer:** This third-party product is provided by a vendor outside of IBM and is subject to a separate agreement between you and the third party, if you accept their terms. IBM is not responsible for the product and makes no privacy, security, performance, support, or other commitments regarding the product, unless otherwise noted in the provided terms.
 {: important}
@@ -29,7 +29,7 @@ Because FortiGate is deployed as a licensed virtual appliance in IBM Cloud VPC, 
 ## Key benefits
 {: #fortigate-highlights}
 
-FortiGate PayGo combines enterprise-grade security with cloud-native simplicity, helping you remove common deployment and operational barriers.
+FortiGate VM PayGo combines enterprise-grade security with cloud-native simplicity, helping you remove common deployment and operational barriers.
 
 - **Deploy instantly** – Launch firewalls directly from the IBM Cloud catalog with no procurement or setup delays, that use the same workflows as the rest of your cloud infrastructure.
 - **Pay as you go** – Align costs to actual usage with a flexible pay-as-you-go model, with no upfront commitment.

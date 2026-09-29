@@ -2,9 +2,9 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-09-28"
+lastupdated: "2026-09-29"
 
-keywords: FortiGate licensing, FortiFlex, license registration, FortiCare, public gateway, floating IP, license status, troubleshooting, license invalid, license warning, grace period, call-home, HA cluster
+keywords: FortiGate VM licensing, FortiFlex, license registration, FortiCare, public gateway, floating IP, license status, troubleshooting, license invalid, license warning, grace period, call-home, HA cluster
 
 subcollection: licensed-firewall
 
@@ -12,24 +12,24 @@ subcollection: licensed-firewall
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Understanding FortiGate licensing
+# Understanding FortiGate VM licensing
 {: #understanding-fortigate-licensing}
 
-Learn how FortiGate licenses are activated, what public connectivity each deployment topology requires, how to verify that a license is valid, and how to resolve common licensing issues.
+Learn how FortiGate VM licenses are activated, what public connectivity each deployment topology requires, how to verify that a license is valid, and how to resolve common licensing issues.
 {: shortdesc}
 
-**DISCLAIMER** Each FortiGate instance must maintain outbound connectivity to Fortinet's licensing infrastructure over the public internet for license registration and periodic license validation ("call home" requirements). The default configuration provides the required connectivity. Blocking this access can cause the license status to change to `Invalid`. See [Public connectivity requirement](#licensing-public-connectivity) for details about the connectivity required for each deployment topology. There is a 30-day grace period for Fortigate instances that cannot communicate with FortiGuard. If an instance remains offline for longer than 30 days, real-time lookup services for certain features stop and the VM might stop processing traffic altogether. A single failed check is enough to trigger the `Warning` status. For the full call-home sequence, see [How license validation works](#licensing-call-home).
+**DISCLAIMER** Each FortiGate VM instance must maintain outbound connectivity to Fortinet's licensing infrastructure over the public internet for license registration and periodic license validation ("call home" requirements). The default configuration provides the required connectivity. Blocking this access can cause the license status to change to `Invalid`. See [Public connectivity requirement](#licensing-public-connectivity) for details about the connectivity required for each deployment topology. There is a 30-day grace period for FortiGate VM instances that cannot communicate with FortiGuard. If an instance remains offline for longer than 30 days, real-time lookup services for certain features stop and the VM might stop processing traffic altogether. A single failed check is enough to trigger the `Warning` status. For the full call-home sequence, see [How license validation works](#licensing-call-home).
 {: important}
 
 ## Overview
 {: #licensing-overview}
 
-When you provision a FortiGate instance from the IBM Cloud catalog, IBM automatically handles the full license lifecycle. The FortiFlex license is retrieved and installed by the FortiGate image when the instance first starts. You do not need to register or apply a license manually. After provisioning, each node periodically validates its license by contacting Fortinet FortiGuard infrastructure over the public internet. Interrupting that outbound connectivity is the most common cause of license issues after deployment.
+When you provision a FortiGate VM instance from the IBM Cloud catalog, IBM automatically handles the full license lifecycle. The FortiFlex license is retrieved and installed by the FortiGate VM image when the instance first starts. You do not need to register or apply a license manually. After provisioning, each node periodically validates its license by contacting Fortinet FortiGuard infrastructure over the public internet. Interrupting that outbound connectivity is the most common cause of license issues after deployment.
 
 ## How license validation works (call-home)
 {: #licensing-call-home}
 
-Every running FortiGate instance checks in with Fortinet's FortiGuard Network (FDN) to confirm that its license is still valid. This is called a "call-home" check. The following steps describe what happens if that check fails.
+Every running FortiGate VM instance checks in with Fortinet's FortiGuard Network (FDN) to confirm that its license is still valid. This is called a "call-home" check. The following steps describe what happens if that check fails.
 
 1. **Every 60 minutes, FortiOS contacts FDN.** As long as each check succeeds, the license status remains `Valid` and nothing changes.
 1. **One failed check triggers a `Warning`.** FortiOS does not wait for repeated failures. A single missed check is enough to change the license status to `Warning`. The VM continues to process traffic normally.
@@ -48,7 +48,7 @@ Look for the `License Status` field in the output. If it shows `Warning`, act pr
 ## Public connectivity requirement
 {: #licensing-public-connectivity}
 
-Each FortiGate instance, including the secondary node in an HA deployment, must be able to reach the Fortinet licensing infrastructure over the public internet. The public security group's egress rules permit the required outbound traffic on UDP 53, TCP 443, and TCP 8890. How public connectivity is provided depends on the deployment topology.
+Each FortiGate VM instance, including the secondary node in an HA deployment, must be able to reach the Fortinet licensing infrastructure over the public internet. The public security group's egress rules permit the required outbound traffic on UDP 53, TCP 443, and TCP 8890. How public connectivity is provided depends on the deployment topology.
 
 ### Single VM
 {: #licensing-single-vm}
@@ -60,7 +60,7 @@ A floating IP is automatically attached to the public interface (`port1`) at dep
 
 A floating IP is attached to the public interface (`port1`) and the management interface (`port4`) of the primary node. For the secondary node, the floating IP is assigned only to the management interface (`port4`).
 
-`PUBLIC_GATEWAY_ID` is the ID of the public gateway that you attach to the `port1` subnet so that the secondary FortiGate node can reach the internet and register its license. You are prompted to supply the public gateway ID during the Schematics deployment.
+`PUBLIC_GATEWAY_ID` is the ID of the public gateway that you attach to the `port1` subnet so that the secondary FortiGate VM node can reach the internet and register its license. You are prompted to supply the public gateway ID during the Schematics deployment.
 
 ### Active/Passive HA - Cross Zone
 {: #licensing-ha-cross-zone}
@@ -70,7 +70,7 @@ A floating IP is attached to the public interface (`port1`) and the management i
 ## How the FortiFlex license is installed
 {: #licensing-fortiflex-install}
 
-When the FortiGate virtual machine starts for the first time, FortiOS runs a built-in license injection process:
+When the FortiGate VM starts for the first time, FortiOS runs a built-in license injection process:
 
 1. FortiOS calls the IBM Cloud instance metadata [authentication APIs](/docs/apis/vpc-identity/latest#create-identity-token){: external} to obtain an identity token.
 1. Using that token, FortiOS calls the software attachments metadata endpoint to retrieve the FortiFlex license key associated with your virtual server instance.
@@ -111,7 +111,7 @@ If the log shows repeated `Failed to request forticare license` lines, the most 
 ## License registration and status
 {: #licensing-registration-and-status}
 
-The Fortinet FortiFlex infrastructure registers and installs the license during the initial startup of each FortiGate instance. After a successful registration, each FortiGate-VM node displays a `Valid` license status. You can verify the license status by running the following command on the FortiGate CLI:
+The Fortinet FortiFlex infrastructure registers and installs the license during the initial startup of each FortiGate VM instance. After a successful registration, each FortiGate VM node displays a `Valid` license status. You can verify the license status by running the following command on the FortiGate CLI:
 
 ```text
 get system status
@@ -168,7 +168,7 @@ If the instance cannot be recovered, delete the virtual server instance and depl
 ### License is in a grace period
 {: #licensing-troubleshooting-grace-period}
 
-If the license status shows a grace period warning, the FortiGate instance has lost periodic contact with Fortinet FortiGuard. A single failed check sets the status to `Warning`; if connectivity is not restored within 30 days, the license becomes `Invalid` and the VM stops processing traffic. See [How license validation works](#licensing-call-home) for the full call-home sequence.
+If the license status shows a grace period warning, the FortiGate VM instance has lost periodic contact with Fortinet FortiGuard. A single failed check sets the status to `Warning`; if connectivity is not restored within 30 days, the license becomes `Invalid` and the VM stops processing traffic. See [How license validation works](#licensing-call-home) for the full call-home sequence.
 
 To diagnose the connectivity issue, run the following commands on the FortiGate CLI:
 
@@ -203,7 +203,7 @@ If you are unable to resolve a licensing issue by using the steps in this topic,
 
 - The virtual server instance ID
 - The deployment topology (Single VM, Active/Passive HA Single Zone, or Active/Passive HA Cross Zone)
-- The output of `get system status` from each FortiGate node
+- The output of `get system status` from each FortiGate VM node
 - The output of `diagnose debug cloudinit show` if the issue is a failed license injection
 - The output of `diagnose hardware sysinfo vm full` if the issue is a grace period or license validation failure
 - The Schematics workspace logs if the issue occurred during provisioning
