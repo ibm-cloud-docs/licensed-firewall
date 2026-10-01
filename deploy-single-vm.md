@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-09-29"
+lastupdated: "2026-10-01"
 
 keywords: deploy firewall, FortiGate, single VM, Terraform, Schematics
 
@@ -46,7 +46,7 @@ Follow these steps:
 
 1. Log in to the [IBM Cloud console](/login).
 1. Click **Catalog** in the navigation bar.
-1. Search for **Fortinet FortiGate VM NGFW** and select the **Fortinet FortiGate VM NGFW - Single** tile.
+1. Search for **Fortinet FortiGate VM NGFW** and select the **Fortinet FortiGate VM NGFW - Single (IBM reseller)** tile.
 1. In **Configure your workspace**, review or update the following fields:
    - **Name** — A name for the Schematics workspace. A default name is pre-filled.
    - **Location** — The region where the Schematics workspace is created.

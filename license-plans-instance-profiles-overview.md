@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-09-29"
+lastupdated: "2026-10-01"
 
 keywords: firewall, license plans, vsi profiles, instance sizing, deployment sizes
 
@@ -47,9 +47,9 @@ Select a deployment topology based on your availability requirements and toleran
 
 | Topology | Catalog Tile | Firewall Instances | Availability Zones | Automatic Failover | Best For |
 |----------|-------------|-------------------|-------------------|-------------------|----------|
-| Single VM | [Fortinet FortiGate VM NGFW - Single](#){: external} [NEED]{: tag-red} | 1 | 1 | No | Development, testing, or noncritical workloads |
-| Active/Passive HA - Single Zone | [Fortinet FortiGate VM NGFW - A/P HA](#){: external} [NEED]{: tag-red} | 2 | 1 | Yes | Production workloads requiring zone-level redundancy |
-| Active/Passive HA - Cross Zone | [Fortinet FortiGate VM NGFW - Cross Zone A/P HA](#){: external} [NEED]{: tag-red} | 2 | 2 | Yes | Production workloads requiring the highest availability |
+| Single VM | [Fortinet FortiGate VM NGFW - Single (IBM reseller)](https://cloud.ibm.com/catalog/content/ibm-fortigate-terraform-payg-6f8340d8-d6ef-420e-b50e-e305099917c6-global){: external} | 1 | 1 | No | Development, testing, or noncritical workloads |
+| Active/Passive HA - Single Zone | [Fortinet FortiGate VM NGFW - A/P HA (IBM reseller)](https://cloud.ibm.com/catalog/content/ibm-fortigate-AP-HA-terraform-payg-264eea02-7f0f-41b7-86f5-4adbb349430f-global){: external} | 2 | 1 | Yes | Production workloads requiring zone-level redundancy |
+| Active/Passive HA - Cross Zone | [Fortinet FortiGate VM NGFW - Cross Zone A/P HA (IBM reseller)](https://cloud.ibm.com/catalog/content/ibm-fortigate-AP-HA-CZ-terraform-payg-0d38cbcc-403a-430d-9a70-82221de0040b-global){: external} | 2 | 2 | Yes | Production workloads requiring the highest availability |
 {: caption="Deployment topology comparison" caption-side="bottom"}
 
 Key differences between the topologies:

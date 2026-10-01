@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-09-29"
+lastupdated: "2026-10-01"
 
 keywords: deploy firewall, FortiGate, HA single zone, high availability, Terraform, Schematics
 
@@ -53,7 +53,7 @@ Follow these steps:
 
 1. Log in to the [IBM Cloud console](/login).
 1. Click **Catalog** in the navigation bar.
-1. Search for **Fortinet FortiGate VM NGFW** and select the **Fortinet FortiGate VM Next-Generation Firewall - A/P HA** tile.
+1. Search for **Fortinet FortiGate VM NGFW** and select the **Fortinet FortiGate VM NGFW - A/P HA (IBM reseller)** tile.
 1. In **Select your deployment target**, select **IBM Cloud**.
 1. In **Select a delivery method**, select **Terraform**.
 1. In **Select product version**, choose a product version from the menu.
