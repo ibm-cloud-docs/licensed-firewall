@@ -48,8 +48,7 @@ Try the following steps to verify that the instance is using the VNF License Ser
    ![Pricing plan details showing Plan licenses and Entitlement ID](images/vsi-instance3.png){: caption-side="bottom"}
    {: caption="Pricing plan details showing Plan licenses and Entitlement ID"}
 
-1. (Optional) Cross-reference the entitlement ID in the Fortinet FortiFlex portal. Log in to [FortiCloud](https://support.fortinet.com/welcome/#/
-){: external}, navigate to **Flex Entitlements**, and select the **VPC-VNF** asset folder. Confirm that a record exists with a matching entitlement ID, a status of **ACTIVE**, and the correct product type and configuration.
+1. (Optional) Cross-reference the entitlement ID in the Fortinet FortiFlex portal. Log in to [FortiCloud](https://support.fortinet.com/welcome/#/){: external}, navigate to **Flex Entitlements**, and select the **VPC-VNF** asset folder. Confirm that a record exists with a matching entitlement ID, a status of **ACTIVE**, and the correct product type and configuration.
 
    ![FortiFlex portal showing an active VPC-VNF entitlement record](images/forticloud.png){: caption-side="bottom"}
    {: caption="FortiFlex portal showing an active VPC-VNF entitlement record"}
