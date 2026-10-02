@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-09-29"
+lastupdated: "2026-10-02"
 
 keywords: FortiGate IPS, antivirus, web filtering, application control, security profiles, FortiGate security services, intrusion prevention, deep packet inspection, SSL inspection, TLS inspection
 
@@ -32,7 +32,7 @@ Security services are applied to traffic by attaching security profiles to firew
 | Application Control | | ![Checkmark icon](../icons/checkmark-icon.svg "Checkmark") | ![Checkmark icon](../icons/checkmark-icon.svg "Checkmark") |
 {: caption="Security services available by license tier" caption-side="bottom"}
 
-Enabling multiple security services on the same firewall policy increases CPU usage and may reduce throughput. Select a deployment with sufficient vCPU capacity for your workload. For more information, see [About firewall license plans and instance profiles](/docs/licensed-firewall?topic=licensed-firewall-about-firewall-license-plans-and-instance-profiles).
+Enabling multiple security services on the same firewall policy increases CPU usage and can reduce throughput. Select a deployment with sufficient vCPU capacity for your workload. For more information, see [About firewall license plans and instance profiles](/docs/licensed-firewall?topic=licensed-firewall-about-firewall-license-plans-and-instance-profiles).
 {: note}
 
 ## Deep packet inspection

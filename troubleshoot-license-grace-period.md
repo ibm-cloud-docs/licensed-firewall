@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-09-29"
+lastupdated: "2026-10-02"
 
 keywords: FortiGate license grace period, FortiFlex grace period, FortiGuard connectivity, license expiring, license warning, license invalid
 
@@ -22,7 +22,7 @@ content-type: troubleshoot
 The FortiGate VM FortiFlex license shows a status of `Invalid`, `Warning`, or `Grace Period` instead of `Valid`.
 {: shortdesc}
 
-The FortiGate CLI or FortiGuard subscription service shows a license status of `Warning`, `Grace Period`, or `Invalid`. FortiGuard subscription services may be degraded or unavailable, and the instance may have stopped processing traffic.
+The FortiGate CLI or FortiGuard subscription service shows a license status of `Warning`, `Grace Period`, or `Invalid`. FortiGuard subscription services might be degraded or unavailable, and the instance might have stopped processing traffic.
 {: tsSymptoms}
 
 The FortiFlex license requires periodic contact with Fortinet's FortiGuard servers over the public internet to remain valid. The FortiGate VM checks its license against FortiGuard every 60 minutes. A single failed check sets the license status to `Warning`. If connectivity is not restored within 30 days, the license becomes `Invalid`, the VM stops processing traffic, and the management UI becomes inaccessible. For more information, see [FortiFlex Grace Period](https://docs.fortinet.com/document/fortigate/8.0.0/administration-guide/416169/vm-license){: external}. Common causes include:
