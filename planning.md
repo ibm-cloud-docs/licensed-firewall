@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-09-29"
+lastupdated: "2026-10-05"
 
 keywords: FortiGate planning, licensed firewall planning, FortiGate limitations, security group, Fortinet notifications
 
@@ -33,6 +33,7 @@ Review the following topics before you deploy. Understanding your options upfron
 
 - [Review license plans and instance profiles](/docs/licensed-firewall?topic=licensed-firewall-about-firewall-license-plans-and-instance-profiles) — Understand the available license tiers, deployment sizes, and performance characteristics.
 - [Understand the default firewall configuration](/docs/licensed-firewall?topic=licensed-firewall-understanding-default-firewall-configuration) — Review the bootstrap configurations that are applied to each of the five deployment options (Single VM, HA single-zone active, HA single-zone passive, HA cross-zone active, HA cross-zone passive).
+-  — If you plan to deploy programmatically or integrate deployments into a pipeline, review this topic before you deploy manually.
 
 ## Planning considerations
 {: #planning-considerations}
