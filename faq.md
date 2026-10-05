@@ -3,7 +3,7 @@
 copyright:
   years: 2026
 
-lastupdated: "2026-09-29"
+lastupdated: "2026-10-05"
 
 keywords: FortiGate FAQ, licensed firewall questions, license plan, FortiGate VPC, firewall billing, resize firewall, HA firewall
 
@@ -43,7 +43,9 @@ IBM applies the FortiGate VM license automatically when your instance is provisi
 {: #faq-deployment-configs}
 {: faq}
 
-Three configurations are available from the IBM Cloud catalog: a single virtual machine (VM), a high-availability (HA) pair in a single zone, and an HA pair across two zones. All three are deployed by using IBM Cloud Schematics with Terraform automation. For more information, see [Deploying a licensed FortiGate firewall](/docs/licensed-firewall?topic=licensed-firewall-deploy-single-vm).
+Three FortiGate PayGo catalog entries are available from the IBM Cloud catalog: a single virtual machine (VM), a high-availability (HA) pair in a single zone, and an HA pair across two zones. All three are Terraform-based deployable architectures that IBM deploys on your behalf through IBM Cloud Schematics. For more information about deploying through the catalog, see [Deploying a licensed FortiGate firewall](/docs/licensed-firewall?topic=licensed-firewall-deploy-single-vm).
+
+
 
 ## Who is responsible for applying FortiGate VM software updates and security patches?
 {: #faq-updates-responsibility}
