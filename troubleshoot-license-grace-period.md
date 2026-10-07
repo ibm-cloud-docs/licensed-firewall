@@ -14,29 +14,29 @@ content-type: troubleshoot
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Why is my FortiGate license showing as invalid, warning, or in a grace period?
+# Why is my FortiGate-VM license showing as invalid, warning, or in a grace period?
 {: #troubleshoot-license-grace-period}
 {: troubleshoot}
 {: support}
 
-The FortiGate VM FortiFlex license shows a status of `Invalid`, `Warning`, or `Grace Period` instead of `Valid`.
+The FortiGate-VM FortiFlex license shows a status of `Invalid`, `Warning`, or `Grace Period` instead of `Valid`.
 {: shortdesc}
 
 The FortiGate CLI or FortiGuard subscription service shows a license status of `Warning`, `Grace Period`, or `Invalid`. FortiGuard subscription services might be degraded or unavailable, and the instance might have stopped processing traffic.
 {: tsSymptoms}
 
-The FortiFlex license requires periodic contact with Fortinet FortiGuard servers over the public internet to remain valid. The FortiGate VM checks its license against FortiGuard every 60 minutes. A single failed check sets the license status to `Warning`. If connectivity is not restored within 30 days, the license becomes `Invalid`, the VM stops processing traffic, and the management interface becomes inaccessible. For more information, see [FortiFlex Grace Period](https://docs.fortinet.com/document/fortigate/8.0.0/administration-guide/416169/vm-license){: external}. Common causes include:
+The FortiFlex license requires periodic contact with Fortinet's FortiGuard servers over the public internet to remain valid. The FortiGate-VM checks its license against FortiGuard every 60 minutes. A single failed check sets the license status to `Warning`. If connectivity is not restored within 30 days, the license becomes `Invalid`, the VM stops processing traffic, and the management UI becomes inaccessible. For more information, see [FortiFlex Grace Period](https://docs.fortinet.com/document/fortigate/8.0.0/administration-guide/416169/vm-license){: external}. Common causes include:
 {: tsCauses}
 
 - The egress rules on the public interface security group were removed or modified, blocking outbound traffic to FortiGuard.
 - The floating IP was detached from `port1`, removing the instance's route to the public internet.
 - For Active/Passive HA Single Zone deployments, the public gateway was removed from the public subnet, leaving the secondary node without internet access.
-- A Network Access Control List (NACL) applied to the public subnet is blocking egress traffic on UDP `53`, TCP `443`, or TCP `8890`.
+- A Network Access Control List (NACL) applied to the public subnet is blocking egress traffic on UDP 53, TCP 443, or TCP 8890.
 
 Try the following steps to restore connectivity and resolve the issue:
 {: tsResolve}
 
-1. Check whether the FortiGate VM can reach FortiGuard. Run the following commands on the FortiGate CLI:
+1. Check whether the FortiGate-VM can reach FortiGuard. Run the following commands on the FortiGate CLI:
 
    ```sh
    diagnose debug application update -1
@@ -58,7 +58,7 @@ Try the following steps to restore connectivity and resolve the issue:
    ```
    {: screen}
 
-   If the output shows repeated `SETUP failed` lines, as shown in the following example, the FortiGate VM cannot reach FortiGuard:
+   If the output shows repeated `SETUP failed` lines, as shown in the following example, the FortiGate-VM cannot reach FortiGuard:
 
    ```screen
    IBM-HA-Active(Primary) (Interim)# execute update-now
@@ -94,12 +94,12 @@ Try the following steps to restore connectivity and resolve the issue:
    ```
    {: screen}
 
-   A `code` value of `502` indicates that FortiGuard is returning an error. The `warn` field increments with each failed check; when it reaches the 30-day threshold the license becomes `Invalid`. A non-zero `warn` value means that connectivity failures are already being counted. For a detailed explanation of every field, see [VM license - display license information from FortiGuard](https://docs.fortinet.com/document/fortigate/8.0.0/administration-guide/416169/vm-license#ipt-to-display-license-information-from-fortiguard){: external}.
+   A `code` value of `502` indicates that FortiGuard is returning an error. The `warn` field increments with each failed check; when it reaches the 30-day threshold the license becomes `Invalid`. A non-zero `warn` value means connectivity failures are already being counted. For a detailed explanation of every field, see [VM license — display license information from FortiGuard](https://docs.fortinet.com/document/fortigate/8.0.0/administration-guide/416169/vm-license#ipt-to-display-license-information-from-fortiguard){: external}.
 
-1. Check the security group egress rules. In the [IBM Cloud console](/login), open the security group that is attached to the public interface (`port1`) and confirm that it includes the following egress rules. If any are missing, add them back. For more information, see [Public connectivity requirements](/docs/licensed-firewall?topic=licensed-firewall-understanding-fortigate-licensing#licensing-public-connectivity).
+1. Check the security group egress rules. In the [IBM Cloud console](/login), open the security group attached to the public interface (`port1`) and confirm that it includes the following egress rules. If any are missing, add them back. For more information, see [Public connectivity requirements](/docs/licensed-firewall?topic=licensed-firewall-understanding-fortigate-licensing#licensing-public-connectivity).
 
    | Protocol | Port | Destination |
-   | --- | --- | --- |
+   |---|---|---|
    | UDP | 53 | `0.0.0.0/0` |
    | TCP | 443 | `0.0.0.0/0` |
    | TCP | 8890 | `0.0.0.0/0` |
@@ -115,10 +115,10 @@ Try the following steps to restore connectivity and resolve the issue:
    ![Security group missing the required egress rules for FortiGuard connectivity](images/sg3.png){: caption-side="bottom"}
    {: caption="Security group missing the required egress rules for FortiGuard connectivity"}
 
-1. Verify that the floating IP and public gateway are attached. Each FortiGate VM node must have a route to the public internet. Confirm that a floating IP is attached to `port1` on each node. For Active/Passive HA Single Zone deployments, also confirm that a public gateway is attached to the public subnet for the secondary node. For more information, see [Public connectivity requirements](/docs/licensed-firewall?topic=licensed-firewall-understanding-fortigate-licensing#licensing-public-connectivity).
+1. Verify that the floating IP and public gateway are attached. Each FortiGate-VM node must have a route to the public internet. Confirm that a floating IP is attached to `port1` on each node. For Active/Passive HA Single Zone deployments, also confirm that a public gateway is attached to the public subnet for the secondary node. For more information, see [Public connectivity requirements](/docs/licensed-firewall?topic=licensed-firewall-understanding-fortigate-licensing#licensing-public-connectivity).
 
-1. Check any Network Access Control Lists (NACLs). If a NACL is applied to the public subnet, confirm that it includes egress rules that allow outbound traffic to FortiGuard on UDP `53`, TCP `443`, and TCP `8890`. Add the missing rules if any are blocked.
+1. Check any Network Access Control Lists (NACLs). If a NACL is applied to the public subnet, confirm that it includes egress rules that allow outbound traffic to FortiGuard on UDP 53, TCP 443, and TCP 8890. Add the missing rules if any are blocked.
 
-1. After restoring connectivity, re-run `execute update-now` to confirm that the update succeeds. The grace period clears automatically after FortiGuard successfully validates the license.
+1. After restoring connectivity, re-run `execute update-now` to confirm that the update succeeds. The grace period clears automatically once FortiGuard successfully validates the license.
 
 1. If the issue persists after restoring connectivity, [open an IBM support case](/unifiedsupport/cases/add){: external}. Include the virtual server instance ID, the output of `diagnose hardware sysinfo vm full`, and the output of `execute update-now`.

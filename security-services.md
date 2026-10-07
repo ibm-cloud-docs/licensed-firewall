@@ -24,7 +24,7 @@ Security services are applied to traffic by attaching security profiles to firew
 {: #security-services-by-tier}
 
 | Service | ATP | UTP | Enterprise |
-| --------- | ----- | ----- | ------------ |
+|---------|-----|-----|------------|
 | Intrusion Prevention (IPS) | ![Checkmark icon](../icons/checkmark-icon.svg "Checkmark") | ![Checkmark icon](../icons/checkmark-icon.svg "Checkmark") | ![Checkmark icon](../icons/checkmark-icon.svg "Checkmark") |
 | Antivirus | ![Checkmark icon](../icons/checkmark-icon.svg "Checkmark") | ![Checkmark icon](../icons/checkmark-icon.svg "Checkmark") | ![Checkmark icon](../icons/checkmark-icon.svg "Checkmark") |
 | Web Filtering | | ![Checkmark icon](../icons/checkmark-icon.svg "Checkmark") | ![Checkmark icon](../icons/checkmark-icon.svg "Checkmark") |
@@ -38,14 +38,15 @@ Enabling multiple security services on the same firewall policy increases CPU us
 ## Deep packet inspection
 {: #deep-packet-inspection}
 
-Security services such as IPS, antivirus, web filtering, and application control require deep packet inspection (DPI) to examine the contents of network traffic. For encrypted traffic (HTTPS and other TLS-based protocols), FortiGate VM must perform SSL/TLS inspection to decrypt, inspect, and re-encrypt the traffic before it reaches its destination.
+Security services such as IPS, antivirus, web filtering, and application control require deep packet inspection (DPI) to examine the contents of network traffic. For encrypted traffic (HTTPS and other TLS-based protocols), FortiGate-VM must perform SSL/TLS inspection to decrypt, inspect, and re-encrypt the traffic before it reaches its destination.
 
-Without SSL/TLS inspection enabled, FortiGate VM can inspect only unencrypted traffic. Security profiles attached to firewall policies do not detect threats or enforce policies within encrypted sessions.
 
-FortiGate VM supports two SSL inspection modes:
+Without SSL/TLS inspection enabled, FortiGate-VM can only inspect unencrypted traffic. Security profiles attached to firewall policies will not detect threats or enforce policies within encrypted sessions.
 
-- **Certificate inspection** - Inspects the certificate that is presented during the TLS handshake without decrypting the payload. This mode is a lighter-weight option that can identify the destination and enforce basic controls, but cannot detect threats that are hidden inside encrypted content.
-- **Full SSL inspection** - Decrypts, inspects, and re-encrypts traffic. This mode enables all security services to operate on encrypted traffic, providing the highest level of protection. It requires deploying the FortiGate CA certificate to client devices so that they trust the re-signed certificates.
+FortiGate-VM supports two SSL inspection modes:
+
+- **Certificate inspection** — Inspects the certificate presented during the TLS handshake without decrypting the payload. This is a lighter-weight option that can identify the destination and enforce basic controls, but cannot detect threats hidden inside encrypted content.
+- **Full SSL inspection** — Decrypts, inspects, and re-encrypts traffic. This enables all security services to operate on encrypted traffic, providing the highest level of protection. It requires deploying the FortiGate CA certificate to client devices so that they trust the re-signed certificates.
 
 For step-by-step instructions on configuring SSL/TLS inspection, see the [FortiGate SSL inspection documentation](https://docs.fortinet.com/document/fortigate/latest/administration-guide/255100/ssl-tls-inspection-overview){: external}.
 

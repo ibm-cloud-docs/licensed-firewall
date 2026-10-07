@@ -12,45 +12,45 @@ subcollection: licensed-firewall
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Deploying a FortiGate HA Cross Zone firewall
+# Deploying a FortiGate-VM HA Cross Zone firewall
 {: #deploy-ha-cross-zone}
 
-The HA Cross Zone offering deploys two FortiGate VM next-generation firewall instances as an active/passive (A/P) cluster across two separate availability zones. In addition to automatic failover through the IBM Cloud SDN connector, a public address range enables the cluster's floating IP address to move between zones, providing resilience against a full zone outage. This setup is the highest-availability topology and is recommended for production workloads with strict uptime requirements.
+The HA Cross Zone offering deploys two FortiGate-VM next-generation firewall instances as an active/passive (A/P) cluster across two separate availability zones. In addition to automatic failover via the IBM Cloud SDN connector, a public address range enables the cluster's floating IP address to move between zones, providing resilience against a full zone outage. This is the highest-availability topology and is recommended for production workloads with strict uptime requirements.
 {: shortdesc}
 
 ## Before you begin
 {: #deploy-ha-cross-zone-prereqs}
 
-Before you deploy, review [Planning for FortiGate on IBM Cloud VPC](/docs/licensed-firewall?topic=licensed-firewall-planning) and make sure that the following resources are available in your IBM Cloud account:
+Before you deploy, ensure that you have reviewed [Planning for FortiGate on IBM Cloud VPC](/docs/licensed-firewall?topic=licensed-firewall-planning) and that the following resources are available in your IBM Cloud account:
 
 - A VPC in the target region
-- 8 subnets - four per zone, one for each port (`port1`–`port4`)
+- 8 subnets — four per zone, one for each port (`port1`–`port4`)
 - A pre-created SSH key in the target region
 - An IBM Cloud API key with sufficient permissions to create VPC resources
-- If a Network Access Control List (NACL) is applied to the public subnets, confirm that it includes egress rules that allow outbound traffic on UDP 53, TCP 443, and TCP 8890. These ports are required for FortiGate VM license registration and periodic FortiGuard validation.
+- If a Network Access Control List (NACL) is applied to the public subnets, confirm that it includes egress rules that allow outbound traffic on UDP 53, TCP 443, and TCP 8890. These ports are required for FortiGate-VM license registration and periodic FortiGuard validation.
 
-Two security groups are created automatically during deployment - one for the public interface and one for the private interface. You do not need to create them in advance.
+Two security groups are created automatically during deployment — one for the public interface and one for the private interface. You do not need to create them in advance.
 
-This offering requires static IP addresses for all FortiGate VM interfaces across both zones. Allocate eight subnets - four per zone - and plan your IP assignments before you begin. Also, verify that your account has sufficient floating IP quota in the target region, as four floating IP addresses are used.
+This offering requires static IP addresses for all FortiGate-VM interfaces across both zones. Allocate eight subnets — four per zone — and plan your IP assignments before you begin. Also verify that your account has sufficient floating IP quota in the target region, as four floating IPs are consumed.
 {: important}
 
 ## Deploying an HA Cross Zone firewall
 {: #deploy-ha-cross-zone-steps}
 
-The Terraform automation creates the following resources in your VPC:
+Terraform deploys the following resources:
 
-- Two FortiGate VM licensed instances across two availability zones, each with four network interfaces (`port1`–`port4`)
-- Four floating public IP addresses: one on `port1` and one on `port4` of each FortiGate VM
+- Two FortiGate-VM licensed instances across two availability zones, each with four network interfaces (`port1`–`port4`)
+- Four floating public IP addresses: one on `port1` and one on `port4` of each FortiGate-VM
 - One public address range for floating IP failover across zones
-- One log disk per FortiGate VM
+- One log disk per FortiGate-VM
 - Two security groups: one for the public interfaces (`port1` and `port4`) and one for the private interfaces (`port2` and `port3`): with restrictive inbound rules (license download on the public group; HA heartbeat traffic on TCP/UDP port 703 on the private group) and allow-all outbound rules
 - A bootstrap configuration with HA, SDN connector, public address range, and VDOM exception settings
 
-To deploy an HA Cross Zone firewall, follow these steps:
+Follow these steps:
 
 1. Log in to the [IBM Cloud console](/login).
 1. Click **Catalog** in the navigation bar.
-1. Search for **Fortinet FortiGate VM NGFW** and select the **Fortinet FortiGate VM NGFW - Cross Zone A/P HA (IBM reseller)** tile.
+1. Search for **Fortinet FortiGate-VM NGFW** and select the **Fortinet FortiGate-VM NGFW - Cross Zone A/P HA (IBM reseller)** tile.
 1. In **Select your deployment target**, select **IBM Cloud**.
 1. In **Select a delivery method**, select **Terraform**.
 1. In **Select product version**, choose a product version from the menu.
@@ -63,7 +63,7 @@ To deploy an HA Cross Zone firewall, follow these steps:
 1. Scroll down to **Set the input variables** and complete the fields in the **Required input variables** table:
 
    | Parameter | Description |
-   | --- | --- |
+   |---|---|
    | `CATALOG_OFFERING_PLAN_CRN` | Click the field to open the plan selector. Select the plan that matches your required license tier (ATP, UTP, or Enterprise) and vCPU size. The cost per CPU hour is displayed for each option. |
    | `CLUSTER_NAME` | A name for your FortiGate HA deployment. Must be lowercase. A random suffix is appended automatically. |
    | `FGT1_PORT4_MGMT_GATEWAY` | Gateway for the HA management port (`port4`) on the primary (active) FortiGate. |
@@ -114,10 +114,10 @@ IBM Cloud Schematics creates a workspace and runs the Terraform automation. You 
 - `FGT1_Default_Admin_Password`: Initial password for FortiGate 1. Might be empty on initial startup; if so, use the instance ID as the initial password.
 - `FGT2_Default_Admin_Password`: Initial password for FortiGate 2. Might be empty on initial startup; if so, use the instance ID as the initial password.
 
-Save these values before you close the workspace. You need them to log in to the FortiGate web console for the first time. Review the full log output for errors or warnings, even when the deployment reports as successful.
-{: important}
+Save these values before you close the workspace. When **Terraform commands successful** and **Cart creation successful** are both displayed, your HA cross-zone firewall pair is provisioned and ready to use.
 
-When **Terraform commands successful** and **Cart creation successful** are both displayed, your HA cross-zone firewall pair is provisioned and ready to use.
+It is a good idea to review the full log output for errors or warnings, even when the deployment reports as successful.
+{: note}
 
 ## Next steps
 {: #deploy-ha-cross-zone-next-steps}

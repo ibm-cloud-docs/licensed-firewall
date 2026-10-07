@@ -3,7 +3,7 @@
 copyright:
   years: 2026
 
-lastupdated: "2026-10-02"
+lastupdated: "2026-10-07"
 
 keywords: FortiGate support, licensed firewall help, open support case, firewall troubleshooting
 
@@ -13,7 +13,7 @@ subcollection: licensed-firewall
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Getting help and support for FortiGate licensed firewall
+# Getting help and support for FortiGate-VM licensed firewall
 {: #help-and-support}
 
 If you experience an issue or have questions when you use the FortiGate licensed firewall, you can use the following resources before you open an IBM support case.
@@ -33,7 +33,7 @@ If you still cannot resolve the problem, you can open an IBM support case. For m
 To ensure that the support team can start investigating your case and provide a timely resolution, include the following information when you open an IBM support case for the FortiGate licensed firewall.
 
 1. Provide your firewall instance details:
-   * The virtual server instance ID and name for the FortiGate VM instance.
+   * The virtual server instance ID and name for the FortiGate-VM instance.
    * The VPC ID and region where the firewall is deployed.
    * The Schematics workspace ID used to deploy the firewall (if applicable).
    * The license plan and deployment size (for example, Enterprise, Large).
@@ -41,7 +41,7 @@ To ensure that the support team can start investigating your case and provide a 
 1. Describe the issue:
    * Steps to reproduce the problem.
    * Any error messages that are displayed in the FortiGate web console or IBM Cloud console.
-   * Relevant FortiGate VM log output (available under **Log & Report** in the FortiGate web console).
+   * Relevant FortiGate-VM log output (available under **Log & Report** in the FortiGate web console).
 
 1. Provide network details if the issue involves connectivity:
    * Source and destination IP addresses.

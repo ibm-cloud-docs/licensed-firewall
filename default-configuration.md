@@ -4,7 +4,7 @@ copyright:
   years: 2026
 lastupdated: "2026-10-07"
 
-keywords: firewall default configuration, FortiGate VM default config, HA configuration, bootstrap configuration, SDN connector, public address range, cloud-init
+keywords: firewall default configuration, FortiGate-VM default config, HA configuration, bootstrap configuration, SDN connector, public address range, cloud-init
 
 subcollection: licensed-firewall
 
@@ -15,7 +15,7 @@ subcollection: licensed-firewall
 # Understanding the default firewall configuration
 {: #understanding-default-firewall-configuration}
 
-Each FortiGate VM firewall offering is deployed with a default bootstrap configuration that IBM Cloud applies during provisioning. The bootstrap configuration initializes the firewall with the required system settings before the instance becomes available.
+Each FortiGate-VM firewall offering is deployed with a default bootstrap configuration that IBM Cloud applies during provisioning. The bootstrap configuration initializes the firewall with the required system settings before the instance becomes available.
 {: shortdesc}
 
 Depending on the deployment model, the bootstrap configuration configures:
@@ -48,20 +48,20 @@ The following table summarizes how the three deployment models differ.
 The bootstrap configuration differs across the following deployment models:
 
 - [Single VM](#single-vm-default-config)
-- [HA single-zone - active node](#ha-single-zone-active-node)
-- [HA single-zone - passive node](#ha-single-zone-passive-node)
-- [HA cross-zone - active node](#ha-cross-zone-active-node)
-- [HA cross-zone - passive node](#ha-cross-zone-passive-node)
+- [HA single-zone — active node](#ha-single-zone-active-node)
+- [HA single-zone — passive node](#ha-single-zone-passive-node)
+- [HA cross-zone — active node](#ha-cross-zone-active-node)
+- [HA cross-zone — passive node](#ha-cross-zone-passive-node)
 
 Bootstrap configurations contain variables that are replaced with deployment-specific values at provisioning time. For a complete list of variables and their sources, see [Bootstrap variables](#bootstrap-variables).
 
-Every deployment creates two dedicated security groups - one for the public interface and one for the private interface. Both security groups include restrictive rules that allow the instance to download the license and enable cluster synchronization. All other inbound traffic is denied by default. Before you can access the firewall by using HTTPS or SSH, add inbound security group rules that allow management access from trusted IP addresses.
+Every deployment creates two dedicated security groups — one for the public interface and one for the private interface. Both security groups include restrictive rules that allow the instance to download the license and enable cluster synchronization. All other inbound traffic is denied by default. Before you can access the firewall by using HTTPS or SSH, add inbound security group rules that allow management access from trusted IP addresses.
 {: important}
 
 ## Default configuration of a Single VM deployment
 {: #single-vm-default-config}
 
-A Single VM deployment provisions one FortiGate VM firewall with one public interface (`port1`) and one private interface (`port2`). The bootstrap configuration is static. It contains no dynamic variables and applies the same defaults to every Single VM deployment.
+A Single VM deployment provisions one FortiGate-VM firewall with one public interface (`port1`) and one private interface (`port2`). The bootstrap configuration is static. It contains no dynamic variables and applies the same defaults to every Single VM deployment.
 
 ```text
 config system global
@@ -89,10 +89,10 @@ The following table describes the default interface settings:
 | `port2` | `trust` | HTTPS, SSH, ping |
 {: caption="Single VM default interface configuration" caption-side="bottom"}
 
-## Default configuration of an HA single-zone deployment - active node
+## Default configuration of an HA single-zone deployment — active node
 {: #ha-single-zone-active-node}
 
-An HA single-zone deployment provisions two FortiGate VM firewalls within the same availability zone as an active-passive cluster. The active and passive nodes receive separate bootstrap configurations.
+An HA single-zone deployment provisions two FortiGate-VM firewalls within the same availability zone as an active-passive cluster. The active and passive nodes receive separate bootstrap configurations.
 
 The active node is assigned a higher HA priority (`50`), which ensures it becomes the primary firewall after deployment. It also receives the IBM Cloud SDN connector configuration, which enables automatic failover.
 
@@ -185,7 +185,7 @@ The following table describes the default settings for the active node:
 | IBM Cloud SDN connector | `ibm` | Enables IBM Cloud integration for automatic failover. |
 {: caption="HA single-zone active node default settings" caption-side="bottom"}
 
-## Default configuration of an HA single-zone deployment - passive node
+## Default configuration of an HA single-zone deployment — passive node
 {: #ha-single-zone-passive-node}
 
 The passive node is assigned a lower HA priority (`25`), which keeps it in the standby role during normal operation. It continuously synchronizes configuration and session state from the active node and automatically takes over if the active node fails.
@@ -272,10 +272,10 @@ The following table describes the default settings for the passive node:
 | IBM Cloud SDN connector | `ibm` | Enables IBM Cloud integration for automatic failover. |
 {: caption="HA single-zone passive node default settings" caption-side="bottom"}
 
-## Default configuration of an HA cross-zone deployment - active node
+## Default configuration of an HA cross-zone deployment — active node
 {: #ha-cross-zone-active-node}
 
-An HA cross-zone deployment provisions two FortiGate VM firewalls across separate availability zones. The cross-zone configuration extends the single-zone HA configuration with two additions: a public address range identifier in the SDN connector for cross-zone floating IP failover, and a VDOM exception list that helps ensure interfaces, static routes, and virtual IPs are synchronized between nodes.
+An HA cross-zone deployment provisions two FortiGate-VM firewalls across separate availability zones. The cross-zone configuration extends the single-zone HA configuration with two additions: a public address range identifier in the SDN connector for cross-zone floating IP failover, and a VDOM exception list that helps ensure interfaces, static routes, and virtual IPs are synchronized between nodes.
 
 ```text
 config system global
@@ -367,7 +367,7 @@ The following table describes the default settings for the active node:
 | ------- | ----- | ----------- |
 | Hostname | `IBM-HA-Active` | Identifies the active node. |
 | HA mode | `a-p` | Configures active-passive HA. |
-| HA priority | `50` | A higher priority helps ensure that this node is the active firewall. |
+| HA priority | `50` | A higher priority ensures that this node is the active firewall. |
 | HA heartbeat peer | `${fgt_2_static_port3}` | IP address of the passive node heartbeat interface (Zone 2). |
 | HA management interface | `port4` | Dedicated out-of-band management port for HA. |
 | Public Address Range | `${par_id}` | Enables floating IP failover across availability zones. |
@@ -375,7 +375,7 @@ The following table describes the default settings for the active node:
 | VDOM exceptions | `system.interface`, `router.static`, `firewall.vip` | Objects synchronized independently from the HA cluster sync. |
 {: caption="HA cross-zone active node default settings" caption-side="bottom"}
 
-## Default configuration of an HA cross-zone deployment - passive node
+## Default configuration of an HA cross-zone deployment — passive node
 {: #ha-cross-zone-passive-node}
 
 The passive node in a cross-zone deployment mirrors the active node configuration with a lower HA priority and reversed peer IP references. It includes the same public address range–enabled SDN connector and VDOM exception list as the active node.

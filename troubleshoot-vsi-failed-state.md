@@ -19,13 +19,13 @@ content-type: troubleshoot
 {: troubleshoot}
 {: support}
 
-After ordering a FortiGate VM instance from the IBM Cloud catalog, the virtual server instance is in a `Failed` state.
+After ordering a FortiGate-VM instance from the IBM Cloud catalog, the virtual server instance is in a `Failed` state.
 {: shortdesc}
 
-The virtual server instance shows a `Failed` status in the IBM Cloud console. The instance is shut down and the FortiGate VM is not accessible.
+The virtual server instance shows a `Failed` status in the IBM Cloud console. The instance is shut down and the FortiGate-VM is not accessible.
 {: tsSymptoms}
 
-When a FortiGate VM instance is provisioned, several IBM Cloud components are involved in sequence: Catalog Manager, Resource Controller, License Manager, and the VNF License Provider. If an error occurs in any of these components during provisioning, the virtual server instance is marked as `Failed` and shut down automatically. Common causes include:
+When a FortiGate-VM instance is provisioned, several IBM Cloud components are involved in sequence: Catalog Manager, Resource Controller, License Manager, and the VNF License Provider. If an error occurs in any of these components during provisioning, the virtual server instance is marked as `Failed` and shut down automatically. Common causes include:
 {: tsCauses}
 
 - An error occurred in the VNF License Provider while retrieving or creating the FortiFlex license token.
@@ -35,7 +35,7 @@ When a FortiGate VM instance is provisioned, several IBM Cloud components are in
 Try the following steps to resolve the issue:
 {: tsResolve}
 
-1. Delete the failed virtual server instance. Keep in mind that no in-place recovery path exists for a virtual server instance in a `Failed` state.
+1. Delete the failed virtual server instance. There is no in-place recovery path for a virtual server instance in a `Failed` state.
 
 1. If a FortiFlex outage is known or suspected, wait for the outage to be resolved before retrying. See [What do I do if the Fortinet FortiFlex infrastructure is not accessible?](/docs/licensed-firewall?topic=licensed-firewall-troubleshoot-fortiflex-not-accessible) for steps to check FortiFlex availability.
 
