@@ -48,7 +48,7 @@ For guidance on interface configuration, see the [FortiGate Administration Guide
 ## Update the IBM Cloud SDN Connector API key
 {: #config-sdn-connector-api-key}
 
-The IBM Cloud SDN Connector is pre-configured during deployment with the IBM Cloud API key you provided. The SDN Connector uses this key to move floating IPs during failover events. If you rotate or change that API key outside of the firewall — for example, through IBM Cloud IAM — you must also update it in the SDN Connector, or failover will stop working.
+The IBM Cloud SDN Connector is pre-configured during deployment with the IBM Cloud API key that you provided. The SDN Connector uses this key to move floating IPs during failover events. If you rotate or change that API key outside of the firewall (for example, through IBM Cloud IAM), you must also update it in the SDN Connector, or failover stops working.
 
 To update the API key in the SDN Connector:
 
