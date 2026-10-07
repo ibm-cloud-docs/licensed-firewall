@@ -1,0 +1,64 @@
+toc:
+  properties:
+    subcollection: licensed-firewall
+    path: licensed-firewall
+    href: /docs/licensed-firewall
+    service-name: licensed-firewall
+    audience: service
+    category: network
+    label: Licensed firewall for FortiGate
+  entries:
+  - navgroup:
+      id: learn
+      topics:
+      - getting-started.md
+      - license-plans-instance-profiles-overview.md
+      - licensing.md
+      - planning.md
+      - release-notes.md
+  - navgroup:
+      id: howto
+      topics:
+      - topicgroup:
+          label: Deploying a licensed FortiGate firewall
+          topics:
+          - deploy-single-vm.md
+          - deploy-ha-single-zone.md
+          - deploy-ha-cross-zone.md
+      - access.md
+      - configuring-fortigate.md
+      - pricing-plans.md
+      - backup-restore-config.md
+      - security-services.md
+      - monitoring.md
+      - security-best-practices.md
+      - addressing-vulnerabilities.md
+  - navgroup:
+      id: reference
+      topics:
+      - default-configuration.md
+      - shared-responsibilities.md
+      - techxchange-blogs.md
+  - navgroup:
+      id: help
+      topics:
+      - get-help.md
+      - faq.md
+      - topicgroup:
+          id: troubleshooting
+          label: Troubleshooting
+          topics:
+          - topicgroup:
+              label: Provisioning failures
+              topics:
+              - troubleshoot-schematics-deployment.md
+              - troubleshoot-check-vnf-license-service.md
+              - troubleshoot-fortiflex-not-accessible.md
+              - troubleshoot-vsi-failed-state.md
+          - topicgroup:
+              label: Post-provisioning failures
+              topics:
+              - troubleshoot.md
+              - troubleshoot-cannot-connect.md
+              - troubleshoot-ha-sync.md
+              - troubleshoot-license-grace-period.md

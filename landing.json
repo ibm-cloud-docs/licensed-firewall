@@ -1,0 +1,65 @@
+{
+  "version": 2,
+  "title": "Licensed Firewall for FortiGate",
+  "introduction": "Deploy and manage Fortinet FortiGate Next-Generation Firewalls on IBM Cloud VPC with automatic license management, pay-as-you-go billing, and integrated threat protection.",
+  "product_page": "https://www.ibm.com/products/network-security",
+  "console_page": "/catalog#search=Fortinet%20FortiGate%20VM%20NGFW",
+  "section_topics": {
+    "links": [
+      {
+        "title": "Planning for FortiGate on IBM Cloud VPC",
+        "href": "/docs/licensed-firewall?topic=licensed-firewall-planning"
+      },
+      {
+        "title": "Deploying a licensed FortiGate firewall",
+        "href": "/docs/licensed-firewall?topic=licensed-firewall-deploy-single-vm"
+      },
+      {
+        "title": "Accessing your FortiGate firewall",
+        "href": "/docs/licensed-firewall?topic=licensed-firewall-access-firewall"
+      },
+      {
+        "title": "Configuring your FortiGate firewall after deployment",
+        "href": "/docs/licensed-firewall?topic=licensed-firewall-configuring-fortigate"
+      },
+      {
+        "title": "Enabling security services",
+        "href": "/docs/licensed-firewall?topic=licensed-firewall-enable-security-services"
+      },
+      {
+        "title": "Monitoring your FortiGate firewall",
+        "href": "/docs/licensed-firewall?topic=licensed-firewall-monitoring"
+      },
+      {
+        "title": "Managing firmware updates and vulnerability patches",
+        "href": "/docs/licensed-firewall?topic=licensed-firewall-addressing-vulnerabilities"
+      }
+    ]
+  },
+  "section_highlights": [
+    {
+      "title": "FortiGate Transit VPC patterns and deployment guide",
+      "description": "Reference architectures and deployment patterns for FortiGate in IBM Cloud VPC hub-and-spoke and transit topologies.",
+      "href": "http://cloud.ibm.com/docs/pattern-transit-vpc-fortigate",
+      "type": "article"
+    },
+    {
+      "title": "FortiGate Administration Guide",
+      "description": "Fortinet's official administration guide, which covers firewall policies, security profiles, VPN configuration, and system management.",
+      "href": "https://docs.fortinet.com/document/fortigate/latest/administration-guide/954635/getting-started",
+      "type": "article"
+    }
+  ],
+  "section_devtools": {
+    "terraform": "https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_instance"
+  },
+  "section_updates": {
+    "view_more": "/docs/licensed-firewall",
+    "tiles": [
+      {
+        "date": "31 July 2026",
+        "title": "FortiGate licensed firewall now available on IBM Cloud VPC"
+      }
+    ]
+  }
+}
