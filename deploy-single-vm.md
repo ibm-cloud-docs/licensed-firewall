@@ -91,4 +91,4 @@ It is a good idea to review the full log output for errors or warnings, even whe
 
 - [Access the FortiGate web console](/docs/licensed-firewall?topic=licensed-firewall-access-firewall) — Add a security group rule, configure routing, and log in for the first time.
 - [Understand the default firewall configuration](/docs/licensed-firewall?topic=licensed-firewall-understanding-default-firewall-configuration) — Review what IBM applied during provisioning before making changes.
- -  — Automate deployments programmatically by using [IBM Cloud Projects](/docs/secure-enterprise?topic=secure-enterprise-understanding-projects){: external}.
+-  — Automate deployments programmatically by using [IBM Cloud Projects](/docs/secure-enterprise?topic=secure-enterprise-understanding-projects){: external}.
