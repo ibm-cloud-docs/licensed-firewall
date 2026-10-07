@@ -45,6 +45,23 @@ Confirm that the network interfaces reflect the IP addressing you configured dur
 
 For guidance on interface configuration, see the [FortiGate Administration Guide](https://docs.fortinet.com/product/fortigate/8.0){: external}.
 
+## Update the IBM Cloud SDN Connector API key
+{: #config-sdn-connector-api-key}
+
+The IBM Cloud SDN Connector is pre-configured during deployment with the IBM Cloud API key you provided. The SDN Connector uses this key to move floating IPs during failover events. If you rotate or change that API key outside of the firewall — for example, through IBM Cloud IAM — you must also update it in the SDN Connector, or failover will stop working.
+
+To update the API key in the SDN Connector:
+
+1. Log in to the FortiGate web console.
+1. Go to **Security Fabric > External Connectors**.
+1. Select **IBM Cloud Connector**.
+1. Click **Edit**.
+1. In the **API Key** field, click **Change**.
+1. Enter the new API key and confirm it.
+1. Click **OK** to save.
+
+After saving, verify that the connector status shows as connected.
+
 ## Configure routing
 {: #config-routing}
 
