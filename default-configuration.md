@@ -178,7 +178,7 @@ The following table describes the default settings for the active node:
 | Setting | Value | Description |
 | ------- | ----- | ----------- |
 | Hostname | `IBM-HA-Active` | Identifies the active node. |
-| HA mode | `a-p` | Configures active-passive HA. |
+| HA mode | `a-p` | Configures Active/Passive HA. |
 | HA priority | `50` | A higher priority ensures that this node is the active firewall. |
 | HA heartbeat peer | `${fgt_2_static_port3}` | IP address of the passive node heartbeat interface. |
 | HA management interface | `port4` | Dedicated out-of-band management port for HA. |
@@ -265,7 +265,7 @@ The following table describes the default settings for the passive node:
 | Setting | Value | Description |
 | ------- | ----- | ----------- |
 | Hostname | `IBM-HA-Passive` | Identifies the passive node. |
-| HA mode | `a-p` | Configures active-passive HA. |
+| HA mode | `a-p` | Configures Active/Passive HA. |
 | HA priority | `25` | A lower priority keeps this node in the standby role. |
 | HA heartbeat peer | `${fgt_1_static_port3}` | IP address of the active node heartbeat interface. |
 | HA management interface | `port4` | Dedicated out-of-band management port for HA. |
@@ -366,7 +366,7 @@ The following table describes the default settings for the active node:
 | Setting | Value | Description |
 | ------- | ----- | ----------- |
 | Hostname | `IBM-HA-Active` | Identifies the active node. |
-| HA mode | `a-p` | Configures active-passive HA. |
+| HA mode | `a-p` | Configures Active/Passive HA. |
 | HA priority | `50` | A higher priority ensures that this node is the active firewall. |
 | HA heartbeat peer | `${fgt_2_static_port3}` | IP address of the passive node heartbeat interface (Zone 2). |
 | HA management interface | `port4` | Dedicated out-of-band management port for HA. |
@@ -469,7 +469,7 @@ The following table describes the default settings for the passive node:
 | Setting | Value | Description |
 | ------- | ----- | ----------- |
 | Hostname | `IBM-HA-Passive` | Identifies the passive node. |
-| HA mode | `a-p` | Configures active-passive HA. |
+| HA mode | `a-p` | Configures Active/Passive HA. |
 | HA priority | `25` | A lower priority keeps this node in the standby role. |
 | HA heartbeat peer | `${fgt_1_static_port3}` | IP address of the active node heartbeat interface (Zone 1). |
 | HA management interface | `port4` | Dedicated out-of-band management port for HA. |
