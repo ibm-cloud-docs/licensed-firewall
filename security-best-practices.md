@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-09-29"
+lastupdated: "2026-10-07"
 
 keywords: FortiGate security, firewall best practices, security group, admin access, FortiGate hardening, management access, least privilege
 
@@ -21,17 +21,17 @@ Follow these security best practices to reduce the attack surface of your FortiG
 ## Restrict management access through the security group
 {: #bp-restrict-management-access}
 
-Every FortiGate VM deployment creates two dedicated security groups — one for the public interface and one for the private interface. Both include restrictive pre-configured inbound rules that allow the instance to download the license and enable cluster synchronization. They do not permit management access and must not be removed.
+Every FortiGate VM deployment creates two dedicated security groups - one for the public interface and one for the private interface. Both include restrictive pre-configured inbound rules that allow the instance to download the license and enable cluster synchronization. However, they do not permit management access and must not be removed.
 
 The public security group also restricts outbound (egress) traffic for all three FortiGate VM offerings to only what is required for Fortinet services:
 
-- **UDP 53** — FortiGuard DNS and SDNS queries
-- **TCP 443** — Licensing, FortiCare, and entitlements
-- **TCP 8890** — FortiGuard distribution updates
+- **UDP 53** - FortiGuard DNS and SDNS queries
+- **TCP 443** - Licensing, FortiCare, and entitlements
+- **TCP 8890** - FortiGuard distribution updates
 
 When you open management access, follow these principles:
 
-- **Allow only your administrator IP addresses.** Add inbound TCP rules for port 443 (HTTPS) or port 22 (SSH) with a specific source IP address or CIDR range. Do not use `0.0.0.0/0` as the source.
+- **Allow only your administrator IP addresses.** Add inbound TCP rules for port `443` (HTTPS) or port `22` (SSH) with a specific source IP address or CIDR range. Do not use `0.0.0.0/0` as the source.
 - **Use the narrowest CIDR possible.** If your administrators connect from a known IP range, restrict the source to that range only.
 - **Separate management access from data plane traffic.** If possible, access the FortiGate management interface from a dedicated management subnet or through a VPN, rather than directly over the public floating IP.
 - **Review the security group rules regularly.** Remove any inbound rules that are no longer needed, such as rules added for temporary access.
@@ -50,7 +50,7 @@ The initial administrator password is generated at deployment time and is displa
 ## Disable unused management protocols on each FortiGate interface
 {: #bp-disable-unused-protocols}
 
-Within the FortiGate VM itself, the default bootstrap configuration enables HTTPS, SSH, and ping on both `port1` and `port2`. This is independent of the IBM Cloud security group, which controls traffic at the VPC network layer. For additional hardening, you can use the FortiGate web console to disable any management protocols on each interface that are not required for your operational workflow.
+Within the FortiGate VM itself, the default bootstrap configuration enables HTTPS, SSH, and ping on both `port1` and `port2`. This configuration is independent of the IBM Cloud security group, which controls traffic at the VPC network layer. For additional hardening, you can use the FortiGate web console to disable any management protocols on each interface that are not required for your operational workflow.
 
 1. Log in to the FortiGate web console.
 1. Go to **Network > Interfaces**.
@@ -58,7 +58,7 @@ Within the FortiGate VM itself, the default bootstrap configuration enables HTTP
 1. In **Administrative access**, clear any protocols that are not in use.
 1. Click **OK** to save.
 
-Leaving ping (`PING`) enabled on the public interface (`port1`) allows external hosts to probe the firewall's presence. Disable it if internet-facing discovery is a concern.
+Keeping the interface (`port1`) enabled for ping access (`PING`) allows external hosts to probe the firewall's presence. Disable it if internet-facing discovery is a concern.
 {: tip}
 
 ## Use a VPN or bastion host for management access
@@ -97,10 +97,10 @@ Ensure that traffic logging is enabled on your firewall policies, especially for
 
 For any firewall policy that allows traffic from the internet or to untrusted networks, attach security profiles to inspect the traffic:
 
-- **IPS** — Detects and blocks known attack patterns.
-- **Antivirus** — Scans file transfers for malware.
-- **Web filtering** — Controls access to website categories (UTP and Enterprise tiers).
-- **Application control** — Identifies and enforces policy on applications (UTP and Enterprise tiers).
+- **IPS** - Detects and blocks known attack patterns.
+- **Antivirus** - Scans file transfers for malware.
+- **Web filtering** - Controls access to website categories (UTP and Enterprise tiers).
+- **Application control** - Identifies and enforces policy on applications (UTP and Enterprise tiers).
 
 For instructions, see [Enabling security services](/docs/licensed-firewall?topic=licensed-firewall-enable-security-services).
 
@@ -118,7 +118,7 @@ IBM does not back up your FortiGate VM configuration. You are responsible for ma
 
 - Export the configuration from the FortiGate web console on a regular schedule. For step-by-step instructions, see [Backing up and restoring the FortiGate configuration](/docs/licensed-firewall?topic=licensed-firewall-backup-restore-fortigate-config).
 - Store the backup securely and off the FortiGate VM instance (for example, in IBM Cloud Object Storage).
-- Test configuration restore procedures before you need them in production.
+- Test configuration-restore procedures before you use them in production.
 - Do not use IBM Cloud VPC volume snapshots or whole-volume backups for firewall recovery. Use FortiGate `.conf` export and restore procedures instead. For more information, see [Unsupported backup methods](/docs/licensed-firewall?topic=licensed-firewall-backup-restore-fortigate-config#unsupported-backup-methods).
 
 ## Related links

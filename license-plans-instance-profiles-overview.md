@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-10-01"
+lastupdated: "2026-10-07"
 
 keywords: firewall, license plans, vsi profiles, instance sizing, deployment sizes
 
@@ -27,7 +27,7 @@ The license plan determines:
 The license plan and virtual server profile are linked at deployment time.
 
 ## Planning considerations
-{: #considerations}
+{: #license-plans-considerations}
 
 Review the following considerations before you select your license plan and deployment size:
 
@@ -45,8 +45,8 @@ The license plan cannot be changed after deployment. You can resize the virtual 
 
 Select a deployment topology based on your availability requirements and tolerance for downtime. All three topologies are available as separate catalog tiles and are deployed by using IBM Cloud Schematics.
 
-| Topology | Catalog Tile | Firewall Instances | Availability Zones | Automatic Failover | Best For |
-|----------|-------------|-------------------|-------------------|-------------------|----------|
+| Topology | Catalog tile | Firewall instances | Availability zones | Automatic failover | Best for |
+| ---------- | ------------- | ------------------- | ------------------- | ------------------- | ---------- |
 | Single VM | [Fortinet FortiGate VM NGFW - Single (IBM reseller)](https://cloud.ibm.com/catalog/content/ibm-fortigate-terraform-payg-6f8340d8-d6ef-420e-b50e-e305099917c6-global){: external} | 1 | 1 | No | Development, testing, or noncritical workloads |
 | Active/Passive HA - Single Zone | [Fortinet FortiGate VM NGFW - A/P HA (IBM reseller)](https://cloud.ibm.com/catalog/content/ibm-fortigate-AP-HA-terraform-payg-264eea02-7f0f-41b7-86f5-4adbb349430f-global){: external} | 2 | 1 | Yes | Production workloads requiring zone-level redundancy |
 | Active/Passive HA - Cross Zone | [Fortinet FortiGate VM NGFW - Cross Zone A/P HA (IBM reseller)](https://cloud.ibm.com/catalog/content/ibm-fortigate-AP-HA-CZ-terraform-payg-0d38cbcc-403a-430d-9a70-82221de0040b-global){: external} | 2 | 2 | Yes | Production workloads requiring the highest availability |
@@ -54,9 +54,9 @@ Select a deployment topology based on your availability requirements and toleran
 
 Key differences between the topologies:
 
-- **Single VM** — Deploys one FortiGate VM instance with a public interface (`port1`) and a private interface (`port2`). There is no redundancy. If the instance fails, traffic is interrupted until it is restarted or replaced.
-- **Active/Passive HA - Single Zone** — Deploys two FortiGate VM instances in the same availability zone as an active-passive cluster. The IBM Cloud SDN connector enables automatic failover between nodes. If the active node fails, the passive node takes over without manual intervention.
-- **Active/Passive HA - Cross Zone** — Extends the single-zone HA topology across two availability zones. In addition to automatic failover, a public address range enables the floating IP to move between zones, providing resilience against a full zone outage. This is the highest-availability configuration.
+- **Single VM** - Deploys one FortiGate VM instance with a public interface (`port1`) and a private interface (`port2`) without redundancy. If the instance fails, traffic is interrupted until it is restarted or replaced.
+- **Active/Passive HA - Single Zone** - Deploys two FortiGate VM instances in the same availability zone as an active-passive cluster. The IBM Cloud SDN connector enables automatic failover between nodes. If the active node fails, the passive node takes over without manual intervention.
+- **Active/Passive HA - Cross Zone** - Extends the single-zone HA topology across two availability zones. In addition to automatic failover, a public address range enables the floating IP to move between zones, providing resilience against a full zone outage. This topology is the highest-availability configuration.
 
 For details on what IBM applies to each topology at provisioning time, see [Understanding the default firewall configuration](/docs/licensed-firewall?topic=licensed-firewall-understanding-default-firewall-configuration).
 
@@ -66,7 +66,7 @@ For details on what IBM applies to each topology at provisioning time, see [Unde
 Select a license plan based on your workload requirements, performance needs, and scale. For more information about FortiGate Security Bundle features, see the [FortiGate Security Bundles page](https://www.fortinet.com/support/support-services/fortiguard-security-subscriptions/fortigate-security-bundles){: external}.
 
 | License Plan | Best For | Supported Sizes | Profile Family | Key Characteristics |
-|--------------|----------|------------------|----------------|--------------------|
+| -------------- | ---------- | ------------------ | ---------------- | -------------------- |
 | ATP (Advanced Threat Protection) | Entry-level deployments | Small, Medium | gen2-cx | Lower cost, limited scale |
 | UTP (Unified Threat Protection) | General-purpose security | Small, Medium, Large | gen3-cx | Balanced cost and performance |
 | Enterprise | High-performance environments | Medium, Large, X-large | gen3-cx | Highest scalability and throughput |
@@ -81,7 +81,7 @@ VDOM support is available only with the Enterprise license plan at the X-large (
 The following table shows the security services and features that are included in each license plan.
 
 | Feature | ATP | UTP | Enterprise |
-|---------|-----|-----|------------|
+| --------- | ----- | ----- | ------------ |
 | Intrusion Prevention System (IPS) | ![Checkmark icon](../icons/checkmark-icon.svg "Checkmark") | ![Checkmark icon](../icons/checkmark-icon.svg "Checkmark") | ![Checkmark icon](../icons/checkmark-icon.svg "Checkmark") |
 | Application control | | ![Checkmark icon](../icons/checkmark-icon.svg "Checkmark") | ![Checkmark icon](../icons/checkmark-icon.svg "Checkmark") |
 | Geo IP updates | ![Checkmark icon](../icons/checkmark-icon.svg "Checkmark") | ![Checkmark icon](../icons/checkmark-icon.svg "Checkmark") | ![Checkmark icon](../icons/checkmark-icon.svg "Checkmark") |
@@ -114,7 +114,7 @@ Understanding the sizing and scaling characteristics helps you select the approp
 Deployment sizes are mapped to vCPU allocations.
 
 | Deployment Size | vCPU |
-|----------------|------|
+| ---------------- | ------ |
 | Small | 2 |
 | Medium | 8 |
 | Large | 16 |
@@ -130,7 +130,7 @@ Larger deployment sizes include increased memory, which improves session handlin
 The available deployment sizes vary by license plan.
 
 | License Plan | Small (2 vCPU) | Medium (8 vCPU) | Large (16 vCPU) | X-large (32 vCPU) |
-|--------------|----------------|------------------|------------------|--------------------|
+| -------------- | ---------------- | ------------------ | ------------------ | -------------------- |
 | Enterprise | Not available | Supported | Supported | Supported |
 | UTP | Supported | Supported | Supported | Not available |
 | ATP | Supported | Supported | Not available | Not available |
@@ -162,11 +162,11 @@ Virtual server profiles are automatically assigned during provisioning based on 
 
 This license plan uses gen3-cx profiles and supports Medium, Large, and X-large deployment sizes.
 
-| Deployment Size | vCPU | Instance Profile | Profile Family |
+| Deployment size| vCPU | Instance profile | Profile family |
 |----------------|------|------------------|----------------|
-| Medium         | 8    | cx3d-8x20        | gen3-cx        |
-| Large          | 16   | cx3d-16x40       | gen3-cx        |
-| X-large        | 32   | cx3d-32x80       | gen3-cx        |
+| Medium         | 8    | `cx3d-8x20`      | `gen3-cx`      |
+| Large          | 16   | `cx3d-16x40`     | `gen3-cx`      |
+| X-large        | 32   | `cx3d-32x80`     | `gen3-cx`      |
 {: caption="Enterprise license plan virtual server profile mappings" caption-side="bottom"}
 
 The X-large (32 vCPU) Enterprise deployment is the only configuration that supports virtual domains (VDOMs) and includes 8 VDOMs.
@@ -177,25 +177,25 @@ The X-large (32 vCPU) Enterprise deployment is the only configuration that suppo
 
 This license plan uses gen3-cx profiles and supports Small, Medium, and Large deployment sizes.
 
-| Deployment Size | vCPU | Instance Profile | Profile Family |
+| Deployment size| vCPU | Instance profile | Profile family |
 |----------------|------|------------------|----------------|
-| Small          | 2    | cx3d-2x5         | gen3-cx        |
-| Medium         | 8    | cx3d-8x20        | gen3-cx        |
-| Large          | 16   | cx3d-16x40       | gen3-cx        |
+| Small          | 2    | `cx3d-2x5`       | `gen3-cx`      |
+| Medium         | 8    | `cx3d-8x20`      | `gen3-cx`      |
+| Large          | 16   | `cx3d-16x40`     | `gen3-cx`      |
 {: caption="Unified Threat Protection (UTP) license plan virtual server profile mappings" caption-side="bottom"}
 
 ### ATP profile mappings
 {: #atp-profile-mappings}
 
-This license plan uses gen2-cx profiles and supports Small and Medium deployment sizes. In some regions, IBM automatically assigns an equivalent alternative profile where the standard gen2-cx profile is unavailable.
+This license plan uses `gen2-cx` profiles and supports Small and Medium deployment sizes. In some regions, IBM automatically assigns an equivalent alternative profile where the standard `gen2-cx` profile is unavailable.
 
-| Deployment Size | vCPU | Instance Profile | Profile Family |
+| Deployment size| vCPU | Instance profile | Profile family |
 |----------------|------|------------------|----------------|
-| Small          | 2    | cx2-2x4          | gen2-cx        |
-| Medium         | 8    | cx2-8x16         | gen2-cx        |
+| Small          | 2    | `cx2-2x4`        | `gen2-cx`      |
+| Medium         | 8    | `cx2-8x16`       | `gen2-cx`      |
 {: caption="Advanced Threat Protection (ATP) license plan virtual server profile mappings" caption-side="bottom"}
 
-In a few regions, IBM automatically assigns an alternate gen3-cx profile where the standard gen2-cx profile is unavailable. The deployment size and entitlement remain equivalent.
+In a few regions, IBM automatically assigns an alternate `gen3-cx` profile where the standard `gen2-cx` profile is unavailable. The deployment size and entitlement remain equivalent.
 {: note}
 
 ### Profile considerations

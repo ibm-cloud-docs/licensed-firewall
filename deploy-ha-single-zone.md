@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-10-05"
+lastupdated: "2026-10-07"
 
 keywords: deploy firewall, FortiGate, HA single zone, high availability, Terraform, Schematics
 
@@ -24,7 +24,7 @@ The HA Single Zone offering deploys two FortiGate VM next-generation firewall in
 Before you deploy, ensure that you review [Planning for FortiGate on IBM Cloud VPC](/docs/licensed-firewall?topic=licensed-firewall-planning) and that the following resources are available in your IBM Cloud account:
 
 - A VPC in the target region
-- 4 subnets in the VPC — public (`port1`), private (`port2`), HA heartbeat (`port3`), HA management (`port4`)
+- 4 subnets in the VPC - public (`port1`), private (`port2`), HA heartbeat (`port3`), HA management (`port4`)
 - A Public Gateway that is attached to the `port1` (public) subnet
 - A pre-created SSH key in the target region
 - An IBM Cloud API key with sufficient permissions to create VPC resources
@@ -41,15 +41,15 @@ This offering requires static IP addresses for all FortiGate VM interfaces. Allo
 ## Deploying an HA Single Zone firewall
 {: #deploy-ha-single-zone-steps}
 
-Terraform deploys the following resources:
+The Terraform automation creates the following resources in your VPC:
 
 - Two FortiGate VM licensed instances, each with four network interfaces (`port1`–`port4`)
 - Three floating public IP addresses: one on the active node's `port1` (which fails over), and one each on `port4` (HA management) of both nodes
 - One log disk per FortiGate VM
-- Two security groups: one for the public interfaces (`port1` and `port4`) and one for the private interfaces (`port2` and `port3`) — each with restrictive inbound rules that allow the instance to download the license and enable cluster synchronization, including HA traffic on TCP/UDP port `703` from the HA heartbeat subnet, and allow-all outbound rules
+- Two security groups: one for the public interfaces (`port1` and `port4`) and one for the private interfaces (`port2` and `port3`) - each with restrictive inbound rules that allow the instance to download the license and enable cluster synchronization, including HA traffic on TCP/UDP port `703` from the HA heartbeat subnet, and allow-all outbound rules
 - A bootstrap configuration with HA and SDN connector settings
 
-Follow these steps:
+To deploy a HA Single Zone firewall, follow these steps:
 
 1. Log in to the [IBM Cloud console](/login).
 1. Click **Catalog** in the navigation bar.
@@ -66,7 +66,7 @@ Follow these steps:
 1. Scroll down to **Set the input variables** and complete the fields in the **Required input variables** table:
 
    | Parameter | Description |
-   |---|---|
+   | --- | --- |
    | `CATALOG_OFFERING_PLAN_CRN` | Click the field to open the plan selector. Select the plan that matches your required license tier (ATP, UTP, or Enterprise) and vCPU size. The cost per CPU hour is displayed for each option. |
    | `CLUSTER_NAME` | A name for your FortiGate HA deployment. Must be lowercase. A random suffix is appended automatically. |
    | `FGT1_PORT4_MGMT_GATEWAY` | Gateway for the HA management port (`port4`) on the primary (active) FortiGate. |
@@ -109,10 +109,10 @@ IBM Cloud Schematics creates a workspace and runs the Terraform automation. You 
 - `FGT1_Default_Admin_Password`: Initial password for FortiGate 1. Might be empty on initial startup; if so, use the instance ID as the initial password.
 - `FGT2_Default_Admin_Password`: Initial password for FortiGate 2. Might be empty on initial startup; if so, use the instance ID as the initial password.
 
-Save these values before you close the workspace. When **Terraform commands successful** and **Cart creation successful** are both displayed, your HA firewall pair is provisioned and ready to use.
+Save these values before you close the workspace. You need them to log in to the FortiGate web console for the first time. Review the full log output for errors or warnings, even when the deployment reports as successful.
+{: important}
 
-It is a good idea to review the full log output for errors or warnings, even when the deployment reports as successful.
-{: note}
+When **Terraform commands successful** and **Cart creation successful** are both displayed, your HA firewall pair is provisioned and ready to use.
 
 ## Next steps
 {: #deploy-ha-single-zone-next-steps}

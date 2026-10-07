@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-09-29"
+lastupdated: "2026-10-07"
 
 keywords: FortiGate VSI failed, virtual server instance failed, provisioning failed state, FortiGate deployment failed
 
@@ -35,7 +35,7 @@ When a FortiGate VM instance is provisioned, several IBM Cloud components are in
 Try the following steps to resolve the issue:
 {: tsResolve}
 
-1. Delete the failed virtual server instance. There is no in-place recovery path for a virtual server instance in a `Failed` state.
+1. Delete the failed virtual server instance. Keep in mind that no in-place recovery path exists for a virtual server instance in a `Failed` state.
 
 1. If a FortiFlex outage is known or suspected, wait for the outage to be resolved before retrying. See [What do I do if the Fortinet FortiFlex infrastructure is not accessible?](/docs/licensed-firewall?topic=licensed-firewall-troubleshoot-fortiflex-not-accessible) for steps to check FortiFlex availability.
 

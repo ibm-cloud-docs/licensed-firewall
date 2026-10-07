@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-09-29"
+lastupdated: "2026-10-07"
 
 keywords: FortiGate cannot connect, FortiGate connection timeout, security group inbound rule, floating IP, FortiGate access
 
@@ -28,22 +28,22 @@ Attempts to reach the FortiGate VM in a browser or over SSH time out. The floati
 Connection attempts fail for one or more of the following reasons:
 {: tsCauses}
 
-- No inbound security group rule exists to allow your administrator IP address. The security group created during deployment denies all inbound traffic by default, except for the ports and IP addresses required for HA clustering and licensing.
+- No inbound security group rule exists to allow your administrator IP address. The security group that is created during deployment denies all inbound traffic by default, except for the ports and IP addresses required for HA clustering and licensing.
 - You are connecting to the wrong IP address. The public floating IP differs by topology. For HA deployments, the active node IP and the HA management IPs are separate.
 - A firewall policy is blocking the traffic. The FortiGate VM drops traffic that does not match an allow policy, even if the security group permits it.
 
 Try the following steps to resolve the issue:
 {: tsResolve}
 
-1. Add an inbound security group rule. Verify that the security group attached to your FortiGate VM has an inbound TCP rule that allows port 443 (HTTPS) or port 22 (SSH) from your administrator IP address. For step-by-step instructions, see [Step 1: Allow management access in the security group](/docs/licensed-firewall?topic=licensed-firewall-access-firewall#access-firewall-security-group).
+1. Add an inbound security group rule. Verify that the security group attached to your FortiGate VM has an inbound TCP rule that allows port `443` (HTTPS) or port `22` (SSH) from your administrator IP address. For step-by-step instructions, see [Step 1: Allow management access in the security group](/docs/licensed-firewall?topic=licensed-firewall-access-firewall#access-firewall-security-group).
 
    Avoid using `0.0.0.0/0` as the source. Restrict access to known administrator IP addresses only.
    {: important}
 
-1. Confirm you are using the correct IP address. Retrieve the public floating IP from your Schematics workspace output. The output variable name differs by topology.
+1. Confirm that you are using the correct IP address. Retrieve the public floating IP from your Schematics workspace output. The output variable name differs by topology.
 
    | Topology | Public IP output variable |
-   |---|---|
+   | --- | --- |
    | Single VM | `FortiGate_Public_IP` |
    | HA Single Zone | `FortiGate_Public_IP` (active node `port1`) |
    | HA Cross Zone | `FGT1_Port1_Public_IP`, `FGT2_Port1_Public_IP` |

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-09-29"
+lastupdated: "2026-10-07"
 
 keywords: FortiGate deployment failed, Schematics error, Terraform failed, cart creation failed, firewall deployment error
 
@@ -29,7 +29,7 @@ Deployment failures in Schematics can have several causes:
 {: tsCauses}
 
 - One or more required input variables were missing or invalid (for example, an incorrect VPC name, subnet ID, or SSH key name).
-- The IBM Cloud API key provided does not have sufficient IAM permissions to create VPC resources.
+- The provided IBM Cloud API key does not have sufficient IAM permissions to create VPC resources.
 - A required resource (VPC, subnet, security group, or SSH key) does not exist in the target region or zone.
 - A resource quota limit was reached in the target region (for example, maximum virtual server instances, floating IPs, or public gateways).
 - A transient IBM Cloud platform error occurred during provisioning.
@@ -47,9 +47,9 @@ Try the following steps to resolve the issue:
    ![Schematics log showing a Terraform apply failure](images/failure.png){: caption-side="bottom"}
    {: caption="Schematics log showing a Terraform apply failure"}
 
-1. Check your input variables. In the workspace, click **Settings** and review the values provided for all input variables. Verify that VPC names, subnet IDs, security group IDs, SSH key names, and region and zone values are correct and exist in your IBM Cloud account.
+1. Check your input variables. In the workspace, click **Settings** and review the values that are provided for all input variables. Verify that VPC names, subnet IDs, security group IDs, SSH key names, and region and zone values are correct and exist in your IBM Cloud account.
 
-1. Verify IAM permissions. Ensure that the IBM Cloud API key used for deployment has at minimum the **Editor** role on the VPC Infrastructure service and the **Operator** role on the Schematics service. For a full list of required permissions, see [Shared responsibilities for FortiGate licensed firewall](/docs/licensed-firewall?topic=licensed-firewall-shared-responsibilities).
+1. Verify IAM permissions. Ensure that the IBM Cloud API key that is used for deployment has at minimum the **Editor** role on the VPC Infrastructure service and the **Operator** role on the Schematics service. For a full list of required permissions, see [Shared responsibilities for FortiGate licensed firewall](/docs/licensed-firewall?topic=licensed-firewall-shared-responsibilities).
 
 1. Check resource quotas. In the [IBM Cloud console](/login), navigate to **Manage > Account > Quotas** and verify that you have not reached the limit for virtual server instances, floating IPs, or security groups in the target region.
 

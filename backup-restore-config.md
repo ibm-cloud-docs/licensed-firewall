@@ -3,7 +3,7 @@
 copyright:
   years: 2026
 
-lastupdated: "2026-10-02"
+lastupdated: "2026-10-07"
 
 keywords: FortiGate backup, FortiGate restore, export configuration, import configuration, FortiGate config backup
 
@@ -25,9 +25,9 @@ IBM does not back up your FortiGate VM configuration. You are responsible for ma
 ## Before you begin
 {: #backup-restore-prereqs}
 
-Make sure that the following conditions are met before you backup or restore:
+Make sure that the following conditions are met before you back up or restore:
 
-- Be logged in to the FortiGate web console as an administrator. See [Accessing your FortiGate firewall](/docs/licensed-firewall?topic=licensed-firewall-access-firewall).
+- You must be logged in to the FortiGate web console as an administrator. See [Accessing your FortiGate firewall](/docs/licensed-firewall?topic=licensed-firewall-access-firewall).
 - If you are restoring a configuration to a different instance, make sure that the target instance is running the same or a compatible FortiOS version.
 - If you are restoring a configuration from a different deployment type (for example, from a Classic FortiGate or a different VPC instance), you must update interface names, IP addresses, and gateway references before you import. See [Adapting a configuration for a new deployment](#adapt-config).
 
@@ -112,8 +112,8 @@ Edit the `.conf` file in a text editor before you import it. Search for the inte
 
 Do not use VPC volume snapshots to back up or restore a firewall instance for the following reasons:
 
-- **Licensing incompatibility**: FortiOS registers a FortiFlex license specific to the original virtual server instance. A boot volume restored from a snapshot retains the previous instance's license registration, and FortiOS cannot automatically detect or acquire a new license on the new instance.
-- **Bypassed deployment automation**: Deploying directly from a snapshot bypasses the Terraform and `cloud-init` automation required to configure instance metadata, licensing services, and associated VPC networking resources.
+- **Licensing incompatibility**: FortiOS registers a FortiFlex license specific to the original virtual server instance. A boot volume that is restored from a snapshot retains the previous instance's license registration, and FortiOS cannot automatically detect or acquire a new license on the new instance.
+- **Bypassed deployment automation**: Deploying directly from a snapshot bypasses the Terraform and `cloud-init` automation that is required to configure instance metadata, licensing services, and associated VPC networking resources.
 
 To back up and restore your firewall, export the configuration `.conf` file as described in [Backing up the FortiGate VM configuration in the console](/docs/licensed-firewall?topic=licensed-firewall-backup-restore-fortigate-config&interface=ui#backup-web-console). If you need to replace an instance, deploy a new firewall from the IBM Cloud catalog and import your configuration file.
 

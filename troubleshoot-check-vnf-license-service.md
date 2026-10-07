@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-10-02"
+lastupdated: "2026-10-07"
 
 keywords: VNF license service, FortiGate license check, software attachment, entitlement, license service verification
 
@@ -38,7 +38,7 @@ Try the following steps to verify that the instance is using the VNF License Ser
    ![Virtual server instance overview showing Instance details and Image details](images/vsi-instance.png){: caption-side="bottom"}
    {: caption="Virtual server instance overview showing Instance details and Image details"}
 
-1. Click the software instance link shown under the image details. Confirm that the product and pricing plan appear.
+1. Click the software instance link that is shown under the image details. Confirm that the product and pricing plan appear.
 
    ![Software instance details showing product name and pricing plan](images/vsi-instance2.png){: caption-side="bottom"}
    {: caption="Software instance details showing product name and pricing plan"}

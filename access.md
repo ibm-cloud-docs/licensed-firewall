@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-09-29"
+lastupdated: "2026-10-07"
 
 keywords: access fortigate, FortiGate web console, SSH fortigate, floating IP, fortigate login, security group inbound rule
 
@@ -28,8 +28,8 @@ The firewall is not reachable immediately after deployment. Two dedicated securi
 - You need the management-floating IP address and initial administrator password from the Schematics workspace output. The output variable names differ by topology.
 - The initial administrator password might be empty on the first start. If the password field is empty, use the virtual server instance ID as the initial password.
 
-| Topology | Management IP Output (`port4`) | Password Output |
-|---|---|---|
+| Topology | Management IP output (`port4`) | Password output |
+| --- | --- | --- |
 | Single VM | `FortiGate_Public_IP` | `Default_Admin_Password` |
 | HA Single Zone | `FGT1_Public_HA_Management_IP`, `FGT2_Public_HA_Management_IP` | `FGT1_Default_Admin_Password`, `FGT2_Default_Admin_Password` |
 | HA Cross Zone | `FGT1_Public_HA_Management_IP`, `FGT2_Public_HA_Management_IP` | `FGT1_Default_Admin_Password`, `FGT2_Default_Admin_Password` |
@@ -47,7 +47,7 @@ The security groups that are created during deployment deny all inbound manageme
 1. Set **Direction** to **Inbound**.
 1. Set the **Protocol** to **TCP**.
 1. Set the **Port range** to **443** for HTTPS access or **22** for SSH access.
-1. In **Source type**, select the **IP address** and enter your administrator IP address or CIDR range.
+1. In **Source type**, select **IP address** and enter your administrator IP address or CIDR range.
 1. Click **Create** to save the rule.
 
 Restrict inbound access to known administrator IP addresses only. Avoid using `0.0.0.0/0` as the source.
@@ -68,21 +68,21 @@ The floating IP on `port4` (management interface) is assigned automatically and 
 ### Method 2: VPN access (no floating IP required)
 {: #access-method-vpn}
 
-Configure a VPN connection into your VPC and access the FortiGate web console by using its private IP address on port 443. This method eliminates direct internet-facing management access entirely and does not require modification of the floating IP configuration. For guidance on setting up VPN access, see [Use a VPN or bastion host for management access](/docs/licensed-firewall?topic=licensed-firewall-fortigate-security-best-practices#bp-vpn-management).
+Configure a VPN connection into your VPC and access the FortiGate web console by using its private IP address on port `443`. This method eliminates direct internet-facing management access entirely and does not require modification of the floating IP configuration. For guidance on setting up VPN access, see [Use a VPN or bastion host for management access](/docs/licensed-firewall?topic=licensed-firewall-fortigate-security-best-practices#bp-vpn-management).
 
 ### Method 3: VNC or serial console (no security group changes required)
 {: #access-method-vnc-serial}
 
-You can access the firewall through the local VNC or serial console that is provided by the VSI. This is useful for emergency access or initial configuration, and does not require any security group modifications. However, this method is not a permanent solution. For example, it does not work well when you need to upgrade or downgrade firmware.
+You can access the firewall through the local VNC or serial console that is provided by the virtual server instance. This method is useful for emergency access or initial configuration, and does not require any security group modifications. However, this method is not a permanent solution. For example, it does not work well when you need to upgrade or downgrade firmware.
 
-To open the console, navigate to your VSI in the [IBM Cloud console](/login) under **VPC Infrastructure > Virtual server instances**, click **Actions**, and select **Open VNC console** or **Open serial console**.
+To open the console, navigate to your virtual server instance in the [IBM Cloud console](/login) under **VPC Infrastructure > Virtual server instances**, click **Actions**, and select **Open VNC console** or **Open serial console**.
 
 ## Step 3: Route traffic through the firewall
 {: #access-firewall-routing}
 
 The floating IP on `port4` (management interface) makes the firewall reachable for management purposes. `port1` is the public data interface and `port2` is the private data interface. For the FortiGate VM to inspect and control traffic between your VPC subnets or between your VPC and the internet, you must configure VPC routing to send traffic through `port1` and `port2`.
 
-To route traffic through the FortiGate VM, update the VPC routing tables so that the FortiGate VM's private interface (`port2`) is the next hop for the traffic you want to inspect:
+To route traffic through the FortiGate VM, update the VPC routing tables so that the FortiGate VM private interface (`port2`) is the next hop for the traffic you want to inspect:
 
 1. In the [IBM Cloud console](/login), click the navigation menu and select **VPC Infrastructure > Network > Routing tables**.
 1. Select the routing table associated with the subnet whose traffic you want to route through the firewall.
@@ -91,7 +91,7 @@ To route traffic through the FortiGate VM, update the VPC routing tables so that
 1. Set the **Next hop** type to **IP address** and enter the private IP address of the FortiGate VM `port2` interface.
 1. Click **Save**.
 
-Repeat this for each subnet whose traffic needs to flow through the firewall.
+Repeat these steps for each subnet whose traffic needs to flow through the firewall.
 
 For traffic to flow correctly, the FortiGate VM must also have a firewall policy that allows the traffic between the source and destination interfaces (`port1` and `port2`). Without a matching allow policy, the FortiGate VM drops the traffic even if routing is correctly configured. For guidance on creating firewall policies, see the [FortiGate Administration Guide](https://docs.fortinet.com/product/fortigate/8.0){: external}.
 {: important}
@@ -119,7 +119,7 @@ Use the `port4` management-floating IP address from the Schematics workspace out
 
 1. When prompted, enter the administrator password.
 
-SSH access requires a TCP port 22 inbound rule in the security group in addition to any HTTPS rule.
+SSH access requires a TCP port `22` inbound rule in the security group in addition to any HTTPS rule.
 {: note}
 
 ## Next steps

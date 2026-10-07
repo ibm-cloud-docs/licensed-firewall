@@ -3,7 +3,7 @@
 copyright:
   years: 2026
 
-lastupdated: "2026-10-05"
+lastupdated: "2026-10-07"
 
 keywords: FortiGate FAQ, licensed firewall questions, license plan, FortiGate VPC, firewall billing, resize firewall, HA firewall
 
@@ -69,4 +69,4 @@ No. IBM provides license management and support coordination, but the FortiGate 
 {: #faq-vpc-snapshots}
 {: faq}
 
-No. VPC boot volume snapshots and whole-volume restores are not supported for FortiGate licensed firewall instances. Restoring a snapshot carries over the previous instance's FortiFlex license registration, which FortiOS cannot automatically refresh on the new instance, and bypasses the `cloud-init` and Terraform automation required to provision VPC networking resources and licensing properly. To back up and restore your firewall, export and import the FortiGate `.conf` configuration file. For more information, see [Backing up and restoring the FortiGate configuration](/docs/licensed-firewall?topic=licensed-firewall-backup-restore-fortigate-config#unsupported-backup-methods).
+No. VPC boot volume snapshots and whole-volume restores are not supported for FortiGate licensed firewall instances. Restoring a snapshot carries over the previous instance's FortiFlex license registration, which FortiOS cannot automatically refresh on the new instance, and bypasses the `cloud-init` and Terraform automation that is required to provision VPC networking resources and licensing properly. To back up and restore your firewall, export and import the FortiGate `.conf` configuration file. For more information, see [Backing up and restoring the FortiGate configuration](/docs/licensed-firewall?topic=licensed-firewall-backup-restore-fortigate-config#unsupported-backup-methods).
