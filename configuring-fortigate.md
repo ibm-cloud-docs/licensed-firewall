@@ -54,10 +54,9 @@ To update the API key in the SDN Connector:
 
 1. Log in to the FortiGate web console.
 1. Go to **Security Fabric > External Connectors**.
-1. Select **IBM Cloud Connector**.
-1. Click **Edit**.
-1. In the **API Key** field, click **Change**.
-1. Enter the new API key and confirm it.
+1. Double-click the **IBM Cloud** connector to open the **Edit External Connector** form.
+1. Under **IBM Cloud Connector**, click **Change** next to the **API key** field.
+1. Enter the new API key.
 1. Click **OK** to save.
 
 After saving, verify that the connector status shows as connected.
