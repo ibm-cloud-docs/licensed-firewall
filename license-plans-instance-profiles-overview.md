@@ -78,7 +78,7 @@ VDOM support is available only with the Enterprise license plan at the X-large (
 ## License plan pricing
 {: #pricing}
 
-The following table lists list prices for each license plan and deployment size. Prices are in US dollars and apply per vCPU per hour.
+The following table lists estimated prices for each license plan and deployment size. Prices are in US dollars and apply per vCPU per hour.
 
 | License plan | Deployment size | vCPU | Per vCPU/hour | Est. monthly | Est. annual |
 |--------------|-----------------|-----:|--------------:|-------------:|------------:|
