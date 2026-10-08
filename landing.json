@@ -3,7 +3,7 @@
   "title": "Licensed Firewall for FortiGate",
   "introduction": "Deploy and manage Fortinet FortiGate Next-Generation Firewalls on IBM Cloud VPC with automatic license management, pay-as-you-go billing, and integrated threat protection.",
   "product_page": "https://www.ibm.com/products/network-security",
-  "console_page": "/catalog#search=Fortinet%20FortiGate%20VM%20NGFW",
+  "console_page": "/catalog",
   "section_topics": {
     "links": [
       {
@@ -33,10 +33,6 @@
       {
         "title": "Monitoring your FortiGate firewall",
         "href": "/docs/licensed-firewall?topic=licensed-firewall-monitoring"
-      },
-      {
-        "title": "Managing firmware updates and vulnerability patches",
-        "href": "/docs/licensed-firewall?topic=licensed-firewall-addressing-vulnerabilities"
       }
     ]
   },
