@@ -2,9 +2,9 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-10-07"
+lastupdated: "2026-10-08"
 
-keywords: firewall, license plans, vsi profiles, instance sizing, deployment sizes
+keywords: firewall, license plans, vsi profiles, instance sizing, deployment sizes, pricing, firewall pricing, license plan pricing
 
 subcollection: licensed-firewall
 
@@ -12,7 +12,7 @@ subcollection: licensed-firewall
 
 {{site.data.keyword.attribute-definition-list}}
 
-# About firewall license plans and instance profiles
+# About firewall license plans, instance profiles, and pricing
 {: #about-firewall-license-plans-and-instance-profiles}
 
 When you provision a licensed firewall, the system automatically assigns a virtual server instance profile based on the license plan that you select.
@@ -73,6 +73,26 @@ Select a license plan based on your workload requirements, performance needs, an
 {: caption="License plan comparison" caption-side="bottom"}
 
 VDOM support is available only with the Enterprise license plan at the X-large (32 vCPU) deployment size.
+{: note}
+
+## License plan pricing
+{: #pricing}
+
+The following table lists estimated prices for each license plan and deployment size. Prices are in US dollars and apply per vCPU per hour.
+
+| License plan | Deployment size | vCPU | Per vCPU/hour | Est. monthly | Est. annual |
+|--------------|-----------------|-----:|--------------:|-------------:|------------:|
+| ATP          | Small           | 2    | $0.17  | $248.20      | $2,978.40   |
+| ATP          | Medium          | 8    | $0.17  | $992.80      | $11,913.60  |
+| UTP          | Small           | 2    | $0.44  | $642.40      | $7,708.80   |
+| UTP          | Medium          | 8    | $0.20  | $1,168.00    | $14,016.00  |
+| UTP          | Large           | 16   | $0.21  | $2,401.70    | $28,820.40  |
+| Enterprise   | Medium          | 8    | $0.24  | $1,401.60    | $16,819.20  |
+| Enterprise   | Large           | 16   | $0.24  | $2,803.20    | $33,638.40  |
+| Enterprise   | X-large (8 VDOM)  | 32   | $0.24  | $5,606.40    | $67,276.80  |
+{: caption="Licensed firewall list prices by license plan and deployment size" caption-side="bottom"}
+
+Monthly and annual estimates are based on 730 hours per month. Prices shown are list prices and do not include applicable taxes or discounts.
 {: note}
 
 ## License plan feature entitlements
