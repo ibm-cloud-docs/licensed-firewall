@@ -3,7 +3,7 @@
 copyright:
   years: 2026
 
-lastupdated: "2026-10-07"
+lastupdated: "2026-10-08"
 
 keywords: FortiGate FAQ, licensed firewall questions, license plan, FortiGate VPC, firewall billing, resize firewall, HA firewall
 
@@ -20,6 +20,12 @@ content-type: faq
 
 Frequently asked questions for the FortiGate licensed firewall on IBM Cloud VPC.
 {: shortdesc}
+
+## Where can I find pricing information?
+{: #faq-pricing}
+{: faq}
+
+Pricing information for licensed firewall offerings is coming soon. For the latest details, see [License plans, profiles, and pricing](/docs/licensed-firewall?topic=licensed-firewall-about-firewall-license-plans-and-instance-profiles#pricing).
 
 ## Can I change my license plan after deployment?
 {: #faq-change-license}
