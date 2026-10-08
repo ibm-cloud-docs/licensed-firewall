@@ -89,7 +89,7 @@ The following table lists estimated prices for each license plan and deployment 
 | UTP          | Large           | 16   | $0.21  | $2,401.70    | $28,820.40  |
 | Enterprise   | Medium          | 8    | $0.24  | $1,401.60    | $16,819.20  |
 | Enterprise   | Large           | 16   | $0.24  | $2,803.20    | $33,638.40  |
-| Enterprise   | X-large (VDOM)  | 32   | $0.24  | $5,606.40    | $67,276.80  |
+| Enterprise   | X-large (8 VDOM)  | 32   | $0.24  | $5,606.40    | $67,276.80  |
 {: caption="Licensed firewall list prices by license plan and deployment size" caption-side="bottom"}
 
 Monthly and annual estimates are based on 730 hours per month. Prices shown are list prices and do not include applicable taxes or discounts.
