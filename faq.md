@@ -25,7 +25,7 @@ Frequently asked questions for the FortiGate licensed firewall on IBM Cloud VPC.
 {: #faq-pricing}
 {: faq}
 
-Pricing information for licensed firewall offerings is coming soon. For the latest details, see [License plans, profiles, and pricing](/docs/licensed-firewall?topic=licensed-firewall-about-firewall-license-plans-and-instance-profiles#pricing).
+For the latest pricing information for licensed firewall offerings see [License plans, profiles, and pricing](/docs/licensed-firewall?topic=licensed-firewall-about-firewall-license-plans-and-instance-profiles#pricing).
 
 ## Can I change my license plan after deployment?
 {: #faq-change-license}
