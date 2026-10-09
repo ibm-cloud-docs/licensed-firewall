@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-10-07"
+lastupdated: "2026-10-09"
 
 keywords: licensed firewall, fortigate, blogs, techxchange, community
 
@@ -19,7 +19,6 @@ The following IBM TechXchange community blogs provide detailed, step-by-step tec
 {: shortdesc}
 
 - [Fortinet vFSA HA with Route Mode NLB for Spoke-to-Spoke Traffic on IBM Cloud VPC](https://community.ibm.com/community/user/blogs/andrew-sloma/2026/06/24/fortinet-vfsa-on-ibm-cloud-vpc-spoke-to-spoke-aa){: external}
-- [Fortinet vFSA on IBM Cloud: Bare-Metal HA](https://community.ibm.com/community/user/blogs/andrew-sloma/2026/07/02/fortinet-vfsa-on-ibm-cloud-bm-ap){: external}
 - [Fortinet vFSA on IBM Cloud: OnPrem to Spoke VPC with Active/Active/Active HA](https://community.ibm.com/community/user/blogs/andrew-sloma/2026/08/04/fortinet-vfsa-on-ibm-cloud-onprem-to-vpc-aaa){: external}
 - [Fortinet vFSA on IBM Cloud: Single VPC Active/Active with Route Mode NLB](https://community.ibm.com/community/user/blogs/andrew-sloma/2026/08/28/fortinet-vfsa-on-ibm-cloud-single-vpc-aa){: external}
 - [Fortinet vFSA on IBM Cloud: Single Zone Active/Passive for Hub-And-Spoke](https://community.ibm.com/community/user/blogs/andrew-sloma/2026/09/02/fortinet-vfsa-on-ibm-cloud-singlezone-ap){: external}
