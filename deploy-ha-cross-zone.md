@@ -61,6 +61,7 @@ Follow these steps:
 
    For guidance on deploying resources into an unsupported region, see [Deploying resources in a specific region or across multiple regions](/docs/schematics?topic=schematics-multi-region-deployment).
    {: note}
+
    - **Resource group**: The resource group for the workspace.
    - **Tags**: Optional tags to apply to the workspace.
 1. Scroll down to **Set the input variables** and complete the fields in the **Required input variables** table:
