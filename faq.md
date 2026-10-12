@@ -71,7 +71,7 @@ Open all FortiGate-VM support cases with IBM Support. IBM Support performs initi
 
 No. IBM provides license management and support coordination, but the FortiGate-VM licensed firewall is a customer-managed service. You are responsible for deploying, configuring, operating, and maintaining your FortiGate-VM instances. IBM does not configure or manage your firewall policies or network settings.
 
-## My target region is not listed in the Schematics workspace Location dropdown. Can I still deploy there?
+## My target region is not listed in the Schematics workspace Location menu. Can I still deploy there?
 {: #faq-schematics-region}
 {: faq}
 
