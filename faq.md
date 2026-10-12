@@ -3,7 +3,7 @@
 copyright:
   years: 2026
 
-lastupdated: "2026-10-08"
+lastupdated: "2026-10-12"
 
 keywords: FortiGate FAQ, licensed firewall questions, license plan, FortiGate VPC, firewall billing, resize firewall, HA firewall
 
@@ -70,6 +70,17 @@ Open all FortiGate-VM support cases with IBM Support. IBM Support performs initi
 {: faq}
 
 No. IBM provides license management and support coordination, but the FortiGate-VM licensed firewall is a customer-managed service. You are responsible for deploying, configuring, operating, and maintaining your FortiGate-VM instances. IBM does not configure or manage your firewall policies or network settings.
+
+## My target region is not listed in the Schematics workspace Location dropdown. Can I still deploy there?
+{: #faq-schematics-region}
+{: faq}
+
+Yes. The **Location** field in the catalog's **Configure your workspace** panel controls where the IBM Cloud Schematics workspace metadata and Terraform state are stored — it does not control where the FortiGate firewall is provisioned. IBM Cloud Schematics is available only in a subset of IBM Cloud regions (US and Europe). Regions such as `br-sao` (São Paulo), `che-01` (Chennai), and `in-che` (Mumbai) are not supported as Schematics workspace locations.
+
+To deploy into one of these regions, select any available Schematics workspace region and then set the `REGION` input variable further down the page to your intended deployment region. The Terraform automation uses the `REGION` variable to provision all FortiGate resources in the correct location. For a full list of supported Schematics regions, see [IBM Cloud Schematics locations](/docs/schematics?topic=schematics-locations).
+
+For guidance on deploying across multiple or unsupported regions, see [Deploying resources in a specific region or across multiple regions](/docs/schematics?topic=schematics-multi-region-deployment).
+{: note}
 
 ## Can I use IBM Cloud VPC snapshots to back up or restore my FortiGate-VM firewall?
 {: #faq-vpc-snapshots}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-10-07"
+lastupdated: "2026-10-12"
 
 keywords: FortiGate planning, licensed firewall planning, FortiGate limitations, security group, Fortinet notifications
 
@@ -53,6 +53,10 @@ Review the following important considerations before you order:
 The following limitations apply to this offering. Review them before you deploy.
 
 - **Regional availability**: All license plans, including ATP, are available in all supported regions.
+- **Schematics workspace location is not the provisioning region**: When you deploy from the IBM Cloud catalog, the **Location** field in the **Configure your workspace** panel controls where the IBM Cloud Schematics workspace metadata and state are stored — it does not determine where the FortiGate firewall is provisioned. IBM Cloud Schematics is available only in a subset of IBM Cloud regions (US and Europe). If you want to deploy resources into a region that is not listed in the **Location** dropdown (such as `br-sao`, `che-01`, or `in-che`), select any supported Schematics region and set the `REGION` input variable to your intended deployment region. For a full list of supported Schematics regions, see [IBM Cloud Schematics locations](/docs/schematics?topic=schematics-locations).
+
+   For guidance on deploying resources across multiple or unsupported regions, see [Deploying resources in a specific region or across multiple regions](/docs/schematics?topic=schematics-multi-region-deployment).
+   {: note}
 - **VPC boot volume snapshots are not supported**: You cannot use IBM Cloud VPC volume snapshots or whole-volume backups to back up or restore FortiGate-VM instances. Restoring from a boot volume snapshot creates licensing conflicts with FortiFlex and bypasses required deployment automation. Use FortiGate configuration file (`.conf`) export and import instead. For more information, see [Backing up and restoring the FortiGate configuration](/docs/licensed-firewall?topic=licensed-firewall-backup-restore-fortigate-config#unsupported-backup-methods).
 - **FortiGate Cloud and FortiCloud access is not available**: Because the license is managed through the IBM Fortinet account, access to FortiGate Cloud and FortiCloud is not supported. AI-based inline malware prevention (Enterprise license) can be configured and used locally but cannot connect to FortiGate Cloud services.
 - **This is not a managed service**: IBM manages licensing and provides support coordination, but you are responsible for deploying, configuring, and maintaining your FortiGate-VM instances. IBM does not configure firewall policies or apply updates on your behalf. For more information, see [Shared responsibilities](/docs/licensed-firewall?topic=licensed-firewall-shared-responsibilities).
