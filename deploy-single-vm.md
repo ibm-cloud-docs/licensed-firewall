@@ -49,7 +49,7 @@ Follow these steps:
 1. Search for **Fortinet FortiGate-VM NGFW** and select the **Fortinet FortiGate-VM NGFW - Single (IBM reseller)** tile.
 1. In **Configure your workspace**, review or update the following fields:
    - **Name** — A name for the Schematics workspace. A default name is pre-filled.
-   - **Location** — The region where the IBM Cloud Schematics workspace itself is created. This controls where workspace metadata and state are stored, not where the FortiGate firewall is provisioned. IBM Cloud Schematics is available only in a subset of regions. If your target provisioning region (such as `br-sao`, `che-01`, or `in-che`) is not listed, select any supported Schematics region and set the `REGION` input variable to your intended deployment region. For a list of supported Schematics regions, see [IBM Cloud Schematics locations](/docs/schematics?topic=schematics-locations).
+   - **Location** — The region where the IBM Cloud Schematics workspace itself is created. This controls where workspace metadata and state are stored, not where the FortiGate firewall is provisioned. IBM Cloud Schematics is available only in a subset of regions. If your target provisioning region (such as `br-sao`, `che-01`, or `in-che`) is not listed, select any supported Schematics region and set the `REGION` and `ZONE_1` input variables to your intended deployment region and zone. For a list of supported Schematics regions, see [IBM Cloud Schematics locations](/docs/schematics?topic=schematics-locations).
 
    For guidance on deploying resources into an unsupported region, see [Deploying resources in a specific region or across multiple regions](/docs/schematics?topic=schematics-multi-region-deployment).
    {: note}
